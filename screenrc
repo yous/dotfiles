@@ -774,8 +774,9 @@
 #
 # Pretend that the window numbering starts at 1, not 0.
 # Then use command '0' to jump to window number #10.
-# bind c screen 1
-# bind 0 select 10
+  bind c screen 1
+  bind 0 select 10
+  screen 1
 #
 # ===============================================================
 # the following table shows the default listing:
@@ -1067,8 +1068,8 @@ bind + resize +1
 bind - resize -1
 #
 # 2006-10-26
-# select window #0 - this is where my editor is! :-)
-bind " " select 0
+# select window #1 - this is where my editor is! :-)
+bind " " select 1
 #
 # 2007-02-19
 # copy+paste with CTRL-C + CTRL-V
