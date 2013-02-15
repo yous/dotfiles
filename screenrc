@@ -577,7 +577,8 @@
 # sorendition 02 40 # green  on black
 # sorendition 02 34 # yellow on blue
 # sorendition    rw # red    on white
-  sorendition    kG # black  on bold green
+# sorendition    kG # black  on bold green
+  sorendition    kw # black  on white
 # =====================================================
 #
 #
