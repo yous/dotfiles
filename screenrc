@@ -711,6 +711,7 @@
 # number      N
 # only        Q
 # other       ^X
+  bind o other
 # pow_break   B
 # pow_detach  D
 # prev        ^H ^P p ^?
