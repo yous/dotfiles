@@ -176,10 +176,10 @@ nn g* g*zz
 nn g# g#zz
 
 " Splitted Window
-map wj <C-W>j
-map wk <C-W>k
-map wh <C-W>h
-map wl <C-W>l
+nn wj <C-W>j
+nn wk <C-W>k
+nn wh <C-W>h
+nn wl <C-W>l
 
 " Tab
 map <C-T> :tabnew<CR>
