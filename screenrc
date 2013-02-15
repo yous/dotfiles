@@ -320,7 +320,7 @@
   crlf              off # default: off  no crlf for end-of-lines
 # debug             ??  # default: ???  runtime debugging
 # defautonuke       ??  # default: ???  default setting for autonuke
-# defbce            ??  # default: ???  default setting for bce
+  defbce            on  # default: ???  default setting for bce
 # defc1             ??  # default: ???  default setting for c1
 # defflow           ??  # default: ???  default setting for flow
 # defgr             ??  # default: ???  default setting for gr
