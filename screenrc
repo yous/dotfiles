@@ -478,6 +478,7 @@
 # hardstatus: Always show the window list in the last line:
 # hardstatus alwayslastline "%w"
 # hardstatus alwayslastline "%H %w"
+  hardstatus off
 #
 # use 'L' between '%' and 'w' to show the flags, too1
 # hardstatus alwayslastline "%H %Lw"
@@ -527,7 +528,7 @@
 # the "%=" at the end extends the current color unto the end of the line.
 # hardstatus alwayslastline "%{= RY}%H %{BW}%l %{Gb}%c %M%d%="
 # 2009-01-11 18:00: changed to date+time, ie "YYYY-MM-DD HH:MM":
-  hardstatus alwayslastline "%{Gb}%Y-%m-%d %c %{= RY}%H %{BW}%l%{Gb} %="
+# hardstatus alwayslastline "%{Gb}%Y-%m-%d %c %{= RY}%H %{BW}%l%{Gb} %="
 #
 # Eisenstadt
 # hardstatus alwayslastline "%{Gb}Linuxwochen Eisenstadt  %M%d %c %="
