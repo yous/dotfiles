@@ -75,6 +75,7 @@ se fencs=ucs-bom,utf-8,cp949,latin1 " fileencodings
 se ic " ignorecase # for smartcase
 se nobk " nobackup
 se nocp " nocompatible
+se noet " noexpandtab
 se scs " smartcase
 se wmnu " wildmenu
 syntax on
