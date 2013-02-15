@@ -268,6 +268,7 @@
 # ===============================================================
 # escape ^aa  # default
 # escape ^pp  # suggested binding for emacs users
+  escape ``
 #
 # FAQ:  i forgot which the escape character for the current session is.
 #       how do i find out which the current escape character is?
