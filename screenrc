@@ -694,7 +694,7 @@
 # fit         F
 # flow        ^F f
 # bind           f      screen -t FETCH fetchmail -a
-  bind           f      screen -t DE<>FR links http://dict.leo.org/frde?lang=de&lp=frde
+# bind           f      screen -t DE<>FR links http://dict.leo.org/frde?lang=de&lp=frde
 # focus       ^I
 # hardcopy    h
 # help        ?
@@ -796,9 +796,9 @@
 # "'*,.:<=>?[\_{}
 # for krautboards (LANG=de_DE):
 # binding the umlauts ´äöü´:
-  bind ä copy
-  bind ö copy
-  bind ü copy
+# bind ä copy
+# bind ö copy
+# bind ü copy
 # ===============================================================
 # Key bindings
 # ===============================================================
@@ -874,7 +874,7 @@
   bind j focus down
   bind k focus up
 # make current region the only region:
-  bind o only
+# bind o only
 #
 # Anyway, I have bound the unbound uppercase letters
 # to start programs in windows directly, ie without
@@ -951,40 +951,40 @@
 # BIND Sven's Bindings:
 # ===============================================================
 # bind A screen -t AUGSBURG 5 links http://imi.st/prog-LIT07.html
-  bind A select 10
+# bind A select 10
 # bind B ...
-  bind C screen -t CHEMNITZ 9 links http://chemnitzer.linux-tage.de/2009/info/
-  bind D screen -t DICT     4 links dict.tu-chemnitz.de/pda
+# bind C screen -t CHEMNITZ 9 links http://chemnitzer.linux-tage.de/2009/info/
+# bind D screen -t DICT     4 links dict.tu-chemnitz.de/pda
 # bind D screen -t DRESDEN  4 links http://linux-info-tag.de/100/room?track=17
 # bind D screen -t DRESDEN  4 links http://linux-info-tag.de/93/room?track=14 # program 2007
-  bind E screen -t DEEPSEC    links http://www.deepsec.net/
-  bind e screen -t mail     0 mutt
-  bind F screen -t FSCONS   4 links http://www.fscons.org/
-  bind G screen -t Google   0 links www.google.com
-  bind H screen -t Heise    0 links www.heise.de
-  bind I screen -t IMDB     9 links http://us.imdb.com/search/
+# bind E screen -t DEEPSEC    links http://www.deepsec.net/
+# bind e screen -t mail     0 mutt
+# bind F screen -t FSCONS   4 links http://www.fscons.org/
+# bind G screen -t Google   0 links www.google.com
+# bind H screen -t Heise    0 links www.heise.de
+# bind I screen -t IMDB     9 links http://us.imdb.com/search/
 # bind J screen -t Kunstlab 0 links http://kunstlabor.at/
 # bind K screen -t KDE      0 links http://conference2004.kde.org/
 # bind L screen -t LUX      0 links http://www.linuxdays.lu/agenda/linuxdays-2007
-  bind L screen -t LINZ     8 links http://www.iktforum.at/programme.html
+# bind L screen -t LINZ     8 links http://www.iktforum.at/programme.html
 # bind M monitor # default!
-  bind N screen -t NB       8 newsbeuter
+# bind N screen -t NB       8 newsbeuter
 # bind O screen -t WOS3     0 links http://wizards-of-os.org/
   bind P paste .
-  bind Q screen -t HOME     0 links http://www.guckes.net/
+# bind Q screen -t HOME     0 links http://www.guckes.net/
 # bind R screen -t BRB      0 links http://www.linuxtag-brb.de/vortragsprogramm.html
 # Reload this configuration file after changes:
   bind R colon "source $HOME/.screenrc"
 # bind S screen -t slrn     3 slrn -n -C -k0 -h news.vr.in-berlin.de
 # bind T screen -t T-DOSE     links http://www.t-dose.org/schedule/
-  bind T screen -t Thesaurus 7 links http://synonyme.woxikon.de/
-  bind V screen -t vim      0 vim -X
+# bind T screen -t Thesaurus 7 links http://synonyme.woxikon.de/
+# bind V screen -t vim      0 vim -X
 # bind W screen -t WIEN     4 links http://linuxwochen.at/2007/Programm_Wien:_Index
-  bind W screen -t WIEN     4 links http://linuxwochen.at/
+# bind W screen -t WIEN     4 links http://linuxwochen.at/
   bind X lockscreen
-  bind Y stuff http://www.guckes.net/
+# bind Y stuff http://www.guckes.net/
 # bind Z screen -t HOME     8 links http://myblog.de/linuxweekend
-  bind Z screen -t Wetter   0 links http://www.donnerwetter.de/region/region.hts?lid=DE14356&Ort=BERLIN
+# bind Z screen -t Wetter   0 links http://www.donnerwetter.de/region/region.hts?lid=DE14356&Ort=BERLIN
   # f*ck, yeah! http://www.thefuckingweather.com/?zipcode=berlin+germany&CELSIUS=yes
 # bind Z screen -t Graz     4 links http://linuxtage.at/
 #
