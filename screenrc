@@ -459,8 +459,9 @@
 # caption always "%?%F%{.RW}%?%3n %t%? [%h]%?"
 # caption always "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
 #
-  caption always "%{kG}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kG}%?%+Lw%?"
+# caption always "%{kG}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kG}%?%+Lw%?"
 #                 color--------color================color++++++++
+  caption always "%{wk} %Y-%m-%d %C %A %=%?%-Lw%?%{WB}%n*%f %t%?(%u)%?%{wk}%?%+Lw%? "
 #
 # current CAPTION [2005-04-12]
 # "= " clears all color attributes. somehow this was necessary.
