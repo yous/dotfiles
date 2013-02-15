@@ -402,7 +402,7 @@
 # shell:  Default process started in screen's windows.
 # Makes it possible to use a different shell inside screen
 # than is set as the default login shell.  Halleluja! :-)
-  shell         zsh
+# shell         zsh
 #
 # most users will probably use the "bash" as the default shell:
 # shell         bash
@@ -412,7 +412,7 @@
 #
 # FAQ: to make the shell in every window a login shell
 # simply make use of $SHELL and add '-' in front of it:
-# shell -$SHELL
+  shell -$SHELL
 #
 # ===============================================================
 # VARIABLES - Strings
