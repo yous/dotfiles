@@ -380,7 +380,7 @@
 # ===============================================================
 # VARIABLES - Number values
 # ===============================================================
-  defscrollback         1000  # default: 100
+  defscrollback         4096  # default: 100
   # WARNING: RAM is allocated right away - not at runtime.
   # so setting this value to 10.000 or more
   # can cause your machine to swap instantly.
