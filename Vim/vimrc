@@ -61,6 +61,10 @@ elsei has("unix") " elseif
 	colo peaksea
 en
 if has("win32")
+	au InsertEnter * se noimd " autocmd noimdisable
+	au InsertLeave * se imd " imdisable
+	au FocusGained * se imd
+	au FocusLost * se noimd
 	lan mes en " language messages en
 	se dir=.,$TEMP " directory
 	se ssl " shellslash
@@ -130,7 +134,7 @@ if has("gui_running")
 	if !exists("g:screen_size_by_vim_instance")
 		let g:screen_size_by_vim_instance = 1
 	en
-	au VimEnter * if g:screen_size_restore_pos == 1 | cal ScreenRestore() | en " autocmd
+	au VimEnter * if g:screen_size_restore_pos == 1 | cal ScreenRestore() | en
 	au VimLeavePre * if g:screen_size_restore_pos == 1 | cal ScreenSave() | en
 en
 se bg=dark " background
