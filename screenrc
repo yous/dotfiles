@@ -364,7 +364,8 @@
 # man 5 termcap:
 #     te   End   program that uses cursor motion
 #     ti   Begin program that uses cursor motion
-  termcapinfo xterm     ti@:te@
+# termcapinfo xterm     ti@:te@
+  termcapinfo xterm     'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 #
 # termcap  xterm        'AF=\E[3%dm:AB=\E[4%dm'
 # terminfo xterm        'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
