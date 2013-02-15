@@ -1,0 +1,1548 @@
+# =====================================================================
+# File:             $HOME/.screenrc of Sven Guckes
+# Available:        http://www.guckes.net/Setup/screenrc
+# Purpose:          Setup file for program "(GNU) screen"
+# written by:       Sven Guckes  setup-screenrc(at)guckes.net
+# Latest change:    Thu Jun 23 00:23:42 CEST 2011
+# Length and size:  ca 1542 lines - ca 57,300 bytes
+# =====================================================================
+# Latest user version:  screen-4.0.3 [2006-10-23 15:10] 840602bytes
+# yes - NO update for over 1700 days! :-(
+# =====================================================================
+# OLD LINKS:
+# SCREEN Pages: http://www.guckes.net/screen/ CLOSED!
+# MailList:     http://www.yahoogroups.com/group/gnu-screen/ CLOSED!
+# =====================================================================
+# HomePage:     http://www.gnu.org/software/screen/
+# Chat:         irc://irc.freenode.org/screen
+#
+# Download:     ftp://ftp.uni-erlangen.de/pub/utilities/screen/
+# Code:         http://git.savannah.gnu.org/cgit/screen.git
+#
+# MailList:     send to mailto:screen-users(at)gnu.org
+# MailList Archive: http://mail.gnu.org/archive/html/screen-users
+#
+# MailLists:    http://lists.gnu.org/mailman/listinfo/screen-devel
+#               http://lists.gnu.org/mailman/listinfo/screen-users
+# MailListArch: http://lists.gnu.org/archive/html/screen-users/
+# Wiki:         http://aperiodic.net/screen/
+# Google:       http://www.google.com/search?q=gnu+screen
+#
+# 2011-01-12:
+# http://kwlug.org/node/687
+# GNU Screen for the impatient
+# 2009-10-29 slides by Paul Nijjar for KWartzlab
+#
+# 2008-10-22:
+# Terminal Screen [tscreen] - GNU screen fork
+# http://www.steve.org.uk/Software/tscreen/changes.html
+#
+# HOWTOs, INTROS, and MANUALs:
+#
+# http://www.frexx.de/xterm-256-notes/
+# 2006-01-20 Wolfgang Frisch
+#
+# macosxhints.com - Use 'screen' as a serial terminal emulator:
+# http://www.macosxhints.com/article.php?story=20061109133825654
+#
+# Mac OS X terminal emulation notes:
+# http://www.ethereal.net/~tristan/osx/terminal.html
+#
+# A dummies introduction to GNU Screen (by Kumar Appaiah)
+# http://linuxgazette.net/147/appaiah.html
+#
+# [Gentoo Wiki] Using Screen:
+# http://gentoo-wiki.com/TIP_Using_screen
+#
+# [Kuroshin] Gnu screen - an introduction:
+# http://www.kuro5hin.org/story/2004/3/9/16838/14935
+# http://jmcpherson.org/screen.html (update to previous article)
+# by Jonathan McPherson
+#
+# [RedHat Magazine]  A guide to Gnu Screen:
+# http://www.redhatmagazine.com/2007/09/27/a-guide-to-gnu-screen/
+#
+# [Debian Administration] Using GNU Screen - by Steve Kemp [2004-10-17]
+# http://www.debian-administration.org/articles/34
+#
+# [SUN.com] Installing and Using GNU Screen - by Amy Rich
+# http://www.sun.com/bigadmin/features/articles/gnu_screen.html
+#
+# [Linux.com] Using screen for remote interaction - by Phil Hollenback [2006-08-22]
+# http://www.linux.com/articles/56443
+#
+# [linuxforums.org] GNU Screen - the ASCII window manager
+# by Girish Venkatachalam [2007-04-12]
+# http://www.linuxforums.org/applications/gnu_screen__the_ascii_window_manager.html
+#
+# [neophob.com] GNU Screen cheat-sheet
+# http://www.neophob.com/serendipity/index.php?/archives/112-GNU-Screen-cheat-sheet.html
+#
+# [lifehacker.com] Reduce Terminal Clutter With GNU Screen - by Annalee Newitz [2007-10-05]
+# http://lifehacker.com/software/terminal-tip/reduce-terminal-clutter-with-gnu-screen-307609.php
+#
+# [softpedia.com] GNU Screen Tutorial - How to use the screen's most important features.  # Mihai Marinof
+# http://news.softpedia.com/news/GNU-Screen-Tutorial-44274.shtml
+#
+# blogamundo.net] A Visual Introduction to Screen - by NNN...
+# http://blogamundo.net/code/screen/
+#
+# [rootprompt.org]
+# GNU Screen logging for the paranoid - by Nick Anderson [2007-07-31]
+# http://rootprompt.org/article.php3?article=11104
+#
+# FAQ:
+# http://www4.informatik.uni-erlangen.de/~jnweiger/screen-faq.html
+#
+# [2009-01-17]
+# http://www.pastacode.de/extending-gnu-screen-adding-a-taskbar/en/
+# Extending GNU Screen - Adding a taskbar
+# link: http://listserv.ccjclearline.com/pipermail/kwlug-disc/2006-November/002132.html
+# link: http://b79.net/code/screenrc
+#
+# [2008-07-24]
+# Adding Scripting with LUA:
+# http://lists.gnu.org/archive/html/screen-users/2008-07/msg00045.html
+# link:  http://www.pidgin.im/~sadrul/pp/scripting-lua/
+# The patches are against the development version of screen
+# link: http://git.savannah.gnu.org/gitweb/?p=screen.git
+#
+# [2009-04-06]
+# Screen Digraphs
+# http://pthree.org/2006/08/11/screen-digraphs/
+# by Aaron Toponce, 2006-08-11
+#
+# [2009-12-12]
+# http://www.commandlinefu.com/commands/view/2276/getting-screens-copy-buffer-into-xs-copy-buffer-on-linux
+# http://snarfed.org/space/synchronizing%20GNU%20screen%27s%20paste%20buffer%20and%20the%20X%20selection
+#
+# =====================================================================
+# MANUALS:
+# http://www.informatik.uni-hamburg.de/RZ/software/screen/screen_1.html
+# http://www.cis.ohio-state.edu/cgi-bin/info/info/screen,Top [obsolete]
+# http://www.delorie.com/gnu/docs/screen/screen_toc.html
+# http://www.mediacollege.com/cgi-bin/man/page.cgi?topic=screen
+# http://web.mit.edu/gnu/doc/html/screen_1.html Info pages in HTML [2010-09-27]
+#
+# PATCHES:
+# Vertical Split for Screen:
+# http://fungi.yuggoth.org/vsp4s/
+#
+# PORTS:
+# screen 3.9.10 for cygwin
+# [2007-02-15] by Antonio  Dell'elce
+# http://dellelce.com/code/screen/
+#
+# PRESENTATIONS:
+# [bangmoney.org] screen - The Terminal Multiplexer - by Chris Lumens [2004-03-24]
+# http://www.bangmoney.org/presentations/screen.html
+#
+# SETUP FILES:
+# http://www.guckes.net/Setup/screenrc (this file)
+# http://www.benedikt-wildenhain.de/.screenrc
+# https://wiki.ubuntu.com/ScreenProfiles
+# http://gentooly.homelinux.org/archives/669 Peter Meins
+# page: http://www.tshack.net/?p=3  (James Shackleford)
+# link: http://www.tshack.net/files/.screenrc
+#
+# TOOLS:
+# screenie:
+# http://pubwww.fhzh.ch/~mgloor/screenie.html
+# Screenie is a small and lightweight GNU screen(1)
+# wrapper that is designed to be a session handler
+# that simplifies the process of administrating
+# detached jobs by providing an interactive menu.
+#
+# Screen Profiles:
+# https://help.ubuntu.com/9.04/serverguide/C/screen-profiles.html
+#
+# =====================================================================
+# MISC:
+#
+# Title: Terminal Emulator 256 Color Support
+# Date:  2007-09-10 by Trent Buck <trentbuck(at)gmail(dot)com>
+# What:  How to use emacs in screen within an urxvt on Debian (and Ubuntu).
+#
+# http://churchturing.org/w/screen/
+# "the open source community that surrounds GNU Screen"
+# by Abram Hindle 2005-04-02
+#
+# http://powersoffour.org/blog/?p=649
+# Workspace
+# Posted August 10, 2008
+#
+# MORE:
+# http://www.linuxwiki.de/screen
+# http://www.unixwitch.de/de/sysadmin/tools/screen
+# http://www.tutorials.de/forum/linux-tutorials/151906-einfuehrung-screen.html
+#
+# =====================================================================
+# ALTERNATIVES
+#
+# tmux:
+# http://niallohiggins.com/2009/06/04/tmux-a-bsd-alternative-to-gnu-screen/
+# 2009-06-04 by Niall O'Higgins
+#
+# http://linuxwiki.de/tmux
+# 2010-07-28 by Sven Guckes and Anselm Helbig
+#
+# http://www.techrepublic.com/blog/opensource/is-tmux-the-gnu-screen-killer/1901
+# 2010-10-05 by Chad Perrin
+#
+# =====================================================================
+#
+# =====================================================================
+# 2005-10-26:  to get only the relevant lines of config from
+# this file, search for all non-commented lines like this:
+#    grep -v '^#' screenrc > screenrc.small
+# and if you do not care about key bindings
+# then eliminate these with another grep:
+#    grep -v '^#' screenrc | grep -v bind > screenrc.smaller
+# ======================
+# screen 4.0.1 NEW STUFF
+# ======================
+# screen 4.0.1 has a new command - "idle".
+# "idle N" executes the following command
+# after an "idle time" of N seconds.
+#
+# example:  lock the current screen session
+# after  420 seconds (seven minutes) of idle time:
+#  idle  420 lockscreen
+#
+# mind you - this command will kick in *again* after *another*
+# idle time of N seconds.  a session can be locked only *once*
+# so this is not a big deal.  however, if you let "idle" start
+# a new window with a new process in it then it will keep starting
+# new processes until the maximum number of windows is filled.
+#
+# another example:  after the "idle timeout" start a new window
+# with the console screen saver "cmatrix" and (important!)
+# reset the idle mechanism after that:
+#  idle 6666 eval "screen cmatrix" "idle 0"
+#
+# without the "idle 0" this would start new windows with cmatrix
+# again and again after the timeout has passed once more...
+#
+# CMatrix - a console screensaver by Chris Allegretta chrisa(at)asty.org
+# homepage: http://www.asty.org/cmatrix cmatrix 1.2a [2002-03-31]
+# download: http://www.asty.org/cmatrix/dist/cmatrix-1.2a.tar.gz
+#
+# more ideas:
+# situation:  you are using screen within an xterm on X.
+# let "idle" start "xtrlock" (X transparent lock); it simply
+# shows a lock icon in the middle of the X screen but other
+# than that simply waits for you to enter your password
+# while showing the whole screen transparently, that is
+# you can still see the xterm with the screen session inside.
+# let idle also a script which loops through the windows of
+# your screen sessions with eg
+#   for i in `seq 666`; do
+#     sleep 10; screen -X next
+#   done
+# adjusting the hardcopy line for this loop
+# is left to the reader as an exercise. ;-)
+#
+# ===============================================================
+# ENVIRONMENT
+# ===============================================================
+# The DISPLAY variable tells programs which display to use.
+# This mainly affects programs running on the X server.
+# However, when I use screen then I am usually using a terminal -
+# and programs do not need to contact the X server.
+# This results in programs waiting for some timeout when
+# they start up - and this just keeps getting in my way.
+# I therefore unset the DISPLAY variable with this command:
+## unsetenv DISPLAY
+# Text Tools rule!  :-)
+#
+# Note:  the command "setenv DISPLAY ''"
+# defines the variable DISPLAY to have an empty value.
+# but of course it would still *exist*.
+# and some programs seem to react to the
+# DISPLAY variable even if it is empty.
+# so to turn off the effect you *must*
+# "unset" the variable.
+#
+# ===============================================================
+# ESCAPE - the COMMAND CHARACTER
+# ===============================================================
+# escape ^aa  # default
+# escape ^pp  # suggested binding for emacs users
+#
+# FAQ:  i forgot which the escape character for the current session is.
+#       how do i find out which the current escape character is?
+# A:    there is no command which shows the current escape character.
+#       but if there is only *one* session then you can *reset*
+#       the escape character from the shell by giving
+#       the current session the following command:
+#       screen -X escape ^Aa
+#
+# i suggest you prepare your shell with the following aliases:
+# alias Ea='screen -X escape ^Aa'
+# alias Eo='screen -X escape ^Oo'
+# alias Ep='screen -X escape ^Pp'
+# alias Ex='screen -X escape ^Xx'
+# alias Ex='screen -X escape ^Zz' # if you do not use suspend in shells
+#
+# define *F11* as another command key:
+# bindkey -k F1 command
+#
+# 2010-04-11
+# use CTRL-Z as yet another command character:
+# bind ^Z command
+# (thanks, Max! :-)
+#
+# ===============================================================
+# STARTUP of programs in an extra window:
+# ===============================================================
+# Uncomment one/some following lines to automatically let
+# SCREEN start some programs in the given window numbers:
+# screen -t MAIL        0 mutt
+# screen -t EDIT        1 vim
+# screen -t GOOGLE      2 links http://www.google.com
+# screen -t NEWS        3 slrn
+# screen -t WWW         4 links http://www.guckes.net/
+#
+# ===============================================================
+# VARIABLES - Boolean values (on/off) aka Switches aka Toggles
+# ===============================================================
+# allpartial        on  # default: ???  refresh only current line on window
+  # interesting to see what exactly applications are updating.
+  # but can be quite confusing, too.  dont use for real work. ;)
+# altscreen         on  # default: off  enable "alternate screen" support
+  autodetach        on  # default: on   automatically detach on hangup
+# autonuke          ??  # default: ???  "clear screen" nukes unwritten output
+# bce               ??  # default: ???  "background color erase"
+# c1                ??  # default: ???  use characters 128 to 159 as control functions
+# compacthist       ??  # default: ???  suppress trailing blank lines in history buffer
+# console           ??  # default: ???  grab output to /dev/console
+  crlf              off # default: off  no crlf for end-of-lines
+# debug             ??  # default: ???  runtime debugging
+# defautonuke       ??  # default: ???  default setting for autonuke
+# defbce            ??  # default: ???  default setting for bce
+# defc1             ??  # default: ???  default setting for c1
+# defflow           ??  # default: ???  default setting for flow
+# defgr             ??  # default: ???  default setting for gr
+# deflog            ??  # default: ???  default setting for log
+  deflogin          off # default: on   default setting for login
+# defmonitor        ??  # default: ???  default setting for monitor
+# defnonblock       ??  # default: ???  default setting for nonblock
+  defsilence        off # default: off  default setting for silence
+# defutf8           ??  # default: ???  default setting for utf8
+# defwrap           ??  # default: ???  default setting for wrap
+# defwritelock      ??  # default: ???  default setting for writelock
+# flow              ??  # default: ???  flow-control mode
+# gr                ??  # default: ???  GR charset
+  hardcopy_append   on  # default: off  append hardcopies to hardcopy files
+  ignorecase        on  # default: off  ignore case in searches
+# logtstamp         ??  # default: ???  time-stamps of inactivity for logfiles
+# multiuser         ??  # default: ???  Switch between singleuser and multiuser mode.
+# nethack           on  # default: off  nethack style messages
+# partial           on  # default: off  redisplay current window after switch?
+# pastefont         ??  # default: off  include font information in the paste buffer?
+  startup_message   off # default: on   NO startup_message - thankyou!
+# utf8              ??  # default: ???  ...
+  vbell             off # default: ???  be silent on bells
+#
+# ===============================================================
+# COMMANDS
+# ===============================================================
+# log               ??  # default: ???  start/stop writing output to current window to "screenlog.n"
+# login             ??  # default: ???  login/logout current window for "who" (utmp database)
+# monitor           ??  # default: ???  monitor activity of current window
+# setsid            ??  # default: on   ...
+# silence           15  # default: off  do not check windows for silence
+# verbose           ??  # default: ???  ...
+# wrap                  ...
+# writelock         ??  # default: ???  ...
+#
+# ===============================================================
+# TERMCAP and TERMINFO
+# ===============================================================
+#
+# man 5 termcap:
+#     te   End   program that uses cursor motion
+#     ti   Begin program that uses cursor motion
+  termcapinfo xterm     ti@:te@
+#
+# termcap  xterm        'AF=\E[3%dm:AB=\E[4%dm'
+# terminfo xterm        'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
+#
+# Matthias Kopfermann <matthias_kopfermann(at)gmx.de> [020222]:
+# make the cursor show up in red:
+  termcapinfo linux "ve=\E[?25h\E[?17;0;64c"
+#
+# David Breach <david(at)davidbreach.co.uk> [2003-10-13]:
+# this makes screen work within rxvt on cygwin:
+  termcapinfo rxvt-cygwin-native ti@:te@
+#
+# ===============================================================
+# VARIABLES - Number values
+# ===============================================================
+  defscrollback         1000  # default: 100
+  # WARNING: RAM is allocated right away - not at runtime.
+  # so setting this value to 10.000 or more
+  # can cause your machine to swap instantly.
+# msgminwait            3     # default: 1
+  nonblock              23    # default: ???  unblock display after N secs of refusing output
+  silencewait           15    # default: 30
+#
+# ===============================================================
+# VARIABLES - Paths and Files (esp. programs)
+# ===============================================================
+# bufferfile:   The file to use for commands
+#               "readbuf" ('<') and  "writebuf" ('>'):
+# bufferfile    $HOME/.screen_exchange
+#
+# hardcopydir:  The directory which contains all hardcopies.
+# hardcopydir   $HOME/.hardcopy
+  hardcopydir   $HOME/.screen
+#
+# shell:  Default process started in screen's windows.
+# Makes it possible to use a different shell inside screen
+# than is set as the default login shell.  Halleluja! :-)
+  shell         zsh
+#
+# most users will probably use the "bash" as the default shell:
+# shell         bash
+# shell         ksh
+# shell         tcsh
+# for an overview to shells see page http://georg.f-451.net/shells/
+#
+# FAQ: to make the shell in every window a login shell
+# simply make use of $SHELL and add '-' in front of it:
+# shell -$SHELL
+#
+# ===============================================================
+# VARIABLES - Strings
+# ===============================================================
+#
+# some notes on COLOR before explaining its use in
+# the commands caption, hardstatus, and sorendition.
+#
+# COLOR:  colors codes are combinations of
+# [attribute modifier] [color description],
+# eg "%{ambf}" where
+# a=attribute,  m=modifier, and
+# b=background, f=foreground.
+# the manual talks of "attribute/color modifiers".
+# see the manual, section "STRING ESCAPES".
+#
+# Color table:
+# 0 Black             .    leave color unchanged
+# 1 Red               b    blue
+# 2 Green             c    cyan
+# 3 Brown / yellow    d    default color
+# 4 Blue              g    green           b    bold
+# 5 Purple            k    blacK           B    blinking
+# 6 Cyan              m    magenta         d    dim
+# 7 White             r    red             r    reverse
+# 8 unused/illegal    w    white           s    standout
+# 9 transparent       y    yellow          u    underline
+#
+# ===========================================
+# CAPTION - shows a "caption" for the window.
+# ===========================================
+# a "caption" is another line which can show information -
+# in addition to the hardstatus line.
+#
+# use caption to show window list:
+# caption always "%{= kc}%?%-Lw%?%{= kY}%n*%f %t%?(%u)%?%{= kc}%?%+Lw%?"
+#
+# caption always '%{= wb}%50=%n%f %t%{= wb}'
+# this basically just shows the current window number and title
+# on its own; the "%50=" displays it in the middle of the line.
+#
+# caption always "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"
+# caption always "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
+# caption always "%?%F%{.RW}%?%3n %t%? [%h]%?"
+# caption always "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+#
+  caption always "%{kG}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kG}%?%+Lw%?"
+#                 color--------color================color++++++++
+#
+# current CAPTION [2005-04-12]
+# "= " clears all color attributes. somehow this was necessary.
+# hostname (in yellow on red), current window (in white on blue),
+# then the usual line of the windows *before* to the current one (%-Lw)
+# the current one (yes, *again*) (%n), and the windows *after* the current one (%+Lw)
+# caption always "%{= RY}%H %{wb}%n*%f %t%?(%u)%? %{Gk}%?%-Lw%?%{wb}%n*%f %t%?(%u)%?%{Gk}%?%+Lw%?"
+#
+# "push right border: current time with seconds and current date"
+# caption always "%=%c:%s %Y-%m-%d"
+#
+# ===============================
+# Hardstatus Line and sorendition
+# ===============================
+# hardstatus: Always show the window list in the last line:
+# hardstatus alwayslastline "%w"
+# hardstatus alwayslastline "%H %w"
+#
+# use 'L' between '%' and 'w' to show the flags, too1
+# hardstatus alwayslastline "%H %Lw"
+#
+# example by Adam Spiers <gnu-screen(at)adamspiers.org> :
+# *without* colors:
+# hardstatus alwayslastline "%?%-Lw%?%n*%f %t%?(%u)%?%?%+Lw%?"
+# *with* colors:
+# hardstatus alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
+#
+# This will show the current time and today's date in YYmmdd, too:
+# hardstatus alwayslastline " %c | %Y%m%d |  %w"
+#
+# This will show today's date in mmdd and the current time, too:
+# hardstatus alwayslastline " %m%d %c |  %w"
+#
+# combining all of these gives:
+# hardstatus alwayslastline "%{rw}%H%{wk}|%c|%M%d|%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+#
+# this uses a black background foreverything execpt for
+# the current window which is show on a white background.
+# hostname in red, clock in green, date in yellow:
+# hardstatus alwayslastline "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+#
+#
+# hardstatus alwayslastline "%{rk}host: %H %33=%{yk}date: %M%d %66=%{gk}time: %c:%s%="
+#
+# hardstatus alwayslastline "%{rk}host: %H %33=%{yk}date: %M%d %66=%{gk}time: %c%="
+#
+# no "host:", "date:", or "time:" here.
+# instead, the info gets placed at 16%, 50%, and 80% so that it is
+# placed soemwhat in the middle of each of the three panels.
+# hardstatus alwayslastline "%{RY}%16=%H %33=%{YR}%50=%M%d %66=%{Gb}%80=%c%="
+#
+# 2003-08-19
+# insert the main url of the screen pages:
+# hardstatus alwayslastline "%{BW}www.guckes.net/screen/%50=%{RY}host: %H %85=%{YR}%M%d %92=%{Gb}%c%="
+# hardstatus alwayslastline "%{BW}%50=%{RY}host: %H %85=%{YR}%M%d %92=%{Gb}%c%="
+# until 2005-04-06
+# hardstatus alwayslastline "%{BW}load: %l%29=%{RY}host: %H %60=%{YR}date: %M%d %80=%{Gb}time: %c%="
+#
+# 2005-04-06: host load time Month+day
+# hardstatus alwayslastline "%{RY}%H %{BW}%l %{Gb}%c %M%d"
+#
+# current HARDSTATUS [2005-04-12]
+# patterns: host, load, time, date.
+# the "%=" at the end extends the current color unto the end of the line.
+# hardstatus alwayslastline "%{= RY}%H %{BW}%l %{Gb}%c %M%d%="
+# 2009-01-11 18:00: changed to date+time, ie "YYYY-MM-DD HH:MM":
+  hardstatus alwayslastline "%{Gb}%Y-%m-%d %c %{= RY}%H %{BW}%l%{Gb} %="
+#
+# Eisenstadt
+# hardstatus alwayslastline "%{Gb}Linuxwochen Eisenstadt  %M%d %c %="
+#
+# Wien
+# hardstatus alwayslastline "%{Gb}%M%d %c -- Linuxwochen Wien 2005 - Z-Shell Featurama%="
+# hardstatus alwayslastline "%{Gb}2010-%m-%d %c -- Agenda 2010 - Total Control%="
+#
+# =====================================================
+# the backtick command
+# =====================================================
+# 2003-03-26, 2005-03-12 examples for backtick
+# format: backtick id lifespan autorefresh cmd args...
+#
+# "news ticker": use the hardstatus line to show
+# the latest news of the IT ticker at heise.de:
+# backtick 1 127 0 heise
+# hardstatus alwayslastline "%{bw}%1`%= "
+#
+# "kernel info": show the output of "uname -a":
+# backtick 23 0 0 uname -a
+# hardstatus alwayslastline "%{bw}%23`"
+#
+# "taken space in /home partition"
+# backtick 15..
+# DF=$(df -h -P | grep /home|grep -o '[0-9]*%')
+#
+# Caveats:
+# there is no way to update a backtick command manually.
+# every backtick commands stops screen
+# until the proces has finished.
+# if this takes some time then it can
+# seriouly interrupt your use of screen.
+# =====================================================
+# sorendition
+# =====================================================
+# note: the use of ANSI color sequences is deprecated.
+#       please upgrade to (at least) screen 3.9.13
+#       so you can make use of the color letters/names!
+#
+# "sorendition": set the colors for
+# the "messages" and "text marking"
+# (ie text you mark in copy mode):
+#
+# sorendition 10 99 # default!
+# sorendition 02 40 # green  on black
+# sorendition 02 34 # yellow on blue
+# sorendition    rw # red    on white
+  sorendition    kG # black  on bold green
+# =====================================================
+#
+#
+# ============================
+# Password
+# ============================
+# # password SZnBqiqMtfa6k
+# password ODSJQf.4IJN7E # password is "1234"
+# WARNING!!  Do NOT remove the comment
+# if you don't know what this does!
+# read on:
+# this commands sets the *internal*
+# password for the screen session.
+# if this is set then a "lock" command will
+# only let you in to the session after you
+# enter the user's account password and then
+# also the internal password for that session.
+# so this gives additional safety.
+# but if you forget the internal password
+# then you can also forget about the session - ok?!
+#
+# FAQ: how to turn password checking off?
+# A:   use ":password none" and you'll get the
+#      response "Password checking disabled".
+#
+# ===============================================================
+# Messages
+# ===============================================================
+# There are two kinds of messages:  "activity" and "bell"
+# They are also the names of the commands that set the
+# respective messages.  In every message there can be "meta
+# strings" which are replaced by values.  A meta string starts
+# with a percent sign and is then followed by one
+# of the following letters: aAcCdDfFhHlmMnstuwWyY
+# The meta strings usually refer to the current
+# date and time or to a window title or number.
+# There are also some specials like embedded branches (with %?),
+# color codes (with %{xy}) and padding (with %=, %<, %>).
+# you can find their description in the manual in section
+# "STRING ESCAPES":
+#  %%      percent sign (the escape character itself)
+#  %a      either 'am' or 'pm' - according to the current time
+#  %A      either 'AM' or 'PM' - according to the current time
+#  %c      current time HH:MM in 24h format
+#  %C      current time HH:MM in 12h format
+#  %d      day number - number of current day
+#  %D      Day's name - the weekday name of the current day
+#  %f      flags of the window
+#  %F      sets %? to true if the window has the focus
+#  %h      hardstatus of the window
+#  %H      hostname of the system
+#  %l      current load of the system
+#  %m      month number
+#  %M      month name
+#  %n      window number
+#  %s      seconds
+#  %t      window title
+#  %u      all other users on this window
+#  %w      all window numbers and names.
+#  %-w     all window numbers up to the current window
+#  %+w     all window numbers after the current window
+#  %W      all window numbers and names except the current one
+#  %y      last two digits of the year number
+#  %Y      full year number
+#
+# Older versions of screen used a single '%' character
+# to display window titles - but since version 3.7 this is
+# obsoleted by '%n' and it will vanish in future releases.
+# So please update your screenrc to meet this convention!
+#
+# ===============================================================
+# "~" stands for the "bell" character
+#
+# activity              'Activity in window %n' # default
+# use %n to display the window number and %t for its title:
+# activity              "activity in window #%n title: %t~"
+  activity              "%C -> %n%f %t activity!"
+#
+# pass on the "beep" (CTRL-G) by adding a '~':
+# bell             "%C -> %n%f %t bell!~"
+  bell_msg         "Bell in window %n"
+#
+# pow_detach_msg:  Message shown when session gets power detached.
+  pow_detach_msg   "BYE"
+#
+# vbell_msg:       Message shown when the "virtual bell" rings.
+  vbell_msg        " *beep* "
+#
+# ==============================================================
+# BIND bind - defaults
+# ==============================================================
+# The "bind" command assign keys to (internal) commands
+# SCREEN checks all the keys you type; you type the key
+# which is known as the "command character" then SCREEN
+# eats this key, too, and checks whether this key is
+# "bound" to a command.  If so then SCREEN will execute it.
+#
+# The command "bind" allows you to chose which keys
+# will be assigned to the commands.
+#
+# Some commands are bound to several keys -
+# usually to both some letter and its corresponding
+# control key combination, eg the command
+# "(create) screen" is bound to both 'c' and '^C'.
+#
+# The following list shows the default bindings:
+#
+# break       ^B b
+# clear       C
+# colon       :
+# copy        ^[ [
+# detach      ^D d
+# digraph     ^V
+# displays    *
+# dumptermcap .
+# fit         F
+# flow        ^F f
+# bind           f      screen -t FETCH fetchmail -a
+  bind           f      screen -t DE<>FR links http://dict.leo.org/frde?lang=de&lp=frde
+# focus       ^I
+# hardcopy    h
+# help        ?
+# history     { }
+# info        i
+# kill        K k
+# lastmsg     ^M m
+# license     ,
+# log         H
+# login       L
+# meta        x
+# monitor     M
+# next        ^@ ^N sp n
+# number      N
+# only        Q
+# other       ^X
+# pow_break   B
+# pow_detach  D
+# prev        ^H ^P p ^?
+# quit        \
+# readbuf     <
+# redisplay   ^L l
+# remove      X
+# removebuf   =
+# reset       Z
+# screen      ^C c
+# select      " '
+# silence     _
+# split       S
+# suspend     ^Z z
+# time        ^T t
+# title       A
+# vbell       ^G
+# version     v
+# width       W
+# windows     ^W w
+# wrap        ^R r
+# writebuf    >
+# xoff        ^S s
+# xon         ^Q q
+# 2006-12-01 i hardly ever use xon+xoff.
+# but as the q is next to the a it is nice
+# to use it for entering copy mode.
+  bind q copy
+#
+# ^]  paste .
+# -   select -
+# 0   select 0
+# 1   select 1
+# 2   select 2
+# 3   select 3
+# 4   select 4
+# 5   select 5
+# 6   select 6
+# 7   select 7
+# 8   select 8
+# 9   select 9
+# 2009-03-06
+# idea: use the characters of
+# the shifted digits to select
+# the windows from #11 to #19:
+# digits:  1234567890
+# shifted: !@#$%^&*()
+# bind  !   select 11
+# bind  @   select 12
+# bind \#   select 13
+# bind  $   select 14
+# bind  %   select 15
+# bind  ^   select 16
+# bind  *   select 17
+# bind  (   select 18
+# bind  )   select 19
+#
+# I   login on
+# O   login off
+# ]   paste .
+#
+# Pretend that the window numbering starts at 1, not 0.
+# Then use command '0' to jump to window number #10.
+# bind c screen 1
+# bind 0 select 10
+#
+# ===============================================================
+# the following table shows the default listing:
+#
+# lowercase letters:
+# abcdefghijklmnopqrstuvwxyz
+# -bcd-f-hi-klmn-pqrst-vwx-z -> bcdfhiklmnpqrstvwxz
+#
+# capital letters:
+# ABCDEFGHIJKLMNOPQRSTUVWXYZ
+# ABCD-F-H--KLMN--Q-S---WX-Z -> ABCDFHKLMNQSWXZ
+#
+# control + letters:
+# ABCDEFGHIJKLMNOPQRSTUVWXYZ
+# -BCD-FGHI--LMN-PQRST-VWX-Z[?@  -> BCDFGHILMNPQRSTVWXZ[?@
+#
+# other keys:
+# "'*,.:<=>?[\_{}
+# for krautboards (LANG=de_DE):
+# binding the umlauts ´äöü´:
+  bind ä copy
+  bind ö copy
+  bind ü copy
+# ===============================================================
+# Key bindings
+# ===============================================================
+# Remove some default key bindings by binding
+# them to "nothing" (empty right-hand-side):
+#
+# bind .  dumptermcap # default
+  bind .
+# bind ^\ quit        # default
+  bind ^\
+# bind \\ quit        # default
+  bind \\
+# bind h  hardcopy    # default
+# bind h
+# bind ^h ???         # default
+# bind ^h
+# bind }  history     # default
+# bind }
+#
+# And here are the default bind commands if you need them:
+#
+# bind A title
+# bind C clear
+# bind D pow_detach
+# bind F fit
+# bind H log
+# bind I login on
+# bind K kill
+# bind L login
+# bind M monitor
+# bind N number
+# bind O login off
+# bind Q only
+# bind S split
+# bind W width
+# bind X remove
+# bind Z reset
+#
+# ==============================================================
+# KEY BINDING FAQ:
+# ==============================================================
+# FAQ: So many keys are bound to some command already -
+#      which keys are unbound yet? Which are free for binding?
+# A:   SCREEN does not have a command to show you
+#      a table of currently unbound keys - sorry!
+#      You simply have to read this setup file. ;-)
+#
+#      Summary:  Here is a table of the keys
+#      which are not bound by default:
+#      unbound:  -B--E-G--J-L---P-R-TUV--Y-
+#        bound:  A-CD-F-HI-K-MNO-Q-S---WX-Z
+#
+# I suggest that you do not change the bindings for
+# 'H' ("log") and 'M' ("monitor") as they are *really*
+# useful and you might want to use them a lot;
+# in this case it is recommended to use
+# the defaults to avoid confusion.
+# personally, I use 'A' ("title") quite often, too.
+#
+# If you are using "split windows"
+# then you will also use the command
+# associated with the keys FQSX a lot, too -
+# so do not change their bindings, either!
+#
+# TAB -> :focus
+# F   -> :fit
+# Q   -> :only
+# S   -> :split
+# X   -> :remove
+#
+# changing to adjacent screen region up/down
+# in vi style key bindings
+  bind j focus down
+  bind k focus up
+# make current region the only region:
+  bind o only
+#
+# Anyway, I have bound the unbound uppercase letters
+# to start programs in windows directly, ie without
+# starting a new window with a shell within first.
+# This simply saves shells and thus saves RAM -
+# and also avoids that the title of windows is
+# the name of your shell.  Also, you need not "exit"
+# from a shell when you are done with some program.
+# And when using "zombie mode" then the window will stay
+# and you can resurrect them with the CTRL-SPACE command.
+# cool! :-)
+#
+# enable "zombie mode":
+# zombie z
+# here the parameter 'z' defines the key
+# which makes a zombie window go away.
+#
+#
+# ==============================================================
+# BIND and the Services:
+# ==============================================================
+# I am using the uppercase letters to start programs/services:
+#
+# the idea:
+# bind <key> <command>
+# this binds the key to start a windows with <command> inside.
+#
+# the command "screen" starts a "window" -
+# and the default key is 'c' for "create".
+# (i know - this *is* confusing at first.)
+# with 'screen -t title" you can set a titlestring.
+# the number following is the window number to be used.
+# if the window number is already taken then
+# the least highest available number is used.
+#
+# FAQ: How to make screen start with a count on "1" rather than "0":
+# use this workaround:  it uses "1" as the minimum number for slots
+# when using the 'c' command to create new screens:
+# bind c screen 1
+#
+# 2005-04-22:
+# inserting the current date as YYYY-MM-DD
+# by Julius Plenz and Stephane Chazelas:
+# bind d exec .!. zsh -c 'print -Pn %D{%F}'
+# (this obviously requires a "zsh")
+#
+# Pasting copied text from the paste buffer:
+# The default key bidning for "paste" is bound to ']':
+# bind ] paste .
+# bind p paste .
+# The character ']' is hard to type on keyboards with German layout,
+# as it requires the use of a yet another meta character "AltGR".
+# I prefer to use 'p' for "paste" because it is easy to memorize
+# and also a letter which is available at the same position
+# on both US keyboards and keyboards with "Kraut layout".
+#
+# 2006-02-28:
+# bind z suspend
+# i hardly ever suspend a session.  well, actually never.
+# but i like the idea that 'z' would switch to the next Z-shell,
+# or rather, to the next window with the title "zsh":
+# bind z select zsh
+# then again, if you are already on such a window
+# then screen would not switch to the next one
+# but insist on staying on the current one -
+# telling me "This IS window 10 (zsh)." bah!
+# possible workaround:  switch to the next window first
+# and then select the next (or current) "zsh" window.
+#
+# to see all current bindings
+# of this file from within vi:
+# :g/^  bind [A-Z]/p
+# ===============================================================
+# BIND Sven's Bindings:
+# ===============================================================
+# bind A screen -t AUGSBURG 5 links http://imi.st/prog-LIT07.html
+  bind A select 10
+# bind B ...
+  bind C screen -t CHEMNITZ 9 links http://chemnitzer.linux-tage.de/2009/info/
+  bind D screen -t DICT     4 links dict.tu-chemnitz.de/pda
+# bind D screen -t DRESDEN  4 links http://linux-info-tag.de/100/room?track=17
+# bind D screen -t DRESDEN  4 links http://linux-info-tag.de/93/room?track=14 # program 2007
+  bind E screen -t DEEPSEC    links http://www.deepsec.net/
+  bind e screen -t mail     0 mutt
+  bind F screen -t FSCONS   4 links http://www.fscons.org/
+  bind G screen -t Google   0 links www.google.com
+  bind H screen -t Heise    0 links www.heise.de
+  bind I screen -t IMDB     9 links http://us.imdb.com/search/
+# bind J screen -t Kunstlab 0 links http://kunstlabor.at/
+# bind K screen -t KDE      0 links http://conference2004.kde.org/
+# bind L screen -t LUX      0 links http://www.linuxdays.lu/agenda/linuxdays-2007
+  bind L screen -t LINZ     8 links http://www.iktforum.at/programme.html
+# bind M monitor # default!
+  bind N screen -t NB       8 newsbeuter
+# bind O screen -t WOS3     0 links http://wizards-of-os.org/
+  bind P paste .
+  bind Q screen -t HOME     0 links http://www.guckes.net/
+# bind R screen -t BRB      0 links http://www.linuxtag-brb.de/vortragsprogramm.html
+# Reload this configuration file after changes:
+  bind R colon "source $HOME/.screenrc"
+# bind S screen -t slrn     3 slrn -n -C -k0 -h news.vr.in-berlin.de
+# bind T screen -t T-DOSE     links http://www.t-dose.org/schedule/
+  bind T screen -t Thesaurus 7 links http://synonyme.woxikon.de/
+  bind V screen -t vim      0 vim -X
+# bind W screen -t WIEN     4 links http://linuxwochen.at/2007/Programm_Wien:_Index
+  bind W screen -t WIEN     4 links http://linuxwochen.at/
+  bind X lockscreen
+  bind Y stuff http://www.guckes.net/
+# bind Z screen -t HOME     8 links http://myblog.de/linuxweekend
+  bind Z screen -t Wetter   0 links http://www.donnerwetter.de/region/region.hts?lid=DE14356&Ort=BERLIN
+  # f*ck, yeah! http://www.thefuckingweather.com/?zipcode=berlin+germany&CELSIUS=yes
+# bind Z screen -t Graz     4 links http://linuxtage.at/
+#
+# binding the CTRL-keys:
+# bind ^Y screen -t log watch -n 5 tail -23 /var/log/syslog
+#
+# 2009-01-13
+# default: time "%c:%s %M %d %H%? %l%?"
+           time "%H %Y-%m-%d %c:%s"
+  bind t   time
+# ===============================================================
+# BIND Examples:
+# ===============================================================
+# You can also paste the values of
+# SCREEN's environment variables:
+# bind E stuff $EMAIL
+# bind U stuff $URL
+# bind I stuff $ICQ
+#
+# ===============================================================
+# BINDKEY:
+# ===============================================================
+# [TODO briefly explain the difference between BIND and BINDKEY]
+# syntax: bindkey [-d] [-m] [-a] [[-k|-t] string [cmd args]]
+#
+# bindkey -a    ...
+# bindkey -d    default  - default table of keys
+# bindkey -k    keyboard - keys defined via termcap
+# bindkey -m    mark     - mark mode aka copy mode
+# bindkey -t    timing   - interkey timing is *suppressed*
+#
+# 2005-12-13
+# workaround for working on a machine
+# where the {z{z2}~|
+# bindkey -d ,,   stuff |
+#
+# 2004-12-13
+# bindkey -d '"a' stuff ä
+# bindkey -d '"o' stuff ö
+# bindkey -d '"u' stuff ü
+# bindkey -d '"A' stuff Ä
+# bindkey -d '"O' stuff Ö
+# bindkey -d '"U' stuff Ü
+# bindkey -d '"s' stuff ß
+#
+# 2005-02-06
+#  bindkey -t °a stuff "ä"
+#  bindkey -t °A stuff "Ä"
+#  bindkey -t °o stuff "ö"
+#  bindkey -t °O stuff "Ö"
+#  bindkey -t °u stuff "ü"
+#  bindkey -t °U stuff "Ü"
+#  bindkey -t °s stuff "ß"
+#
+#
+# use the PgUp and PgDn keys to enter copy mode
+# and page through the window backlog:
+# bindkey -k kP copy
+#
+# Use the function keys F7 and F8
+# to cycle backwards/forwards in
+# the list of existing windows:
+# bindkey -k k7 prev
+# bindkey -k k8 next
+#
+# make the "kb" send a backspace (CTRL-H:)
+# bindkey -d kb stuff ^H
+# WARNING:  this does not work as advertised.
+# it eats the "kb" when typing "dankbar" for example. :-(
+#
+# NumPad keybindings:
+# ^[Oo /      resize =
+# ^[Oj *      resize max
+# ^[Om -      resize -2
+# ^[Ok +      resize +2
+# ^[OM Enter
+#
+# 2006-09-21
+bind + resize +1
+bind - resize -1
+#
+# 2006-10-26
+# select window #0 - this is where my editor is! :-)
+bind " " select 0
+#
+# 2007-02-19
+# copy+paste with CTRL-C + CTRL-V
+# bindkey \003 copy
+# bindkey \022 paste .
+#
+# ================================
+# Window Flags/Marks  [2005-04-12]
+# ================================
+# see file process.c - AddWindowFlags
+# windows flags/marks:
+#  *  current   window
+#  -  previous  window
+#  $  logged-in window (visible with "who" command)
+#  &  occupied  window (visible on other terminal)
+#  !  activity  the non-current window has activity!
+#  @  bell      the non-current window has received a bell character (wuff wuff)
+#  Z  zombie    window (died, but not yet quite dead)
+# (L) logging to file is ON (toggled by :log command)
+#
+# Notes:
+# using the "other" command exchanges the marks
+# for current and previous windows (of course).
+# a looged in window can be logged off with the
+# command ":login off" - bound to 'O' by default.
+# and it can be logged in again with ":login on"
+# which is bound to 'I' in the default binding.
+#
+# the message for "activity" and "bell" will be given
+# online once and the marks set respectively.
+# however, these marks will vanish once their
+# respective window has been selected.  and
+# there is no mark to indicate inactivity.  sorry.
+#
+# zombie can either be killed by 'z'
+# (when ":zombie z" was given) or
+# resurrected with control-space.
+# either the window will be resurrected
+# and the 'Z' mark goes - or the window
+# will be killed and thus vanishes.
+#
+# why the log indication ("(L)")
+# takes three characters instead
+# of only one is a mystery to me.
+#
+# ================================
+# Copy Mode (added 2006-02-17)
+# ================================
+# Copying:
+# Enter copy mode with the "copy" command,
+# ie CTRL-A ESC or CTRL-A [, and select text.
+#
+# Marking "start" and "end":
+# Setting the first mark (with <space>) sets the "start" position.
+# You then move the "end" position.  You can exchange
+# the "start" with the "end" mark by pressing 'o' or 'x'.
+# The currently selected text between "start" and "end" will be copied
+# into the copy buffer when setting the second mark with another <space>.
+#
+# Text selection, simple method:
+# move to the beginning, press space, then
+# move to the end   and  press space again.
+# ie {movements} <space> {movements} <space>
+#
+# Text selection, elaborate method:
+# This may involve some more movement commands,
+# eg (incremental) searching, and
+# maybe a rectangular selection.
+#
+# Jump/Movement keys (almost like in vi):
+# info:       ^G        gives information about the current line and column.
+# changeline: jk +-     down, up by one line
+# inline:     hl        left/right
+#             0^$       first, first non-whitespace, last character
+#             N|        moves to column N (eg 23|)
+# on window:  HML       home middle lastline
+# on buffer:  gG        first/last line of window buffer
+#             N%        jump to N% within buffer (eg 42%)
+# word jumps: wbe       next, previous start of word; next end of word
+#              BE             previous start of WORD, next end of WORD
+# scrolling:  ^B^F      page back/forward one complete page
+#             ^D^U      page back/forward one half     page
+# searching:  /foo      search forward  for "foo"
+#             ?bar      search backward for "bar"
+#             n         search for next match of last search
+#             C-A s     Emacs style incremental search forward.
+#             C-R       Emacs style reverse i-search.
+# start/end:  o x       switch current start and end mark.
+#
+# weirdnesses:
+# command 'y' does not select the current line but simply jumps to
+# the end of the current line (to the last non-whitespace character).
+#
+# some capital letters do what their lowercase counterpart do
+# and then immediately end the selection:
+# command 'A' appends current selection to previously
+# copied text and then ends the selection right away.
+# command 'W' jumps by a WORD and then ends the selection.
+# command 'Y' jumps to the end of the line and ends the selection.
+#
+# in the case of 'W' this behaviour is pretty annoying
+# as you would expect 'W'to behave like 'B' and 'E'
+# to simply make the jump and *stay* within copy mode.
+#
+# Number prefix:
+# Jump commands can take a number prefix for repetition.
+# So when you type digits 0 to 9 they will describe a number.
+# The following jump command will then be repeated by that number.
+# Examples:
+#     "5w"  jumps to the fifth next start of word, and
+#     "23j" goes 23 lines down.
+#
+# Column selection:
+# c C   set leftmost/rightmost column to current position
+#
+# v     set leftmost column of selection to colum 9.
+#       useful for vi users who show text with line numbers shows (:set nu).
+#       within the first 8 characters  of each line.
+#
+# Appending and Joining Lines:
+# a   toggle append mode.
+#     ":set   append":  The copied text will be appended to the paste buffer.
+#     ":set noappend":  The copied text will overwrite the previously copied text.
+# A   toggles into append mode and also sets a mark to the current position.
+#     if it is the second mark then this ends copy mode by copying.
+# J   select how copies lines will be joined.
+#     (1) (default) no joining;  (2) join lines continously; (3) join lines with
+#     a space in between lines;  (4) join lines with a comma in between lines.
+# >   Sets the (second) mark and selects the screen exchange file
+#     (default: /tmp/screen-exchange) as the target for copied text.
+#
+# Extending selection and copy right away:
+# W   copies the current WORD - and exists immediately.
+#     nice for copying an email address or URL.
+# y   extend current selection by first non-whitespace
+#     to last non-whitespace of current line.
+# Y   as 'y' - but ende selection and copy right away.
+#
+# problematic:
+# W   takes away the possible "jump by WORD".
+#     User who like the "BWE" to be used like "bwe" commands
+#     will be surprised by the copying and exiting of 'W'.
+#
+# All other keys which are not described here exit copy mode.
+# So a typo will exit the command and force the
+# user to select the previous selection again.
+# The '@' key does nothing.  It does not even exit copy mode.
+# It might be used to bind all non-bound keys
+# such that they may not exit copy mode - thus
+# preventing the accidental exit from copy mode.
+#
+# Examples:
+# Copy complete buffer to the screen exchange file:
+#     "C-A [ g SPACE G $ >"
+# Copy lines 11 to 15:
+#     "C-a C-[ H 10 j 5 Y"
+#
+# Emacs bindings:
+# Emacs style movement keys can be customized
+# by a configuration command in the setup file
+# (e.g. markkeys "h=^B:l=^F:$=^E")
+# However, you can only bind only part of commands.
+# There is no simple method for a full emacs-style
+# keymap, as this involves multi-character codes.
+#
+# END of Copy Mode description
+# ================================
+# COPY MODE [2006-02-17]
+# ================================
+# add some more key binding for "mark mode" aka "copy mode".
+# markkeys "h=^B:l=^F:$=^E"
+# note:  this removes ^B and ^F for paging!
+# i'd rather bind the CTRL-E only and
+# keep CTRL-B and CTRL-F as they are.
+  markkeys "$=^E"
+# 'N' would exit copy mode because it is not
+# bound to a command.  this behaviour sucks.
+# workaround:  bind 'N' to nothing
+# the same holds for 'd' and other keys.
+# the following binds them to "no command" as represented by '@'.
+  markkeys "@=d=f=i=N"
+#
+# ================================
+# TEST 2006-02-24
+# termcapinfo * kD=^H
+# cannot be changed via the command line.
+# this gives you the following error message:
+# "Sorry, too late now.  Place that in you .screenrc file." hehe
+# ================================
+#
+# ================================
+# TEST 2007-11-30
+# ================================
+# show the list of windows is the
+# "recently accessed" order:
+  bind @ windowlist -m
+#
+# windowlist title  "Fla Num Title"
+# windowlist string "%3f %3n %t"
+# this does not work well because the %f is
+# not expanded to three characters always,
+# so it gives a ragged display of the list.
+#
+# therefore i leave out the flags and
+# only use the number and the title:
+  windowlist title  "Num Title"
+  windowlist string "%3n %t"
+#
+  windowlist title  "Flag Num Title"
+  windowlist string "%f%04= %3n %t"
+#
+# =====================================================
+# Startup
+# =====================================================
+# Some startup examples.
+#
+# screen -m
+# start a new session - even if already within screen session
+#
+# screen -m -c ~/.screenrc.test
+# start a new session - even if already within screen session
+# with the config file "~/.screenrc.test"
+#
+# screen -S foo -xRR
+# start with session "foo" if it exists -
+# otherwise start a new session.
+# =====================================================
+# Multiuser Mode & ACL commands - Examples (2006-03-09)
+# =====================================================
+#
+# put screen into multiuser mode:
+#   :multiuser on
+#
+# allow another user "sister" to attach to the session:
+#   :acladd sister
+#
+# note: this adds user "sister" with
+# *all* permissions to *all* windows!
+#
+#
+#TODO:
+# chacl * -w
+# chacl = change access control list
+#    *  = all users
+#   -w  = permission (read, write, execute) screen commands
+#    ?  = all windows
+#
+# do not forget to grant access to yourself,
+# because * includes yourself.
+# One way to fix it is denying access
+# to everybody and allow to yourself:
+#
+#     C-a :chacl * -w 0
+#     C-a :chacl myusername +w 0
+#
+# attaching to someone's screen session:
+# $ unset SCREENDIR
+# $ screen -ls $USER/
+# mind the slash at the end - it is required!
+# $ screen -x $USER/
+#
+# =================================
+# 2006-04-17 Debienna.at
+# remark by redtux:
+# use option -U for utf-8 support:
+# screen -U -r PID
+# =================================
+#
+# =================================
+# Split Screens
+# =================================
+# You can split the current window horizontally with
+# the command ":split", bound to command "S" by default.
+# The previous window remains the current window and
+# a new window is opened *beneath* the current one.
+# (No, there is no option the open the
+# new window above the current one.)
+#
+#
+# Q      -> :only
+# CTRL-I -> :focus
+# S      -> :split
+#
+# =================================================
+# SOURCE
+# =================================================
+# source a specific setup file for the current host:
+# source ${HOME}/.screenrc-${HOST}
+#
+# source a directory specific configuration file:
+# source ./.screenrc.local
+# =====================================
+# SHELL ALIASES  2006-11-17, 2008-07-06
+# =====================================
+# some useful shell aliases for starting screen
+# or reattaching to existing screen sessions:
+# alias  '?'='screen -ls'
+# alias  '!'='screen -r'
+# alias    x='screen -x'
+# alias COMM='screen -t COMM 9 screen -m -c ~/.screenrc.comm'
+# alias WORK='screen -m -c ~/.screenrc.work'
+# alias comm='screen -d -r comm'
+# alias work='screen -d -r work'
+#
+# =================================
+# Wishes:
+# =================================
+# feeeling bored on a rainy day?  looking for a project?
+# how about making these wishes come true with some code?:
+# DISPLAY01: show screen state.
+#   display an indication that screen has received its
+#   current command/escape/meta key and is ready to gobble
+#   and process the next character.  good for beginners!
+# DISPLAY02: current values overview.
+#   display all current values to commands like "login"
+#   or zombie mode (is it currently ON or OFF?).
+# DISPLAY03: show current command character or sessionname.
+#   show the current command character and/or the current
+#   sessionname both in the hardstatus line and when a
+#   list of sessions is requested with "screen -ls".
+# DISPLAY04: window flags:
+#   make logfile mark a single letter (only 'L').
+# DISPLAY04: copy mode:
+#   allow unused keys to stay within copy mode.
+#   do not abort copy mode on each typo.
+# DISPLAY05: caption+hardstatus:
+#   Allow both to appear at the
+#   *first* line of each region.
+#
+# INTERACTION01:
+# Add command ":pwd" to show the current working directory.
+# Of course, this can be achieved with ":echo $PWD".
+# Adding command aliases would solve this, too.
+#
+# medium sized hacks:
+# MED01: split windows - add command to switch focus
+#   to the next window above current windows.
+#   add command to switch focus to Nth window from top.
+# MED02: nethack mode.
+#   add more funny nethack messages to commands.
+# MED03: copy mode:  add vi commands "fx" and "Fx" to
+# find the next/previous occurrence of character 'x',
+# as well as "tx" and "Tx" to jump *to* the next/previous
+# character 'x', ie stop one character before the match.
+# patch exists:
+#   From: Bill Pursell [2006-10-21]
+#   Newsgroups: gmane.comp.gnu.screen.user
+#   Subject: Patch for fF/tT/;, cursor movement in copy/paste mode
+#   Message-ID: <36f448e90610210801i144f1bb1q3f08aace6dc571be@mail.gmail.com>
+# MED04: split view without caption lines.
+# when the display is split then there is
+# a caption line for every region/window.
+# so it all eats a screen line.  however,
+# many programs can easily be used without
+# a caption line.  so there should be a way
+# to turn caption lines off - completely;
+# or maybe individually on for each window.
+# MED05: Window Management:
+#   insert a window to some number and
+#   shift all consecutive windows' numbers
+# MED06: Version Info
+# add info about the compile time options.
+#
+# bigger projects:
+# BIG01: command line tab expansion.
+#   add TAB expansion for command line commands.
+# BIG02: split windows - swap.
+# BIG03: vertical split.  see http://fungi.yuggoth.org/vsp4s
+# BIG04: encoding.  allow utf8 characters on the hardstatus line.
+#
+# Further documentation needed!
+# Automation - screen within scripts
+# Color Codes - caption+hardstatus lines
+# Cursor Keys - not working within screen
+# Display:
+#   caption+hardstatus
+#   Splitting Windows + Saving Layouts
+# Encoding - how to use UTF8 characters
+# Key Binding - more examples
+# MultiUser Mode:
+# - experiences with other users
+# - announcements of events (login/logoff
+#   of other users # to the current session)
+# Notification - receiving beeps and notes
+# Scripting - thins which can be solved with a Scripting language
+#   start a process if it does not exist yet
+#   aliases+functions, logical operators,
+#   branches (if,elif, case),
+#   loops (for,repeat,while),
+#   arithmetic and regular expressions.
+# Session Name - changes of session name result in problems
+# Terminals - magic codes of terminfo+termcap
+#   TERM={linux,xterm,screen,screen-linux,screen-256color}
+#   urxvt: print -n "\eP\e]0;TITLE\C-G\e\\"
+#   xterm: print -n "\E\"$*\E\134"
+#   see also: http://www.sourceguru.net/archives/188
+# Testing - how to test startups and configs
+# Troubleshooting - eg. no response from the session
+#
+# Survival of Reboot:
+# CryoPID - A Process Freezer for Linux   http://cryopid.berlios.de/
+#
+# Snapshot:
+# Saves the list of windows with their numbers, titles, and their
+# initial program names, as well as the layout of split windows,
+# and setup of caption lines and hardstatus line.
+# =================================================
+# Possible BUGS
+# =================================================
+# Startup with "screen -c $file" causes a segfault
+# when $file does not contain an absolute path.
+# workaround: start with "screen -c $dir/$file".
+# =================================================
+# Patches and Projects
+# =================================================
+# http://sourceforge.net/projects/screenwm
+#
+# ================================
+# GREETINGS
+# ================================
+# At the very end... show the
+# current version and say hello :-)
+#
+# Briefly show the version number of this starting
+# screen session - but only for *one* second:
+#  msgwait 1
+#  version
+# change back to showing messages
+# for duration of two seconds:
+#  msgwait 2
+# this is usually too fast to show messages within workshops.
+# it is better to reset it to five seconds for that.
+#
+# Welcome the user:
+#  echo "welcome to screen :-)"
+# =================================================
+# MISC
+# =================================================
+# 2009-06-06
+# term foobar
+# this result in "TERM=vt100".  feature?
+#
+# 2009-06-12
+# force screen to update its display:
+# screen -X redisplay
+#
+# 2009-06-12
+# bind + unbind
+# Q: How to unbind a key?
+# A: Use "bind <key>", ie give an empty value.
+#
+# 2009-06-12
+# setting DISPLAY variable:
+# set it like this from within screen's command line:
+# CTRL-A :setenv DISPLAY :0.0
+# and for shells:
+# /bin/sh:  DISPLAY=:0.0; export DISPLAY
+# bash,zsh: export DISPLAY=:0.0
+#
+# 2009-06-18
+# turning off both caption and hardstatus lines:
+# caption splitonly
+# hardstatus ignore
+# turning them on again:
+# caption    always
+# hardstatus always lastline
+# =================================================
+# Vim:
+# =================================================
+# configuration for the vim editor via "modeline":
+# Tell Vim to automatically set some options
+# when you load this file into a buffer.
+# et     : expandtab: expand tabs to spaces
+# ts=8   : tabstop=8: use a "tabstop" of '8'
+# nowrap : do not wrap lines which are longer
+#          than the line length on the terminal.
+# vim: set et ts=8 nowrap: THPXRF EOF
