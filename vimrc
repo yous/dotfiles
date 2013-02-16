@@ -259,3 +259,12 @@ elsei has("unix")
 	se gp=grep\ -nH\ $*
 en
 se isk+=: " iskeyword
+" Change default mappings for IMAP_Jumpfunc
+if exists('g:Imap_StickyPlaceHolders') && g:Imap_StickyPlaceHolders
+	" vmap
+	vm <C-Space> <Plug>IMAP_JumpForward
+el
+	vm <C-Space> <Plug>IMAP_DeleteAndJumpForward
+en
+im <C-Space> <Plug>IMAP_JumpForward
+nm <C-Space> <Plug>IMAP_JumpForward
