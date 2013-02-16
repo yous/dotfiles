@@ -176,11 +176,11 @@ nn # #zz
 nn g* g*zz
 nn g# g#zz
 
-" Splitted Window
-nn wj <C-W>j
-nn wk <C-W>k
-nn wh <C-W>h
-nn wl <C-W>l
+" Splitted Windows
+nn <C-J> <C-W>j
+nn <C-K> <C-W>k
+nn <C-H> <C-W>h
+nn <C-L> <C-W>l
 
 " Tab
 map <C-T> :tabnew<CR>
