@@ -1,5 +1,6 @@
 " Vundle
 if has("gui_running") || has("unix")
+	au FileType vundle setl nossl " autocmd setlocal noshellslash
 	filet off " filetype
 	se rtp+=~/.vim/bundle/vundle " set runtimepath
 	cal vundle#rc() " call
@@ -61,7 +62,7 @@ elsei has("unix") " elseif
 	colo peaksea
 en
 if has("win32")
-	au InsertEnter * se noimd " autocmd noimdisable
+	au InsertEnter * se noimd " noimdisable
 	au InsertLeave * se imd " imdisable
 	au FocusGained * se imd
 	au FocusLost * se noimd
