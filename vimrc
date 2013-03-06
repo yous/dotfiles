@@ -85,7 +85,9 @@ syntax on
 " Vim UI
 if has("gui_running")
 	se gfn=DejaVu\ Sans\ Mono:h10:cANSI " guifont
-	se gfw=DotumChe:h10:cDEFAULT " guifontwide
+	if has("win32")
+		se gfw=DotumChe:h10:cDEFAULT " guifontwide
+	en
 	fu! ScreenFilename() " function
 		if has("amiga")
 			retu "s:.vimsize" " return
