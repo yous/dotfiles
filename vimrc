@@ -9,7 +9,8 @@ if has("gui_running") || has("unix")
 	Bundle 'vundle'
 	" Colorscheme
 	Bundle 'wombat256.vim'
-	Bundle 'peaksea'
+	" Bundle 'peaksea'
+	Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 	" 256 colors
 	Bundle 'Lokaltog/vim-powerline'
 	" ConqueTerm
@@ -59,7 +60,7 @@ if has("gui_running")
 	se lm=ko.UTF-8 " langmenu
 	so $VIMRUNTIME/menu.vim
 elsei has("unix") " elseif
-	colo peaksea
+	colo Tomorrow-Night-Eighties
 en
 if has("win32")
 	au InsertEnter * se noimd " noimdisable
