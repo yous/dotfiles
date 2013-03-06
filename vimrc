@@ -73,6 +73,7 @@ en
 se bs=2 " backspace indent,eol,start
 se cb=unnamed " clipboard
 se fencs=ucs-bom,utf-8,cp949,latin1 " fileencodings
+se ffs=mac,unix,dos " fileformats
 se ic " ignorecase # for smartcase
 se nobk " nobackup
 se nocp " nocompatible
