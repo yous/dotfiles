@@ -241,6 +241,9 @@ au BufNewFile,BufRead *.json se filetype=json
 " Markdown View
 au BufNewFile,BufRead *.md se filetype=markdown
 
+" ANSI escape for Rails log
+au FileType railslog :AnsiEsc
+
 " mobile.erb View
 aug rails_subtypes " augroup
 	au!
