@@ -13,6 +13,8 @@ if has("gui_running") || has("unix")
 	Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 	" 256 colors
 	Bundle 'Lokaltog/vim-powerline'
+	" ANSI escape
+	Bundle 'AnsiEsc.vim'
 	" ConqueTerm
 	Bundle 'rson/vim-conque'
 	" Autocomplete if end
