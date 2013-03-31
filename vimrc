@@ -199,6 +199,12 @@ elsei has("unix")
 	map T :tabprevious<CR>
 en
 
+" Global copy and paste
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
+nmap <F3> :se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
+imap <F3> <ESC>:se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
+
 " C, C++ Compile & Excute
 au FileType c,cpp map <F5> :w<CR>:make %<CR>
 " autocmd
