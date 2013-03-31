@@ -199,11 +199,16 @@ elsei has("unix")
 	map T :tabprevious<CR>
 en
 
-" Global copy and paste
-nmap <F2> :.w !pbcopy<CR><CR>
-vmap <F2> :w !pbcopy<CR><CR>
-nmap <F3> :se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
-imap <F3> <ESC>:se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
+" Global copy and paste for Mac OS X
+if has("unix")
+	let s:uname = system("uname")
+	if s:uname == "Darwin\n"
+		nmap <F2> :.w !pbcopy<CR><CR>
+		vmap <F2> :w !pbcopy<CR><CR>
+		nmap <F3> :se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
+		imap <F3> <ESC>:se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
+	en
+en
 
 " C, C++ Compile & Excute
 au FileType c,cpp map <F5> :w<CR>:make %<CR>
