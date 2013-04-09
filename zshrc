@@ -38,6 +38,9 @@ plugins=(git gem command-not-found)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	PATH=/usr/local/bin:$PATH
+fi
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias ..="cd .."
