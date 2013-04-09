@@ -38,7 +38,6 @@ plugins=(git gem command-not-found)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias ..="cd .."
