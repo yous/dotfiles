@@ -27,6 +27,8 @@ if has("gui_running") || has("unix")
 	Bundle 'tpope/vim-surround'
 	" Much simpler way to use some motions
 	Bundle 'Lokaltog/vim-easymotion'
+	" Vim sugar for the UNIX shell commands
+	Bundle 'tpope/vim-eunuch'
 	" Switch between source files and header files
 	Bundle 'a.vim'
 	" Compile errors
