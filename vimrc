@@ -295,7 +295,9 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 " Fugitive
 au FileType gitcommit DiffGitCached | winc L | winc p |
-			\ cal append(line("."), "") | start " wincmd startinsert
+			\ if byte2line(2) == 2 |
+			\ 	cal append(line("."), "") | start |
+			\ en " wincmd startindent
 
 " LaTeX-Suite-aka-Vim-LaTeX
 let g:tex_flavor='latex'
