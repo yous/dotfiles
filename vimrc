@@ -281,6 +281,9 @@ com -nargs=* Shsp ConqueTermSplit <args>
 com -nargs=* Shtab ConqueTermTab <args>
 com -nargs=* Shvs ConqueTermVSplit <args>
 
+" EasyMotion
+let g:EasyMotion_leader_key = '<Leader>'
+
 " LaTeX-Suite-aka-Vim-LaTeX
 let g:tex_flavor='latex'
 if has("win32")
