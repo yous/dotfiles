@@ -159,6 +159,16 @@ se spr " splitright
 se title
 se t_Co=256
 
+" Highlight trailing whitespace
+" highlight
+hi ExtraWhitespace ctermbg=red guibg=red
+au BufWinEnter * mat ExtraWhitespace /\s\+$/
+au InsertEnter * mat ExtraWhitespace //
+au InsertLeave * mat ExtraWhitespace /\s\+$/
+if version >= 702
+	au BufWinLeave * cal clearmatches()
+en
+
 " Text Formatting
 au FileType * setl fo-=c fo-=r fo-=o " setlocal formatoptions # disable automatic comment insertion
 ret " retab
