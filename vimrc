@@ -72,6 +72,7 @@ if has("win32")
 	se dir=.,$TEMP " directory
 	se ssl " shellslash
 en
+au InsertLeave * se nopaste
 se bs=2 " backspace indent,eol,start
 se cb=unnamed " clipboard
 se fencs=ucs-bom,utf-8,cp949,latin1 " fileencodings
