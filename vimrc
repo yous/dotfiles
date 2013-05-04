@@ -183,7 +183,8 @@ map j gj
 map k gk
 map <DOWN> gj
 map <UP> gk
-inoremap {<CR> {<CR>}<ESC>O
+" inoremap
+ino {<CR> {<CR>}<ESC>O
 
 " Center Display After Searching
 " nnoremap
@@ -214,18 +215,19 @@ en
 if has("unix")
 	let s:uname = system("uname")
 	if s:uname == "Darwin\n"
-		nmap <F2> :.w !pbcopy<CR><CR>
-		vmap <F2> :w !pbcopy<CR><CR>
-		nmap <F3> :se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
-		imap <F3> <ESC>:se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
+		" nmap
+		nm <F2> :.w !pbcopy<CR><CR>
+		" vmap
+		vm <F2> :w !pbcopy<CR><CR>
+		nm <F3> :se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
+		" imap
+		im <F3> <ESC>:se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
 	en
 en
 
 " C, C++ Compile & Excute
 au FileType c,cpp map <F5> :w<CR>:make %<CR>
-" autocmd
 au FileType c,cpp im <F5> <ESC>:w<CR>:make %<CR>
-" imap
 au FileType c
 			\ if !filereadable("Makefile") && !filereadable("makefile") |
 			\		setl mp=gcc\ -o\ %< | " makeprg
@@ -300,7 +302,6 @@ en
 se isk+=: " iskeyword
 " Change default mappings for IMAP_Jumpfunc
 if exists('g:Imap_StickyPlaceHolders') && g:Imap_StickyPlaceHolders
-	" vmap
 	vm <C-Space> <Plug>IMAP_JumpForward
 el
 	vm <C-Space> <Plug>IMAP_DeleteAndJumpForward
