@@ -235,11 +235,11 @@ au FileType c,cpp map <F5> :w<CR>:make %<CR>
 au FileType c,cpp im <F5> <ESC>:w<CR>:make %<CR>
 au FileType c
 			\ if !filereadable("Makefile") && !filereadable("makefile") |
-			\		setl mp=gcc\ -o\ %< | " makeprg
+			\ 	setl mp=gcc\ -o\ %< | " makeprg
 			\ en
 au FileType cpp
 			\ if !filereadable("Makefile") && !filereadable("makefile") |
-			\		setl mp=g++\ -o\ %< |
+			\ 	setl mp=g++\ -o\ %< |
 			\ en
 if has("win32")
 	map <F6> :!%<.exe<CR>
