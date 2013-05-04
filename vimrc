@@ -169,7 +169,7 @@ if version >= 702
 	au BufWinLeave * cal clearmatches()
 en
 
-" Text Formatting
+" Text formatting
 au FileType * setl fo-=c fo-=r fo-=o " setlocal formatoptions # disable automatic comment insertion
 ret " retab
 se ai " autoindent
@@ -186,7 +186,7 @@ map <UP> gk
 " inoremap
 ino {<CR> {<CR>}<ESC>O
 
-" Center Display After Searching
+" Center display after searching
 " nnoremap
 nn n nzz
 nn N Nzz
@@ -195,7 +195,7 @@ nn # #zz
 nn g* g*zz
 nn g# g#zz
 
-" Splitted Windows
+" Splitted windows
 nn <C-J> <C-W>j
 nn <C-K> <C-W>k
 nn <C-H> <C-W>h
@@ -225,7 +225,7 @@ if has("unix")
 	en
 en
 
-" C, C++ Compile & Excute
+" C, C++ compile & execute
 au FileType c,cpp map <F5> :w<CR>:make %<CR>
 au FileType c,cpp im <F5> <ESC>:w<CR>:make %<CR>
 au FileType c
@@ -244,31 +244,31 @@ elsei has("unix")
 	im <F6> <ESC>:!./%<<CR>
 en
 
-" Ruby Execute
+" Ruby execute
 au FileType ruby map <F5> :w<CR>:!ruby %<CR>
 au FileType ruby im <F5> <ESC>:w<CR>:!ruby %<CR>
 
-" man Page Settings
+" man page settings
 au FileType c,cpp se keywordprg=man
 au FileType ruby se keywordprg=ri
 
-" Gemfile View
+" Gemfile view
 if has("unix")
 	au BufNewFile,BufRead Gemfile se filetype=ruby
 	au BufNewFile,BufRead *.feature se filetype=gherkin
 	au! Syntax gherkin source ~/.vim/syntax/cucumber.vim
 en
 
-" Json View
+" Json view
 au BufNewFile,BufRead *.json se filetype=json
 
-" Markdown View
+" Markdown view
 au BufNewFile,BufRead *.md se filetype=markdown
 
 " ANSI escape for Rails log
 au FileType railslog :AnsiEsc
 
-" mobile.erb View
+" mobile.erb view
 aug rails_subtypes " augroup
 	au!
 	au BufNewFile,BufRead *.mobile.erb let b:eruby_subtype='html'
