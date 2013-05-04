@@ -286,6 +286,10 @@ com -nargs=* Shvs ConqueTermVSplit <args>
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
+" Fugitive
+au FileType gitcommit DiffGitCached | winc L | winc p |
+			\ cal append(line("."), "") | start " wincmd startinsert
+
 " LaTeX-Suite-aka-Vim-LaTeX
 let g:tex_flavor='latex'
 if has("win32")
