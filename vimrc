@@ -195,6 +195,11 @@ nn # #zz
 nn g* g*zz
 nn g# g#zz
 
+" Reselect visual block after shifting
+" vnoremap
+vn < <gv
+vn > >gv
+
 " Splitted windows
 nn <C-J> <C-W>j
 nn <C-K> <C-W>k
