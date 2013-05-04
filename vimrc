@@ -30,8 +30,7 @@ if has("gui_running") || has("unix")
 	" Switch between source files and header files
 	Bundle 'a.vim'
 	" Compile errors
-	" Bundle 'scrooloose/syntastic'
-	Bundle 'Syntastic'
+	Bundle 'scrooloose/syntastic'
 	" Git wrapper
 	Bundle 'tpope/vim-fugitive'
 	" Rails
