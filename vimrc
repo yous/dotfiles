@@ -5,11 +5,9 @@ if has("gui_running") || has("unix")
 	se rtp+=~/.vim/bundle/vundle " set runtimepath
 	cal vundle#rc() " call
 	" Let vundle manage Vundle
-	" Vundle
 	Bundle 'vundle'
 	" Colorscheme
 	Bundle 'wombat256.vim'
-	" Bundle 'peaksea'
 	Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 	" 256 colors
 	Bundle 'Lokaltog/vim-powerline'
