@@ -33,6 +33,8 @@ if has("gui_running") || has("unix")
 	Bundle 'a.vim'
 	" Compile errors
 	Bundle 'scrooloose/syntastic'
+	" Racket
+	Bundle 'wlangstroth/vim-racket'
 	" Git wrapper
 	Bundle 'tpope/vim-fugitive'
 	" Rails
