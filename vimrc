@@ -284,6 +284,7 @@ aug END
 let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_ReadUnfocused = 1
+au FileType conque_term hi clear ExtraWhitespace
 " command
 com -nargs=* Sh ConqueTerm <args>
 com -nargs=* Shsp ConqueTermSplit <args>
