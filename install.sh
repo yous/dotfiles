@@ -1,10 +1,22 @@
 #!/bin/bash
 DIR="$( cd $( dirname "$0" ) && pwd )"
-mv ~/.screenrc ~/.screenrc.old
+
+if [ -e "~/.screenrc" ]; then
+	mv ~/.screenrc ~/.screenrc.old
+fi
 ln -s $DIR/screenrc ~/.screenrc
-mv ~/.vim/ftplugin ~/.vim/ftplugin.old
+
+if [ -e "~/.vim/ftplugin" ]; then
+	mv ~/.vim/ftplugin ~/.vim/ftplugin.old
+fi
 ln -s $DIR/vimfiles/ftplugin ~/.vim/ftplugin
-mv ~/.vimrc ~/.vimrc.old
+
+if [ -e "~/.vimrc" ]; then
+	mv ~/.vimrc ~/.vimrc.old
+fi
 ln -s $DIR/vimrc ~/.vimrc
-mv ~/.zshrc ~/.zshrc.old
+
+if [ -e "~/.zshrc" ]; then
+	mv ~/.zshrc ~/.zshrc.old
+fi
 ln -s $DIR/zshrc ~/.zshrc
