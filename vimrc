@@ -268,7 +268,7 @@ if has("unix")
 en
 
 " Json view
-au BufNewFile,BufRead *.json se ft=json
+au BufNewFile,BufRead *.json se ft=javascript
 
 " Markdown view
 au BufNewFile,BufRead *.md se ft=markdown
