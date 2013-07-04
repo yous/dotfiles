@@ -34,6 +34,8 @@ if has("gui_running") || has("unix")
 	Bundle 'a.vim'
 	" Compile errors
 	Bundle 'scrooloose/syntastic'
+	" JSON
+	Bundle 'elzr/vim-json'
 	" Racket
 	Bundle 'wlangstroth/vim-racket'
 	" Git wrapper
@@ -268,7 +270,7 @@ if has("unix")
 en
 
 " Json view
-au BufNewFile,BufRead *.json se ft=javascript
+au BufNewFile,BufRead *.json se ft=json
 
 " Markdown view
 au BufNewFile,BufRead *.md se ft=markdown
