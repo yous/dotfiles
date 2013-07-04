@@ -257,8 +257,8 @@ au FileType ruby map <F5> :w<CR>:!ruby %<CR>
 au FileType ruby im <F5> <ESC>:w<CR>:!ruby %<CR>
 
 " man page settings
-au FileType c,cpp se keywordprg=man
-au FileType ruby se keywordprg=ri
+au FileType c,cpp se kp=man " keywordprg
+au FileType ruby se kp=ri
 
 " Gemfile view
 if has("unix")
