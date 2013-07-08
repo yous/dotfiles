@@ -14,7 +14,7 @@ ln -s $DIR/tmux.conf ~/.tmux.conf
 if [ -e "~/.vim/ftplugin" ]; then
 	mv ~/.vim/ftplugin ~/.vim/ftplugin.old
 fi
-ln -s $DIR/vimfiles/ftplugin ~/.vim/ftplugin
+ln -s $DIR/vim/ftplugin ~/.vim/ftplugin
 
 if [ -e "~/.vimrc" ]; then
 	mv ~/.vimrc ~/.vimrc.old
