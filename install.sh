@@ -1,27 +1,16 @@
 #!/bin/bash
 DIR="$( cd $( dirname "$0" ) && pwd )"
 
-if [ -e "~/.screenrc" ]; then
-	mv ~/.screenrc ~/.screenrc.old
-fi
-ln -s $DIR/screenrc ~/.screenrc
+function replace_file() {
+	if [ -h "$HOME/.$1" ]; then
+		rm "$HOME/.$1"
+	elif [ -e "$HOME/.$1" ]; then
+		mv "$HOME/.$1" "$HOME/.$1.old"
+	fi
+	ln -s "$DIR/$1" "$HOME/.$1"
+}
 
-if [ -e "~/.tmux.conf" ]; then
-	mv ~/.tmux.conf ~/.tmux.conf.old
-fi
-ln -s $DIR/tmux.conf ~/.tmux.conf
-
-if [ -e "~/.vim/ftplugin" ]; then
-	mv ~/.vim/ftplugin ~/.vim/ftplugin.old
-fi
-ln -s $DIR/vim/ftplugin ~/.vim/ftplugin
-
-if [ -e "~/.vimrc" ]; then
-	mv ~/.vimrc ~/.vimrc.old
-fi
-ln -s $DIR/vimrc ~/.vimrc
-
-if [ -e "~/.zshrc" ]; then
-	mv ~/.zshrc ~/.zshrc.old
-fi
-ln -s $DIR/zshrc ~/.zshrc
+for FILENAME in "screenrc" "tmux.conf" "vim/ftplugin" "vimrc" "zshrc"
+do
+	replace_file $FILENAME
+done
