@@ -6,6 +6,11 @@ if [ -e "~/.screenrc" ]; then
 fi
 ln -s $DIR/screenrc ~/.screenrc
 
+if [ -e "~/.tmux.conf" ]; then
+	mv ~/.tmux.conf ~/.tmux.conf.old
+fi
+ln -s $DIR/tmux.conf ~/.tmux.conf
+
 if [ -e "~/.vim/ftplugin" ]; then
 	mv ~/.vim/ftplugin ~/.vim/ftplugin.old
 fi
