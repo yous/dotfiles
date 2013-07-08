@@ -54,6 +54,9 @@ en " endif
 filet plugin indent on
 
 " General
+if &shell =~# 'fish$'
+	se sh=sh " shell
+en
 if has("gui_running")
 	colo wombat256mod " colorscheme
 	se enc=utf-8 " encoding
