@@ -307,6 +307,20 @@ au FileType gitcommit |
 			\ if byte2line(2) == 2 |
 			\ 	cal append(line("."), "") | start |
 			\ en " wincmd startindent
+au FileType gitcommit let open_nerdtree=0
+
+" NERD Tree
+let open_nerdtree=1
+if &diff
+	let open_nerdtree=0
+en
+au VimEnter * if (open_nerdtree) |
+			\ 	NERDTree |
+			\ 	winc p |
+			\ en
+au BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') |
+			\ 	q |
+			\ en
 
 " LaTeX-Suite-aka-Vim-LaTeX
 let g:tex_flavor='latex'
