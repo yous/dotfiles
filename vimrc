@@ -24,6 +24,8 @@ if has("gui_running") || has("unix")
 	Bundle 'sukima/xmledit'
 	" neocomplcache
 	Bundle 'Shougo/neocomplcache.vim'
+	" rubycomplete
+	Bundle 'rubycomplete.vim'
 	" Faster HTML code writing
 	Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 	" Easily delete, change and add surroundings in pairs
@@ -309,6 +311,9 @@ au FileType html,markdown setl ofu=htmlcomplete#CompleteTags
 au FileType javascript setl ofu=javascriptcomplete#CompleteJS
 au FileType python setl ofu=pythoncomplete#Complete
 au FileType xml setl ofu=xmlcomplete#CompleteTags
+
+" rubycomplete
+au FileType ruby set ofu=rubycomplete#Complete
 
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
