@@ -303,7 +303,7 @@ com -nargs=* Shvs ConqueTermVSplit <args>
 let g:EasyMotion_leader_key = '<Leader>'
 
 " Fugitive
-au FileType gitcommit DiffGitCached | winc L | winc p |
+au FileType gitcommit |
 			\ if byte2line(2) == 2 |
 			\ 	cal append(line("."), "") | start |
 			\ en " wincmd startindent
