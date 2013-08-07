@@ -15,7 +15,7 @@ if has("gui_running") || has("unix")
 	Bundle 'AnsiEsc.vim'
 	" ConqueTerm
 	" Bundle 'Conque-Shell'
-	Bundle 'yous/Conque-Shell'
+	Bundle 'yous/conque'
 	" Autocomplete if end
 	Bundle 'tpope/vim-endwise'
 	" Extended % matching
