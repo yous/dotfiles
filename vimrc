@@ -22,8 +22,6 @@ if has("gui_running") || has("unix")
 	Bundle 'matchit.zip'
 	" XML % jump, XML > autocomplete
 	Bundle 'sukima/xmledit'
-	" neocomplcache
-	Bundle 'Shougo/neocomplcache.vim'
 	" rubycomplete
 	Bundle 'rubycomplete.vim'
 	" Faster HTML code writing
@@ -302,15 +300,6 @@ com -nargs=* Sh ConqueTerm <args>
 com -nargs=* Shsp ConqueTermSplit <args>
 com -nargs=* Shtab ConqueTermTab <args>
 com -nargs=* Shvs ConqueTermVSplit <args>
-
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-au FileType css setl ofu=csscomplete#CompleteCSS " omnifunc
-au FileType html,markdown setl ofu=htmlcomplete#CompleteTags
-au FileType javascript setl ofu=javascriptcomplete#CompleteJS
-au FileType python setl ofu=pythoncomplete#Complete
-au FileType xml setl ofu=xmlcomplete#CompleteTags
 
 " rubycomplete
 au FileType ruby set ofu=rubycomplete#Complete
