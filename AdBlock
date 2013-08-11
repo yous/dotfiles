@@ -326,6 +326,8 @@ news.chosun.com/dhtm/js/common/ad_news.js
 news.cnbnews.com##div[class^=top_bn]
 news.donga.com##div#__news.donga.com_aq2
 news.donga.com##div#gnb_AD
+news.donga.com##div[class^=aside_AD]
+news.donga.com##div[class^=sub_cont_AD]
 news.hankooki.com##div#DrBox
 news.hankooki.com##div#SponsorLink
 news.hankooki.com##div#TodayPopInfo
