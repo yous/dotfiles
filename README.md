@@ -1,5 +1,3 @@
-# Yous configurations
-
-## Install
+# Install
 
 	./install.sh
