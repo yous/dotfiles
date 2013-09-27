@@ -259,6 +259,10 @@ elsei has("unix")
 	im <F6> <ESC>:!./%<<CR>
 en
 
+" Python execute
+au FileType python map <F5> :w<CR>:!python %<CR>
+au FileType python im <F5> <ESC>:w<CR>:!python %<CR>
+
 " Ruby execute
 au FileType ruby map <F5> :w<CR>:!ruby %<CR>
 au FileType ruby im <F5> <ESC>:w<CR>:!ruby %<CR>
