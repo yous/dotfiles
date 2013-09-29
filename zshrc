@@ -39,7 +39,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	PATH=/usr/local/bin:$PATH
+	PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
