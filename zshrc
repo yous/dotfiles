@@ -52,6 +52,5 @@ tmux() {
 	fi
 }
 
-alias ..="cd .."
 alias v="vim"
 alias vi="vim"
