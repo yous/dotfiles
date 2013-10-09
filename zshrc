@@ -44,6 +44,14 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+tmux() {
+	if [[ $1 == a* ]]; then
+		command tmux ${@:1:${#}-1} -t ${@:${#}}
+	else
+		command tmux $*
+	fi
+}
+
 alias ..="cd .."
 alias v="vim"
 alias vi="vim"
