@@ -1,6 +1,6 @@
 # Requirements
 
-[Vundle][]
+* [Vundle][]
 
 # Install
 
