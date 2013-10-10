@@ -1,7 +1,9 @@
 # Requirements
 
+* [oh-my-zsh][]
 * [Vundle][]
 
+[oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh
 [Vundle]: https://github.com/gmarik/vundle
 
 # Install
