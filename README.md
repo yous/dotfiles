@@ -10,3 +10,7 @@
 
 	$ ./install.sh
 	$ git config --global core.excludesfile ~/.gitignore
+
+In Vim,
+
+	:BundleInstall
