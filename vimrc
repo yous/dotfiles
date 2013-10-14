@@ -94,7 +94,7 @@ se nocp " nocompatible
 se noet " noexpandtab
 se scs " smartcase
 se wmnu " wildmenu
-syntax on
+sy on " syntax
 
 " Vim UI
 if has("gui_running")
