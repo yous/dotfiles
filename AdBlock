@@ -3,7 +3,7 @@
 ##div#adya_area
 ##div#div_ad
 ##div#uniqubeFirstDiv
-##div[class$=_ad]
+~login.daum.net##div[class$=_ad]
 ##div[class$=_AD]
 ##div[class$=_ads]
 ##div[class^=ad_]
@@ -273,6 +273,7 @@ lightad.co.kr/Lightcoms/
 lightasp.dmcmedia.co.kr/adixs/
 live.joinsmsn.com##div.article_msn_ad
 live.joinsmsn.com##div.shopping_v2
+login.daum.net##div.login_ad
 maxmovie.com/banner/img/lotte630x88.jpg
 mbn.mk.co.kr##div#adZone_banner
 mbn.mk.co.kr##div#topAD
