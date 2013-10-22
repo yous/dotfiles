@@ -46,6 +46,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if [[ "$TMUX" != "" ]]; then
 	rvm use default
+	cd ..;1
 fi
 
 tmux() {
