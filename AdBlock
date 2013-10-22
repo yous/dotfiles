@@ -420,6 +420,8 @@ nocutnews.co.kr##p.ad_google
 nocutnews.co.kr/banner/2012/ad_right_*.asp
 npian.com/nbox/ad*.swf
 nson.encock.com/media/
+ohmynews.com##div[class^=promotion_area]
+ohmynews.com##ul.ad_area
 ojsimg.ohmynews.com/*_ad_rolling.htm
 op.mmnneo.com/banner.widget.asp
 op.neoad.co.kr/adsearch*
