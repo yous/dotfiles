@@ -91,7 +91,6 @@ se ic " ignorecase # for smartcase
 se is " incsearch
 se nobk " nobackup
 se nocp " nocompatible
-se noet " noexpandtab
 se scs " smartcase
 se wmnu " wildmenu
 sy on " syntax
@@ -181,8 +180,8 @@ en
 
 " Text formatting
 au FileType * setl fo-=c fo-=r fo-=o " setlocal formatoptions # disable automatic comment insertion
-ret " retab
 se ai " autoindent
+se et " expandtab
 se si " smartindent
 se sts=2 " softtabstop
 se sw=2 " shiftwidth
