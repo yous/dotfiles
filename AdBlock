@@ -3,6 +3,7 @@
 ##div#adya_area
 ##div#div_ad
 ##div#uniqubeFirstDiv
+##div.ad-box
 ~login.daum.net##div[class$=_ad]
 ##div[class$=_AD]
 ##div[class$=_ads]
@@ -54,9 +55,11 @@ ad.openmatch.co.kr/
 ad.osen.co.kr/
 ad.pickple.net/
 ad.reople.co.kr/
+ad.turn.com/server/ads.js
 ad.wowtv.co.kr
 ad.yieldmanager.com/
 ad.yieldmanager.com/st
+ad-cdn.technoratimedia.com/
 ad1.sportschosun.com/
 ad2.thisisgame.com/
 adcreative.hani.naver.net/ad
