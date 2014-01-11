@@ -42,6 +42,8 @@ if has("gui_running") || has("unix")
 	Bundle 'a.vim'
 	" Compile errors
 	Bundle 'scrooloose/syntastic'
+	" Markdown
+	Bundle 'plasticboy/vim-markdown'
 	" JSON
 	Bundle 'elzr/vim-json'
 	" Racket
