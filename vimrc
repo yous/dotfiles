@@ -26,6 +26,8 @@ if has("gui_running") || has("unix")
 	Bundle 'php.vim-html-enhanced'
 	" XML
 	Bundle 'othree/xml.vim'
+	" auto-close
+	Bundle 'Townk/vim-autoclose'
 	" rubycomplete
 	Bundle 'rubycomplete.vim'
 	" Faster HTML code writing
