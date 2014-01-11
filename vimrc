@@ -298,7 +298,7 @@ au FileType railslog :AnsiEsc
 " mobile.erb view
 aug rails_subtypes " augroup
 	au!
-	au BufNewFile,BufRead *.mobile.erb let b:eruby_subtype='html'
+	au BufNewFile,BufRead *.mobile.erb let b:eruby_subtype = 'html'
 	au BufNewFile,BufRead *.mobile.erb se ft=eruby
 aug END
 
@@ -327,12 +327,12 @@ au FileType gitcommit |
 			\ if byte2line(2) == 2 |
 			\ 	start |
 			\ en " startinsert
-au FileType gitcommit let open_nerdtree=0
+au FileType gitcommit let open_nerdtree = 0
 
 " NERD Tree
-let open_nerdtree=1
+let open_nerdtree = 1
 if &diff
-	let open_nerdtree=0
+	let open_nerdtree = 0
 en
 au VimEnter * if (open_nerdtree) |
 			\ 	NERDTree |
@@ -343,7 +343,7 @@ au BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType 
 			\ en
 
 " LaTeX-Suite-aka-Vim-LaTeX
-let g:tex_flavor='latex'
+let g:tex_flavor = 'latex'
 if has("win32")
 	se gp=findstr\ /n\ /s " grepprg
 elsei has("unix")
