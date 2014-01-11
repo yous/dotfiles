@@ -20,8 +20,12 @@ if has("gui_running") || has("unix")
 	Bundle 'tpope/vim-endwise'
 	" Extended % matching
 	Bundle 'matchit.zip'
-	" XML % jump, XML > autocomplete
-	Bundle 'sukima/xmledit'
+	" HTML5
+	Bundle 'othree/html5.vim'
+	" PHP
+	Bundle 'php.vim-html-enhanced'
+	" XML
+	Bundle 'othree/xml.vim'
 	" rubycomplete
 	Bundle 'rubycomplete.vim'
 	" Faster HTML code writing
