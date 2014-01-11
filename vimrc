@@ -9,8 +9,8 @@ if has("gui_running") || has("unix")
 	" Colorscheme
 	Bundle 'wombat256.vim'
 	Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-	" 256 colors
-	Bundle 'Lokaltog/vim-powerline'
+	" Status, tabline
+	Bundle 'bling/vim-airline'
 	" ANSI escape
 	Bundle 'AnsiEsc.vim'
 	" ConqueTerm
