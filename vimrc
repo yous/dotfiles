@@ -322,8 +322,8 @@ let g:EasyMotion_leader_key = '<Leader>'
 " Fugitive
 au FileType gitcommit |
 			\ if byte2line(2) == 2 |
-			\ 	cal append(line("."), "") | start |
-			\ en " wincmd startindent
+			\ 	start |
+			\ en " startinsert
 au FileType gitcommit let open_nerdtree=0
 
 " NERD Tree
