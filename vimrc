@@ -319,6 +319,9 @@ au FileType ruby set ofu=rubycomplete#Complete
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
+" Markdown Vim Mode
+let g:vim_markdown_folding_disabled = 1
+
 " Fugitive
 au FileType gitcommit |
 			\ if byte2line(2) == 2 |
