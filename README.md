@@ -8,9 +8,9 @@
 
 # Install
 
-	$ ./install.sh
-	$ git config --global core.excludesfile ~/.gitignore
+    $ ./install.sh
+    $ git config --global core.excludesfile ~/.gitignore
 
 In Vim,
 
-	:BundleInstall
+    :BundleInstall

@@ -39,25 +39,27 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	PATH=/usr/local/bin:/usr/local/sbin:$PATH
+  PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if [[ "$TMUX" != "" ]]; then
-	rvm use default
-	cd ..;1
+  rvm use default
+  cd ..;1
 fi
 
-tmux() {
-	if [[ $1 == a* ]]; then
-		command tmux ${@:1:${#}-1} -t ${@:${#}}
-	else
-		command tmux $*
-	fi
+tmux()
+{
+  if [[ $1 == a* ]]; then
+    command tmux ${@:1:${#}-1} -t ${@:${#}}
+  else
+    command tmux $*
+  fi
 }
 
-irb() {
+irb()
+{
   if [[ -a Gemfile ]]; then
     bundle exec irb $*
   else
@@ -65,7 +67,8 @@ irb() {
   fi
 }
 
-rake() {
+rake()
+{
   if [[ -a Gemfile ]]; then
     bundle exec rake $*
   else
@@ -73,7 +76,8 @@ rake() {
   fi
 }
 
-ruby() {
+ruby()
+{
   if [[ -a Gemfile ]]; then
     bundle exec ruby $*
   else
