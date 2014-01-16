@@ -29,7 +29,9 @@ if has('gui_running') || has('unix')
   " auto-close
   Bundle 'Townk/vim-autoclose'
   " rubycomplete
-  Bundle 'rubycomplete.vim'
+  if has('ruby')
+    Bundle 'rubycomplete.vim'
+  en
   " Faster HTML code writing
   Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
   " Easily delete, change and add surroundings in pairs
