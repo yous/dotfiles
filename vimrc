@@ -326,10 +326,6 @@ let g:EasyMotion_leader_key = '<Leader>'
 let g:vim_markdown_folding_disabled = 1
 
 " Fugitive
-au FileType gitcommit |
-      \ if byte2line(2) == 2 |
-      \   start |
-      \ en " startinsert
 au FileType gitcommit let s:open_nerdtree = 0
 au FileType gitrebase let s:open_nerdtree = 0
 
