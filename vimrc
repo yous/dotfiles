@@ -330,14 +330,15 @@ au FileType gitcommit |
       \ if byte2line(2) == 2 |
       \   start |
       \ en " startinsert
-au FileType gitcommit let open_nerdtree = 0
+au FileType gitcommit let s:open_nerdtree = 0
+au FileType gitrebase let s:open_nerdtree = 0
 
 " NERD Tree
-let open_nerdtree = 1
+let s:open_nerdtree = 1
 if &diff
-  let open_nerdtree = 0
+  let s:open_nerdtree = 0
 en
-au VimEnter * if (open_nerdtree) |
+au VimEnter * if (s:open_nerdtree) |
       \   NERDTree |
       \   winc p |
       \ en
