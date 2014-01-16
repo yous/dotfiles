@@ -1,5 +1,5 @@
 " Vundle
-if has("gui_running") || has("unix")
+if has('gui_running') || has('unix')
   au FileType vundle setl nossl " autocmd setlocal noshellslash
   filet off " filetype
   se rtp+=~/.vim/bundle/vundle " set runtimepath
@@ -67,7 +67,7 @@ filet plugin indent on
 if &shell =~# 'fish$'
   se sh=sh " shell
 en
-if has("gui_running")
+if has('gui_running')
   colo wombat256mod " colorscheme
   se enc=utf-8 " encoding
   se go-=m " guioptions Menu bar
@@ -78,10 +78,10 @@ if has("gui_running")
   so $VIMRUNTIME/delmenu.vim " source
   se lm=ko.UTF-8 " langmenu
   so $VIMRUNTIME/menu.vim
-elsei has("unix") " elseif
+elsei has('unix') " elseif
   colo Tomorrow-Night-Eighties
 en
-if has("win32")
+if has('win32')
   au InsertEnter * se noimd " noimdisable
   au InsertLeave * se imd " imdisable
   au FocusGained * se imd
@@ -104,15 +104,15 @@ se wmnu " wildmenu
 sy on " syntax
 
 " Vim UI
-if has("gui_running")
+if has('gui_running')
   se gfn=DejaVu\ Sans\ Mono:h10:cANSI " guifont
-  if has("win32")
+  if has('win32')
     se gfw=DotumChe:h10:cDEFAULT " guifontwide
   en
   fu! ScreenFilename() " function
-    if has("amiga")
-      retu "s:.vimsize" " return
-    elsei has("win32")
+    if has('amiga')
+      retu 's:.vimsize' " return
+    elsei has('win32')
       retu $HOME.'\_vimsize'
     el " else
       retu $HOME.'/.vimsize'
@@ -123,7 +123,7 @@ if has("gui_running")
     " from values stored in vimsize file.
     " Must set font first so columns and lines are based on font size.
     let f = ScreenFilename()
-    if has("gui_running") && g:screen_size_restore_pos && filereadable(f)
+    if has('gui_running') && g:screen_size_restore_pos && filereadable(f)
       let vim_instance = (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
       for line in readfile(f)
         let sizepos = split(line)
@@ -138,7 +138,7 @@ if has("gui_running")
   endf
   fu! ScreenSave()
     " Save window size and position.
-    if has("gui_running") && g:screen_size_restore_pos
+    if has('gui_running') && g:screen_size_restore_pos
       let vim_instance = (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
       let data = vim_instance.' '.&columns.' '.&lines.' '.
             \ (getwinposx() < 0 ? 0: getwinposx()).' '.
@@ -154,10 +154,10 @@ if has("gui_running")
       cal writefile(lines, f)
     en
   endf
-  if !exists("g:screen_size_restore_pos")
+  if !exists('g:screen_size_restore_pos')
     let g:screen_size_restore_pos = 1
   en
-  if !exists("g:screen_size_by_vim_instance")
+  if !exists('g:screen_size_by_vim_instance')
     let g:screen_size_by_vim_instance = 1
   en
   au VimEnter * if g:screen_size_restore_pos == 1 | cal ScreenRestore() | en
@@ -226,17 +226,17 @@ nn <C-L> <C-W>l
 
 " Tab
 map <C-T> :tabnew<CR>
-if has("win32")
+if has('win32')
   map <C-TAB> :tabnext<CR>
   map <C-S-TAB> :tabprevious<CR>
-elsei has("unix")
+elsei has('unix')
   map t :tabnext<CR>
   map T :tabprevious<CR>
 en
 
 " Global copy and paste for Mac OS X
-if has("unix")
-  let s:uname = system("uname")
+if has('unix')
+  let s:uname = system('uname')
   if s:uname == "Darwin\n"
     " nmap
     nm <F2> :.w !pbcopy<CR><CR>
@@ -252,17 +252,17 @@ en
 au FileType c,cpp map <F5> :w<CR>:make %<CR>
 au FileType c,cpp im <F5> <ESC>:w<CR>:make %<CR>
 au FileType c
-      \ if !filereadable("Makefile") && !filereadable("makefile") |
+      \ if !filereadable('Makefile') && !filereadable('makefile') |
       \   setl mp=gcc\ -o\ %< | " makeprg
       \ en
 au FileType cpp
-      \ if !filereadable("Makefile") && !filereadable("makefile") |
+      \ if !filereadable('Makefile') && !filereadable('makefile') |
       \   setl mp=g++\ -o\ %< |
       \ en
-if has("win32")
+if has('win32')
   map <F6> :!%<.exe<CR>
   im <F6> <ESC>:!%<.exe<CR>
-elsei has("unix")
+elsei has('unix')
   map <F6> :!./%<<CR>
   im <F6> <ESC>:!./%<<CR>
 en
@@ -280,7 +280,7 @@ au FileType c,cpp se kp=man " keywordprg
 au FileType ruby se kp=ri
 
 " Gemfile view
-if has("unix")
+if has('unix')
   au BufNewFile,BufRead Gemfile se ft=ruby " filetype
   au BufNewFile,BufRead *.feature se ft=gherkin
   au! Syntax gherkin source ~/.vim/syntax/cucumber.vim
@@ -344,9 +344,9 @@ au BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType 
 
 " LaTeX-Suite-aka-Vim-LaTeX
 let g:tex_flavor = 'latex'
-if has("win32")
+if has('win32')
   se gp=findstr\ /n\ /s " grepprg
-elsei has("unix")
+elsei has('unix')
   se gp=grep\ -nH\ $*
 en
 se isk+=: " iskeyword
