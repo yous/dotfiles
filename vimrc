@@ -190,8 +190,7 @@ en
 
 " Text formatting
 au FileType * setl fo-=c fo-=r fo-=o " setlocal formatoptions # disable automatic comment insertion
-au FileType java setl sts=4 sw=4 ts=4
-au FileType python setl sts=4 sw=4 ts=4
+au FileType java,markdown,python setl sts=4 sw=4 ts=4
 se ai " autoindent
 se et " expandtab
 se si " smartindent
