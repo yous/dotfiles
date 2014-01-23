@@ -181,6 +181,7 @@ se t_Co=256
 " Highlight trailing whitespace
 " highlight
 hi ExtraWhitespace ctermbg=red guibg=red
+" match
 au BufWinEnter * mat ExtraWhitespace /\s\+$/
 au InsertEnter * mat ExtraWhitespace //
 au InsertLeave * mat ExtraWhitespace /\s\+$/
