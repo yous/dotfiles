@@ -11,7 +11,7 @@ function replace_file()
   ln -s "$DIR/$1" "$HOME/.$1"
 }
 
-for FILENAME in "gitignore" "irbrc" "screenrc" "tmux.conf" "vimrc" "zshrc"
+for FILENAME in "gitignore" "irbrc" "oh-my-zsh" "screenrc" "tmux.conf" "vimrc" "zshrc"
 do
   replace_file $FILENAME
 done
