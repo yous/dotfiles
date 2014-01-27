@@ -8,6 +8,7 @@
 
     $ ./install.sh
     $ git config --global core.excludesfile ~/.gitignore
+    $ gem install what_methods wirble
     $ chsh -s /bin/zsh
 
 In Vim,
