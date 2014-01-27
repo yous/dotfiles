@@ -226,8 +226,6 @@ hankyung.com##div[class^=viewRight_AD]
 hankyung.com##iframe.viewTopAD
 hankyung.com##iframe[class^=viewRight_AD]
 healthmedi.net##div.imagead-taskbar-anchor
-http://pubads.g.doubleclick.net/
-http://sndkorea.nowcdn.co.kr/media/
 humor.hani.co.kr/common/banner.html
 iicdn.com/www/delivery/afr.php
 imaeil.com/image/banner/ad*.swf
@@ -433,6 +431,7 @@ outbanner.hu.co.kr/@files/human_banner/
 p.lumieyes.com/
 pagead2.googlesyndication.com/pagead/
 plugin.2beon.co.kr/
+pubads.g.doubleclick.net/
 pv.ntomap.com/bin/imp
 pv.tag.ntomap.com/bin/query
 qcma.qrobo.com/QCMA/common/
@@ -466,6 +465,7 @@ sgate.opap.co.kr/view/
 shop.nate.com/shopbox/news.htm
 shoppingbox.joinsmsn.com/
 sndkorea.nowcdn.co.kr/emart/
+sndkorea.nowcdn.co.kr/media/
 sndkorea.nowcdn.co.kr/xml/
 sosa.semanticrep.com/soea/
 sports.chosun.com##div.f_ad3
