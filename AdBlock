@@ -475,6 +475,9 @@ seoul.co.kr##iframe#iwm_expand_iframe
 seoul.co.kr##table#googleAdTable
 seoul.co.kr/ad/
 sgate.opap.co.kr/view/
+shindanmaker.com##div[id^=div-gpt-ad-]
+shindanmaker.com##div[id^=google_ads_iframe_]
+shindanmaker.com##iframe[id^=google_ads_iframe_]
 shop.nate.com/shopbox/news.htm
 shoppingbox.joinsmsn.com/
 sndkorea.nowcdn.co.kr/emart/
