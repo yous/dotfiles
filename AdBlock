@@ -226,8 +226,11 @@ hankyung.com##div.ad_area
 hankyung.com##div.adinfo
 hankyung.com##div.bizlink
 hankyung.com##div.brandPr
+hankyung.com##div.r_adinfo
+hankyung.com##div.r_adinfo_img
 hankyung.com##div.shoppingBox
 hankyung.com##div.todayProduct
+hankyung.com##div[class^=r_adfrm]
 hankyung.com##div[class^=viewRight_AD]
 hankyung.com##iframe.viewTopAD
 hankyung.com##iframe[class^=viewRight_AD]
@@ -596,5 +599,6 @@ zdnet.co.kr##div.sub_cont_ad_iframe_area_a
 zdnet.co.kr##div.s_r_adbr
 zdnet.co.kr##div.s_r_down_bn
 zdnet.co.kr##div.s_zdnet_sponsor
+zdnet.co.kr##table#tbFadeIn
 zdnet.co.kr/ads/
 zdnet.co.kr/pixel2/pixel_top.htm
