@@ -80,6 +80,7 @@ adneo.encock.com/media/
 ads.gamemeca.com/
 ads.mncmedia.co.kr/
 ads.tlvmedia.com/
+ads.yahoo.com/
 ads1.playforum.net:8080/
 ads3.adinc.co.kr/
 adserver.sbtrustmedia.com/
@@ -123,6 +124,7 @@ bohumlife.edaily.co.kr/iframe_starin.html
 cad.donga.com/netBanners/
 cadvv.heraldm.com/hb/imad/
 castbox.shopping.naver.com/index.nhn
+cdn.c-team.jp/tags/dokojs/ad*.js
 cdn03.sndkorea.co.kr/
 cdn04.sndkorea.co.kr/
 celeb.nann.co.kr/
@@ -541,6 +543,8 @@ tvdaily.mk.co.kr##div[id="joinskmbox"]>table
 tvdaily.mk.co.kr/ad/
 tvdaily.mk.co.kr/include/flash.php
 tvreport.co.kr##div.advertise_02
+twilog.org##div#ad-side-bottom
+twilog.org##div#ad-text
 ucc.blognawa.com##div#real_pop_bnr_floating
 unionpress.co.kr##div.ad_contents_box
 unionpress.co.kr##div.add
