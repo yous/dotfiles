@@ -16,6 +16,8 @@ if has('gui_running') || has('unix')
   " ConqueTerm
   " Bundle 'Conque-Shell'
   Bundle 'yous/conque'
+  " Preserve missing EOL at the end of text files
+  Bundle 'PreserveNoEOL'
   " Autocomplete if end
   Bundle 'tpope/vim-endwise'
   " Extended % matching
@@ -315,6 +317,9 @@ com -nargs=* Sh ConqueTerm <args>
 com -nargs=* Shsp ConqueTermSplit <args>
 com -nargs=* Shtab ConqueTermTab <args>
 com -nargs=* Shvs ConqueTermVSplit <args>
+
+" PreserveNoEOL
+let g:PreserveNoEOL = 1
 
 " rubycomplete
 au FileType ruby set ofu=rubycomplete#Complete
