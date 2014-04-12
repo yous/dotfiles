@@ -73,6 +73,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export rvmsudo_secure_path=1
 
 if [[ "$TMUX" != "" ]]; then
   rvm use default
