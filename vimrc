@@ -179,6 +179,11 @@ se so=3 " scrolloff
 se spr " splitright
 se title
 se t_Co=256
+if exists('+colorcolumn')
+  se cc=80 " colorcolumn
+el
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+en
 
 " Highlight trailing whitespace
 " highlight
