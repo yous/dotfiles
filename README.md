@@ -4,23 +4,44 @@ Configuration files for [@yous](https://github.com/yous)
 
 ## Requirements
 
+* [Git][]
 * [Vundle][]
 
+[Git]: http://git-scm.com
 [Vundle]: https://github.com/gmarik/vundle
 
 ## Install
 
-``` sh
-$ ./install.sh
-$ git submodule init
-$ git submodule update
-$ git config --global core.excludesfile ~/.gitignore
-$ gem install what_methods wirble
-$ chsh -s /bin/zsh
-```
+1. Clone this repository:
 
-In Vim,
+    ``` sh
+    $ git clone git@github.com:yous/config.git
+    $ cd config
+    $ git submodule init
+    $ git submodule update
+    ```
 
-```
-:BundleInstall
-```
+2. Copy configuration files to home directory:
+
+    ``` sh
+    $ ./install.sh
+    $ git config --global core.excludesfile ~/.gitignore
+    ```
+
+3. Install dependencies:
+
+    ``` sh
+    $ gem install what_methods wirble
+    ```
+
+    In Vim,
+
+    ```
+    :BundleInstall
+    ```
+
+    To use zsh as default shell,
+
+    ``` sh
+    $ chsh -s /bin/zsh
+    ```
