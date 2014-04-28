@@ -4,14 +4,22 @@ DIR="$( cd $( dirname "$0" ) && pwd )"
 function replace_file()
 {
   if [ -h "$HOME/.$1" ]; then
-    rm "$HOME/.$1"
-    ln -s "$DIR/$1" "$HOME/.$1"
-    echo "Updated ~/.$1"
+    if rm "$HOME/.$1" && ln -s "$DIR/$1" "$HOME/.$1"; then
+      echo "Updated ~/.$1"
+    else
+      echo "Failed to update ~/.$1"
+    fi
   elif [ -e "$HOME/.$1" ]; then
-    mv "$HOME/.$1" "$HOME/.$1.old"
-    echo "Renamed ~/.$1 to ~/.$1.old"
-    ln -s "$DIR/$1" "$HOME/.$1"
-    echo "Created ~/.$1"
+    if mv "$HOME/.$1" "$HOME/.$1.old"; then
+      echo "Renamed ~/.$1 to ~/.$1.old"
+      if ln -s "$DIR/$1" "$HOME/.$1"; then
+        echo "Created ~/.$1"
+      else
+        echo "Failed to create ~/.$1"
+      fi
+    else
+      echo "Failed to rename ~/.$1 to ~/.$1.old"
+    fi
   fi
 }
 
