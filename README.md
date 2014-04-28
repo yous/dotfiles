@@ -10,13 +10,17 @@ Configuration files for [@yous](https://github.com/yous)
 
 ## Install
 
-    $ ./install.sh
-    $ git submodule init
-    $ git submodule update
-    $ git config --global core.excludesfile ~/.gitignore
-    $ gem install what_methods wirble
-    $ chsh -s /bin/zsh
+``` sh
+$ ./install.sh
+$ git submodule init
+$ git submodule update
+$ git config --global core.excludesfile ~/.gitignore
+$ gem install what_methods wirble
+$ chsh -s /bin/zsh
+```
 
 In Vim,
 
-    :BundleInstall
+```
+:BundleInstall
+```
