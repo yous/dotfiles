@@ -1,10 +1,14 @@
-# Requirements
+# Config
+
+Configuration files for [@yous](https://github.com/yous)
+
+## Requirements
 
 * [Vundle][]
 
 [Vundle]: https://github.com/gmarik/vundle
 
-# Install
+## Install
 
     $ ./install.sh
     $ git submodule init
