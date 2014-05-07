@@ -34,14 +34,17 @@ Configuration files for [@yous](https://github.com/yous)
     $ gem install what_methods wirble
     ```
 
-    In Vim,
+    In [Vim][],
 
     ```
     :BundleInstall
     ```
 
-    To use zsh as default shell,
+    To use [Zsh][] as default shell,
 
     ``` sh
     $ chsh -s /bin/zsh
     ```
+
+[Vim]: http://www.vim.org
+[Zsh]: http://www.zsh.org
