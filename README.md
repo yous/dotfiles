@@ -30,6 +30,15 @@ Configuration files for [@yous](https://github.com/yous)
 
 3. Install dependencies:
 
+    If you are using [RVM][],
+
+    ``` sh
+    $ rvm use current@global
+    $ gem install what_methods wirble
+    ```
+
+    Otherwise just install gems:
+
     ``` sh
     $ gem install what_methods wirble
     ```
@@ -46,5 +55,6 @@ Configuration files for [@yous](https://github.com/yous)
     $ chsh -s /bin/zsh
     ```
 
+[RVM]: http://rvm.io
 [Vim]: http://www.vim.org
 [Zsh]: http://www.zsh.org
