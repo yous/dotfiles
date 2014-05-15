@@ -45,6 +45,15 @@ Configuration files for [@yous](https://github.com/yous)
 
         $ chsh -s /bin/zsh
 
+    To use [Tomorrow Theme][] on [iTerm2][]:
+
+    1. Open Preferences... > Profiles > Colors.
+    2. Click 'Load Presets...' and select 'Import...'.
+    3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2`.
+    4. Click 'Load Presets...' again and select one of Tomorrow Theme.
+
 [RVM]: http://rvm.io
 [Vim]: http://www.vim.org
 [Zsh]: http://www.zsh.org
+[Tomorrow Theme]: https://github.com/ChrisKempson/Tomorrow-Theme
+[iTerm2]: http://www.iterm2.com
