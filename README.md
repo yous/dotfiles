@@ -6,8 +6,8 @@ Configuration files for [@yous](https://github.com/yous)
 
 ## Requirements
 
-* [Git][]
-* [Vundle][]
+- [Git][]
+- [Vundle][]
 
 [Git]: http://git-scm.com
 [Vundle]: https://github.com/gmarik/vundle
