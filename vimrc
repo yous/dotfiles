@@ -296,6 +296,9 @@ if has('unix')
   au! Syntax gherkin source ~/.vim/syntax/cucumber.vim
 en
 
+" Gradle view
+au BufNewFile,BufRead *.gradle se ft=groovy
+
 " Json view
 au BufNewFile,BufRead *.json se ft=json
 
