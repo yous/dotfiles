@@ -1,5 +1,7 @@
 # Config
 
+## About
+
 Configuration files for [@yous](https://github.com/yous)
 
 ## Requirements
