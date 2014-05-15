@@ -291,19 +291,19 @@ au FileType ruby se kp=ri
 
 " Gemfile view
 if has('unix')
-  au BufNewFile,BufRead Gemfile se ft=ruby " filetype
-  au BufNewFile,BufRead *.feature se ft=gherkin
+  au BufNewFile,BufRead Gemfile setf ruby " setfiletype
+  au BufNewFile,BufRead *.feature setf gherkin
   au! Syntax gherkin source ~/.vim/syntax/cucumber.vim
 en
 
 " Gradle view
-au BufNewFile,BufRead *.gradle se ft=groovy
+au BufNewFile,BufRead *.gradle setf groovy
 
 " Json view
-au BufNewFile,BufRead *.json se ft=json
+au BufNewFile,BufRead *.json setf json
 
 " Markdown view
-au BufNewFile,BufRead *.md se ft=markdown
+au BufNewFile,BufRead *.md setf markdown
 
 " ANSI escape for Rails log
 au FileType railslog :AnsiEsc
@@ -312,7 +312,7 @@ au FileType railslog :AnsiEsc
 aug rails_subtypes " augroup
   au!
   au BufNewFile,BufRead *.mobile.erb let b:eruby_subtype = 'html'
-  au BufNewFile,BufRead *.mobile.erb se ft=eruby
+  au BufNewFile,BufRead *.mobile.erb setf eruby
 aug END
 
 " ConqueTerm
