@@ -86,6 +86,7 @@ ads1.playforum.net:8080/
 ads3.adinc.co.kr/
 adserver.sbtrustmedia.com/
 adserver.uniqube.tv/
+adtg.widerplanet.com/
 adv.imadrep.co.kr/
 adv.mediaharbor.co.kr/nad/
 adv.mediakeep.co.kr/
@@ -321,6 +322,8 @@ mydaily.co.kr##iframe#adframe
 mydaily.co.kr/news/ad_news*.htm
 myvip.feeldmc.com/code.ems/
 n45.nsmartad.com/imp
+na.mmnneo.com/*neoad*.js
+na.mmnneo.com/banner.widget.asp
 nanumnews.com##body>div:nth-of-type(2)>table:nth-of-type(2)>tbody>tr>td:nth-of-type(4)>table:nth-of-type(2)>tbody>tr>td>table:nth-of-type(2)
 nanumnews.com##body>div:nth-of-type(2)>table:nth-of-type(2)>tbody>tr>td:nth-of-type(4)>table:nth-of-type(2)>tbody>tr>td>table:nth-of-type(3)
 nanumnews.com##body>div:nth-of-type(2)>table:nth-of-type(2)>tbody>tr>td:nth-of-type(4)>table:nth-of-type(2)>tbody>tr>td>table:nth-of-type(4)
@@ -528,6 +531,8 @@ star.mk.co.kr##div#top_ad_area
 starin.edaily.co.kr##div.View_TPAd
 static.joinsmsn.com/common/ui/ad/
 swf.adget.co.kr/ads/
+tab.clickmon.co.kr/ad_img/
+tab2.clickmon.co.kr/pop/*ad*.php
 thisisgame.com##div#divMsnAD
 thisisgame.com##div.ad
 tistory.com##div.ad250
