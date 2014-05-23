@@ -26,32 +26,45 @@ Configuration files for [@yous](https://github.com/yous)
         $ ./install.sh
         $ git config --global core.excludesfile ~/.gitignore
 
-3. Install dependencies:
+### [Ruby][]
 
-    If you are using [RVM][],
+If you are using [RVM][],
 
-        $ rvm use current@global
-        $ gem install what_methods wirble
+``` sh
+$ rvm use current@global
+$ gem install what_methods wirble
+```
 
-    Otherwise just install gems:
+Otherwise just install gems:
 
-        $ gem install what_methods wirble
+``` sh
+$ gem install what_methods wirble
+```
 
-    In [Vim][],
+### [Vim][]
 
-        :BundleInstall
+```
+:BundleInstall
+```
 
-    To use [Zsh][] as default shell,
+### [Zsh][]
 
-        $ chsh -s /bin/zsh
+To use [Zsh][] as default shell,
 
-    To use [Tomorrow Theme][] on [iTerm2][]:
+``` sh
+$ chsh -s /bin/zsh
+```
 
-    1. Open Preferences... > Profiles > Colors.
-    2. Click 'Load Presets...' and select 'Import...'.
-    3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2`.
-    4. Click 'Load Presets...' again and select one of Tomorrow Theme.
+### [iTerm2][]
 
+To use [Tomorrow Theme][] on [iTerm2][]:
+
+1. Open Preferences... > Profiles > Colors.
+2. Click 'Load Presets...' and select 'Import...'.
+3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2`.
+4. Click 'Load Presets...' again and select one of Tomorrow Theme.
+
+[Ruby]: https://www.ruby-lang.org
 [RVM]: http://rvm.io
 [Vim]: http://www.vim.org
 [Zsh]: http://www.zsh.org
