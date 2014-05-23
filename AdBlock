@@ -17,8 +17,10 @@
 ##div[id^=ad_]
 ##div[id^=AD_]
 ##div[id^=ads]
+##div[id^=google_ads_iframe]
 ##div[id^=sbaAbout]
 ##iframe[id^=nad_]
+##ins.adsbygoogle
 */RealMedia/ads/
 */about_*_shopbox.*
 */ad/realclick*.html
@@ -76,6 +78,7 @@ adinc.co.kr/
 adixs-ad.co.kr/code.ems/
 adixs.net/
 adn.adneo.co.kr/
+adn.nsmartad.com/
 adneo.encock.com/media/
 *ads.g.doubleclick.net/pagead/
 ads.gamemeca.com/
@@ -471,6 +474,7 @@ script.keywordlink.co.kr/
 scripts.chitika.net/
 segye.com##div#NewsListSlidingPhoto
 segye.com##div#btm4photos
+segye.com##div#textadbox
 segye.com##div.adon_ad
 segye.com##div.adplus
 segye.com##div.centerHOTlinkre2
@@ -478,6 +482,8 @@ segye.com##div.contentsMiddleTop
 segye.com##div.line_box2
 segye.com##div[class^=ad2]
 segye.com##div[class^=txtad_W]
+segye.com##div[id^=ClickStory_ViewAD]
+segye.com##div[id^=ClickStory_ViewRightAD]
 segye.com/Articles/Components/Ad/
 segye.com/Articles/Components/ad/
 seoul.co.kr##div#HnAModule
@@ -493,6 +499,7 @@ shindanmaker.com##div[id^=google_ads_iframe_]
 shindanmaker.com##iframe[id^=google_ads_iframe_]
 shop.nate.com/shopbox/news.htm
 shoppingbox.joinsmsn.com/
+skyscanner.co.kr##div.mpu-advert
 sndkorea.nowcdn.co.kr/emart/
 sndkorea.nowcdn.co.kr/media/
 sndkorea.nowcdn.co.kr/xml/
