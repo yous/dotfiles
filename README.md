@@ -30,6 +30,9 @@ Configuration files for [@yous](https://github.com/yous)
 
 To use [Tomorrow Theme][] on [iTerm2][]:
 
+[Tomorrow Theme]: https://github.com/ChrisKempson/Tomorrow-Theme
+[iTerm2]: http://www.iterm2.com
+
 1. Open Preferences... > Profiles > Colors.
 2. Click 'Load Presets...' and select 'Import...'.
 3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2`.
@@ -37,7 +40,11 @@ To use [Tomorrow Theme][] on [iTerm2][]:
 
 ### [Ruby][]
 
+[Ruby]: https://www.ruby-lang.org
+
 If you are using [RVM][],
+
+[RVM]: http://rvm.io
 
 ``` sh
 $ rvm use current@global
@@ -52,21 +59,18 @@ $ gem install what_methods wirble
 
 ### [Vim][]
 
+[Vim]: http://www.vim.org
+
 ```
 :BundleInstall
 ```
 
 ### [Zsh][]
 
+[Zsh]: http://www.zsh.org
+
 To use [Zsh][] as default shell,
 
 ``` sh
 $ chsh -s /bin/zsh
 ```
-
-[Ruby]: https://www.ruby-lang.org
-[RVM]: http://rvm.io
-[Vim]: http://www.vim.org
-[Zsh]: http://www.zsh.org
-[Tomorrow Theme]: https://github.com/ChrisKempson/Tomorrow-Theme
-[iTerm2]: http://www.iterm2.com
