@@ -3,6 +3,9 @@
 ##div#adya_area
 ##div#div_ad
 ##div#quick_adon_bizon
+##div#uniqubeAd_area
+##div#uniqubeAd_area_iframe
+##div#uniqubeAd_area_text
 ##div#uniqubeFirstDiv
 ##div.ad-box
 ~login.daum.net##div[class$=_ad]
