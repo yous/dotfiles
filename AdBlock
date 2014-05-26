@@ -74,7 +74,9 @@ ad1.sportschosun.com/
 ad2.thisisgame.com/
 adcreative.hani.naver.net/ad
 adcrm.co.kr/md/
+addc.dcinside.com/NetInsight/
 adexview.neoebiz.co.kr/
+adf.send.microad.jp/
 adget.co.kr/
 adimg.nateimg.co.kr/
 adimg.wisenut.co.kr/common/js/amc/
@@ -117,6 +119,7 @@ artsnews.mk.co.kr##div[id="IDContents"]>div>table
 artsnews.mk.co.kr##div[id="joinskmbox"]>div[class="NEWSCONTENT"]>div:last-of-type
 artsnews.mk.co.kr##iframe#about_asiae_shopbox
 artsnews.mk.co.kr##iframe#ad-fist
+as.dc.impact-ad.jp/
 asiae.co.kr##div#view_adtop
 asiae.co.kr##div.news_view_ad
 asiae.co.kr##div[class^=view_ad]
@@ -158,6 +161,11 @@ dailian.co.kr##iframe[name=adv]
 daum.net##div#adBrandingStation
 daum.net##div#adMain
 daum.net##div#adTimeSponsor
+dcinside.com##div#ad_main_itembay_layer
+dcinside.com##div#ad_main_left_layer
+dcinside.com##div#ad_main_right_layer
+dcinside.com##div#ad_top
+dcinside.com##div#center_ad
 ddanzi.com##div.left_banner
 ddanzi.com##div.right_banner
 deviantart.com##div.squareBrowsead
@@ -220,6 +228,7 @@ fnnews.com/include2011/section/google.jsp
 fs.jtbc.co.kr/common/ui/ad/
 gaihn.co.kr/eventbanner/
 gall.dcinside.com##div#dc_advertisement
+gall.dcinside.com##div#r_adver
 gall.dcinside.com##div[id^=adBookmark]
 gall.dcinside.com##span#FvMainDiv0
 gall.dcinside.com/dc_ad_*_JH.php
@@ -466,6 +475,8 @@ op.neoad.co.kr/adsearch*
 outbanner.hu.co.kr/@files/human_banner/
 p.lumieyes.com/
 pagead2.googlesyndication.com/pagead/
+pixiv.net##div.cool-ad-footer
+pixiv.net##span.multi-ads-area
 plugin.2beon.co.kr/
 pubads.g.doubleclick.net/
 pv.ntomap.com/bin/imp
@@ -502,7 +513,9 @@ seoul.co.kr##iframe#googleAdView
 seoul.co.kr##iframe#iwm_expand_iframe
 seoul.co.kr##table#googleAdTable
 seoul.co.kr/ad/
+serv.ads.pixiv.org/
 sgate.opap.co.kr/view/
+sh.adingo.jp/
 shindanmaker.com##div[id^=div-gpt-ad-]
 shindanmaker.com##div[id^=google_ads_iframe_]
 shindanmaker.com##iframe[id^=google_ads_iframe_]
