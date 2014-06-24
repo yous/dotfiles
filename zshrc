@@ -75,46 +75,9 @@ fi
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export rvmsudo_secure_path=1
 
+[ -e "${HOME}/.zsh_aliases" ] && source "${HOME}/.zsh_aliases"
+
 if [[ "$TMUX" != "" ]]; then
   rvm use default
   cd ..;1
 fi
-
-tmux()
-{
-  if [[ $1 == a* ]]; then
-    command tmux ${@:1:${#}-1} -t ${@:${#}}
-  else
-    command tmux $*
-  fi
-}
-
-irb()
-{
-  if [[ -a Gemfile ]]; then
-    bundle exec irb $*
-  else
-    command irb $*
-  fi
-}
-
-rake()
-{
-  if [[ -a Gemfile ]]; then
-    bundle exec rake $*
-  else
-    command rake $*
-  fi
-}
-
-ruby()
-{
-  if [[ -a Gemfile ]]; then
-    bundle exec ruby $*
-  else
-    command ruby $*
-  fi
-}
-
-alias v="vim"
-alias vi="vim"
