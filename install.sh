@@ -25,6 +25,12 @@ function replace_file()
     else
       echoerr "Failed to rename ~/.$1 to ~/.$1.old"
     fi
+  else
+    if ln -s "$DIR/$1" "$HOME/.$1"; then
+      echo "Created ~/.$1"
+    else
+      echoerr "Failed to create ~/.$1"
+    fi
   fi
 }
 
