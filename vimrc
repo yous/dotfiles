@@ -2,68 +2,69 @@
 if has('gui_running') || has('unix')
   au FileType vundle setl nossl " autocmd setlocal noshellslash
   filet off " filetype
-  se rtp+=~/.vim/bundle/vundle " set runtimepath
-  cal vundle#rc() " call
-  " Let vundle manage Vundle
-  Bundle 'vundle'
+  se rtp+=~/.vim/bundle/Vundle.vim " set runtimepath
+  cal vundle#begin() " call
+  " Let vundle manage itself
+  Plugin 'gmarik/Vundle.vim'
   " Colorscheme
-  Bundle 'wombat256.vim'
-  Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+  Plugin 'wombat256.vim'
+  Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
   " Status, tabline
-  Bundle 'bling/vim-airline'
+  Plugin 'bling/vim-airline'
   " ANSI escape
-  Bundle 'AnsiEsc.vim'
+  Plugin 'AnsiEsc.vim'
   " ConqueTerm
-  " Bundle 'Conque-Shell'
-  Bundle 'yous/conque'
+  " Plugin 'Conque-Shell'
+  Plugin 'yous/conque'
   " Preserve missing EOL at the end of text files
-  Bundle 'PreserveNoEOL'
+  Plugin 'PreserveNoEOL'
   " Autocomplete if end
-  Bundle 'tpope/vim-endwise'
+  Plugin 'tpope/vim-endwise'
   " Extended % matching
-  Bundle 'matchit.zip'
+  Plugin 'matchit.zip'
   " HTML5
-  Bundle 'othree/html5.vim'
+  Plugin 'othree/html5.vim'
   " PHP
-  Bundle 'php.vim-html-enhanced'
+  Plugin 'php.vim-html-enhanced'
   " XML
-  Bundle 'othree/xml.vim'
+  Plugin 'othree/xml.vim'
   " auto-close
-  Bundle 'Townk/vim-autoclose'
+  Plugin 'Townk/vim-autoclose'
   " rubycomplete
   if has('ruby')
-    Bundle 'rubycomplete.vim'
+    Plugin 'rubycomplete.vim'
   en
   " Faster HTML code writing
-  Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
   " Easily delete, change and add surroundings in pairs
-  Bundle 'tpope/vim-surround'
+  Plugin 'tpope/vim-surround'
   " Much simpler way to use some motions
-  Bundle 'Lokaltog/vim-easymotion'
+  Plugin 'Lokaltog/vim-easymotion'
   " Vim sugar for the UNIX shell commands
-  Bundle 'tpope/vim-eunuch'
+  Plugin 'tpope/vim-eunuch'
   " Switch between source files and header files
-  Bundle 'a.vim'
+  Plugin 'a.vim'
   " Compile errors
-  Bundle 'scrooloose/syntastic'
+  Plugin 'scrooloose/syntastic'
   " Markdown
-  Bundle 'plasticboy/vim-markdown'
+  Plugin 'plasticboy/vim-markdown'
   " JSON
-  Bundle 'elzr/vim-json'
+  Plugin 'elzr/vim-json'
   " Racket
-  Bundle 'wlangstroth/vim-racket'
+  Plugin 'wlangstroth/vim-racket'
   " Git wrapper
-  Bundle 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-fugitive'
   " Rails
-  Bundle 'tpope/vim-rails'
+  Plugin 'tpope/vim-rails'
   " Coffee script
-  Bundle 'kchmck/vim-coffee-script'
+  Plugin 'kchmck/vim-coffee-script'
   " Explore filesystem
-  Bundle 'scrooloose/nerdtree'
+  Plugin 'scrooloose/nerdtree'
   " Full path finder
-  Bundle 'kien/ctrlp.vim'
+  Plugin 'kien/ctrlp.vim'
   " LaTeX
-  Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
+  Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+  cal vundle#end()
 en " endif
 filet plugin indent on
 
