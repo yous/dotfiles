@@ -34,5 +34,6 @@ ruby()
   fi
 }
 
+alias sudo='sudo '
 alias v='vim'
 alias vi='vim'
