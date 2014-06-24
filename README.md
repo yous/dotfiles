@@ -10,7 +10,7 @@ Configuration files for [@yous](https://github.com/yous)
 - [Vundle][]
 
 [Git]: http://git-scm.com
-[Vundle]: https://github.com/gmarik/vundle
+[Vundle]: https://github.com/gmarik/Vundle.vim
 
 ## Install
 
@@ -75,7 +75,7 @@ $ gem install what_methods wirble
 [Vim]: http://www.vim.org
 
 ```
-:BundleInstall
+:PluginInstall
 ```
 
 ### [Zsh][]
