@@ -27,7 +27,6 @@ Configuration files for [@yous](https://github.com/yous)
 3. Copy configuration files to home directory:
 
         $ ./install.sh
-        $ git config --global core.excludesfile ~/.gitignore
 
 ### [IntelliJ][] or [Android Studio][]
 
@@ -42,6 +41,14 @@ To use [Tomorrow Theme][]:
 2. Select `tomorrow-theme/Jetbrains/settings.jar`.
 3. Open Settings > Editor > Colors & Fonts.
 4. Select a scheme of Tomorrow Theme.
+
+### [Git][]
+
+To use `.gitignore` as the global gitignore:
+
+``` sh
+$ git config --global core.excludesfile ~/.gitignore
+```
 
 ### [iTerm2][]
 
