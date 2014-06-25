@@ -80,6 +80,20 @@ Otherwise just install gems:
 $ gem install what_methods wirble
 ```
 
+### [Vim][]
+
+[Vim]: http://www.vim.org
+
+To update plugins:
+
+- In [Vim][]:
+
+        :PluginUpdate
+
+- In terminal:
+
+        $ vim +PluginUpdate +qall
+
 ### [Zsh][]
 
 [Zsh]: http://www.zsh.org
@@ -88,4 +102,18 @@ To use [Zsh][] as default shell,
 
 ``` sh
 $ chsh -s /bin/zsh
+```
+
+To update [Antigen][]:
+
+[Antigen]: http://antigen.sharats.me
+
+``` sh
+$ antigen selfupdate
+```
+
+To update [Zsh][] plugins:
+
+``` sh
+$ antigen update
 ```
