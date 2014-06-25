@@ -14,7 +14,7 @@ Configuration files for [@yous](https://github.com/yous)
 
 1. Clone this repository:
 
-        $ git clone git@github.com:yous/config.git
+        $ git clone https://github.com/yous/config.git
         $ cd config
         $ git submodule init
         $ git submodule update
