@@ -7,10 +7,8 @@ Configuration files for [@yous](https://github.com/yous)
 ## Requirements
 
 - [Git][]
-- [Vundle][]
 
 [Git]: http://git-scm.com
-[Vundle]: https://github.com/gmarik/Vundle.vim
 
 ## Install
 
@@ -21,7 +19,12 @@ Configuration files for [@yous](https://github.com/yous)
         $ git submodule init
         $ git submodule update
 
-2. Copy configuration files to home directory:
+2. Install [Vundle.vim][]:
+
+        $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        $ vim +PluginInstall +qall
+
+3. Copy configuration files to home directory:
 
         $ ./install.sh
         $ git config --global core.excludesfile ~/.gitignore
@@ -68,14 +71,6 @@ Otherwise just install gems:
 
 ``` sh
 $ gem install what_methods wirble
-```
-
-### [Vim][]
-
-[Vim]: http://www.vim.org
-
-```
-:PluginInstall
 ```
 
 ### [Zsh][]
