@@ -31,7 +31,7 @@ export rvmsudo_secure_path=1
 # Load aliases
 [ -e "${HOME}/.zsh_aliases" ] && source "${HOME}/.zsh_aliases"
 
-# Use right RVM gemset depending on directory
+# Use right RVM gemset when using tmux
 if [[ "$TMUX" != "" ]]; then
   rvm use default
   cd ..;1
