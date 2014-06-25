@@ -1,5 +1,4 @@
-tmux()
-{
+tmux() {
   if [[ $1 == a* ]]; then
     command tmux ${@:1:${#}-1} -t ${@:${#}}
   else
@@ -7,8 +6,7 @@ tmux()
   fi
 }
 
-irb()
-{
+irb() {
   if [[ -a Gemfile ]]; then
     bundle exec irb $*
   else
@@ -16,8 +14,7 @@ irb()
   fi
 }
 
-rake()
-{
+rake() {
   if [[ -a Gemfile ]]; then
     bundle exec rake $*
   else
@@ -25,8 +22,7 @@ rake()
   fi
 }
 
-ruby()
-{
+ruby() {
   if [[ -a Gemfile ]]; then
     bundle exec ruby $*
   else
