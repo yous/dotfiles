@@ -7,6 +7,7 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle gem
 antigen bundle command-not-found
+antigen bundle tmux
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
