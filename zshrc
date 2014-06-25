@@ -40,9 +40,17 @@ antigen use oh-my-zsh
 
 antigen bundles <<EOBUNDLES
   # Bundles from the default repo (robbyrussell's oh-my-zsh).
-  git
-  gem
+
+  # Guess what to install when running an unknown command.
   command-not-found
+
+  # Autocompletion for gem command.
+  gem
+
+  # Git aliases and completion.
+  git
+
+  # tmux aliases and configurations.
   tmux
 
   # Syntax highlighting bundle.
