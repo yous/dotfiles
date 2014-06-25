@@ -38,14 +38,16 @@ source $HOME/.antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle gem
-antigen bundle command-not-found
-antigen bundle tmux
+antigen bundles <<EOBUNDLES
+  # Bundles from the default repo (robbyrussell's oh-my-zsh).
+  git
+  gem
+  command-not-found
+  tmux
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
+  # Syntax highlighting bundle.
+  zsh-users/zsh-syntax-highlighting
+EOBUNDLES
 
 # Load the theme.
 antigen theme gentoo
