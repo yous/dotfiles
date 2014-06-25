@@ -34,7 +34,7 @@ function replace_file()
   fi
 }
 
-for FILENAME in "gitignore" "irbrc" "oh-my-zsh" "screenrc" "tmux.conf" "vimrc" "zsh_aliases" "zshrc"
+for FILENAME in "antigen" "gitignore" "irbrc" "screenrc" "tmux.conf" "vimrc" "zsh_aliases" "zshrc"
 do
   replace_file $FILENAME
 done
