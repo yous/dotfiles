@@ -1,4 +1,5 @@
 " Vundle
+se nocp " nocompatible
 if has('gui_running') || has('unix')
   au FileType vundle setl nossl " autocmd setlocal noshellslash
   filet off " filetype
@@ -103,7 +104,6 @@ se ffs=mac,unix,dos " fileformats
 se ic " ignorecase # for smartcase
 se is " incsearch
 se nobk " nobackup
-se nocp " nocompatible
 se scs " smartcase
 se wmnu " wildmenu
 sy on " syntax
