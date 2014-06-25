@@ -44,6 +44,9 @@ antigen bundles <<EOBUNDLES
   # Guess what to install when running an unknown command.
   command-not-found
 
+  # Extracts different types of archives
+  extract
+
   # Autocompletion for gem command.
   gem
 
