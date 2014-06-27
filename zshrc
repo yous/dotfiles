@@ -53,6 +53,9 @@ antigen bundles <<EOBUNDLES
   # Git aliases and completion.
   git
 
+  # RVM aliases and completion.
+  rvm
+
   # tmux aliases and configurations.
   tmux
 
