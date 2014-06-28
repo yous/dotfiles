@@ -52,6 +52,14 @@ To use `.gitignore` as the global gitignore:
 $ git config --global core.excludesfile ~/.gitignore
 ```
 
+Set several global configurations:
+
+``` sh
+$ git config --global user.name "Your Name"
+$ git config --global user.email you@example.com
+$ git config --global core.editor $(which vim)
+```
+
 ### [iTerm2][]
 
 To use [Tomorrow Theme][] on [iTerm2][]:
