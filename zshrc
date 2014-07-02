@@ -86,5 +86,5 @@ export rvmsudo_secure_path=1
 # Use right RVM gemset when using tmux
 if [[ "$TMUX" != "" ]]; then
   rvm use default
-  cd ..;1
+  cd ..;cd -
 fi
