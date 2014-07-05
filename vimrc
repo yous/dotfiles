@@ -29,6 +29,8 @@ if has('gui_running') || has('unix')
   Plugin 'php.vim-html-enhanced'
   " XML
   Plugin 'othree/xml.vim'
+  " TomDoc
+  Plugin 'wellbredgrapefruit/tomdoc.vim'
   " auto-close
   Plugin 'Townk/vim-autoclose'
   " rubycomplete
