@@ -13,3 +13,8 @@ $RECYCLE.BIN/
 Session.vim
 .netrwhist
 *~
+
+# Ruby
+.rvmrc
+.ruby-version
+.ruby-gemset
