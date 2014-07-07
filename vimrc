@@ -102,7 +102,7 @@ au InsertLeave * se nopaste
 se bs=2 " backspace indent,eol,start
 se cb=unnamed " clipboard
 se fencs=ucs-bom,utf-8,cp949,latin1 " fileencodings
-se ffs=mac,unix,dos " fileformats
+se ffs=unix,mac,dos " fileformats
 se ic " ignorecase # for smartcase
 se is " incsearch
 se nobk " nobackup
