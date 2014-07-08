@@ -57,7 +57,7 @@ Set several global configurations:
 ``` sh
 $ git config --global user.name "Your Name"
 $ git config --global user.email you@example.com
-$ git config --global core.editor $(which vim)
+$ git config --global core.editor vim
 ```
 
 ### [iTerm2][]
