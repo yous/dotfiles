@@ -41,7 +41,7 @@ for FILENAME in \
   "screenrc" \
   "tmux.conf" \
   "vimrc" \
-  "zsh_aliases" \
+  "zsh" \
   "zshrc"
 do
   replace_file $FILENAME

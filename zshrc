@@ -81,7 +81,7 @@ PATH=$PATH:$HOME/.rvm/bin
 export rvmsudo_secure_path=1
 
 # Load aliases
-[ -e "${HOME}/.zsh_aliases" ] && source "${HOME}/.zsh_aliases"
+[ -e "${HOME}/.zsh/aliases.zsh" ] && source "${HOME}/.zsh/aliases.zsh"
 
 # Use right RVM gemset when using tmux
 if [[ "$TMUX" != "" ]]; then
