@@ -114,6 +114,14 @@ To use [Zsh][] as default shell,
 $ chsh -s /bin/zsh
 ```
 
+If you use custom [Zsh][] like compiled one by [Homebrew][],
+
+[Homebrew]: http://brew.sh
+
+``` sh
+$ chsh -s /usr/local/bin/zsh
+```
+
 To update [Antigen][]:
 
 [Antigen]: http://antigen.sharats.me
