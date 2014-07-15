@@ -1,9 +1,5 @@
 inherit_from: .rubocop_todo.yml
 
-AllCops:
-  Include:
-    - '**/Gemfile'
-
 Style/Encoding:
   Enabled: true
 
