@@ -31,6 +31,8 @@ if has('gui_running') || has('unix')
   Plugin 'othree/xml.vim'
   " TomDoc
   Plugin 'wellbredgrapefruit/tomdoc.vim'
+  " Cucumber
+  Plugin 'tpope/vim-cucumber'
   " auto-close
   Plugin 'Townk/vim-autoclose'
   " rubycomplete
@@ -294,11 +296,7 @@ au FileType c,cpp se kp=man " keywordprg
 au FileType ruby se kp=ri
 
 " Gemfile view
-if has('unix')
-  au BufNewFile,BufRead Gemfile setf ruby " setfiletype
-  au BufNewFile,BufRead *.feature setf gherkin
-  au! Syntax gherkin source ~/.vim/syntax/cucumber.vim
-en
+au BufNewFile,BufRead Gemfile setf ruby " setfiletype
 
 " Gradle view
 au BufNewFile,BufRead *.gradle setf groovy
