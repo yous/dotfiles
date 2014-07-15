@@ -8,12 +8,15 @@ function echoerr()
 
 function replace_file()
 {
+  # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+  # FILE exists and is a symbolic link.
   if [ -h "$HOME/.$1" ]; then
     if rm "$HOME/.$1" && ln -s "$DIR/$1" "$HOME/.$1"; then
       echo "Updated ~/.$1"
     else
       echoerr "Failed to update ~/.$1"
     fi
+  # FILE exists.
   elif [ -e "$HOME/.$1" ]; then
     if mv "$HOME/.$1" "$HOME/.$1.old"; then
       echo "Renamed ~/.$1 to ~/.$1.old"
