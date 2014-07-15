@@ -50,6 +50,7 @@ if has('gui_running') || has('unix')
   " Compile errors
   Plugin 'scrooloose/syntastic'
   " Markdown
+  Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown'
   " JSON
   Plugin 'elzr/vim-json'
