@@ -52,6 +52,12 @@ if [[ "$(type rvm | head -n 1)" == "rvm is a shell function" ]]; then
   fi
 fi
 
+# Load rbenv
+if [ -e "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
 # Load Antigen
 [ -e "${HOME}/.zsh/antigen.zsh" ] && source "${HOME}/.zsh/antigen.zsh"
 
