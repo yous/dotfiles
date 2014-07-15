@@ -8,31 +8,36 @@ function echoerr()
 
 function replace_file()
 {
+  DEST=${2:-.$1}
+
   # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+  # File exists and is a directory.
+  [ ! -d $(dirname "$HOME/$DEST") ] && mkdir -p $(dirname "$HOME/$DEST")
+
   # FILE exists and is a symbolic link.
-  if [ -h "$HOME/.$1" ]; then
-    if rm "$HOME/.$1" && ln -s "$DIR/$1" "$HOME/.$1"; then
-      echo "Updated ~/.$1"
+  if [ -h "$HOME/$DEST" ]; then
+    if rm "$HOME/$DEST" && ln -s "$DIR/$1" "$HOME/$DEST"; then
+      echo "Updated ~/$DEST"
     else
-      echoerr "Failed to update ~/.$1"
+      echoerr "Failed to update ~/$DEST"
     fi
   # FILE exists.
-  elif [ -e "$HOME/.$1" ]; then
-    if mv "$HOME/.$1" "$HOME/.$1.old"; then
-      echo "Renamed ~/.$1 to ~/.$1.old"
-      if ln -s "$DIR/$1" "$HOME/.$1"; then
-        echo "Created ~/.$1"
+  elif [ -e "$HOME/$DEST" ]; then
+    if mv "$HOME/$DEST" "$HOME/$DEST.old"; then
+      echo "Renamed ~/$DEST to ~/$DEST.old"
+      if ln -s "$DIR/$1" "$HOME/$DEST"; then
+        echo "Created ~/$DEST"
       else
-        echoerr "Failed to create ~/.$1"
+        echoerr "Failed to create ~/$DEST"
       fi
     else
-      echoerr "Failed to rename ~/.$1 to ~/.$1.old"
+      echoerr "Failed to rename ~/$DEST to ~/$DEST.old"
     fi
   else
-    if ln -s "$DIR/$1" "$HOME/.$1"; then
-      echo "Created ~/.$1"
+    if ln -s "$DIR/$1" "$HOME/$DEST"; then
+      echo "Created ~/$DEST"
     else
-      echoerr "Failed to create ~/.$1"
+      echoerr "Failed to create ~/$DEST"
     fi
   fi
 }
