@@ -30,6 +30,12 @@ Configuration files for [@yous](https://github.com/yous)
 
         $ ./install.sh
 
+4. If you are using [rbenv][], execute additional script:
+
+[rbenv]: https://github.com/sstephenson/rbenv
+
+        $ ./install.sh --rbenv
+
 ### [IntelliJ][] or [Android Studio][]
 
 [IntelliJ]: http://www.jetbrains.com/idea/

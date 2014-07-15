@@ -37,16 +37,23 @@ function replace_file()
   fi
 }
 
-for FILENAME in \
-  "antigen" \
-  "gitignore" \
-  "irbrc" \
-  "screenrc" \
-  "tmux.conf" \
-  "vimrc" \
-  "zsh" \
-  "zshrc"
-do
-  replace_file $FILENAME
-done
-echo "Done."
+if [ $# -eq 0 ]; then
+  for FILENAME in \
+    "antigen" \
+    "gitignore" \
+    "irbrc" \
+    "screenrc" \
+    "tmux.conf" \
+    "vimrc" \
+    "zsh" \
+    "zshrc"
+  do
+    replace_file $FILENAME
+  done
+  echo "Done."
+elif [ $# -eq 1 ] && [ $1 == "--rbenv" ]; then
+  replace_file "rbenv"
+  echo "Done."
+else
+  echo "Usage: $(basename $0) [--rbenv]"
+fi
