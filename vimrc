@@ -27,6 +27,8 @@ if has('gui_running') || has('unix')
   Plugin 'othree/html5.vim'
   " PHP
   Plugin 'php.vim-html-enhanced'
+  " Jade
+  Plugin 'digitaltoad/vim-jade'
   " XML
   Plugin 'othree/xml.vim'
   " TomDoc
