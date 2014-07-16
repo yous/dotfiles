@@ -66,6 +66,17 @@ $ git config --global user.email you@example.com
 $ git config --global core.editor vim
 ```
 
+If you are using [Keybase][]:
+
+[Keybase]: https://keybase.io
+
+``` sh
+$ git config --global user.signingkey "YOUR KEY"
+$ git config --global commit.gpgsign true
+```
+
+For more information about signing commits, see [A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
+
 ### [iTerm2][]
 
 To use [Tomorrow Theme][] on [iTerm2][]:
