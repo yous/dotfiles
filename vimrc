@@ -297,11 +297,11 @@ au FileType ruby im <F5> <ESC>:w<CR>:!ruby %<CR>
 au FileType c,cpp se kp=man " keywordprg
 au FileType ruby se kp=ri
 
-" Gemfile view
-au BufNewFile,BufRead Gemfile setf ruby " setfiletype
+" Ruby configuration files view
+au BufNewFile,BufRead Gemfile,Guardfile setl ft=ruby " filetype
 
 " Gradle view
-au BufNewFile,BufRead *.gradle setf groovy
+au BufNewFile,BufRead *.gradle setf groovy " setfiletype
 
 " Json view
 au BufNewFile,BufRead *.json setf json
