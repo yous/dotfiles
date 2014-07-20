@@ -53,6 +53,8 @@ if has('gui_running') || has('unix')
   Plugin 'a.vim'
   " Compile errors
   Plugin 'scrooloose/syntastic'
+  " RuboCop
+  Plugin 'ngmy/vim-rubocop'
   " Markdown
   Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown'
