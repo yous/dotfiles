@@ -152,3 +152,9 @@ To update [Zsh][] plugins:
 ``` sh
 $ antigen update
 ```
+
+To make RVM works on Mac OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as [Tim Pope mentioned](https://github.com/tpope/vim-rvm#faq).
+
+``` sh
+sudo mv /etc/zshenv /etc/zshrc
+```
