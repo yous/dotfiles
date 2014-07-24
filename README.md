@@ -36,21 +36,21 @@ Configuration files for [@yous](https://github.com/yous)
 
         $ ./install.sh --rbenv
 
-### [IntelliJ][] or [Android Studio][]
-
-[IntelliJ]: http://www.jetbrains.com/idea/
-[Android Studio]: http://developer.android.com/sdk/installing/studio.html
+### IntelliJ, Android Studio
 
 To use [Tomorrow Theme][]:
 
 [Tomorrow Theme]: https://github.com/ChrisKempson/Tomorrow-Theme
 
-1. Open File > Import Settings....
+1. Open File > Import Settings… in [IntelliJ][] or [Android Studio][].
 2. Select `tomorrow-theme/Jetbrains/settings.jar`.
 3. Open Settings > Editor > Colors & Fonts.
 4. Select a scheme of Tomorrow Theme.
 
-### [Git][]
+[IntelliJ]: http://www.jetbrains.com/idea/
+[Android Studio]: http://developer.android.com/sdk/installing/studio.html
+
+### Git
 
 To use `.gitignore` as the global gitignore:
 
@@ -77,20 +77,18 @@ $ git config --global commit.gpgsign true
 
 For more information about signing commits, see [A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
 
-### [iTerm2][]
+### iTerm2
 
 To use [Tomorrow Theme][] on [iTerm2][]:
 
 [iTerm2]: http://www.iterm2.com
 
-1. Open Preferences... > Profiles > Colors.
-2. Click 'Load Presets...' and select 'Import...'.
+1. Open Preferences… > Profiles > Colors.
+2. Click 'Load Presets…' and select 'Import…'.
 3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2`.
-4. Click 'Load Presets...' again and select one of Tomorrow Theme.
+4. Click 'Load Presets…' again and select one of Tomorrow Theme.
 
-### [Ruby][]
-
-[Ruby]: https://www.ruby-lang.org
+### Ruby
 
 If you are using [RVM][],
 
@@ -107,31 +105,31 @@ Otherwise just install gems:
 $ gem install what_methods wirble
 ```
 
-### [Vim][]
+### Vim
 
-[Vim]: http://www.vim.org
+To update [Vim][] plugins:
 
-To update plugins:
-
-- In [Vim][]:
+- In Vim:
 
         :PluginUpdate
+
+[Vim]: http://www.vim.org
 
 - In terminal:
 
         $ vim +PluginUpdate +qall
 
-### [Zsh][]
-
-[Zsh]: http://www.zsh.org
+### Zsh
 
 To use [Zsh][] as default shell,
+
+[Zsh]: http://www.zsh.org
 
 ``` sh
 $ chsh -s /bin/zsh
 ```
 
-If you use custom [Zsh][] like compiled one by [Homebrew][],
+If you use custom Zsh like compiled one by [Homebrew][],
 
 [Homebrew]: http://brew.sh
 
@@ -147,7 +145,7 @@ To update [Antigen][]:
 $ antigen selfupdate
 ```
 
-To update [Zsh][] plugins:
+To update Zsh plugins:
 
 ``` sh
 $ antigen update
