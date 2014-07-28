@@ -35,8 +35,6 @@ if has('gui_running') || has('unix')
   Plugin 'wellbredgrapefruit/tomdoc.vim'
   " Cucumber
   Plugin 'tpope/vim-cucumber'
-  " auto-close
-  Plugin 'Townk/vim-autoclose'
   " rubycomplete
   if has('ruby')
     Plugin 'rubycomplete.vim'
@@ -221,7 +219,11 @@ map j gj
 map k gk
 map <DOWN> gj
 map <UP> gk
+
+" Auto close
 " inoremap
+ino (<CR> (<CR>)<ESC>O
+ino [<CR> [<CR>]<ESC>O
 ino {<CR> {<CR>}<ESC>O
 
 " Center display after searching
