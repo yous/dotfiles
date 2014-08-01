@@ -38,14 +38,14 @@ Configuration files for [@yous](https://github.com/yous)
 
 ### IntelliJ, Android Studio
 
-To use [Tomorrow Theme][]:
+To use [Solarized][]:
 
-[Tomorrow Theme]: https://github.com/ChrisKempson/Tomorrow-Theme
+[Solarized]: https://github.com/altercation/solarized
 
 1. Open File > Import Settings… in [IntelliJ][] or [Android Studio][].
-2. Select `tomorrow-theme/Jetbrains/settings.jar`.
+2. Select `solarized/intellij-colors-solarized/settings.jar`.
 3. Open Settings > Editor > Colors & Fonts.
-4. Select a scheme of Tomorrow Theme.
+4. Select a scheme of Solarized.
 
 [IntelliJ]: http://www.jetbrains.com/idea/
 [Android Studio]: http://developer.android.com/sdk/installing/studio.html
@@ -79,14 +79,14 @@ For more information about signing commits, see [A Git Horror Story: Repository 
 
 ### iTerm2
 
-To use [Tomorrow Theme][] on [iTerm2][]:
+To use [Solarized][] on [iTerm2][]:
 
 [iTerm2]: http://www.iterm2.com
 
 1. Open Preferences… > Profiles > Colors.
 2. Click 'Load Presets…' and select 'Import…'.
-3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2`.
-4. Click 'Load Presets…' again and select one of Tomorrow Theme.
+3. Select `*.itermcolors` files under `solarized/iterm2-colors-solarized/`.
+4. Click 'Load Presets…' again and select one of Solarized.
 
 ### Ruby
 

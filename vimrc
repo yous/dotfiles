@@ -9,7 +9,7 @@ if has('gui_running') || has('unix')
   Plugin 'gmarik/Vundle.vim'
   " Colorscheme
   Plugin 'wombat256.vim'
-  Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+  Plugin 'altercation/vim-colors-solarized'
   " Status, tabline
   Plugin 'bling/vim-airline'
   " ANSI escape
@@ -94,7 +94,7 @@ if has('gui_running')
   se lm=ko.UTF-8 " langmenu
   so $VIMRUNTIME/menu.vim
 elsei has('unix') " elseif
-  colo Tomorrow-Night-Eighties
+  colo solarized
 en
 if has('win32')
   au InsertEnter * se noimd " noimdisable
