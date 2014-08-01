@@ -75,11 +75,13 @@ if has('gui_running') || has('unix')
   cal vundle#end()
 en " endif
 filet plugin indent on
+sy on " syntax
 
 " General
 if &shell =~# 'fish$'
   se sh=sh " shell
 en
+se bg=dark " background
 if has('gui_running')
   colo wombat256mod " colorscheme
   se enc=utf-8 " encoding
@@ -113,7 +115,6 @@ se is " incsearch
 se nobk " nobackup
 se scs " smartcase
 se wmnu " wildmenu
-sy on " syntax
 
 " Vim UI
 if has('gui_running')
@@ -175,7 +176,6 @@ if has('gui_running')
   au VimEnter * if g:screen_size_restore_pos == 1 | cal ScreenRestore() | en
   au VimLeavePre * if g:screen_size_restore_pos == 1 | cal ScreenSave() | en
 en
-se bg=dark " background
 se dy+=uhex " display # show unprintable characters as a hex number
 se hls " hlsearch # search with highlight
 se ls=2 " laststatus
