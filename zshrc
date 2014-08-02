@@ -35,6 +35,9 @@ COMPLETION_WAITING_DOTS="true"
 # Add /usr/local/bin to PATH for Mac OS X
 if [[ "$OSTYPE" == "darwin"* ]]; then
   PATH=/usr/local/bin:/usr/local/sbin:$PATH
+  # For ls colors in Solarized theme
+  # https://github.com/seebi/dircolors-solarized/issues/10
+  export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 fi
 
 # Load RVM into a shell session *as a function*
