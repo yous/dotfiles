@@ -20,8 +20,5 @@ Style/Encoding:
 Style/IndentHash:
   EnforcedStyle: consistent
 
-Style/MethodCalledOnDoEndBlock:
-  Enabled: true
-
 Style/StringLiterals:
   EnforcedStyle: double_quotes
