@@ -7,6 +7,8 @@ AllCops:
     - '**/Guardfile'
     - '**/Rakefile'
     - '**/Vagrantfile'
+    - '**/config.ru'
+    - '**/*.rake'
 
 Style/Encoding:
   Enabled: true
