@@ -9,6 +9,10 @@ AllCops:
     - '**/Vagrantfile'
     - '**/config.ru'
     - '**/*.rake'
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
 
 Style/Encoding:
   Enabled: true
