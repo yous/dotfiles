@@ -17,8 +17,5 @@ AllCops:
 Style/Encoding:
   Enabled: true
 
-Style/IndentHash:
-  EnforcedStyle: consistent
-
 Style/StringLiterals:
   EnforcedStyle: double_quotes
