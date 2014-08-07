@@ -14,27 +14,27 @@ Configuration files for [@yous](https://github.com/yous)
 
 1. Clone this repository:
 
-        $ git clone https://github.com/yous/config.git
-        $ cd config
-        $ git submodule init
-        $ git submodule update
+        git clone https://github.com/yous/config.git
+        cd config
+        git submodule init
+        git submodule update
 
 2. Install [Vundle.vim][]:
 
 [Vundle.vim]: https://github.com/gmarik/Vundle.vim
 
-        $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-        $ vim +PluginInstall +qall
+        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        vim +PluginInstall +qall
 
 3. Copy configuration files to home directory:
 
-        $ ./install.sh
+        ./install.sh
 
 4. If you are using [rbenv][], execute additional script:
 
 [rbenv]: https://github.com/sstephenson/rbenv
 
-        $ ./install.sh --rbenv
+        ./install.sh --rbenv
 
 ### IntelliJ, Android Studio
 
@@ -55,15 +55,15 @@ To use [Solarized][]:
 To use `.gitignore` as the global gitignore:
 
 ``` sh
-$ git config --global core.excludesfile ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
 ```
 
 Set several global configurations:
 
 ``` sh
-$ git config --global user.name "Your Name"
-$ git config --global user.email you@example.com
-$ git config --global core.editor vim
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
+git config --global core.editor vim
 ```
 
 If you are using [Keybase][]:
@@ -71,8 +71,8 @@ If you are using [Keybase][]:
 [Keybase]: https://keybase.io
 
 ``` sh
-$ git config --global user.signingkey "YOUR KEY"
-$ git config --global commit.gpgsign true
+git config --global user.signingkey "YOUR KEY"
+git config --global commit.gpgsign true
 ```
 
 For more information about signing commits, see [A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
@@ -95,14 +95,14 @@ If you are using [RVM][],
 [RVM]: http://rvm.io
 
 ``` sh
-$ rvm use current@global
-$ gem install what_methods wirble
+rvm use current@global
+gem install what_methods wirble
 ```
 
 Otherwise just install gems:
 
 ``` sh
-$ gem install what_methods wirble
+gem install what_methods wirble
 ```
 
 ### Vim
@@ -117,7 +117,7 @@ To update [Vim][] plugins:
 
 - In terminal:
 
-        $ vim +PluginUpdate +qall
+        vim +PluginUpdate +qall
 
 ### Zsh
 
@@ -126,7 +126,7 @@ To use [Zsh][] as default shell,
 [Zsh]: http://www.zsh.org
 
 ``` sh
-$ chsh -s /bin/zsh
+chsh -s /bin/zsh
 ```
 
 If you use custom Zsh like compiled one by [Homebrew][],
@@ -134,7 +134,7 @@ If you use custom Zsh like compiled one by [Homebrew][],
 [Homebrew]: http://brew.sh
 
 ``` sh
-$ chsh -s /usr/local/bin/zsh
+chsh -s /usr/local/bin/zsh
 ```
 
 To update [Antigen][]:
@@ -142,13 +142,13 @@ To update [Antigen][]:
 [Antigen]: http://antigen.sharats.me
 
 ``` sh
-$ antigen selfupdate
+antigen selfupdate
 ```
 
 To update Zsh plugins:
 
 ``` sh
-$ antigen update
+antigen update
 ```
 
 To make RVM works on Mac OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as [Tim Pope mentioned](https://github.com/tpope/vim-rvm#faq).
