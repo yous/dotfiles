@@ -64,6 +64,7 @@ Set several global configurations:
 git config --global user.name "Your Name"
 git config --global user.email you@example.com
 git config --global core.editor vim
+git config --global fetch.prune true
 ```
 
 If you are using [Keybase][]:
