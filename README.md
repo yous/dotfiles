@@ -97,13 +97,13 @@ If you are using [RVM][],
 
 ``` sh
 rvm use current@global
-gem install what_methods wirble
+gem install wirble
 ```
 
 Otherwise just install gems:
 
 ``` sh
-gem install what_methods wirble
+gem install wirble
 ```
 
 ### Vim
