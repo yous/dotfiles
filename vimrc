@@ -227,6 +227,15 @@ map j gj
 map k gk
 map <DOWN> gj
 map <UP> gk
+fu SetQuickfixMapping()
+  nn <buffer> q :ccl<CR>
+  " unmap
+  unm j
+  unm k
+  unm <DOWN>
+  unm <UP>
+endf
+au FileType qf cal SetQuickfixMapping()
 
 " Auto close
 " inoremap
