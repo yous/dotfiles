@@ -74,8 +74,6 @@ if has('gui_running') || has('unix')
   " Ruby
   " Rake
   Plugin 'tpope/vim-rake'
-  " RSpec
-  Plugin 'thoughtbot/vim-rspec'
   " RuboCop
   Plugin 'ngmy/vim-rubocop'
   " Rails
@@ -392,15 +390,3 @@ nmap <C-Space> <Plug>IMAP_JumpForward
 
 " Markdown Vim Mode
 let g:vim_markdown_folding_disabled = 1
-
-" RSpec
-nmap <Leader>t :call RunCurrentSpecFile()<CR>
-nmap <Leader>s :call RunNearestSpec()<CR>
-nmap <Leader>l :call RunLastSpec()<CR>
-nmap <Leader>a :call RunAllSpecs()<CR>
-if has('unix')
-  let s:uname = system('uname')
-  if s:uname == "Darwin\n"
-    let g:rspec_runner = 'os_x_iterm'
-  endif
-endif
