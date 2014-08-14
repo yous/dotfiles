@@ -1,10 +1,10 @@
 " Vundle
-se nocp " nocompatible
+set nocompatible
 if has('gui_running') || has('unix')
-  au FileType vundle setl nossl " autocmd setlocal noshellslash
-  filet off " filetype
-  se rtp+=~/.vim/bundle/Vundle.vim " set runtimepath
-  cal vundle#begin() " call
+  autocmd FileType vundle setlocal noshellslash
+  filetype off
+  set runtimepath+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
   " Let vundle manage itself
   Plugin 'gmarik/Vundle.vim'
 
@@ -80,66 +80,66 @@ if has('gui_running') || has('unix')
   Plugin 'ngmy/vim-rubocop'
   " Rails
   Plugin 'tpope/vim-rails'
-  cal vundle#end()
-en " endif
-filet plugin indent on
-sy on " syntax
+  call vundle#end()
+endif
+filetype plugin indent on
+syntax on
 
 " General
 if &shell =~# 'fish$'
-  se sh=sh " shell
-en
-se bg=dark " background
+  set shell=sh
+endif
+set background=dark
 if has('gui_running')
-  colo wombat256mod " colorscheme
-  se enc=utf-8 " encoding
-  se go-=m " guioptions Menu bar
-  se go-=T " Toolbar
-  se go-=r " Right-hand scrollbar
-  se go-=L " Left-hand scrollbar when there is a vertically split window
-  se mouse=
-  so $VIMRUNTIME/delmenu.vim " source
-  se lm=ko.UTF-8 " langmenu
-  so $VIMRUNTIME/menu.vim
-elsei has('unix') " elseif
-  colo solarized
-en
+  colorscheme wombat256mod
+  set encoding=utf-8
+  set guioptions-=m " Menu bar
+  set guioptions-=T " Toolbar
+  set guioptions-=r " Right-hand scrollbar
+  set guioptions-=L " Left-hand scrollbar when there is a vertically split window
+  set mouse=
+  source $VIMRUNTIME/delmenu.vim
+  set langmenu=ko.UTF-8
+  source $VIMRUNTIME/menu.vim
+elseif has('unix')
+  colorscheme solarized
+endif
 if has('win32')
-  au InsertEnter * se noimd " noimdisable
-  au InsertLeave * se imd " imdisable
-  au FocusGained * se imd
-  au FocusLost * se noimd
-  lan mes en " language messages en
-  se dir=.,$TEMP " directory
-  se ssl " shellslash
-en
-au InsertLeave * se nopaste
-se bs=2 " backspace indent,eol,start
-se cb=unnamed " clipboard
-se fencs=ucs-bom,utf-8,cp949,latin1 " fileencodings
-se ffs=unix,mac,dos " fileformats
-se ic " ignorecase # for smartcase
-se is " incsearch
-se nobk " nobackup
-se scs " smartcase
-se wmnu " wildmenu
+  autocmd InsertEnter * set noimdisable
+  autocmd InsertLeave * set imdisable
+  autocmd FocusGained * set imdisable
+  autocmd FocusLost * set noimdisable
+  language messages en
+  set directory=.,$TEMP
+  set shellslash
+endif
+autocmd InsertLeave * set nopaste
+set backspace=indent,eol,start
+set clipboard=unnamed
+set fileencodings=ucs-bom,utf-8,cp949,latin1
+set fileformats=unix,mac,dos
+set ignorecase " for smartcase
+set incsearch
+set nobackup
+set smartcase
+set wildmenu
 
 " Vim UI
 if has('gui_running')
-  se gfn=DejaVu\ Sans\ Mono:h10:cANSI " guifont
+  set guifont=DejaVu\ Sans\ Mono:h10:cANSI
   if has('win32')
-    se gfw=DotumChe:h10:cDEFAULT " guifontwide
-  en
-  fu! ScreenFilename() " function
+    set guifontwide=DotumChe:h10:cDEFAULT
+  endif
+  function! ScreenFilename()
     if has('amiga')
-      retu 's:.vimsize' " return
-    elsei has('win32')
-      retu $HOME.'\_vimsize'
-    el " else
-      retu $HOME.'/.vimsize'
-    en
-  endf " endfunction
-  fu! ScreenRestore()
+      return 's:.vimsize'
+    elseif has('win32')
+      return $HOME.'\_vimsize'
+    else
+      return $HOME.'/.vimsize'
+    endif
+  endfunction
+  function! ScreenRestore()
     " Restore window size (columns and lines) and position
     " from values stored in vimsize file.
     " Must set font first so columns and lines are based on font size.
@@ -149,15 +149,14 @@ if has('gui_running')
       for line in readfile(f)
         let sizepos = split(line)
         if len(sizepos) == 5 && sizepos[0] == vim_instance
-          " silent! execute
-          sil! exe 'set columns='.sizepos[1].' lines='.sizepos[2]
-          sil! exe 'winpos '.sizepos[3].' '.sizepos[4]
-          retu
-        en
-      endfo " endfor
-    en
-  endf
-  fu! ScreenSave()
+          silent! execute 'set columns='.sizepos[1].' lines='.sizepos[2]
+          silent! execute 'winpos '.sizepos[3].' '.sizepos[4]
+          return
+        endif
+      endfor
+    endif
+  endfunction
+  function! ScreenSave()
     " Save window size and position.
     if has('gui_running') && g:screen_size_restore_pos
       let vim_instance = (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
@@ -167,175 +166,172 @@ if has('gui_running')
       let f = ScreenFilename()
       if filereadable(f)
         let lines = readfile(f)
-        cal filter(lines, "v:val !~ '^".vim_instance."\\>'")
-        cal add(lines, data)
-      el
+        call filter(lines, "v:val !~ '^".vim_instance."\\>'")
+        call add(lines, data)
+      else
         let lines = [data]
-      en
-      cal writefile(lines, f)
-    en
-  endf
+      endif
+      call writefile(lines, f)
+    endif
+  endfunction
   if !exists('g:screen_size_restore_pos')
     let g:screen_size_restore_pos = 1
-  en
+  endif
   if !exists('g:screen_size_by_vim_instance')
     let g:screen_size_by_vim_instance = 1
-  en
-  au VimEnter * if g:screen_size_restore_pos == 1 | cal ScreenRestore() | en
-  au VimLeavePre * if g:screen_size_restore_pos == 1 | cal ScreenSave() | en
-en
-se dy+=uhex " display # show unprintable characters as a hex number
-se hls " hlsearch # search with highlight
-se ls=2 " laststatus
-se nu " number
-se sb " splitbelow
-se sc " showcmd
-se sm " showmatch
-se so=3 " scrolloff
-se spr " splitright
-se title
-se t_Co=256
+  endif
+  autocmd VimEnter * if g:screen_size_restore_pos == 1 |
+        \   call ScreenRestore() |
+        \ endif
+  autocmd VimLeavePre * if g:screen_size_restore_pos == 1 |
+        \   call ScreenSave() |
+        \ endif
+endif
+set display+=uhex " show unprintable characters as a hex number
+set hlsearch " search with highlight
+set laststatus=2
+set number
+set splitbelow
+set showcmd
+set showmatch
+set scrolloff=3
+set splitright
+set title
+set t_Co=256
 if exists('+colorcolumn')
-  se cc=80 " colorcolumn
-el
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-en
+  set colorcolumn=80
+else
+  autocmd BufWinEnter * let w:m2 = matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 " Highlight trailing whitespace
-" highlight
-hi ExtraWhitespace ctermbg=red guibg=red
-" match
-au BufWinEnter * mat ExtraWhitespace /\s\+$/
-au InsertEnter * mat ExtraWhitespace //
-au InsertLeave * mat ExtraWhitespace /\s\+$/
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace //
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 if version >= 702
-  au BufWinLeave * cal clearmatches()
-en
+  autocmd BufWinLeave * call clearmatches()
+endif
 
 " Text formatting
-au FileType * setl fo-=c fo-=o " setlocal formatoptions # disable automatic comment insertion
-au FileType c,cpp,java,mkd,markdown,python setl sts=4 sw=4 ts=4
-se ai " autoindent
-se et " expandtab
-se si " smartindent
-se sts=2 " softtabstop
-se sw=2 " shiftwidth
-se ts=2 " tabstop
+autocmd FileType *
+      \ setlocal formatoptions-=c formatoptions-=o " disable automatic comment insertion
+autocmd FileType c,cpp,java,mkd,markdown,python
+      \ setlocal softtabstop=4 shiftwidth=4 tabstop=4
+set autoindent
+set expandtab
+set smartindent
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
 
 " Mappings
 map j gj
 map k gk
 map <DOWN> gj
 map <UP> gk
-fu SetQuickfixMapping()
-  nn <buffer> q :ccl<CR>
-  " unmap
-  unm j
-  unm k
-  unm <DOWN>
-  unm <UP>
-endf
-au FileType qf cal SetQuickfixMapping()
+function SetQuickfixMapping()
+  nnoremap <buffer> q :ccl<CR>
+  unmap j
+  unmap k
+  unmap <DOWN>
+  unmap <UP>
+endfunction
+autocmd FileType qf call SetQuickfixMapping()
 
 " Auto close
-" inoremap
-ino (<CR> (<CR>)<ESC>O
-ino [<CR> [<CR>]<ESC>O
-ino {<CR> {<CR>}<ESC>O
+inoremap (<CR> (<CR>)<ESC>O
+inoremap [<CR> [<CR>]<ESC>O
+inoremap {<CR> {<CR>}<ESC>O
 
 " Center display after searching
-" nnoremap
-nn n nzz
-nn N Nzz
-nn * *zz
-nn # #zz
-nn g* g*zz
-nn g# g#zz
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 
 " Reselect visual block after shifting
-" vnoremap
-vn < <gv
-vn > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 " Splitted windows
-nn <C-J> <C-W>j
-nn <C-K> <C-W>k
-nn <C-H> <C-W>h
-nn <C-L> <C-W>l
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
 
 " Tab
 map <C-T> :tabnew<CR>
 if has('win32')
   map <C-TAB> :tabnext<CR>
   map <C-S-TAB> :tabprevious<CR>
-elsei has('unix')
+elseif has('unix')
   map t :tabnext<CR>
   map T :tabprevious<CR>
-en
+endif
 
 " Global copy and paste for Mac OS X
 if has('unix')
   let s:uname = system('uname')
   if s:uname == "Darwin\n"
-    " nmap
-    nm <F2> :.w !pbcopy<CR><CR>
-    " vmap
-    vm <F2> :w !pbcopy<CR><CR>
-    nm <F3> :se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
-    " imap
-    im <F3> <ESC>:se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
-  en
-en
+    nmap <F2> :.w !pbcopy<CR><CR>
+    vmap <F2> :w !pbcopy<CR><CR>
+    nmap <F3> :se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
+    imap <F3> <ESC>:se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
+  endif
+endif
 
 " C, C++ compile & execute
-au FileType c,cpp map <F5> :w<CR>:make %<CR>
-au FileType c,cpp im <F5> <ESC>:w<CR>:make %<CR>
-au FileType c
+autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
+autocmd FileType c,cpp imap <F5> <ESC>:w<CR>:make %<CR>
+autocmd FileType c
       \ if !filereadable('Makefile') && !filereadable('makefile') |
-      \   setl mp=gcc\ -o\ %< | " makeprg
-      \ en
-au FileType cpp
+      \   setlocal makeprg=gcc\ -o\ %< |
+      \ endif
+autocmd FileType cpp
       \ if !filereadable('Makefile') && !filereadable('makefile') |
-      \   setl mp=g++\ -o\ %< |
-      \ en
+      \   setlocal makeprg=g++\ -o\ %< |
+      \ endif
 if has('win32')
   map <F6> :!%<.exe<CR>
-  im <F6> <ESC>:!%<.exe<CR>
-elsei has('unix')
+  imap <F6> <ESC>:!%<.exe<CR>
+elseif has('unix')
   map <F6> :!./%<<CR>
-  im <F6> <ESC>:!./%<<CR>
-en
+  imap <F6> <ESC>:!./%<<CR>
+endif
 
 " Python execute
-au FileType python map <F5> :w<CR>:!python %<CR>
-au FileType python im <F5> <ESC>:w<CR>:!python %<CR>
+autocmd FileType python map <F5> :w<CR>:!python %<CR>
+autocmd FileType python imap <F5> <ESC>:w<CR>:!python %<CR>
 
 " Ruby execute
-au FileType ruby map <F5> :w<CR>:!ruby %<CR>
-au FileType ruby im <F5> <ESC>:w<CR>:!ruby %<CR>
+autocmd FileType ruby map <F5> :w<CR>:!ruby %<CR>
+autocmd FileType ruby imap <F5> <ESC>:w<CR>:!ruby %<CR>
 
 " man page settings
-au FileType c,cpp se kp=man " keywordprg
-au FileType ruby se kp=ri
+autocmd FileType c,cpp set keywordprg=man
+autocmd FileType ruby set keywordprg=ri
 
 " Ruby configuration files view
-au BufNewFile,BufRead Gemfile,Guardfile setl ft=ruby " filetype
+autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
 
 " Gradle view
-au BufNewFile,BufRead *.gradle setf groovy " setfiletype
+autocmd BufNewFile,BufRead *.gradle setfiletype groovy
 
 " Json view
-au BufNewFile,BufRead *.json setf json
+autocmd BufNewFile,BufRead *.json setfiletype json
 
 " ANSI escape for Rails log
-au FileType railslog :AnsiEsc
+autocmd FileType railslog :AnsiEsc
 
 " mobile.erb view
-aug rails_subtypes " augroup
-  au!
-  au BufNewFile,BufRead *.mobile.erb let b:eruby_subtype = 'html'
-  au BufNewFile,BufRead *.mobile.erb setf eruby
-aug END
+augroup rails_subtypes
+  autocmd!
+  autocmd BufNewFile,BufRead *.mobile.erb let b:eruby_subtype = 'html'
+  autocmd BufNewFile,BufRead *.mobile.erb setfiletype eruby
+augroup END
 
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
@@ -345,67 +341,66 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 " Fugitive
 let s:fugitive_insert = 0
-au FileType gitcommit if byte2line(2) == 2 |
+autocmd FileType gitcommit if byte2line(2) == 2 |
       \   let s:fugitive_insert = 1 |
-      \ en
-au VimEnter * if (s:fugitive_insert) |
-      \   start |
-      \ en " startinsert
-au FileType gitcommit let s:open_nerdtree = 0
-au FileType gitrebase let s:open_nerdtree = 0
+      \ endif
+autocmd VimEnter * if (s:fugitive_insert) |
+      \   startinsert |
+      \ endif
+autocmd FileType gitcommit let s:open_nerdtree = 0
+autocmd FileType gitrebase let s:open_nerdtree = 0
 
 " NERD Tree
 let s:open_nerdtree = 1
 if &diff
   let s:open_nerdtree = 0
-en
-au VimEnter * if (s:open_nerdtree) |
+endif
+autocmd VimEnter * if (s:open_nerdtree) |
       \   NERDTree |
-      \   winc p |
-      \ en
-au BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') |
+      \   wincmd p |
+      \ endif
+autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') |
       \   q |
-      \ en
+      \ endif
 
 " ConqueTerm
 let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_ReadUnfocused = 1
-au FileType conque_term hi clear ExtraWhitespace
-" command
-com -nargs=* Sh ConqueTerm <args>
-com -nargs=* Shsp ConqueTermSplit <args>
-com -nargs=* Shtab ConqueTermTab <args>
-com -nargs=* Shvs ConqueTermVSplit <args>
+autocmd FileType conque_term highlight clear ExtraWhitespace
+command -nargs=* Sh ConqueTerm <args>
+command -nargs=* Shsp ConqueTermSplit <args>
+command -nargs=* Shtab ConqueTermTab <args>
+command -nargs=* Shvs ConqueTermVSplit <args>
 
 " LaTeX-Suite-aka-Vim-LaTeX
 let g:tex_flavor = 'latex'
 if has('win32')
-  se gp=findstr\ /n\ /s " grepprg
-elsei has('unix')
-  se gp=grep\ -nH\ $*
-en
-se isk+=: " iskeyword
+  set grepprg=findstr\ /n\ /s
+elseif has('unix')
+  set grepprg=grep\ -nH\ $*
+endif
+set iskeyword+=:
 " Change default mappings for IMAP_Jumpfunc
 if exists('g:Imap_StickyPlaceHolders') && g:Imap_StickyPlaceHolders
-  vm <C-Space> <Plug>IMAP_JumpForward
-el
-  vm <C-Space> <Plug>IMAP_DeleteAndJumpForward
-en
-im <C-Space> <Plug>IMAP_JumpForward
-nm <C-Space> <Plug>IMAP_JumpForward
+  vmap <C-Space> <Plug>IMAP_JumpForward
+else
+  vmap <C-Space> <Plug>IMAP_DeleteAndJumpForward
+endif
+imap <C-Space> <Plug>IMAP_JumpForward
+nmap <C-Space> <Plug>IMAP_JumpForward
 
 " Markdown Vim Mode
 let g:vim_markdown_folding_disabled = 1
 
 " RSpec
-nm <Leader>t :call RunCurrentSpecFile()<CR>
-nm <Leader>s :call RunNearestSpec()<CR>
-nm <Leader>l :call RunLastSpec()<CR>
-nm <Leader>a :call RunAllSpecs()<CR>
+nmap <Leader>t :call RunCurrentSpecFile()<CR>
+nmap <Leader>s :call RunNearestSpec()<CR>
+nmap <Leader>l :call RunLastSpec()<CR>
+nmap <Leader>a :call RunAllSpecs()<CR>
 if has('unix')
   let s:uname = system('uname')
   if s:uname == "Darwin\n"
     let g:rspec_runner = 'os_x_iterm'
-  en
-en
+  endif
+endif
