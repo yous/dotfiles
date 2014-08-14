@@ -390,3 +390,6 @@ nmap <C-Space> <Plug>IMAP_JumpForward
 
 " Markdown Vim Mode
 let g:vim_markdown_folding_disabled = 1
+
+" Rake
+nmap <Leader>ra :Rake<CR>
