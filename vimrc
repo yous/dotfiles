@@ -7,71 +7,81 @@ if has('gui_running') || has('unix')
   cal vundle#begin() " call
   " Let vundle manage itself
   Plugin 'gmarik/Vundle.vim'
+
   " Colorscheme
   Plugin 'wombat256.vim'
   Plugin 'altercation/vim-colors-solarized'
-  " Status, tabline
-  Plugin 'bling/vim-airline'
+
+  " General
+  " Preserve missing EOL at the end of text files
+  Plugin 'PreserveNoEOL'
   " ANSI escape
   Plugin 'AnsiEsc.vim'
+  " Full path finder
+  Plugin 'kien/ctrlp.vim'
+  " Much simpler way to use some motions
+  Plugin 'Lokaltog/vim-easymotion'
+  " Extended % matching
+  Plugin 'matchit.zip'
+  " Autocomplete if end
+  Plugin 'tpope/vim-endwise'
+  " Easily delete, change and add surroundings in pairs
+  Plugin 'tpope/vim-surround'
+  " Vim sugar for the UNIX shell commands
+  Plugin 'tpope/vim-eunuch'
+  " Compile errors
+  Plugin 'scrooloose/syntastic'
+  " Switch between source files and header files
+  Plugin 'a.vim'
+  " Git wrapper
+  Plugin 'tpope/vim-fugitive'
+  " Faster HTML code writing
+  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+  " Vim UI
+  " Status, tabline
+  Plugin 'bling/vim-airline'
+  " Explore filesystem
+  Plugin 'scrooloose/nerdtree'
+
   " ConqueTerm
   " Plugin 'Conque-Shell'
   Plugin 'yous/conque'
-  " Preserve missing EOL at the end of text files
-  Plugin 'PreserveNoEOL'
-  " Autocomplete if end
-  Plugin 'tpope/vim-endwise'
-  " Extended % matching
-  Plugin 'matchit.zip'
-  " HTML5
-  Plugin 'othree/html5.vim'
-  " PHP
-  Plugin 'php.vim-html-enhanced'
-  " Jade
-  Plugin 'digitaltoad/vim-jade'
-  " XML
-  Plugin 'othree/xml.vim'
-  " TomDoc
-  Plugin 'wellbredgrapefruit/tomdoc.vim'
+
+  " Support file types
+  " Coffee script
+  Plugin 'kchmck/vim-coffee-script'
   " Cucumber
   Plugin 'tpope/vim-cucumber'
+  " Jade
+  Plugin 'digitaltoad/vim-jade'
+  " JSON
+  Plugin 'elzr/vim-json'
+  " HTML5
+  Plugin 'othree/html5.vim'
+  " LaTeX
+  Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+  " Markdown
+  Plugin 'godlygeek/tabular'
+  Plugin 'plasticboy/vim-markdown'
+  " PHP
+  Plugin 'php.vim-html-enhanced'
+  " Racket
+  Plugin 'wlangstroth/vim-racket'
+  " TomDoc
+  Plugin 'wellbredgrapefruit/tomdoc.vim'
+  " XML
+  Plugin 'othree/xml.vim'
+
+  " Ruby
+  " RuboCop
+  Plugin 'ngmy/vim-rubocop'
+  " Rails
+  Plugin 'tpope/vim-rails'
   " rubycomplete
   if has('ruby')
     Plugin 'rubycomplete.vim'
   en
-  " Faster HTML code writing
-  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-  " Easily delete, change and add surroundings in pairs
-  Plugin 'tpope/vim-surround'
-  " Much simpler way to use some motions
-  Plugin 'Lokaltog/vim-easymotion'
-  " Vim sugar for the UNIX shell commands
-  Plugin 'tpope/vim-eunuch'
-  " Switch between source files and header files
-  Plugin 'a.vim'
-  " Compile errors
-  Plugin 'scrooloose/syntastic'
-  " RuboCop
-  Plugin 'ngmy/vim-rubocop'
-  " Markdown
-  Plugin 'godlygeek/tabular'
-  Plugin 'plasticboy/vim-markdown'
-  " JSON
-  Plugin 'elzr/vim-json'
-  " Racket
-  Plugin 'wlangstroth/vim-racket'
-  " Git wrapper
-  Plugin 'tpope/vim-fugitive'
-  " Rails
-  Plugin 'tpope/vim-rails'
-  " Coffee script
-  Plugin 'kchmck/vim-coffee-script'
-  " Explore filesystem
-  Plugin 'scrooloose/nerdtree'
-  " Full path finder
-  Plugin 'kien/ctrlp.vim'
-  " LaTeX
-  Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
   cal vundle#end()
 en " endif
 filet plugin indent on
@@ -320,17 +330,6 @@ aug rails_subtypes " augroup
   au BufNewFile,BufRead *.mobile.erb setf eruby
 aug END
 
-" ConqueTerm
-let g:ConqueTerm_InsertOnEnter = 1
-let g:ConqueTerm_CWInsert = 1
-let g:ConqueTerm_ReadUnfocused = 1
-au FileType conque_term hi clear ExtraWhitespace
-" command
-com -nargs=* Sh ConqueTerm <args>
-com -nargs=* Shsp ConqueTermSplit <args>
-com -nargs=* Shtab ConqueTermTab <args>
-com -nargs=* Shvs ConqueTermVSplit <args>
-
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
 
@@ -339,9 +338,6 @@ au FileType ruby set ofu=rubycomplete#Complete
 
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
-
-" Markdown Vim Mode
-let g:vim_markdown_folding_disabled = 1
 
 " Fugitive
 let s:fugitive_insert = 0
@@ -367,6 +363,17 @@ au BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType 
       \   q |
       \ en
 
+" ConqueTerm
+let g:ConqueTerm_InsertOnEnter = 1
+let g:ConqueTerm_CWInsert = 1
+let g:ConqueTerm_ReadUnfocused = 1
+au FileType conque_term hi clear ExtraWhitespace
+" command
+com -nargs=* Sh ConqueTerm <args>
+com -nargs=* Shsp ConqueTermSplit <args>
+com -nargs=* Shtab ConqueTermTab <args>
+com -nargs=* Shvs ConqueTermVSplit <args>
+
 " LaTeX-Suite-aka-Vim-LaTeX
 let g:tex_flavor = 'latex'
 if has('win32')
@@ -383,3 +390,6 @@ el
 en
 im <C-Space> <Plug>IMAP_JumpForward
 nm <C-Space> <Plug>IMAP_JumpForward
+
+" Markdown Vim Mode
+let g:vim_markdown_folding_disabled = 1
