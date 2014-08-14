@@ -35,8 +35,6 @@ if has('gui_running') || has('unix')
   Plugin 'a.vim'
   " Git wrapper
   Plugin 'tpope/vim-fugitive'
-  " Faster HTML code writing
-  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
   " Vim UI
   " Status, tabline
@@ -78,10 +76,6 @@ if has('gui_running') || has('unix')
   Plugin 'ngmy/vim-rubocop'
   " Rails
   Plugin 'tpope/vim-rails'
-  " rubycomplete
-  if has('ruby')
-    Plugin 'rubycomplete.vim'
-  en
   cal vundle#end()
 en " endif
 filet plugin indent on
@@ -332,9 +326,6 @@ aug END
 
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
-
-" rubycomplete
-au FileType ruby set ofu=rubycomplete#Complete
 
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
