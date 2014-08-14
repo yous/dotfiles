@@ -226,16 +226,16 @@ set shiftwidth=2
 set tabstop=2
 
 " Mappings
-map j gj
-map k gk
-map <DOWN> gj
-map <UP> gk
+map j <SID>gj
+map k <SID>gk
+map <DOWN> <SID>gj
+map <UP> <SID>gk
+noremap <SID>gj gj
+noremap <SID>gk gk
 function SetQuickfixMapping()
   nnoremap <buffer> q :ccl<CR>
-  unmap j
-  unmap k
-  unmap <DOWN>
-  unmap <UP>
+  noremap <buffer> <SID>gj j
+  noremap <buffer> <SID>gk k
 endfunction
 autocmd FileType qf call SetQuickfixMapping()
 
