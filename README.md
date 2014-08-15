@@ -38,7 +38,7 @@ Configuration files for [@yous](https://github.com/yous)
 
 ### Adblock Plus
 
-To use [Adblock Plus][] filter, install its browser plugin and add subscription with the url:
+To use [Adblock Plus][] filter, install its browser plugin and add subscription as 'YousList' with the url:
 
 ```
 https://raw.githubusercontent.com/yous/config/master/adblock.txt
