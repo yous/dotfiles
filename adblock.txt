@@ -1,3 +1,8 @@
+[Adblock Plus 2.0]
+! Title: YousList
+! Expires: 7 days
+! Checksum: q9IpruIcny0qRWIEOwuRvQ
+! Version: 20140815
 ##a[href^=http://www.bizon.kr/click.php?type=adon]
 ##div#adMedia
 ##div#adya_area
