@@ -1,8 +1,8 @@
 [Adblock Plus 2.0]
-! Homepage: https://github.com/yous/config
+! Homepage: https://github.com/yous/config#adblock-plus
 ! Title: YousList
 ! Expires: 7 days
-! Checksum: q9IpruIcny0qRWIEOwuRvQ
+! Checksum: waQZOOITzM3xkHFSdyoNog
 ! Version: 20140815
 ##a[href^=http://www.bizon.kr/click.php?type=adon]
 ##div#adMedia
