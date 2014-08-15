@@ -36,6 +36,16 @@ Configuration files for [@yous](https://github.com/yous)
 
         ./install.sh --rbenv
 
+### Adblock Plus
+
+To use [Adblock Plus][] filter, install its browser plugin and add subscription with the url:
+
+```
+https://raw.githubusercontent.com/yous/config/master/adblock.txt
+```
+
+[Adblock Plus]: https://adblockplus.org
+
 ### IntelliJ, Android Studio
 
 To use [Solarized][]:
