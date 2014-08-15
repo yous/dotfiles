@@ -47,6 +47,8 @@ if has('gui_running') || has('unix')
   Plugin 'yous/conque'
 
   " Support file types
+  " AdBlock
+  Plugin 'mojako/adblock-filter.vim'
   " Coffee script
   Plugin 'kchmck/vim-coffee-script'
   " Cucumber
@@ -370,6 +372,9 @@ command -nargs=* Sh ConqueTerm <args>
 command -nargs=* Shsp ConqueTermSplit <args>
 command -nargs=* Shtab ConqueTermTab <args>
 command -nargs=* Shvs ConqueTermVSplit <args>
+
+" Adblock
+let g:adblock_filter_auto_checksum = 1
 
 " LaTeX-Suite-aka-Vim-LaTeX
 let g:tex_flavor = 'latex'
