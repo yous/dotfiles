@@ -83,6 +83,10 @@ antigen theme gentoo
 # Tell antigen that you're done.
 antigen apply
 
+# For ls colors in Solarized theme
+# https://github.com/seebi/dircolors-solarized/issues/10
+[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
 # Define aliases
 alias sudo='sudo '
 alias git='noglob git'
@@ -90,7 +94,3 @@ alias rake='noglob rake'
 alias ag='apt-get'
 alias v='vim'
 alias vi='vim'
-
-# For ls colors in Solarized theme
-# https://github.com/seebi/dircolors-solarized/issues/10
-[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
