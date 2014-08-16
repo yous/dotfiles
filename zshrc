@@ -75,7 +75,9 @@ antigen bundle git
 # RVM aliases and completion.
 antigen bundle rvm
 # tmux aliases and configurations.
-antigen bundle tmux
+if which tmux &> /dev/null; then
+  antigen bundle tmux
+fi
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 # Load the theme.
