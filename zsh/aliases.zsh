@@ -1,6 +1,0 @@
-alias sudo='sudo '
-alias git='noglob git'
-alias rake='noglob rake'
-alias ag='apt-get'
-alias v='vim'
-alias vi='vim'

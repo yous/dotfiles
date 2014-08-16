@@ -50,7 +50,6 @@ if [ $# -eq 0 ]; then
     "screenrc" \
     "tmux.conf" \
     "vimrc" \
-    "zsh" \
     "zshrc"
   do
     replace_file $FILENAME

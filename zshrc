@@ -59,10 +59,52 @@ if [ -e "$HOME/.rbenv" ]; then
 fi
 
 # Load Antigen
-[ -e "${HOME}/.zsh/antigen.zsh" ] && source "${HOME}/.zsh/antigen.zsh"
+source $HOME/.antigen/antigen.zsh
 
-# Load aliases
-[ -e "${HOME}/.zsh/aliases.zsh" ] && source "${HOME}/.zsh/aliases.zsh"
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+  # Bundles from the default repo (robbyrussell's oh-my-zsh).
+
+  # Run commands with bundle and bundle aliases
+  bundler
+
+  # Guess what to install when running an unknown command.
+  command-not-found
+
+  # Extracts different types of archives
+  extract
+
+  # Autocompletion for gem command.
+  gem
+
+  # Git aliases and completion.
+  git
+
+  # RVM aliases and completion.
+  rvm
+
+  # tmux aliases and configurations.
+  tmux
+
+  # Syntax highlighting bundle.
+  zsh-users/zsh-syntax-highlighting
+EOBUNDLES
+
+# Load the theme.
+antigen theme gentoo
+
+# Tell antigen that you're done.
+antigen apply
+
+# Define aliases
+alias sudo='sudo '
+alias git='noglob git'
+alias rake='noglob rake'
+alias ag='apt-get'
+alias v='vim'
+alias vi='vim'
 
 # For ls colors in Solarized theme
 # https://github.com/seebi/dircolors-solarized/issues/10
