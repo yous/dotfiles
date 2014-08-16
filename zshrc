@@ -60,41 +60,26 @@ fi
 
 # Load Antigen
 source $HOME/.antigen/antigen.zsh
-
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
-
-antigen bundles <<EOBUNDLES
-  # Bundles from the default repo (robbyrussell's oh-my-zsh).
-
-  # Run commands with bundle and bundle aliases
-  bundler
-
-  # Guess what to install when running an unknown command.
-  command-not-found
-
-  # Extracts different types of archives
-  extract
-
-  # Autocompletion for gem command.
-  gem
-
-  # Git aliases and completion.
-  git
-
-  # RVM aliases and completion.
-  rvm
-
-  # tmux aliases and configurations.
-  tmux
-
-  # Syntax highlighting bundle.
-  zsh-users/zsh-syntax-highlighting
-EOBUNDLES
-
+# Run commands with bundle and bundle aliases
+antigen bundle bundler
+# Guess what to install when running an unknown command.
+antigen bundle command-not-found
+# Extracts different types of archives
+antigen bundle extract
+# Autocompletion for gem command.
+antigen bundle gem
+# Git aliases and completion.
+antigen bundle git
+# RVM aliases and completion.
+antigen bundle rvm
+# tmux aliases and configurations.
+antigen bundle tmux
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
 # Load the theme.
 antigen theme gentoo
-
 # Tell antigen that you're done.
 antigen apply
 
