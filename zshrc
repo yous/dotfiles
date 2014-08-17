@@ -81,7 +81,7 @@ fi
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 # Load the theme.
-antigen theme alanpeabody
+antigen theme gentoo
 # Tell antigen that you're done.
 antigen apply
 
