@@ -235,16 +235,14 @@ autocmd FileType *
       \ setlocal formatoptions-=c formatoptions-=o
 
 " Mappings
-map j <SID>gj
-map k <SID>gk
-map <DOWN> <SID>gj
-map <UP> <SID>gk
-noremap <SID>gj gj
-noremap <SID>gk gk
+noremap j gj
+noremap k gk
+noremap <Down> gj
+noremap <Up> gk
+noremap gj j
+noremap gk k
 function SetQuickfixMapping()
   nnoremap <buffer> q :ccl<CR>
-  noremap <buffer> <SID>gj j
-  noremap <buffer> <SID>gk k
 endfunction
 autocmd FileType qf call SetQuickfixMapping()
 
