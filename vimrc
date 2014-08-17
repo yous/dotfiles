@@ -335,10 +335,10 @@ autocmd FileType ruby set keywordprg=ri
 autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
 
 " Gradle view
-autocmd BufNewFile,BufRead *.gradle setfiletype groovy
+autocmd BufNewFile,BufRead *.gradle setlocal filetype=groovy
 
 " Json view
-autocmd BufNewFile,BufRead *.json setfiletype json
+autocmd BufNewFile,BufRead *.json setlocal filetype=json
 
 " ANSI escape for Rails log
 autocmd FileType railslog :AnsiEsc
