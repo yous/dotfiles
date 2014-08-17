@@ -340,6 +340,9 @@ autocmd BufNewFile,BufRead *.gradle setlocal filetype=groovy
 " Json view
 autocmd BufNewFile,BufRead *.json setlocal filetype=json
 
+" zsh-theme view
+autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
+
 " ANSI escape for Rails log
 autocmd FileType railslog :AnsiEsc
 
