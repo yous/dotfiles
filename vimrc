@@ -252,6 +252,10 @@ function SetQuickfixMapping()
 endfunction
 autocmd FileType qf call SetQuickfixMapping()
 
+" Search regex
+nnoremap / /\v
+vnoremap / /\v
+
 " Auto close
 inoremap (<CR> (<CR>)<ESC>O
 inoremap [<CR> [<CR>]<ESC>O
