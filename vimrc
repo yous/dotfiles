@@ -145,7 +145,7 @@ set splitright
 set title
 set t_Co=256
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=81
 else
   autocmd BufWinEnter * let w:m2 = matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
