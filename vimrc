@@ -90,6 +90,15 @@ if &shell =~# 'fish$'
   set shell=sh
 endif
 set background=dark
+set backspace=indent,eol,start
+set clipboard=unnamed
+set fileencodings=ucs-bom,utf-8,cp949,latin1
+set fileformats=unix,mac,dos
+set ignorecase " for smartcase
+set incsearch
+set nobackup
+set smartcase
+set wildmenu
 if has('gui_running')
   colorscheme wombat256mod
   set encoding=utf-8
@@ -114,17 +123,24 @@ if has('win32')
   set shellslash
 endif
 autocmd InsertLeave * set nopaste
-set backspace=indent,eol,start
-set clipboard=unnamed
-set fileencodings=ucs-bom,utf-8,cp949,latin1
-set fileformats=unix,mac,dos
-set ignorecase " for smartcase
-set incsearch
-set nobackup
-set smartcase
-set wildmenu
 
 " Vim UI
+set display+=uhex " show unprintable characters as a hex number
+set hlsearch " search with highlight
+set laststatus=2
+set number
+set scrolloff=3
+set showcmd
+set showmatch
+set splitbelow
+set splitright
+set title
+set t_Co=256
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  autocmd BufWinEnter * let w:m2 = matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 if has('gui_running')
   set guifont=DejaVu\ Sans\ Mono:h10:cANSI
   if has('win32')
@@ -187,22 +203,6 @@ if has('gui_running')
         \   call ScreenSave() |
         \ endif
 endif
-set display+=uhex " show unprintable characters as a hex number
-set hlsearch " search with highlight
-set laststatus=2
-set number
-set splitbelow
-set showcmd
-set showmatch
-set scrolloff=3
-set splitright
-set title
-set t_Co=256
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  autocmd BufWinEnter * let w:m2 = matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -214,16 +214,17 @@ if version >= 702
 endif
 
 " Text formatting
-autocmd FileType *
-      \ setlocal formatoptions-=c formatoptions-=o " disable automatic comment insertion
-autocmd FileType c,cpp,java,mkd,markdown,python
-      \ setlocal softtabstop=4 shiftwidth=4 tabstop=4
 set autoindent
 set expandtab
 set smartindent
 set softtabstop=2
 set shiftwidth=2
 set tabstop=2
+autocmd FileType c,cpp,java,mkd,markdown,python
+      \ setlocal softtabstop=4 shiftwidth=4 tabstop=4
+" Disable automatic comment insertion
+autocmd FileType *
+      \ setlocal formatoptions-=c formatoptions-=o
 
 " Mappings
 map j <SID>gj
