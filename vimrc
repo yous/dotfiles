@@ -282,8 +282,8 @@ nnoremap <C-L> <C-W>l
 " Tab
 map <C-T> :tabnew<CR>
 if has('win32')
-  map <C-TAB> :tabnext<CR>
-  map <C-S-TAB> :tabprevious<CR>
+  map <C-Tab> :tabnext<CR>
+  map <C-S-Tab> :tabprevious<CR>
 elseif has('unix')
   map t :tabnext<CR>
   map T :tabprevious<CR>
