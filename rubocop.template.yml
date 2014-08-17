@@ -18,6 +18,3 @@ AllCops:
     - 'bin/**/*'
     - 'config/**/*'
     - 'db/**/*'
-
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
