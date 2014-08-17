@@ -98,6 +98,12 @@ set ignorecase " for smartcase
 set incsearch
 set nobackup
 set smartcase
+set wildignore+=.git,.hg,.svn
+set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.png
+set wildignore+=*.dll,*.exe,*.o,*.obj
+set wildignore+=*.sw?
+set wildignore+=*.DS_Store
+set wildignore+=*.pyc
 set wildmenu
 if has('gui_running')
   colorscheme wombat256mod
