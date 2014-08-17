@@ -138,6 +138,8 @@ set number
 set scrolloff=3
 set showcmd
 set showmatch
+set sidescroll=1
+set sidescrolloff=10
 set splitbelow
 set splitright
 set title
