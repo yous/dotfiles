@@ -255,6 +255,8 @@ autocmd FileType qf call SetQuickfixMapping()
 " Search regex
 nnoremap / /\v
 vnoremap / /\v
+cnoremap %s/ %smagic/
+cnoremap \>s/ \>smagic/
 
 " Auto close
 inoremap (<CR> (<CR>)<ESC>O
