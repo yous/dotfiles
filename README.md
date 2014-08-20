@@ -61,6 +61,9 @@ Or, if you would like to install the latest development release:
 
 ## Usage
 
+Before you begin, you should ensure that your build environment has the proper
+system dependencies for compiling the wanted Ruby version (see our [recommendations](https://github.com/sstephenson/ruby-build/wiki#suggested-build-environment)).
+
 ### Using `rbenv install` with rbenv
 
 To install a Ruby version for use with rbenv, run `rbenv install` with the
@@ -115,6 +118,10 @@ You can set certain environment variables to control the build process.
   choosing.
 * `RUBY_BUILD_SKIP_MIRROR`, if set, forces ruby-build to download packages from
   their original source URLs instead of using a mirror.
+* `RUBY_BUILD_ROOT` overrides the default location from where build definitions
+  in `share/ruby-build/` are looked up.
+* `RUBY_BUILD_DEFINITIONS` can be a list of colon-separated paths that get
+  additionally searched when looking up build definitions.
 * `CC` sets the path to the C compiler.
 * `RUBY_CFLAGS` lets you pass additional options to the default `CFLAGS`. Use
   this to override, for instance, the `-O3` option.
