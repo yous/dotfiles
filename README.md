@@ -92,6 +92,7 @@ For more information about signing commits, see [A Git Horror Story: Repository 
 
 To use [Solarized][] on [iTerm2][]:
 
+[Solarized]: https://github.com/altercation/solarized
 [iTerm2]: http://www.iterm2.com
 
 1. Open Preferences… > Profiles > Colors.
