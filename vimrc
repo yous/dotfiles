@@ -367,7 +367,7 @@ let g:PreserveNoEOL = 1
 let g:EasyMotion_leader_key = '<Leader>'
 
 " Fugitive
-let s:fugitive_insert = 0
+let b:fugitive_insert = 0
 augroup colorcolumn
   autocmd!
   autocmd FileType gitcommit
@@ -379,22 +379,22 @@ augroup colorcolumn
 augroup END
 autocmd FileType gitcommit
       \ if byte2line(2) == 2 |
-      \   let s:fugitive_insert = 1 |
+      \   let b:fugitive_insert = 1 |
       \ endif
 autocmd VimEnter *
-      \ if (s:fugitive_insert) |
+      \ if (b:fugitive_insert) |
       \   startinsert |
       \ endif
-autocmd FileType gitcommit let s:open_nerdtree = 0
-autocmd FileType gitrebase let s:open_nerdtree = 0
+autocmd FileType gitcommit let b:open_nerdtree = 0
+autocmd FileType gitrebase let b:open_nerdtree = 0
 
 " NERD Tree
-let s:open_nerdtree = 1
+let b:open_nerdtree = 1
 if &diff
-  let s:open_nerdtree = 0
+  let b:open_nerdtree = 0
 endif
 autocmd VimEnter *
-      \ if (s:open_nerdtree) |
+      \ if (b:open_nerdtree) |
       \   NERDTree |
       \   wincmd p |
       \ endif
