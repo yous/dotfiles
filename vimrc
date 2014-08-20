@@ -204,10 +204,12 @@ if has('gui_running')
   if !exists('g:screen_size_by_vim_instance')
     let g:screen_size_by_vim_instance = 1
   endif
-  autocmd VimEnter * if g:screen_size_restore_pos == 1 |
+  autocmd VimEnter *
+        \ if g:screen_size_restore_pos == 1 |
         \   call ScreenRestore() |
         \ endif
-  autocmd VimLeavePre * if g:screen_size_restore_pos == 1 |
+  autocmd VimLeavePre *
+        \ if g:screen_size_restore_pos == 1 |
         \   call ScreenSave() |
         \ endif
 endif
@@ -363,10 +365,12 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 " Fugitive
 let s:fugitive_insert = 0
-autocmd FileType gitcommit if byte2line(2) == 2 |
+autocmd FileType gitcommit
+      \ if byte2line(2) == 2 |
       \   let s:fugitive_insert = 1 |
       \ endif
-autocmd VimEnter * if (s:fugitive_insert) |
+autocmd VimEnter *
+      \ if (s:fugitive_insert) |
       \   startinsert |
       \ endif
 autocmd FileType gitcommit let s:open_nerdtree = 0
@@ -377,11 +381,13 @@ let s:open_nerdtree = 1
 if &diff
   let s:open_nerdtree = 0
 endif
-autocmd VimEnter * if (s:open_nerdtree) |
+autocmd VimEnter *
+      \ if (s:open_nerdtree) |
       \   NERDTree |
       \   wincmd p |
       \ endif
-autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') |
+autocmd BufEnter *
+      \ if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') |
       \   q |
       \ endif
 
