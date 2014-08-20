@@ -48,14 +48,14 @@ https://raw.githubusercontent.com/yous/config/master/adblock.txt
 
 ### IntelliJ, Android Studio
 
-To use [Solarized][]:
+To use [Tomorrow Theme][]:
 
-[Solarized]: https://github.com/altercation/solarized
+[Tomorrow Theme]: https://github.com/ChrisKempson/Tomorrow-Theme
 
 1. Open File > Import Settings… in [IntelliJ][] or [Android Studio][].
-2. Select `solarized/intellij-colors-solarized/settings.jar`.
+2. Select `tomorrow-theme/Jetbrains/settings.jar`.
 3. Open Settings > Editor > Colors & Fonts.
-4. Select a scheme of Solarized.
+4. Select a scheme of Tomorrow Theme.
 
 [IntelliJ]: http://www.jetbrains.com/idea/
 [Android Studio]: http://developer.android.com/sdk/installing/studio.html
