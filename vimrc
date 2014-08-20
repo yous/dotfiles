@@ -144,11 +144,14 @@ set splitbelow
 set splitright
 set title
 set t_Co=256
-if exists('+colorcolumn')
-  set colorcolumn=81
-else
-  autocmd BufWinEnter * let w:m2 = matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
+augroup colorcolumn
+  autocmd!
+  if exists('+colorcolumn')
+    set colorcolumn=81
+  else
+    autocmd BufWinEnter * let w:m2 = matchadd('ErrorMsg', '\%>80v.\+', -1)
+  endif
+augroup END
 if has('gui_running')
   set guifont=DejaVu\ Sans\ Mono:h10:cANSI
   if has('win32')
@@ -365,6 +368,15 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 " Fugitive
 let s:fugitive_insert = 0
+augroup colorcolumn
+  autocmd!
+  autocmd FileType gitcommit
+        \ if exists('+colorcolumn') |
+        \   set colorcolumn=73 |
+        \ else |
+        \   let w:m2 = matchadd('ErrorMsg', '\%>72v.\+', -1) |
+        \ endif
+augroup END
 autocmd FileType gitcommit
       \ if byte2line(2) == 2 |
       \   let s:fugitive_insert = 1 |
