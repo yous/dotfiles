@@ -69,28 +69,23 @@ To use [Tomorrow Theme][]:
 
 ### Git
 
-To use `.gitignore_global` as the global gitignore:
+Set user-specific configurations on `gitconfig`:
 
-``` sh
-git config --global core.excludesfile ~/.gitignore_global
 ```
-
-Set several global configurations:
-
-``` sh
-git config --global user.name "Your Name"
-git config --global user.email you@example.com
-git config --global core.editor vim
-git config --global fetch.prune true
+[user]
+	name = Your Name
+	email = you@example.com
 ```
 
 If you are using [Keybase][]:
 
 [Keybase]: https://keybase.io
 
-``` sh
-git config --global user.signingkey "YOUR KEY"
-git config --global commit.gpgsign true
+```
+[user]
+	signingkey = YOUR KEY
+[commit]
+	gpgsign = true
 ```
 
 For more information about signing commits, see [A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).

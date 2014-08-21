@@ -1,0 +1,15 @@
+[user]
+	name = ChaYoung You
+	email = yousbe@gmail.com
+	signingkey = 1D5A400A
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[color]
+	ui = auto
+[commit]
+	gpgsign = true
+[fetch]
+	prune = true
+[push]
+	default = simple

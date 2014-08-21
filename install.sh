@@ -45,6 +45,7 @@ function replace_file()
 if [ $# -eq 0 ]; then
   for FILENAME in \
     "antigen" \
+    "gitconfig" \
     "gitignore_global" \
     "irbrc" \
     "screenrc" \
