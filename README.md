@@ -26,11 +26,18 @@ Configuration files for [@yous](https://github.com/yous)
         git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         vim +PluginInstall +qall
 
-3. Copy configuration files to home directory:
+3. Install [vimproc.vim][]:
+
+[vimproc.vim]: https://github.com/Shougo/vimproc.vim
+
+        cd ~/.vim/bundle/vimproc.vim
+        make
+
+4. Copy configuration files to home directory:
 
         ./install.sh
 
-4. If you are using [rbenv][], execute additional script:
+5. If you are using [rbenv][], execute additional script:
 
 [rbenv]: https://github.com/sstephenson/rbenv
 
