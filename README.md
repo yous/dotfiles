@@ -69,10 +69,10 @@ To use [Tomorrow Theme][]:
 
 ### Git
 
-To use `.gitignore` as the global gitignore:
+To use `.gitignore_global` as the global gitignore:
 
 ``` sh
-git config --global core.excludesfile ~/.gitignore
+git config --global core.excludesfile ~/.gitignore_global
 ```
 
 Set several global configurations:

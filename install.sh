@@ -45,7 +45,7 @@ function replace_file()
 if [ $# -eq 0 ]; then
   for FILENAME in \
     "antigen" \
-    "gitignore" \
+    "gitignore_global" \
     "irbrc" \
     "screenrc" \
     "tmux.conf" \
