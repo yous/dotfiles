@@ -392,6 +392,10 @@ autocmd VimEnter *
 autocmd FileType gitcommit let s:open_nerdtree = 0
 autocmd FileType gitrebase let s:open_nerdtree = 0
 
+" airline
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
 " NERD Tree
 let s:open_nerdtree = 1
 if &diff
