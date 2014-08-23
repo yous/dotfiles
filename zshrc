@@ -89,6 +89,9 @@ antigen apply
 # https://github.com/seebi/dircolors-solarized/issues/10
 [[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+# Use custom shell scripts
+PATH=$HOME/bin:$PATH
+
 # Define aliases
 alias sudo='sudo '
 alias git='noglob git'

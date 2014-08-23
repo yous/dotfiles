@@ -55,6 +55,10 @@ if [ $# -eq 0 ]; then
   do
     replace_file $FILENAME
   done
+  for FILENAME in bin/*
+  do
+    replace_file $FILENAME $FILENAME
+  done
   echo "Done."
 elif [ $# -eq 1 ] && [ $1 == "--rbenv" ]; then
   replace_file "rbenv"
