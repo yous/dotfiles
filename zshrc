@@ -62,6 +62,8 @@ fi
 source $HOME/.antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
+# A cd command that learns - easily navigate directories from the command line.
+antigen bundle autojump
 # Run commands with bundle and bundle aliases
 antigen bundle bundler
 # Guess what to install when running an unknown command.
