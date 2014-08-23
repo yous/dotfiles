@@ -10,7 +10,8 @@ if has('gui_running') || has('unix')
 
   " Colorscheme
   Plugin 'wombat256.vim'
-  Plugin 'altercation/vim-colors-solarized'
+  " Plugin 'altercation/vim-colors-solarized'
+  Plugin 'khwon/vim-tomorrow-theme'
 
   " General
   " Preserve missing EOL at the end of text files
@@ -121,7 +122,8 @@ if has('gui_running')
   set langmenu=ko.UTF-8
   source $VIMRUNTIME/menu.vim
 elseif has('unix')
-  colorscheme solarized
+  " colorscheme solarized
+  colorscheme Tomorrow-Night-Eighties
 endif
 if has('win32')
   autocmd InsertEnter * set noimdisable

@@ -102,6 +102,15 @@ To use [Solarized][] on [iTerm2][]:
 3. Select `*.itermcolors` files under `solarized/iterm2-colors-solarized/`.
 4. Click 'Load Presets…' again and select one of Solarized.
 
+To use [Tomorrow Theme][]:
+
+[Tomorrow Theme]: https://github.com/chriskempson/tomorrow-theme
+
+1. Open Preferences… > Profiles > Colors.
+2. Click 'Load Presets…' and select 'Import…'.
+3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2/`.
+4. Click 'Load Presets…' again and select one of Tomorrow Theme.
+
 ### Ruby
 
 If you are using [RVM][],
