@@ -116,7 +116,7 @@ if has('gui_running')
   set guioptions-=m " Menu bar
   set guioptions-=T " Toolbar
   set guioptions-=r " Right-hand scrollbar
-  set guioptions-=L " Left-hand scrollbar when there is a vertically split window
+  set guioptions-=L " Left-hand scrollbar when window is vertically split
   set mouse=
   source $VIMRUNTIME/delmenu.vim
   set langmenu=ko.UTF-8
@@ -178,7 +178,8 @@ if has('gui_running')
     " Must set font first so columns and lines are based on font size.
     let f = ScreenFilename()
     if has('gui_running') && g:screen_size_restore_pos && filereadable(f)
-      let vim_instance = (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
+      let vim_instance =
+            \ (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
       for line in readfile(f)
         let sizepos = split(line)
         if len(sizepos) == 5 && sizepos[0] == vim_instance
@@ -192,7 +193,8 @@ if has('gui_running')
   function! ScreenSave()
     " Save window size and position.
     if has('gui_running') && g:screen_size_restore_pos
-      let vim_instance = (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
+      let vim_instance =
+            \ (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
       let data = vim_instance.' '.&columns.' '.&lines.' '.
             \ (getwinposx() < 0 ? 0: getwinposx()).' '.
             \ (getwinposy() < 0 ? 0: getwinposy())
@@ -409,7 +411,8 @@ autocmd VimEnter *
       \   wincmd p |
       \ endif
 autocmd BufEnter *
-      \ if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') |
+      \ if winnr('$') == 1 &&
+      \     exists('b:NERDTreeType') && b:NERDTreeType == 'primary' |
       \   q |
       \ endif
 
