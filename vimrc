@@ -266,12 +266,22 @@ function SetHelpMapping()
   nnoremap <buffer> q :q<CR>
 endfunction
 autocmd FileType help call SetHelpMapping()
+autocmd BufEnter *
+      \ if winnr('$') == 1 &&
+      \     getbufvar(winbufnr(winnr()), '&buftype') == 'help' |
+      \   q |
+      \ endif
 
 " Quickfix
 function SetQuickfixMapping()
   nnoremap <buffer> q :ccl<CR>
 endfunction
 autocmd FileType qf call SetQuickfixMapping()
+autocmd BufEnter *
+      \ if winnr('$') == 1 &&
+      \     getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix' |
+      \   q |
+      \ endif
 
 " Search regex
 nnoremap / /\v
