@@ -260,6 +260,14 @@ inoremap <C-A> <ESC>I
 inoremap <C-E> <ESC>A
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
+
+" Help
+function SetHelpMapping()
+  nnoremap <buffer> q :q<CR>
+endfunction
+autocmd FileType help call SetHelpMapping()
+
+" Quickfix
 function SetQuickfixMapping()
   nnoremap <buffer> q :ccl<CR>
 endfunction
