@@ -54,6 +54,8 @@ if has('gui_running') || has('unix')
   " Support file types
   " AdBlock
   Plugin 'mojako/adblock-filter.vim'
+  " Aheui
+  Plugin 'yous/aheui.vim'
   " Coffee script
   Plugin 'kchmck/vim-coffee-script'
   " Cucumber
