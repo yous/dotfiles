@@ -2,7 +2,7 @@
 ! Homepage: https://github.com/yous/config#adblock-plus
 ! Title: YousList
 ! Expires: 7 days
-! Checksum: waQZOOITzM3xkHFSdyoNog
+! Checksum: fI62/pF1YXMJB922+IRScw
 ! Version: 20140815
 ##a[href^=http://www.bizon.kr/click.php?type=adon]
 ##div#adMedia
@@ -228,6 +228,7 @@ facebook.com##i[class~="adsCategoryIcon"]
 facebook.com##span[class="adsCategoryTitleLink"]
 facebook.com##span[id="egoRefreshAds"]
 feeltong.hani.co.kr/common/banner.html
+file.thisisgame.com/inc/PBPage*.js
 fnnews.com##div#hotnews_list
 fnnews.com##div[class^=AD-content]
 fnnews.com##div[id^=right_wing]
