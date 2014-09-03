@@ -37,6 +37,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
 
+# Use custom shell scripts
+PATH=$HOME/bin:$PATH
+
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
@@ -90,9 +93,6 @@ antigen apply
 # For ls colors in Solarized theme
 # https://github.com/seebi/dircolors-solarized/issues/10
 [[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-
-# Use custom shell scripts
-PATH=$HOME/bin:$PATH
 
 # Define aliases
 alias sudo='sudo '
