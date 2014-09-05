@@ -45,14 +45,14 @@ function replace_file()
 case "$1" in
   link)
     for FILENAME in \
-      "antigen" \
-      "gitconfig" \
-      "gitignore_global" \
-      "irbrc" \
-      "screenrc" \
-      "tmux.conf" \
-      "vimrc" \
-      "zshrc"
+      'antigen' \
+      'gitconfig' \
+      'gitignore_global' \
+      'irbrc' \
+      'screenrc' \
+      'tmux.conf' \
+      'vimrc' \
+      'zshrc'
     do
       replace_file $FILENAME
     done
@@ -60,25 +60,25 @@ case "$1" in
     do
       replace_file $FILENAME $FILENAME
     done
-    echo "Done."
+    echo 'Done.'
     ;;
   brew)
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     ;;
   rbenv)
-    replace_file "rbenv"
-    echo "Done."
+    replace_file 'rbenv'
+    echo 'Done.'
     ;;
   rvm)
     \curl -sSL https://get.rvm.io | bash -s stable
     ;;
   *)
     echo "usage: $(basename $0) <command>"
-    echo ""
-    echo "Available commands:"
-    echo "    link    Install symbolic links"
-    echo "    brew    Install Homebrew"
-    echo "    rbenv   Install rbenv"
-    echo "    rvm     Install RVM"
+    echo ''
+    echo 'Available commands:'
+    echo '    link    Install symbolic links'
+    echo '    brew    Install Homebrew'
+    echo '    rbenv   Install rbenv'
+    echo '    rvm     Install RVM'
     ;;
 esac
