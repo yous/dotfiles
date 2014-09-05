@@ -62,15 +62,23 @@ case "$1" in
     done
     echo "Done."
     ;;
+  brew)
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    ;;
   rbenv)
     replace_file "rbenv"
     echo "Done."
+    ;;
+  rvm)
+    \curl -sSL https://get.rvm.io | bash -s stable
     ;;
   *)
     echo "usage: $(basename $0) <command>"
     echo ""
     echo "Available commands:"
     echo "    link    Install symbolic links"
+    echo "    brew    Install Homebrew"
     echo "    rbenv   Install rbenv"
+    echo "    rvm     Install RVM"
     ;;
 esac
