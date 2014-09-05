@@ -17,18 +17,12 @@ Configuration files for [@yous](https://github.com/yous)
         git clone https://github.com/yous/config.git
         cd config
 
-2. Install [Vundle.vim][]:
-
-[Vundle.vim]: https://github.com/gmarik/Vundle.vim
-
-        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-3. Copy configuration files to home directory:
+2. Copy configuration files to home directory:
 
         ./install.sh link
         vim +PluginInstall +qall
 
-4. If you are using [rbenv][], execute additional script:
+3. If you are using [rbenv][], execute additional script:
 
 [rbenv]: https://github.com/sstephenson/rbenv
 

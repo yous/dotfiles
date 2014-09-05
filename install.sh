@@ -12,6 +12,16 @@ function init_submodules()
   git submodule update
 }
 
+function git_clone()
+{
+  if [ ! -e "$HOME/$2" ]; then
+    echo "Cloning '$1'..."
+    git clone "$1" "$HOME/$2"
+  else
+    echoerr "~/$2 already exists."
+  fi
+}
+
 function replace_file()
 {
   DEST=${2:-.$1}
@@ -51,6 +61,7 @@ function replace_file()
 case "$1" in
   link)
     init_submodules
+    git_clone 'https://github.com/gmarik/Vundle.vim.git' ".vim/bundle/Vundle.vim"
     for FILENAME in \
       'antigen' \
       'gitconfig' \
