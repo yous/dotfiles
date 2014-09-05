@@ -97,8 +97,6 @@ To use [Solarized][] on [iTerm2][]:
 
 To use [Tomorrow Theme][]:
 
-[Tomorrow Theme]: https://github.com/chriskempson/tomorrow-theme
-
 1. Open Preferences… > Profiles > Colors.
 2. Click 'Load Presets…' and select 'Import…'.
 3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2/`.
@@ -125,11 +123,11 @@ gem install wirble
 
 To update [Vim][] plugins:
 
+[Vim]: http://www.vim.org
+
 - In Vim:
 
         :PluginUpdate
-
-[Vim]: http://www.vim.org
 
 - In terminal:
 
