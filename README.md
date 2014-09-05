@@ -27,14 +27,14 @@ Configuration files for [@yous](https://github.com/yous)
 
 3. Copy configuration files to home directory:
 
-        ./install.sh
+        ./install.sh link
         vim +PluginInstall +qall
 
 4. If you are using [rbenv][], execute additional script:
 
 [rbenv]: https://github.com/sstephenson/rbenv
 
-        ./install.sh --rbenv
+        ./install.sh rbenv
 
 ### Adblock Plus
 

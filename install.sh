@@ -42,27 +42,35 @@ function replace_file()
   fi
 }
 
-if [ $# -eq 0 ]; then
-  for FILENAME in \
-    "antigen" \
-    "gitconfig" \
-    "gitignore_global" \
-    "irbrc" \
-    "screenrc" \
-    "tmux.conf" \
-    "vimrc" \
-    "zshrc"
-  do
-    replace_file $FILENAME
-  done
-  for FILENAME in bin/*
-  do
-    replace_file $FILENAME $FILENAME
-  done
-  echo "Done."
-elif [ $# -eq 1 ] && [ $1 == "--rbenv" ]; then
-  replace_file "rbenv"
-  echo "Done."
-else
-  echo "Usage: $(basename $0) [--rbenv]"
-fi
+case "$1" in
+  link)
+    for FILENAME in \
+      "antigen" \
+      "gitconfig" \
+      "gitignore_global" \
+      "irbrc" \
+      "screenrc" \
+      "tmux.conf" \
+      "vimrc" \
+      "zshrc"
+    do
+      replace_file $FILENAME
+    done
+    for FILENAME in bin/*
+    do
+      replace_file $FILENAME $FILENAME
+    done
+    echo "Done."
+    ;;
+  rbenv)
+    replace_file "rbenv"
+    echo "Done."
+    ;;
+  *)
+    echo "usage: $(basename $0) <command>"
+    echo ""
+    echo "Available commands:"
+    echo "    link    Install symbolic links"
+    echo "    rbenv   Install rbenv"
+    ;;
+esac
