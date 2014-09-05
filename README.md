@@ -70,6 +70,12 @@ If you want to install [Homebrew][],
 ./install.sh brew
 ```
 
+Then install brews with:
+
+``` sh
+brew install `cat brews`
+```
+
 ### Git
 
 Set user-specific configurations on `gitconfig`:
