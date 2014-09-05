@@ -16,8 +16,6 @@ Configuration files for [@yous](https://github.com/yous)
 
         git clone https://github.com/yous/config.git
         cd config
-        git submodule init
-        git submodule update
 
 2. Install [Vundle.vim][]:
 

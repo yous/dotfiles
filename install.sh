@@ -6,6 +6,12 @@ function echoerr()
   echo "$@" 1>&2
 }
 
+function init_submodules()
+{
+  git submodule init
+  git submodule update
+}
+
 function replace_file()
 {
   DEST=${2:-.$1}
@@ -44,6 +50,7 @@ function replace_file()
 
 case "$1" in
   link)
+    init_submodules
     for FILENAME in \
       'antigen' \
       'gitconfig' \
