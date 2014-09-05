@@ -324,17 +324,6 @@ elseif has('unix')
   map T :tabprevious<CR>
 endif
 
-" Global copy and paste for Mac OS X
-if has('unix')
-  let s:uname = system('uname')
-  if s:uname == "Darwin\n"
-    nmap <F2> :.w !pbcopy<CR><CR>
-    vmap <F2> :w !pbcopy<CR><CR>
-    nmap <F3> :se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
-    imap <F3> <ESC>:se paste<CR>:r !pbpaste<CR>:se nopaste<CR>
-  endif
-endif
-
 " C, C++ compile & execute
 autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
 autocmd FileType c,cpp imap <F5> <ESC>:w<CR>:make %<CR>
