@@ -60,6 +60,16 @@ To use [Tomorrow Theme][]:
 [IntelliJ]: http://www.jetbrains.com/idea/
 [Android Studio]: http://developer.android.com/sdk/installing/studio.html
 
+### Homebrew
+
+If you want to install [Homebrew][],
+
+[Homebrew]: http://brew.sh
+
+``` sh
+./install.sh brew
+```
+
 ### Git
 
 Set user-specific configurations on `gitconfig`:
@@ -104,9 +114,15 @@ To use [Tomorrow Theme][]:
 
 ### Ruby
 
-If you are using [RVM][],
+If you want to install [RVM][],
 
 [RVM]: http://rvm.io
+
+``` sh
+./install.sh rvm
+```
+
+If you are using RVM,
 
 ``` sh
 rvm use current@global
@@ -144,8 +160,6 @@ chsh -s /bin/zsh
 ```
 
 If you use custom Zsh like compiled one by [Homebrew][],
-
-[Homebrew]: http://brew.sh
 
 ``` sh
 chsh -s /usr/local/bin/zsh
