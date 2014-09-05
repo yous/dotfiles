@@ -47,10 +47,6 @@ if has('gui_running') || has('unix')
   " Plugin 'Conque-Shell'
   Plugin 'yous/conque'
 
-  " VimShell
-  Plugin 'Shougo/vimproc.vim'
-  Plugin 'Shougo/vimshell.vim'
-
   " Support file types
   " AdBlock
   Plugin 'mojako/adblock-filter.vim'
@@ -434,11 +430,6 @@ command -nargs=* Sh ConqueTerm <args>
 command -nargs=* Shsp ConqueTermSplit <args>
 command -nargs=* Shtab ConqueTermTab <args>
 command -nargs=* Shvs ConqueTermVSplit <args>
-
-" VimShell
-command Irb VimShellInteractive irb
-command Birb VimShellInteractive bundle exec irb
-command Python VimShellInteractive python
 
 " Adblock
 let g:adblock_filter_auto_checksum = 1

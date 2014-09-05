@@ -30,14 +30,7 @@ Configuration files for [@yous](https://github.com/yous)
         ./install.sh
         vim +PluginInstall +qall
 
-4. Install [vimproc.vim][]:
-
-[vimproc.vim]: https://github.com/Shougo/vimproc.vim
-
-        cd ~/.vim/bundle/vimproc.vim
-        make
-
-5. If you are using [rbenv][], execute additional script:
+4. If you are using [rbenv][], execute additional script:
 
 [rbenv]: https://github.com/sstephenson/rbenv
 
