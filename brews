@@ -1,7 +1,9 @@
 autojump
 git
+lua
 reattach-to-user-namespace
+ruby
 tmux
-vim
+vim --with-lua --with-tcl
 wget
 zsh
