@@ -65,7 +65,7 @@ If you want to install [Homebrew][],
 Then install brews with:
 
 ``` sh
-rvm use system # For Vim compile with Ruby support
+rvm use system # To compile Vim with Ruby support
 brew install `cat brews`
 ```
 
