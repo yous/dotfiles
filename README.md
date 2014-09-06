@@ -22,12 +22,6 @@ Configuration files for [@yous](https://github.com/yous)
         ./install.sh link
         vim +PluginInstall +qall
 
-3. If you are using [rbenv][], execute additional script:
-
-[rbenv]: https://github.com/sstephenson/rbenv
-
-        ./install.sh rbenv
-
 ### Adblock Plus
 
 To use [Adblock Plus][] filter, install its browser plugin and add subscription as 'YousList' with the url:
@@ -119,6 +113,14 @@ If you want to install [RVM][],
 
 ``` sh
 ./install.sh rvm
+```
+
+If you want to install [rbenv][],
+
+[rbenv]: https://github.com/sstephenson/rbenv
+
+``` sh
+./install.sh rbenv
 ```
 
 If you are using RVM,
