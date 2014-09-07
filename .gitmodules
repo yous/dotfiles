@@ -7,6 +7,3 @@
 [submodule "solarized"]
 	path = solarized
 	url = https://github.com/altercation/solarized.git
-[submodule "vim-plug"]
-	path = vim-plug
-	url = git@github.com:junegunn/vim-plug.git
