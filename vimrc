@@ -14,7 +14,7 @@ Plug 'khwon/vim-tomorrow-theme'
 " Preserve missing EOL at the end of text files
 Plug 'PreserveNoEOL'
 " ANSI escape
-Plug 'AnsiEsc.vim'
+Plug 'AnsiEsc.vim', { 'for': 'railslog' }
 " Full path finder
 Plug 'kien/ctrlp.vim'
 " Much simpler way to use some motions
@@ -46,32 +46,32 @@ Plug 'yous/conque'
 
 " Support file types
 " AdBlock
-Plug 'mojako/adblock-filter.vim'
+Plug 'mojako/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
-Plug 'yous/aheui.vim'
+Plug 'yous/aheui.vim', { 'for': 'aheui' }
 " Coffee script
-Plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 " Cucumber
-Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 " Jade
-Plug 'digitaltoad/vim-jade'
+Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " JSON
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', { 'for': 'json' }
 " HTML5
 Plug 'othree/html5.vim'
 " LaTeX
-Plug 'LaTeX-Suite-aka-Vim-LaTeX'
+Plug 'LaTeX-Suite-aka-Vim-LaTeX', { 'for': 'tex' }
 " Markdown
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular', { 'for': 'mkd' }
+Plug 'plasticboy/vim-markdown', { 'for': 'mkd' }
 " PHP
 Plug 'php.vim-html-enhanced'
 " Racket
-Plug 'wlangstroth/vim-racket'
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 " TomDoc
 Plug 'wellbredgrapefruit/tomdoc.vim'
 " XML
-Plug 'othree/xml.vim'
+Plug 'othree/xml.vim', { 'for': 'xml' }
 
 " Ruby
 " Rake
