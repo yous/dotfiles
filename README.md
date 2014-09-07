@@ -138,9 +138,16 @@ gem install wirble
 
 ### Vim
 
-To update [Vim][] plugins:
+To update [vim-plug][], open [Vim][] and run:
 
+[vim-plug]: https://github.com/junegunn/vim-plug
 [Vim]: http://www.vim.org
+
+```
+:PlugUpgrade
+```
+
+To update Vim plugins:
 
 - In Vim:
 
