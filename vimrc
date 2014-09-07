@@ -1,88 +1,86 @@
 " Vundle
 set nocompatible
-if has('gui_running') || has('unix')
-  filetype off
-  call plug#begin('~/.vim/plugged')
-  " Let vim-plug manage itself
-  Plug 'junegunn/vim-plug'
+filetype off
+call plug#begin('~/.vim/plugged')
+" Let vim-plug manage itself
+Plug 'junegunn/vim-plug'
 
-  " Colorscheme
-  Plug 'wombat256.vim'
-  " Plug 'altercation/vim-colors-solarized'
-  Plug 'khwon/vim-tomorrow-theme'
+" Colorscheme
+Plug 'wombat256.vim'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'khwon/vim-tomorrow-theme'
 
-  " General
-  " Preserve missing EOL at the end of text files
-  Plug 'PreserveNoEOL'
-  " ANSI escape
-  Plug 'AnsiEsc.vim'
-  " Full path finder
-  Plug 'kien/ctrlp.vim'
-  " Much simpler way to use some motions
-  Plug 'Lokaltog/vim-easymotion'
-  " Extended % matching
-  Plug 'matchit.zip'
-  " Autocomplete if end
-  Plug 'tpope/vim-endwise'
-  " Easily delete, change and add surroundings in pairs
-  Plug 'tpope/vim-surround'
-  " Vim sugar for the UNIX shell commands
-  Plug 'tpope/vim-eunuch'
-  " Compile errors
-  Plug 'scrooloose/syntastic'
-  " Switch between source files and header files
-  Plug 'a.vim'
-  " Git wrapper
-  Plug 'tpope/vim-fugitive'
+" General
+" Preserve missing EOL at the end of text files
+Plug 'PreserveNoEOL'
+" ANSI escape
+Plug 'AnsiEsc.vim'
+" Full path finder
+Plug 'kien/ctrlp.vim'
+" Much simpler way to use some motions
+Plug 'Lokaltog/vim-easymotion'
+" Extended % matching
+Plug 'matchit.zip'
+" Autocomplete if end
+Plug 'tpope/vim-endwise'
+" Easily delete, change and add surroundings in pairs
+Plug 'tpope/vim-surround'
+" Vim sugar for the UNIX shell commands
+Plug 'tpope/vim-eunuch'
+" Compile errors
+Plug 'scrooloose/syntastic'
+" Switch between source files and header files
+Plug 'a.vim'
+" Git wrapper
+Plug 'tpope/vim-fugitive'
 
-  " Vim UI
-  " Status, tabline
-  Plug 'bling/vim-airline'
-  " Explore filesystem
-  Plug 'scrooloose/nerdtree'
+" Vim UI
+" Status, tabline
+Plug 'bling/vim-airline'
+" Explore filesystem
+Plug 'scrooloose/nerdtree'
 
-  " ConqueTerm
-  " Plug 'Conque-Shell'
-  Plug 'yous/conque'
+" ConqueTerm
+" Plug 'Conque-Shell'
+Plug 'yous/conque'
 
-  " Support file types
-  " AdBlock
-  Plug 'mojako/adblock-filter.vim'
-  " Aheui
-  Plug 'yous/aheui.vim'
-  " Coffee script
-  Plug 'kchmck/vim-coffee-script'
-  " Cucumber
-  Plug 'tpope/vim-cucumber'
-  " Jade
-  Plug 'digitaltoad/vim-jade'
-  " JSON
-  Plug 'elzr/vim-json'
-  " HTML5
-  Plug 'othree/html5.vim'
-  " LaTeX
-  Plug 'LaTeX-Suite-aka-Vim-LaTeX'
-  " Markdown
-  Plug 'godlygeek/tabular'
-  Plug 'plasticboy/vim-markdown'
-  " PHP
-  Plug 'php.vim-html-enhanced'
-  " Racket
-  Plug 'wlangstroth/vim-racket'
-  " TomDoc
-  Plug 'wellbredgrapefruit/tomdoc.vim'
-  " XML
-  Plug 'othree/xml.vim'
+" Support file types
+" AdBlock
+Plug 'mojako/adblock-filter.vim'
+" Aheui
+Plug 'yous/aheui.vim'
+" Coffee script
+Plug 'kchmck/vim-coffee-script'
+" Cucumber
+Plug 'tpope/vim-cucumber'
+" Jade
+Plug 'digitaltoad/vim-jade'
+" JSON
+Plug 'elzr/vim-json'
+" HTML5
+Plug 'othree/html5.vim'
+" LaTeX
+Plug 'LaTeX-Suite-aka-Vim-LaTeX'
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+" PHP
+Plug 'php.vim-html-enhanced'
+" Racket
+Plug 'wlangstroth/vim-racket'
+" TomDoc
+Plug 'wellbredgrapefruit/tomdoc.vim'
+" XML
+Plug 'othree/xml.vim'
 
-  " Ruby
-  " Rake
-  Plug 'tpope/vim-rake'
-  " RuboCop
-  Plug 'ngmy/vim-rubocop'
-  " Rails
-  Plug 'tpope/vim-rails'
-  call plug#end()
-endif
+" Ruby
+" Rake
+Plug 'tpope/vim-rake'
+" RuboCop
+Plug 'ngmy/vim-rubocop'
+" Rails
+Plug 'tpope/vim-rails'
+call plug#end()
 filetype plugin indent on
 syntax on
 
