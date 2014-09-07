@@ -61,7 +61,6 @@ function replace_file()
 case "$1" in
   link)
     init_submodules
-    git_clone 'https://github.com/gmarik/Vundle.vim.git' ".vim/bundle/Vundle.vim"
     for FILENAME in \
       'antigen' \
       'gitconfig' \
@@ -69,6 +68,7 @@ case "$1" in
       'irbrc' \
       'screenrc' \
       'tmux.conf' \
+      'vim/autoload/plug.vim' \
       'vimrc' \
       'zshrc'
     do

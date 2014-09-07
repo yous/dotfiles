@@ -20,7 +20,7 @@ Configuration files for [@yous](https://github.com/yous)
 2. Copy configuration files to home directory:
 
         ./install.sh link
-        vim +PluginInstall +qall
+        vim +PlugInstall +qall
 
 ### Adblock Plus
 
@@ -144,11 +144,11 @@ To update [Vim][] plugins:
 
 - In Vim:
 
-        :PluginUpdate
+        :PlugUpdate
 
 - In terminal:
 
-        vim +PluginUpdate +qall
+        vim +PlugUpdate +qall
 
 ### Zsh
 

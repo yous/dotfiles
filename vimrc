@@ -1,89 +1,87 @@
 " Vundle
 set nocompatible
 if has('gui_running') || has('unix')
-  autocmd FileType vundle setlocal noshellslash
   filetype off
-  set runtimepath+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
-  " Let vundle manage itself
-  Plugin 'gmarik/Vundle.vim'
+  call plug#begin('~/.vim/plugged')
+  " Let vim-plug manage itself
+  Plug 'junegunn/vim-plug'
 
   " Colorscheme
-  Plugin 'wombat256.vim'
-  " Plugin 'altercation/vim-colors-solarized'
-  Plugin 'khwon/vim-tomorrow-theme'
+  Plug 'wombat256.vim'
+  " Plug 'altercation/vim-colors-solarized'
+  Plug 'khwon/vim-tomorrow-theme'
 
   " General
   " Preserve missing EOL at the end of text files
-  Plugin 'PreserveNoEOL'
+  Plug 'PreserveNoEOL'
   " ANSI escape
-  Plugin 'AnsiEsc.vim'
+  Plug 'AnsiEsc.vim'
   " Full path finder
-  Plugin 'kien/ctrlp.vim'
+  Plug 'kien/ctrlp.vim'
   " Much simpler way to use some motions
-  Plugin 'Lokaltog/vim-easymotion'
+  Plug 'Lokaltog/vim-easymotion'
   " Extended % matching
-  Plugin 'matchit.zip'
+  Plug 'matchit.zip'
   " Autocomplete if end
-  Plugin 'tpope/vim-endwise'
+  Plug 'tpope/vim-endwise'
   " Easily delete, change and add surroundings in pairs
-  Plugin 'tpope/vim-surround'
+  Plug 'tpope/vim-surround'
   " Vim sugar for the UNIX shell commands
-  Plugin 'tpope/vim-eunuch'
+  Plug 'tpope/vim-eunuch'
   " Compile errors
-  Plugin 'scrooloose/syntastic'
+  Plug 'scrooloose/syntastic'
   " Switch between source files and header files
-  Plugin 'a.vim'
+  Plug 'a.vim'
   " Git wrapper
-  Plugin 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive'
 
   " Vim UI
   " Status, tabline
-  Plugin 'bling/vim-airline'
+  Plug 'bling/vim-airline'
   " Explore filesystem
-  Plugin 'scrooloose/nerdtree'
+  Plug 'scrooloose/nerdtree'
 
   " ConqueTerm
-  " Plugin 'Conque-Shell'
-  Plugin 'yous/conque'
+  " Plug 'Conque-Shell'
+  Plug 'yous/conque'
 
   " Support file types
   " AdBlock
-  Plugin 'mojako/adblock-filter.vim'
+  Plug 'mojako/adblock-filter.vim'
   " Aheui
-  Plugin 'yous/aheui.vim'
+  Plug 'yous/aheui.vim'
   " Coffee script
-  Plugin 'kchmck/vim-coffee-script'
+  Plug 'kchmck/vim-coffee-script'
   " Cucumber
-  Plugin 'tpope/vim-cucumber'
+  Plug 'tpope/vim-cucumber'
   " Jade
-  Plugin 'digitaltoad/vim-jade'
+  Plug 'digitaltoad/vim-jade'
   " JSON
-  Plugin 'elzr/vim-json'
+  Plug 'elzr/vim-json'
   " HTML5
-  Plugin 'othree/html5.vim'
+  Plug 'othree/html5.vim'
   " LaTeX
-  Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+  Plug 'LaTeX-Suite-aka-Vim-LaTeX'
   " Markdown
-  Plugin 'godlygeek/tabular'
-  Plugin 'plasticboy/vim-markdown'
+  Plug 'godlygeek/tabular'
+  Plug 'plasticboy/vim-markdown'
   " PHP
-  Plugin 'php.vim-html-enhanced'
+  Plug 'php.vim-html-enhanced'
   " Racket
-  Plugin 'wlangstroth/vim-racket'
+  Plug 'wlangstroth/vim-racket'
   " TomDoc
-  Plugin 'wellbredgrapefruit/tomdoc.vim'
+  Plug 'wellbredgrapefruit/tomdoc.vim'
   " XML
-  Plugin 'othree/xml.vim'
+  Plug 'othree/xml.vim'
 
   " Ruby
   " Rake
-  Plugin 'tpope/vim-rake'
+  Plug 'tpope/vim-rake'
   " RuboCop
-  Plugin 'ngmy/vim-rubocop'
+  Plug 'ngmy/vim-rubocop'
   " Rails
-  Plugin 'tpope/vim-rails'
-  call vundle#end()
+  Plug 'tpope/vim-rails'
+  call plug#end()
 endif
 filetype plugin indent on
 syntax on
