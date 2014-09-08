@@ -2,8 +2,8 @@
 ! Homepage: https://github.com/yous/config#adblock-plus
 ! Title: YousList
 ! Expires: 7 days
-! Checksum: ml7/cZGXE755OURT4vPPfQ
-! Version: 20140815
+! Checksum: xkQUTHY/Ne+zBrV3UJiG+g
+! Version: 20140909
 ##a[href^="http://www.bizon.kr/click.php?type=adon"]
 ##div#adMedia
 ##div#adya_area
@@ -63,6 +63,7 @@ ad.dt.co.kr/
 ad.hankooki.com/
 ad.hooniad.com/
 ad.ingfac.co.kr/
+ad.kmib.co.kr/
 ad.koreadaily.com/
 ad.linkprice.com/stlink.php
 ad.naver.com/adshow
@@ -407,6 +408,14 @@ news.khan.co.kr##div.ad_realClick
 news.khan.co.kr##div.ad_todayFocus
 news.khan.co.kr##div.ad_top
 news.khan.co.kr##div.scroll
+news.kmib.co.kr##div#content>div.NwsCon>div[style="border-bottom:1px solid #ddd;padding:0 0 20px;margin-bottom:20px;"]
+news.kmib.co.kr##div#content>div.NwsCon>div[style="margin:15px 0;"]
+news.kmib.co.kr##div#content>div.NwsCon>div[style="margin:30px auto 40px;"]
+news.kmib.co.kr##div#content>div.NwsCon>div[style="padding-bottom:20px;"]
+news.kmib.co.kr##div#content>div.NwsCon>div[style="padding-bottom:20px;width:700px;height:150px;"]
+news.kmib.co.kr##div#content>div.NwsCon>div[style="padding-bottom:20px;width:700px;height:180px;"]
+news.kmib.co.kr##div#content>div.NwsCon>div[style="padding-bottom:30px;"]
+news.kmib.co.kr##div#article>div[style="width:250px;height:250px;float:left;margin:0 15px 10px 0px;"]
 news.kukinews.com##div#ad01_250_250
 news.kukinews.com##div#lft_top_ad
 news.kukinews.com##div#right_scroll_ad
