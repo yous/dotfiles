@@ -2,7 +2,7 @@
 ! Homepage: https://github.com/yous/config#adblock-plus
 ! Title: YousList
 ! Expires: 7 days
-! Checksum: V67hZt+7QuM8lP6/04N6yg
+! Checksum: ml7/cZGXE755OURT4vPPfQ
 ! Version: 20140815
 ##a[href^="http://www.bizon.kr/click.php?type=adon"]
 ##div#adMedia
@@ -17,7 +17,7 @@
 ~login.daum.net##div[class$="_ad"]
 ##div[class$="_AD"]
 ##div[class$="_ads"]
-##div[class^="ad_"]
+~donga.com##div[class^="ad_"]
 ##div[class^="AD_"]
 ##div[class^="ads"]
 ##div[class^="imagead-"]
