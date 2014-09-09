@@ -1,5 +1,7 @@
 # Mac OS
 .DS_Store
+.Spotlight-V100
+.Trashes
 
 # Windows
 Thumbs.db
