@@ -60,7 +60,7 @@ Then install brews with:
 
 ``` sh
 rvm use system # To compile Vim with Ruby support
-brew install `cat brews`
+./install.sh brews
 ```
 
 ### Git

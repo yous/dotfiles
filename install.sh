@@ -83,6 +83,10 @@ case "$1" in
   brew)
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     ;;
+  brews)
+    brew install $(cat brews)
+    echo 'Done.'
+    ;;
   rbenv)
     replace_file 'rbenv'
     echo 'Done.'
@@ -96,6 +100,7 @@ case "$1" in
     echo 'Available commands:'
     echo '    link    Install symbolic links'
     echo '    brew    Install Homebrew'
+    echo '    brews   Install brews'
     echo '    rbenv   Install rbenv'
     echo '    rvm     Install RVM'
     ;;
