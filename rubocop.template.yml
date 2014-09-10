@@ -14,10 +14,6 @@ AllCops:
     - '**/Thorfile'
     - '**/Vagrantfile'
     - '**/config.ru'
-  Exclude:
-    - 'bin/**/*'
-    - 'config/**/*'
-    - 'db/**/*'
 
 Style/Encoding:
   Enabled: true
