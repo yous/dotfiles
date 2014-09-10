@@ -42,7 +42,11 @@ Plug 'scrooloose/nerdtree'
 
 " ConqueTerm
 " Plug 'Conque-Shell'
-Plug 'yous/conque'
+Plug 'yous/conque', { 'on': [
+      \ 'ConqueTerm',
+      \ 'ConqueTermSplit',
+      \ 'ConqueTermVSplit',
+      \ 'ConqueTermTab'] }
 
 " Support file types
 " AdBlock
@@ -77,7 +81,7 @@ Plug 'othree/xml.vim', { 'for': 'xml' }
 " Rake
 Plug 'tpope/vim-rake'
 " RuboCop
-Plug 'ngmy/vim-rubocop'
+Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 " Rails
 Plug 'tpope/vim-rails'
 call plug#end()
