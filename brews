@@ -1,9 +1,11 @@
-autojump
-git
-lua
 reattach-to-user-namespace
-ruby
-tmux
-vim --with-lua --with-tcl
+git
 wget
+autojump
+
 zsh
+tmux
+
+lua
+ruby
+vim --with-lua --with-tcl
