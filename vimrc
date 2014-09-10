@@ -6,9 +6,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug'
 
 " Colorscheme
-Plug 'wombat256.vim'
-" Plug 'altercation/vim-colors-solarized'
-Plug 'khwon/vim-tomorrow-theme'
+if has('gui_running')
+  Plug 'wombat256.vim'
+else
+  " Plug 'altercation/vim-colors-solarized'
+  Plug 'khwon/vim-tomorrow-theme'
+endif
 
 " General
 " Preserve missing EOL at the end of text files
