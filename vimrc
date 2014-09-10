@@ -2,8 +2,6 @@
 set nocompatible
 filetype off
 call plug#begin('~/.vim/plugged')
-" Let vim-plug manage itself
-Plug 'junegunn/vim-plug'
 
 " Colorscheme
 if has('gui_running')
@@ -87,6 +85,7 @@ Plug 'tpope/vim-rake'
 Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 " Rails
 Plug 'tpope/vim-rails'
+
 call plug#end()
 filetype plugin indent on
 syntax on
