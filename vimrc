@@ -18,6 +18,8 @@ Plug 'PreserveNoEOL'
 Plug 'AnsiEsc.vim', { 'for': 'railslog' }
 " Full path finder
 Plug 'kien/ctrlp.vim'
+" Go to Terminal or File manager
+Plug 'justinmk/vim-gtfo'
 " Much simpler way to use some motions
 Plug 'Lokaltog/vim-easymotion'
 " Extended % matching
