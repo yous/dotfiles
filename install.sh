@@ -90,8 +90,10 @@ case "$1" in
   ntfs)
     brew remove fuse4x
     brew install ntfs-3g
-    echo 'sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig'
-    sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig
+    if [ ! -e /sbin/mount_ntfs.orig ]; then
+      echo 'sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig'
+      sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig
+    fi
     echo 'sudo ln -s /usr/local/Cellar/ntfs-3g/2014.2.15/sbin/mount_ntfs /sbin/mount_ntfs'
     sudo ln -s /usr/local/Cellar/ntfs-3g/2014.2.15/sbin/mount_ntfs /sbin/mount_ntfs
     echo 'sudo /bin/cp -RfX /usr/local/opt/osxfuse/Library/Filesystems/osxfusefs.fs /Library/Filesystems/'
