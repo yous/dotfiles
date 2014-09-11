@@ -24,13 +24,22 @@
 set -e
 [ -n "$RBENV_DEBUG" ] && set -x
 
+if [ -z "$RBENV_ROOT" ]; then
+  RBENV_ROOT="${HOME}/.rbenv"
+fi
+
+# Add `share/ruby-build/` directory from each rbenv plugin to the list of
+# paths where build definitions are looked up.
+shopt -s nullglob
+for plugin_path in "$RBENV_ROOT"/plugins/*/share/ruby-build; do
+  RUBY_BUILD_DEFINITIONS="${RUBY_BUILD_DEFINITIONS}:${plugin_path}"
+done
+export RUBY_BUILD_DEFINITIONS
+shopt -u nullglob
+
 # Provide rbenv completions
 if [ "$1" = "--complete" ]; then
   exec ruby-build --definitions
-fi
-
-if [ -z "$RBENV_ROOT" ]; then
-  RBENV_ROOT="${HOME}/.rbenv"
 fi
 
 # Load shared library functions
@@ -50,15 +59,6 @@ definitions() {
 indent() {
   sed 's/^/  /'
 }
-
-# Add `share/ruby-build/` directory from each rbenv plugin to the list of
-# paths where build definitions are looked up.
-shopt -s nullglob
-for plugin_path in "$RBENV_ROOT"/plugins/*/share/ruby-build; do
-  RUBY_BUILD_DEFINITIONS="${RUBY_BUILD_DEFINITIONS}:${plugin_path}"
-done
-export RUBY_BUILD_DEFINITIONS
-shopt -u nullglob
 
 unset FORCE
 unset SKIP_EXISTING
@@ -195,17 +195,25 @@ ruby-build $KEEP $VERBOSE $HAS_PATCH "$DEFINITION" "$PREFIX" || STATUS="$?"
 # Display a more helpful message if the definition wasn't found.
 if [ "$STATUS" == "2" ]; then
   { candidates="$(definitions "$DEFINITION")"
+    here="$(dirname "${0%/*}")"
     if [ -n "$candidates" ]; then
       echo
       echo "The following versions contain \`$DEFINITION' in the name:"
       echo "$candidates" | indent
     fi
     echo
-    echo "You can list all available versions with \`rbenv install --list'."
+    echo "See all available versions with \`rbenv install --list'."
     echo
-    echo "If the version you're looking for is not present, first try upgrading"
-    echo "ruby-build. If it's still missing, open a request on the ruby-build"
-    echo "issue tracker: https://github.com/sstephenson/ruby-build/issues"
+    echo -n "If the version you need is missing, try upgrading ruby-build"
+    if [ "$here" != "${here#$(brew --prefix 2>/dev/null)}" ]; then
+      printf ":\n\n"
+      echo "  brew update && brew upgrade ruby-build"
+    elif [ -d "${here}/.git" ]; then
+      printf ":\n\n"
+      echo "  cd ${here} && git pull"
+    else
+      printf ".\n"
+    fi
   } >&2
 fi
 
