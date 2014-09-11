@@ -105,7 +105,7 @@ set ignorecase " for smartcase
 set incsearch
 set nobackup
 set smartcase
-set listchars=tab:▸\ ,trail:⌴,eol:¬,extends:❯,precedes:❮
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.png
 set wildignore+=*.dll,*.exe,*.o,*.obj
