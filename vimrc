@@ -101,7 +101,7 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 set fileencodings=ucs-bom,utf-8,cp949,latin1
 set fileformats=unix,mac,dos
-set ignorecase " for smartcase
+set ignorecase " Smartcase search
 set incsearch
 set nobackup
 set smartcase
@@ -140,8 +140,8 @@ endif
 autocmd InsertLeave * set nopaste
 
 " Vim UI
-set display+=uhex " show unprintable characters as a hex number
-set hlsearch " search with highlight
+set display+=uhex " Show unprintable characters as a hex number
+set hlsearch " Search with highlight
 set laststatus=2
 set number
 set scrolloff=3
