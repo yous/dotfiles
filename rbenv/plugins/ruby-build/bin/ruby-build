@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-RUBY_BUILD_VERSION="20140905"
+RUBY_BUILD_VERSION="20140908"
 
 set -E
 exec 3<&2 # preserve original stderr at fd 3
@@ -71,17 +71,32 @@ colorize() {
   fi
 }
 
+os_information() {
+  if type -p lsb_release >/dev/null; then
+    lsb_release -sir | xargs echo
+  elif type -p sw_vers >/dev/null; then
+    echo "OS X $(sw_vers -productVersion)"
+  elif [ -r /etc/os-release ]; then
+    source /etc/os-release
+    echo "$NAME" $VERSION_ID
+  else
+    local os="$(cat /etc/{centos,redhat,fedora,system}-release /etc/debian_version 2>/dev/null | head -1)"
+    echo "${os:-$(uname -sr)}"
+  fi
+}
+
 build_failed() {
   { echo
-    echo "BUILD FAILED"
+    colorize 1 "BUILD FAILED"
+    echo " ($(os_information) using $(version))"
     echo
 
     if ! rmdir "${BUILD_PATH}" 2>/dev/null; then
       echo "Inspect or clean up the working tree at ${BUILD_PATH}"
 
       if file_is_not_empty "$LOG_PATH"; then
-        echo "Results logged to ${LOG_PATH}"
-        echo
+        colorize 33 "Results logged to ${LOG_PATH}"
+        printf "\n\n"
         echo "Last 10 log lines:"
         tail -n 10 "$LOG_PATH"
       fi
@@ -103,13 +118,16 @@ file_is_not_empty() {
 }
 
 num_cpu_cores() {
-  local num=""
-  if [ "Darwin" = "$(uname -s)" ]; then
+  local num
+  case "$(uname -s)" in
+  Darwin | *BSD )
     num="$(sysctl -n hw.ncpu 2>/dev/null || true)"
-  elif [ -r /proc/cpuinfo ]; then
-    num="$(grep ^processor /proc/cpuinfo | wc -l)"
-    [ "$num" -gt 0 ] || num=""
-  fi
+    ;;
+  * )
+    num="$(grep ^processor /proc/cpuinfo 2>/dev/null | wc -l | xargs)"
+    num="${num#0}"
+    ;;
+  esac
   echo "${num:-2}"
 }
 
@@ -277,7 +295,7 @@ fetch_tarball() {
     fi
   fi
 
-  local tar_args="xzvf"
+  local tar_args="xzf"
   local package_filename="${package_name}.tar.gz"
 
   if [ "$package_url" != "${package_url%bz2}" ]; then
@@ -451,7 +469,8 @@ build_package_standard() {
   ( if [ "${CFLAGS+defined}" ] || [ "${!PACKAGE_CFLAGS+defined}" ]; then
       export CFLAGS="$CFLAGS ${!PACKAGE_CFLAGS}"
     fi
-    ${!PACKAGE_CONFIGURE:-./configure} --prefix="${!PACKAGE_PREFIX_PATH:-$PREFIX_PATH}" $CONFIGURE_OPTS ${!PACKAGE_CONFIGURE_OPTS} "${!PACKAGE_CONFIGURE_OPTS_ARRAY}"
+    ${!PACKAGE_CONFIGURE:-./configure} --prefix="${!PACKAGE_PREFIX_PATH:-$PREFIX_PATH}" \
+      $CONFIGURE_OPTS ${!PACKAGE_CONFIGURE_OPTS} "${!PACKAGE_CONFIGURE_OPTS_ARRAY}" || return 1
   ) >&4 2>&1
 
   { "$MAKE" $MAKE_OPTS ${!PACKAGE_MAKE_OPTS} "${!PACKAGE_MAKE_OPTS_ARRAY}"
@@ -821,7 +840,11 @@ build_package_verify_openssl() {
   "$RUBY_BIN" -e 'begin
     require "openssl"
   rescue LoadError
-    abort "The Ruby openssl extension was not compiled. Missing the OpenSSL lib?"
+    $stderr.puts "The Ruby openssl extension was not compiled. Missing the OpenSSL lib?"
+    $stderr.puts "Configure options used:"
+    require "rbconfig"; require "shellwords"
+    RbConfig::CONFIG.fetch("configure_args").shellsplit.each { |arg| $stderr.puts "  #{arg}" }
+    exit 1
   end' >&4 2>&1
 }
 
@@ -916,9 +939,13 @@ list_definitions() {
   { for DEFINITION_DIR in "${RUBY_BUILD_DEFINITIONS[@]}"; do
       [ -d "$DEFINITION_DIR" ] && ls "$DEFINITION_DIR"
     done
-  } | sort
+  } | sort_versions
 }
 
+sort_versions() {
+  sed 'h; s/[+-]/./g; s/.p\([[:digit:]]\)/.z\1/; s/$/.z/; G; s/\n/ /' | \
+    LC_ALL=C sort -t. -k 1,1 -k 2,2n -k 3,3n -k 4,4n -k 5,5n | awk '{print $2}'
+}
 
 
 unset VERBOSE
@@ -996,8 +1023,20 @@ else
   TMP="${TMPDIR%/}"
 fi
 
-if [ ! -w "$TMP" ] || [ ! -x "$TMP" ]; then
+# Check if TMPDIR is accessible and can hold executables.
+tmp_executable="${TMP}/ruby-build-test.$$"
+noexec=""
+if mkdir -p "$TMP" && touch "$tmp_executable" 2>/dev/null; then
+  cat > "$tmp_executable" <<<"#!$BASH"
+  chmod +x "$tmp_executable"
+else
   echo "ruby-build: TMPDIR=$TMP is set to a non-accessible location" >&2
+  exit 1
+fi
+"$tmp_executable" 2>/dev/null || noexec=1
+rm -f "$tmp_executable"
+if [ -n "$noexec" ]; then
+  echo "ruby-build: TMPDIR=$TMP cannot hold executables (partition possibly mounted with \`noexec\`)" >&2
   exit 1
 fi
 
@@ -1012,7 +1051,7 @@ if "${CC:-cc}" -x c /dev/null -E -Wno-error=shorten-64-to-32 &>/dev/null; then
 fi
 
 if [ -z "$MAKE" ]; then
-  if [[ "FreeBSD" = "$(uname -s)" ]]; then
+  if [ "FreeBSD" = "$(uname -s)" ] && [ "$(uname -r | sed 's/[^[:digit:]].*//')" -lt 10 ]; then
     export MAKE="gmake"
   else
     export MAKE="make"
