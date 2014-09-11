@@ -96,16 +96,20 @@ syntax on
 if &shell =~# 'fish$'
   set shell=sh
 endif
+set autoread
 set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed
 set fileencodings=ucs-bom,utf-8,cp949,latin1
 set fileformats=unix,mac,dos
+set history=1000
 set ignorecase " Smartcase search
 set incsearch
 set nobackup
 set smartcase
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set ttimeout
+set ttimeoutlen=100
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.png
 set wildignore+=*.dll,*.exe,*.o,*.obj
@@ -140,10 +144,12 @@ endif
 autocmd InsertLeave * set nopaste
 
 " Vim UI
+set display+=lastline " Show as much as possible of the last line
 set display+=uhex " Show unprintable characters as a hex number
 set hlsearch " Search with highlight
 set laststatus=2
 set number
+set nrformats-=octal
 set scrolloff=3
 set showcmd
 set showmatch
