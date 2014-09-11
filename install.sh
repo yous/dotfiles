@@ -87,6 +87,19 @@ case "$1" in
     brew install $(cat brews)
     echo 'Done.'
     ;;
+  ntfs)
+    brew remove fuse4x
+    brew install ntfs-3g
+    echo 'sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig'
+    sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig
+    echo 'sudo ln -s /usr/local/Cellar/ntfs-3g/2014.2.15/sbin/mount_ntfs /sbin/mount_ntfs'
+    sudo ln -s /usr/local/Cellar/ntfs-3g/2014.2.15/sbin/mount_ntfs /sbin/mount_ntfs
+    echo 'sudo /bin/cp -RfX /usr/local/opt/osxfuse/Library/Filesystems/osxfusefs.fs /Library/Filesystems/'
+    sudo /bin/cp -RfX /usr/local/opt/osxfuse/Library/Filesystems/osxfusefs.fs /Library/Filesystems/
+    echo 'sudo chmod +s /Library/Filesystems/osxfusefs.fs/Support/load_osxfusefs'
+    sudo chmod +s /Library/Filesystems/osxfusefs.fs/Support/load_osxfusefs
+    echo 'Done.'
+    ;;
   rbenv)
     replace_file 'rbenv'
     echo 'Done.'
@@ -101,6 +114,7 @@ case "$1" in
     echo '    link    Install symbolic links'
     echo '    brew    Install Homebrew'
     echo '    brews   Install brews'
+    echo '    ntfs    Install ntfs-3g to write to NTFS external disk'
     echo '    rbenv   Install rbenv'
     echo '    rvm     Install RVM'
     ;;

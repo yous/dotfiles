@@ -192,3 +192,13 @@ To make RVM works on Mac OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as [Tim Po
 ``` sh
 sudo mv /etc/zshenv /etc/zshrc
 ```
+
+### Mac OS X
+
+To write to NTFS external disk,
+
+``` sh
+./install.sh ntfs
+```
+
+You can see more information in [How to Write to NTFS External Disk Drives from OS X 10.9.2 Mavericks](http://coolestguidesontheplanet.com/how-to-write-to-a-ntfs-drive-from-os-x-mavericks/).
