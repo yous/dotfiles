@@ -117,21 +117,7 @@ set wildignore+=*.sw?
 set wildignore+=*.DS_Store
 set wildignore+=*.pyc
 set wildmenu
-if has('gui_running')
-  colorscheme wombat256mod
-  set encoding=utf-8
-  set guioptions-=m " Menu bar
-  set guioptions-=T " Toolbar
-  set guioptions-=r " Right-hand scrollbar
-  set guioptions-=L " Left-hand scrollbar when window is vertically split
-  set mouse=
-  source $VIMRUNTIME/delmenu.vim
-  set langmenu=ko.UTF-8
-  source $VIMRUNTIME/menu.vim
-elseif has('unix')
-  " colorscheme solarized
-  colorscheme Tomorrow-Night-Eighties
-endif
+
 if has('win32')
   autocmd InsertEnter * set noimdisable
   autocmd InsertLeave * set imdisable
@@ -159,6 +145,14 @@ set splitbelow
 set splitright
 set title
 set t_Co=256
+
+if has('gui_running')
+  colorscheme wombat256mod
+else
+  " colorscheme solarized
+  colorscheme Tomorrow-Night-Eighties
+endif
+
 augroup colorcolumn
   autocmd!
   if exists('+colorcolumn')
@@ -167,11 +161,25 @@ augroup colorcolumn
     autocmd BufWinEnter * let w:m2 = matchadd('ErrorMsg', '\%>80v.\+', -1)
   endif
 augroup END
+
+" GUI
 if has('gui_running')
+  set encoding=utf-8
   set guifont=DejaVu\ Sans\ Mono:h10:cANSI
+  set guioptions-=m " Menu bar
+  set guioptions-=T " Toolbar
+  set guioptions-=r " Right-hand scrollbar
+  set guioptions-=L " Left-hand scrollbar when window is vertically split
+  set mouse=
+
+  source $VIMRUNTIME/delmenu.vim
+  set langmenu=ko.UTF-8
+  source $VIMRUNTIME/menu.vim
+
   if has('win32')
     set guifontwide=DotumChe:h10:cDEFAULT
   endif
+
   function! ScreenFilename()
     if has('amiga')
       return 's:.vimsize'
