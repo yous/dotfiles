@@ -2,8 +2,8 @@
 ! Homepage: https://github.com/yous/config#adblock-plus
 ! Title: YousList
 ! Expires: 7 days
-! Checksum: xkQUTHY/Ne+zBrV3UJiG+g
-! Version: 20140909
+! Checksum: 86lXVb1gZCK9XUD7ETElpQ
+! Version: 20140912
 ##a[href^="http://www.bizon.kr/click.php?type=adon"]
 ##div#adMedia
 ##div#adya_area
@@ -354,6 +354,7 @@ mydaily.co.kr##div[id^="STATICMENU"]
 mydaily.co.kr##iframe#adframe
 mydaily.co.kr/news/ad_news*.htm
 myvip.feeldmc.com/code.ems/
+n25.nsmartad.com/click
 n45.nsmartad.com/imp
 na.mmnneo.com/*neoad*.js
 na.mmnneo.com/banner.widget.asp
@@ -585,6 +586,7 @@ tab.clickmon.co.kr/ad_img/
 tab*.clickmon.co.kr/pop/*ad*.php
 thisisgame.com##div#divMsnAD
 thisisgame.com##div.ad
+thisisgame.com##div.mid-ad-part
 tistory.com##div.ad250
 tistory.com##div.ad250_outter
 tl.mmnneo.com/neovcm.js
