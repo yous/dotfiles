@@ -22,16 +22,6 @@ Configuration files for [@yous](https://github.com/yous)
         ./install.sh link
         vim +PlugInstall +qall
 
-### Adblock Plus
-
-To use [Adblock Plus][] filter, install its browser plugin and add subscription as 'YousList' with the url:
-
-```
-https://raw.githubusercontent.com/yous/config/master/adblock.txt
-```
-
-[Adblock Plus]: https://adblockplus.org
-
 ### IntelliJ, Android Studio
 
 To use [Tomorrow Theme][]:
