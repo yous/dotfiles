@@ -477,3 +477,7 @@ let g:vim_markdown_folding_disabled = 1
 
 " Rake
 nmap <Leader>ra :Rake<CR>
+
+" RuboCop
+let g:vimrubocop_keymap = 0
+nmap <Leader>ru :RuboCop<CR>
