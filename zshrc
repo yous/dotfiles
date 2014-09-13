@@ -67,6 +67,8 @@ source $HOME/.antigen/antigen.zsh
 antigen use oh-my-zsh
 # A cd command that learns - easily navigate directories from the command line.
 antigen bundle autojump
+# Homebrew aliases and completion.
+antigen bundle brew
 # Run commands with bundle and bundle aliases
 antigen bundle bundler
 # Guess what to install when running an unknown command.
