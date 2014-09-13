@@ -1,6 +1,7 @@
 reattach-to-user-namespace
 git
 wget
+node
 autojump
 imagemagick
 

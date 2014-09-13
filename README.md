@@ -76,6 +76,18 @@ If you are using [Keybase][]:
 
 For more information about signing commits, see [A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
 
+### Keybase
+
+[Node.js][] is required for [Keybase][]. You can install it by `./install.sh brews` or install it manually by `brew install node`.
+
+[Node.js]: http://nodejs.org
+
+To install Keybase:
+
+```
+./install.sh keybase
+```
+
 ### iTerm2
 
 To use [Solarized][] on [iTerm2][]:
