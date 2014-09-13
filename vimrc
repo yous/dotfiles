@@ -76,7 +76,7 @@ Plug 'php.vim-html-enhanced'
 " Racket
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 " TomDoc
-Plug 'wellbredgrapefruit/tomdoc.vim'
+Plug 'wellbredgrapefruit/tomdoc.vim', { 'for': ['coffee', 'ruby'] }
 " XML
 Plug 'othree/xml.vim', { 'for': 'xml' }
 
