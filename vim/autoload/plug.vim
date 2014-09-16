@@ -107,8 +107,8 @@ function! s:define_commands()
   if !executable('git')
     return s:err('`git` executable not found. vim-plug requires git.')
   endif
-  command! -nargs=* -bar -bang -complete=customlist,s:names PlugInstall call s:install('<bang>' == '!', <f-args>)
-  command! -nargs=* -bar -bang -complete=customlist,s:names PlugUpdate  call s:update('<bang>' == '!', <f-args>)
+  command! -nargs=* -bar -bang -complete=customlist,s:names PlugInstall call s:install('<bang>' == '!', [<f-args>])
+  command! -nargs=* -bar -bang -complete=customlist,s:names PlugUpdate  call s:update('<bang>' == '!', [<f-args>])
   command! -nargs=0 -bar -bang PlugClean call s:clean('<bang>' == '!')
   command! -nargs=0 -bar PlugUpgrade if s:upgrade() | execute 'source' s:me | endif
   command! -nargs=0 -bar PlugStatus  call s:status()
@@ -387,12 +387,12 @@ function! s:infer_properties(name, repo)
   endif
 endfunction
 
-function! s:install(force, ...)
-  call s:update_impl(0, a:force, a:000)
+function! s:install(force, names)
+  call s:update_impl(0, a:force, a:names)
 endfunction
 
-function! s:update(force, ...)
-  call s:update_impl(1, a:force, a:000)
+function! s:update(force, names)
+  call s:update_impl(1, a:force, a:names)
 endfunction
 
 function! plug#helptags()
@@ -476,10 +476,12 @@ function! s:prepare()
     silent %d _
   else
     call s:new_window()
-    nnoremap <silent> <buffer> q  :if b:plug_preview==1<bar>pc<bar>endif<bar>q<cr>
+    nnoremap <silent> <buffer> q  :if b:plug_preview==1<bar>pc<bar>endif<bar>echo<bar>q<cr>
     nnoremap <silent> <buffer> R  :silent! call <SID>retry()<cr>
     nnoremap <silent> <buffer> D  :PlugDiff<cr>
     nnoremap <silent> <buffer> S  :PlugStatus<cr>
+    nnoremap <silent> <buffer> U  :call <SID>status_update()<cr>
+    xnoremap <silent> <buffer> U  :call <SID>status_update()<cr>
     nnoremap <silent> <buffer> ]] :silent! call <SID>section('')<cr>
     nnoremap <silent> <buffer> [[ :silent! call <SID>section('b')<cr>
     let b:plug_preview = -1
@@ -624,9 +626,9 @@ function! s:update_impl(pull, force, args) abort
     catch
       let lines = getline(4, '$')
       let printed = {}
-      silent 4,$d
+      silent 4,$d _
       for line in lines
-        let name = get(matchlist(line, '^. \([^:]\+\):'), 1, '')
+        let name = matchstr(line, '^. \zs[^:]\+\ze:')
         if empty(name) || !has_key(printed, name)
           call append('$', line)
           if !empty(name)
@@ -789,7 +791,7 @@ function! s:update_parallel(pull, todo, threads)
       logh.call
     end
   }
-  bt = proc { |cmd, name, type|
+  bt = proc { |cmd, name, type, cleanup|
     tried = timeout = 0
     begin
       tried += 1
@@ -820,6 +822,7 @@ function! s:update_parallel(pull, todo, threads)
         killall fd.pid
         fd.close
       end
+      cleanup.call if cleanup
       if e.is_a?(Timeout::Error) && tried < tries
         3.downto(1) do |countdown|
           s = countdown > 1 ? 's' : ''
@@ -868,7 +871,7 @@ function! s:update_parallel(pull, todo, threads)
           ok, result =
             if exists
               dir = esc dir
-              ret, data = bt.call "#{cd} #{dir} && git rev-parse --abbrev-ref HEAD 2>&1 && git config remote.origin.url", nil, nil
+              ret, data = bt.call "#{cd} #{dir} && git rev-parse --abbrev-ref HEAD 2>&1 && git config remote.origin.url", nil, nil, nil
               current_uri = data.lines.to_a.last
               if !ret
                 if data =~ /^Interrupted|^Timeout/
@@ -883,7 +886,7 @@ function! s:update_parallel(pull, todo, threads)
               else
                 if pull
                   log.call name, 'Updating ...', :update
-                  bt.call "#{cd} #{dir} && git checkout -q #{branch} 2>&1 && (git pull --no-rebase origin #{branch} #{progress} 2>&1 && #{subm})", name, :update
+                  bt.call "#{cd} #{dir} && git checkout -q #{branch} 2>&1 && (git pull --no-rebase origin #{branch} #{progress} 2>&1 && #{subm})", name, :update, nil
                 else
                   [true, skip]
                 end
@@ -891,7 +894,9 @@ function! s:update_parallel(pull, todo, threads)
             else
               d = esc dir.sub(%r{[\\/]+$}, '')
               log.call name, 'Installing ...', :install
-              bt.call "(git clone #{progress} --recursive #{uri} -b #{branch} #{d} 2>&1 && cd #{esc dir} && #{subm})", name, :install
+              bt.call "(git clone #{progress} --recursive #{uri} -b #{branch} #{d} 2>&1 && cd #{esc dir} && #{subm})", name, :install, proc {
+                FileUtils.rm_rf dir
+              }
             end
           mtx.synchronize { VIM::command("let s:prev_update.new['#{name}'] = 1") } if !exists && ok
           log.call name, result, ok
@@ -1117,21 +1122,33 @@ function! s:status()
   normal! gg
   setlocal nomodifiable
   if unloaded
-    echo "Press 'L' on each line to load plugin"
+    echo "Press 'L' on each line to load plugin, or 'U' to update"
     nnoremap <silent> <buffer> L :call <SID>status_load(line('.'))<cr>
     xnoremap <silent> <buffer> L :call <SID>status_load(line('.'))<cr>
   end
 endfunction
 
+function! s:extract_name(str, prefix, suffix)
+  return matchstr(a:str, '^'.a:prefix.' \zs[^:]\+\ze:.*'.a:suffix.'$')
+endfunction
+
 function! s:status_load(lnum)
   let line = getline(a:lnum)
-  let matches = matchlist(line, '^- \([^:]*\):.*(not loaded)$')
-  if !empty(matches)
-    let name = matches[1]
+  let name = s:extract_name(line, '-', '(not loaded)')
+  if !empty(name)
     call plug#load(name)
     setlocal modifiable
     call setline(a:lnum, substitute(line, ' (not loaded)$', '', ''))
     setlocal nomodifiable
+  endif
+endfunction
+
+function! s:status_update() range
+  let lines = getline(a:firstline, a:lastline)
+  let names = filter(map(lines, 's:extract_name(v:val, "[x-]", "")'), '!empty(v:val)')
+  if !empty(names)
+    echo
+    execute 'PlugUpdate' join(names)
   endif
 endfunction
 
