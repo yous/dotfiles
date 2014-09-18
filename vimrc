@@ -42,6 +42,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 " Explore filesystem
 Plug 'scrooloose/nerdtree'
+" Show a git diff in the gutter and stages/reverts hunks
+Plug 'airblade/vim-gitgutter'
 
 " ConqueTerm
 " Plug 'Conque-Shell'
