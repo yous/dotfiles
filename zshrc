@@ -79,6 +79,8 @@ antigen bundle extract
 antigen bundle gem
 # Git aliases and completion.
 antigen bundle git
+# npm completion.
+antigen bundle npm
 # RVM aliases and completion.
 antigen bundle rvm
 # tmux aliases and configurations.
