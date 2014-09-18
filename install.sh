@@ -87,10 +87,6 @@ case "$1" in
     brew install $(cat brews)
     echo 'Done.'
     ;;
-  keybase)
-    npm install -g keybase-installer
-    keybase-installer
-    ;;
   ntfs)
     brew remove fuse4x
     brew install ntfs-3g
@@ -120,7 +116,6 @@ case "$1" in
     echo '    link    Install symbolic links'
     echo '    brew    Install Homebrew'
     echo '    brews   Install brews'
-    echo '    keybase Install Keybase'
     echo '    ntfs    Install ntfs-3g to write to NTFS external disk'
     echo '    rbenv   Install rbenv'
     echo '    rvm     Install RVM'
