@@ -28,6 +28,8 @@ Plug 'matchit.zip'
 Plug 'tpope/vim-endwise'
 " Easily delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
+" Pairs of handy bracket mappings
+Plug 'tpope/vim-unimpaired'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
 " Compile errors
@@ -36,6 +38,8 @@ Plug 'scrooloose/syntastic'
 Plug 'a.vim'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
+" Enable repeating supported plugin maps with "."
+Plug 'tpope/vim-repeat'
 
 " Vim UI
 " Status, tabline
