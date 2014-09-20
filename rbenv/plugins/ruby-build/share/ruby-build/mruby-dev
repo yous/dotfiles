@@ -1,1 +1,0 @@
-install_git "mruby-dev" "https://github.com/mruby/mruby.git" "master" mruby

@@ -103,7 +103,8 @@ case "$1" in
     echo 'Done.'
     ;;
   rbenv)
-    replace_file 'rbenv'
+    git_clone https://github.com/sstephenson/rbenv.git .rbenv
+    git_clone https://github.com/sstephenson/ruby-build.git .rbenv/plugins/ruby-build
     echo 'Done.'
     ;;
   rvm)
