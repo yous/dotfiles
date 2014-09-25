@@ -40,6 +40,8 @@ Plug 'a.vim'
 Plug 'tpope/vim-fugitive'
 " Enable repeating supported plugin maps with "."
 Plug 'tpope/vim-repeat'
+" Distraction-free writing in Vim
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Vim UI
 " Status, tabline
@@ -427,6 +429,9 @@ autocmd VimEnter *
       \ endif
 autocmd FileType gitcommit let s:open_nerdtree = 0
 autocmd FileType gitrebase let s:open_nerdtree = 0
+
+" goyo.vim
+nnoremap <Leader>G :Goyo<CR>
 
 " airline
 let g:airline_left_sep = ''
