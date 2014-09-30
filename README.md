@@ -12,15 +12,28 @@ Configuration files for [@yous](https://github.com/yous)
 
 ## Install
 
-1. Clone this repository:
+Clone this repository:
 
-        git clone https://github.com/yous/config.git
-        cd config
+``` sh
+git clone https://github.com/yous/config.git
+cd config
+```
 
-2. Copy configuration files to home directory:
+For available install options:
 
-        ./install.sh link
-        vim +PlugInstall +qall
+``` sh
+./install.sh
+```
+
+Command option | Description
+---------------|-----------------------------------------------
+`link`         | Install symbolic links
+`brew`         | Install Homebrew
+`brews`        | Install brews
+`ntfs`         | Install ntfs-3g to write to NTFS external disk
+`rbenv`        | Install rbenv
+`rvm`          | Install RVM
+`vim`          | Install Vim environments
 
 ### IntelliJ, Android Studio
 
