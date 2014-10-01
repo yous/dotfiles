@@ -66,8 +66,10 @@ case "$1" in
       'gitconfig' \
       'gitignore_global' \
       'irbrc' \
+      'profile' \
       'screenrc' \
       'tmux.conf' \
+      'zprofile' \
       'zshrc'
     do
       replace_file $FILENAME
