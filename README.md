@@ -15,9 +15,7 @@ Configuration files for [@yous](https://github.com/yous).
 
 ## Requirements
 
-- [Git][]
-
-[Git]: http://git-scm.com
+- [Git](http://git-scm.com)
 
 ## Install
 
@@ -46,23 +44,16 @@ Command option | Description
 
 ### IntelliJ, Android Studio
 
-To use [Tomorrow Theme][]:
+To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 
-[Tomorrow Theme]: https://github.com/ChrisKempson/Tomorrow-Theme
-
-1. Open File > Import Settings… in [IntelliJ][] or [Android Studio][].
+1. Open File > Import Settings… in [IntelliJ](http://www.jetbrains.com/idea/) or [Android Studio](http://developer.android.com/sdk/installing/studio.html).
 2. Select `tomorrow-theme/Jetbrains/settings.jar`.
 3. Open Settings > Editor > Colors & Fonts.
 4. Select a scheme of Tomorrow Theme.
 
-[IntelliJ]: http://www.jetbrains.com/idea/
-[Android Studio]: http://developer.android.com/sdk/installing/studio.html
-
 ### Homebrew
 
-If you want to install [Homebrew][],
-
-[Homebrew]: http://brew.sh
+If you want to install [Homebrew](http://brew.sh),
 
 ``` sh
 ./install.sh brew
@@ -85,9 +76,7 @@ Set user-specific configurations on `gitconfig`:
 	email = you@example.com
 ```
 
-If you are using [Keybase][]:
-
-[Keybase]: https://keybase.io
+If you are using [Keybase](https://keybase.io):
 
 ```
 [user]
@@ -100,17 +89,14 @@ For more information about signing commits, see [A Git Horror Story: Repository 
 
 ### iTerm2
 
-To use [Solarized][] on [iTerm2][]:
-
-[Solarized]: https://github.com/altercation/solarized
-[iTerm2]: http://www.iterm2.com
+To use [Solarized](https://github.com/altercation/solarized) on [iTerm2](http://www.iterm2.com):
 
 1. Open Preferences… > Profiles > Colors.
 2. Click 'Load Presets…' and select 'Import…'.
 3. Select `*.itermcolors` files under `solarized/iterm2-colors-solarized/`.
 4. Click 'Load Presets…' again and select one of Solarized.
 
-To use [Tomorrow Theme][]:
+To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 
 1. Open Preferences… > Profiles > Colors.
 2. Click 'Load Presets…' and select 'Import…'.
@@ -119,17 +105,13 @@ To use [Tomorrow Theme][]:
 
 ### Ruby
 
-If you want to install [RVM][],
-
-[RVM]: http://rvm.io
+If you want to install [RVM](http://rvm.io),
 
 ``` sh
 ./install.sh rvm
 ```
 
-If you want to install [rbenv][],
-
-[rbenv]: https://github.com/sstephenson/rbenv
+If you want to install [rbenv](https://github.com/sstephenson/rbenv),
 
 ``` sh
 ./install.sh rbenv
@@ -150,10 +132,7 @@ gem install wirble
 
 ### Vim
 
-To install [vim-plug][] and other [Vim][] plugins,
-
-[vim-plug]: https://github.com/junegunn/vim-plug
-[Vim]: http://www.vim.org
+To install [vim-plug](https://github.com/junegunn/vim-plug) and other [Vim](http://www.vim.org) plugins,
 
 ``` sh
 ./install.sh vim
@@ -173,23 +152,19 @@ To update Vim plugins:
 
 ### Zsh
 
-To use [Zsh][] as default shell,
-
-[Zsh]: http://www.zsh.org
+To use [Zsh](http://www.zsh.org) as default shell,
 
 ``` sh
 chsh -s /bin/zsh
 ```
 
-If you use custom Zsh like compiled one by [Homebrew][],
+If you use custom Zsh like compiled one by [Homebrew](http://brew.sh),
 
 ``` sh
 chsh -s /usr/local/bin/zsh
 ```
 
-To update [Antigen][]:
-
-[Antigen]: http://antigen.sharats.me
+To update [Antigen](http://antigen.sharats.me):
 
 ``` sh
 antigen selfupdate
