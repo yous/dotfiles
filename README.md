@@ -4,13 +4,13 @@ Configuration files for [@yous](https://github.com/yous).
 
 - [Requirements](#requirements)
 - [Install](#install)
-    - [IntelliJ, Android Studio](#intellij-android-studio)
-    - [Homebrew](#homebrew)
     - [Git](#git)
-    - [iTerm2](#iterm2)
+    - [Homebrew](#homebrew)
     - [Ruby](#ruby)
-    - [Vim](#vim)
     - [Zsh](#zsh)
+    - [Vim](#vim)
+    - [IntelliJ, Android Studio](#intellij-android-studio)
+    - [iTerm2](#iterm2)
     - [Mac OS X](#mac-os-x)
 
 ## Requirements
@@ -42,30 +42,6 @@ Command option | Description
 `rvm`          | Install RVM
 `vim`          | Install Vim environments
 
-### IntelliJ, Android Studio
-
-To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
-
-1. Open File > Import Settings… in [IntelliJ](http://www.jetbrains.com/idea/) or [Android Studio](http://developer.android.com/sdk/installing/studio.html).
-2. Select `tomorrow-theme/Jetbrains/settings.jar`.
-3. Open Settings > Editor > Colors & Fonts.
-4. Select a scheme of Tomorrow Theme.
-
-### Homebrew
-
-If you want to install [Homebrew](http://brew.sh),
-
-``` sh
-./install.sh brew
-```
-
-Then install brews with:
-
-``` sh
-rvm use system # To compile Vim with Ruby support
-./install.sh brews
-```
-
 ### Git
 
 Set user-specific configurations on `gitconfig`:
@@ -87,21 +63,20 @@ If you are using [Keybase](https://keybase.io):
 
 For more information about signing commits, see [A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
 
-### iTerm2
+### Homebrew
 
-To use [Solarized](https://github.com/altercation/solarized) on [iTerm2](http://www.iterm2.com):
+If you want to install [Homebrew](http://brew.sh),
 
-1. Open Preferences… > Profiles > Colors.
-2. Click 'Load Presets…' and select 'Import…'.
-3. Select `*.itermcolors` files under `solarized/iterm2-colors-solarized/`.
-4. Click 'Load Presets…' again and select one of Solarized.
+``` sh
+./install.sh brew
+```
 
-To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
+Then install brews with:
 
-1. Open Preferences… > Profiles > Colors.
-2. Click 'Load Presets…' and select 'Import…'.
-3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2/`.
-4. Click 'Load Presets…' again and select one of Tomorrow Theme.
+``` sh
+rvm use system # To compile Vim with Ruby support
+./install.sh brews
+```
 
 ### Ruby
 
@@ -128,26 +103,6 @@ Otherwise just install gems:
 
 ``` sh
 gem install wirble
-```
-
-### Vim
-
-To install [vim-plug](https://github.com/junegunn/vim-plug) and other [Vim](http://www.vim.org) plugins,
-
-``` sh
-./install.sh vim
-```
-
-To update vim-plug:
-
-```
-:PlugUpgrade
-```
-
-To update Vim plugins:
-
-```
-:PlugUpdate
 ```
 
 ### Zsh
@@ -181,6 +136,51 @@ To make RVM works on Mac OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as [Tim Po
 ``` sh
 sudo mv /etc/zshenv /etc/zshrc
 ```
+
+### Vim
+
+To install [vim-plug](https://github.com/junegunn/vim-plug) and other [Vim](http://www.vim.org) plugins,
+
+``` sh
+./install.sh vim
+```
+
+To update vim-plug:
+
+```
+:PlugUpgrade
+```
+
+To update Vim plugins:
+
+```
+:PlugUpdate
+```
+
+### IntelliJ, Android Studio
+
+To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
+
+1. Open File > Import Settings… in [IntelliJ](http://www.jetbrains.com/idea/) or [Android Studio](http://developer.android.com/sdk/installing/studio.html).
+2. Select `tomorrow-theme/Jetbrains/settings.jar`.
+3. Open Settings > Editor > Colors & Fonts.
+4. Select a scheme of Tomorrow Theme.
+
+### iTerm2
+
+To use [Solarized](https://github.com/altercation/solarized) on [iTerm2](http://www.iterm2.com):
+
+1. Open Preferences… > Profiles > Colors.
+2. Click 'Load Presets…' and select 'Import…'.
+3. Select `*.itermcolors` files under `solarized/iterm2-colors-solarized/`.
+4. Click 'Load Presets…' again and select one of Solarized.
+
+To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
+
+1. Open Preferences… > Profiles > Colors.
+2. Click 'Load Presets…' and select 'Import…'.
+3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2/`.
+4. Click 'Load Presets…' again and select one of Tomorrow Theme.
 
 ### Mac OS X
 
