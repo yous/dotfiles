@@ -1,8 +1,17 @@
 # Config
 
-## About
-
 Configuration files for [@yous](https://github.com/yous).
+
+- [Requirements](#requirements)
+- [Install](#install)
+    - [IntelliJ, Android Studio](#intellij-android-studio)
+    - [Homebrew](#homebrew)
+    - [Git](#git)
+    - [iTerm2](#iterm2)
+    - [Ruby](#ruby)
+    - [Vim](#vim)
+    - [Zsh](#zsh)
+    - [Mac OS X](#mac-os-x)
 
 ## Requirements
 
