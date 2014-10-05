@@ -2,7 +2,7 @@
 
 ## About
 
-Configuration files for [@yous](https://github.com/yous)
+Configuration files for [@yous](https://github.com/yous).
 
 ## Requirements
 
@@ -141,10 +141,16 @@ gem install wirble
 
 ### Vim
 
-To update [vim-plug][], open [Vim][] and run:
+To install [vim-plug][] and other [Vim][] plugins,
 
 [vim-plug]: https://github.com/junegunn/vim-plug
 [Vim]: http://www.vim.org
+
+``` sh
+./install.sh vim
+```
+
+To update vim-plug:
 
 ```
 :PlugUpgrade
@@ -152,13 +158,9 @@ To update [vim-plug][], open [Vim][] and run:
 
 To update Vim plugins:
 
-- In Vim:
-
-        :PlugUpdate
-
-- In terminal:
-
-        vim +PlugUpdate +qall
+```
+:PlugUpdate
+```
 
 ### Zsh
 
