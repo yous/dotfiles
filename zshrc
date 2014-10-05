@@ -99,7 +99,6 @@ antigen apply
 [[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 # Define aliases
-alias sudo='sudo '
 alias git='noglob git'
 alias rake='noglob rake'
 alias ag='apt-get'
