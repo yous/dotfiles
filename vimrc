@@ -74,8 +74,6 @@ Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 " HTML5
 Plug 'othree/html5.vim'
-" LaTeX
-Plug 'LaTeX-Suite-aka-Vim-LaTeX', { 'for': 'tex' }
 " Markdown
 Plug 'godlygeek/tabular', { 'for': 'mkd' }
 Plug 'plasticboy/vim-markdown', { 'for': 'mkd' }
