@@ -63,6 +63,7 @@ case "$1" in
     init_submodules
     for FILENAME in \
       'antigen' \
+      'gemrc' \
       'gitconfig' \
       'gitignore_global' \
       'irbrc' \
