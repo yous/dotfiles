@@ -409,6 +409,9 @@ let g:EasyMotion_leader_key = '<Leader>'
 " Syntastic
 " Display all of the errors from all of the checkers together
 let g:syntastic_aggregate_errors = 1
+" Check header files
+let g:syntastic_c_check_header = 1
+let g:syntastic_cpp_check_header = 1
 
 " Fugitive
 let s:fugitive_insert = 0
