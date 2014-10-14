@@ -32,7 +32,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
-" Compile errors
+" Syntax checking plugin
 Plug 'scrooloose/syntastic'
 " Switch between source files and header files
 Plug 'a.vim'
@@ -405,6 +405,10 @@ let g:PreserveNoEOL = 1
 
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
+
+" Syntastic
+" Display all of the errors from all of the checkers together
+let g:syntastic_aggregate_errors = 1
 
 " Fugitive
 let s:fugitive_insert = 0
