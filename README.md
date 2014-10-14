@@ -164,7 +164,7 @@ For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syn
 - HTML (JSHint): `./install npm`
 - JavaScript (JSHint, JSLint): `./install npm`
 - JSON (JSONLint): `./install npm`
-- Ruby (RuboCop, ruby-lint) `gem install rubocop ruby-lint`
+- Ruby (RuboCop, ruby-lint): `gem install rubocop ruby-lint`
 - SASS: `gem install sass`
 - SCSS: `gem install sass scss-lint`
 - xHTML (JSHint): `./install npm`
