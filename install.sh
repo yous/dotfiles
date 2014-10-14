@@ -88,6 +88,23 @@ case "$1" in
     brew install $(cat brews)
     echo 'Done.'
     ;;
+  npm)
+    if ! which npm &> /dev/null; then
+      echoerr 'command not found: npm'
+    else
+      for PACKAGE in \
+        'jshint' \
+        'jslint'
+      do
+        if which $PACKAGE &> /dev/null; then
+          echoerr "$PACKAGE is already installed."
+        else
+          echo "npm install -g $PACKAGE"
+          npm install -g $PACKAGE
+        fi
+      done
+    fi
+    ;;
   ntfs)
     brew remove fuse4x
     brew install ntfs-3g
@@ -128,6 +145,7 @@ case "$1" in
     echo '    link    Install symbolic links'
     echo '    brew    Install Homebrew'
     echo '    brews   Install brews'
+    echo '    npm     Install global Node.js packages'
     echo '    ntfs    Install ntfs-3g to write to NTFS external disk'
     echo '    rbenv   Install rbenv'
     echo '    rvm     Install RVM'

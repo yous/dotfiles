@@ -37,6 +37,7 @@ Command option | Description
 `link`         | Install symbolic links
 `brew`         | Install Homebrew
 `brews`        | Install brews
+`npm`          | Install global Node.js packages
 `ntfs`         | Install ntfs-3g to write to NTFS external disk
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
