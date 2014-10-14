@@ -464,23 +464,6 @@ command -nargs=* Shvs ConqueTermVSplit <args>
 " Adblock
 let g:adblock_filter_auto_checksum = 1
 
-" LaTeX-Suite-aka-Vim-LaTeX
-let g:tex_flavor = 'latex'
-if has('win32')
-  set grepprg=findstr\ /n\ /s
-elseif has('unix')
-  set grepprg=grep\ -nH\ $*
-endif
-set iskeyword+=:
-" Change default mappings for IMAP_Jumpfunc
-if exists('g:Imap_StickyPlaceHolders') && g:Imap_StickyPlaceHolders
-  vmap <C-Space> <Plug>IMAP_JumpForward
-else
-  vmap <C-Space> <Plug>IMAP_DeleteAndJumpForward
-endif
-imap <C-Space> <Plug>IMAP_JumpForward
-nmap <C-Space> <Plug>IMAP_JumpForward
-
 " Markdown Vim Mode
 let g:vim_markdown_folding_disabled = 1
 
