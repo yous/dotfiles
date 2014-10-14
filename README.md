@@ -158,6 +158,21 @@ To update Vim plugins:
 :PlugUpdate
 ```
 
+For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syntastic):
+
+- JavaScript (jshint, jslint)
+
+    ``` sh
+    ./install npm
+    ```
+
+- Ruby (RuboCop, ruby-lint)
+
+    ``` sh
+    gem install rubocop
+    gem install ruby-lint
+    ```
+
 ### IntelliJ, Android Studio
 
 To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
