@@ -93,8 +93,10 @@ case "$1" in
       echoerr 'command not found: npm'
     else
       for PACKAGE in \
+        'csslint' \
         'jshint' \
-        'jslint'
+        'jslint' \
+        'jsonlint'
       do
         if which $PACKAGE &> /dev/null; then
           echoerr "$PACKAGE is already installed."

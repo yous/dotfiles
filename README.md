@@ -160,18 +160,14 @@ To update Vim plugins:
 
 For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syntastic):
 
-- JavaScript (jshint, jslint)
-
-    ``` sh
-    ./install npm
-    ```
-
-- Ruby (RuboCop, ruby-lint)
-
-    ``` sh
-    gem install rubocop
-    gem install ruby-lint
-    ```
+- CSS (CSSLint): `./install npm`
+- HTML (JSHint): `./install npm`
+- JavaScript (JSHint, JSLint): `./install npm`
+- JSON (JSONLint): `./install npm`
+- Ruby (RuboCop, ruby-lint) `gem install rubocop ruby-lint`
+- SASS: `gem install sass`
+- SCSS: `gem install sass scss-lint`
+- xHTML (JSHint): `./install npm`
 
 ### IntelliJ, Android Studio
 
