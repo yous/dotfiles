@@ -10,5 +10,4 @@ zsh
 tmux
 
 lua
-ruby
 vim --with-lua --with-tcl
