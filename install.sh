@@ -131,7 +131,7 @@ case "$1" in
     \curl -sSL https://get.rvm.io | bash -s stable
     ;;
   vim)
-    replace_file '.vimrc'
+    replace_file 'vimrc'
     echo 'mkdir -p ~/.vim/autoload'
     mkdir -p ~/.vim/autoload
     echo 'Downloading plug.vim to ~/.vim/autoload/plug.vim...'
