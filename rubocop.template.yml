@@ -3,17 +3,22 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   Include:
     - '**/*.gemspec'
-    - '**/*.jbuilder'
     - '**/*.podspec'
+    - '**/*.jbuilder'
     - '**/*.rake'
-    - '**/Capfile'
     - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Capfile'
     - '**/Guardfile'
     - '**/Podfile'
-    - '**/Rakefile'
     - '**/Thorfile'
     - '**/Vagrantfile'
+    - '**/Berksfile'
+    - '**/Cheffile'
+    - '**/Vagabondfile'
     - '**/config.ru'
+  Exclude:
+    - 'vendor/**/*'
 
 Style/Encoding:
   Enabled: true
