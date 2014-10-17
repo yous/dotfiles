@@ -14,8 +14,6 @@ endif
 " General
 " Preserve missing EOL at the end of text files
 Plug 'PreserveNoEOL'
-" ANSI escape
-Plug 'AnsiEsc.vim', { 'for': 'railslog' }
 " Full path finder
 Plug 'kien/ctrlp.vim'
 " Go to Terminal or File manager
@@ -93,6 +91,8 @@ Plug 'tpope/vim-rake'
 Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 " Rails
 Plug 'tpope/vim-rails'
+" ANSI escape
+Plug 'AnsiEsc.vim', { 'for': 'railslog' }
 
 call plug#end()
 filetype plugin indent on
