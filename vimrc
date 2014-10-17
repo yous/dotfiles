@@ -14,6 +14,8 @@ endif
 " General
 " Preserve missing EOL at the end of text files
 Plug 'PreserveNoEOL'
+" EditorConfig
+Plug 'editorconfig/editorconfig-vim'
 " Full path finder
 Plug 'kien/ctrlp.vim'
 " Go to Terminal or File manager
