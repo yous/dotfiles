@@ -20,3 +20,6 @@ Session.vim
 .rvmrc
 .ruby-version
 .ruby-gemset
+
+# EditorConfig
+.editorconfig
