@@ -85,7 +85,9 @@ case "$1" in
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ;;
   brews)
-    brew install $(cat brews)
+    while read LINE; do
+      brew install $LINE
+    done < brews
     echo 'Done.'
     ;;
   npm)
