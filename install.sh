@@ -86,7 +86,7 @@ case "$1" in
     ;;
   brews)
     while read LINE; do
-      [[ -z "$LINE" ]] && continue
+      [[ -z "$LINE" || ${LINE:0:1} == '#' ]] && continue
       brew install $LINE
     done < brews
     echo 'Done.'
