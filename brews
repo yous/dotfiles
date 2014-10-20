@@ -4,7 +4,7 @@ grep --default-names
 wget
 node
 keybase
-autojump
+autojump --HEAD
 imagemagick
 
 zsh
