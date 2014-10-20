@@ -1,14 +1,21 @@
+# Mac OS X
 reattach-to-user-namespace
+
+# Tools
 git
 grep --default-names
 wget
-node
-keybase
 autojump --HEAD
 imagemagick
-
 zsh
 tmux
 
+# Node.js
+node
+
+# Keybase (Requires Node.js)
+keybase
+
+# Vim
 lua
 vim --with-lua --with-tcl
