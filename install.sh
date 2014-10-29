@@ -84,11 +84,11 @@ case "$1" in
   brew)
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ;;
-  brews)
-    while read LINE; do
-      [[ -z "$LINE" || ${LINE:0:1} == '#' ]] && continue
-      brew install $LINE
-    done < brews
+  formulae)
+    while read COMMAND; do
+      [[ -z "$COMMAND" || ${COMMAND:0:1} == '#' ]] && continue
+      brew $COMMAND
+    done < Brewfile
     echo 'Done.'
     ;;
   npm)
@@ -147,13 +147,13 @@ case "$1" in
     echo "usage: $(basename $0) <command>"
     echo ''
     echo 'Available commands:'
-    echo '    link    Install symbolic links'
-    echo '    brew    Install Homebrew'
-    echo '    brews   Install brews'
-    echo '    npm     Install global Node.js packages'
-    echo '    ntfs    Install ntfs-3g to write to NTFS external disk'
-    echo '    rbenv   Install rbenv'
-    echo '    rvm     Install RVM'
-    echo '    vim     Install Vim environments'
+    echo '    link      Install symbolic links'
+    echo '    brew      Install Homebrew'
+    echo '    formulae  Install Homebrew formulae using Brewfile'
+    echo '    npm       Install global Node.js packages'
+    echo '    ntfs      Install ntfs-3g to write to NTFS external disk'
+    echo '    rbenv     Install rbenv'
+    echo '    rvm       Install RVM'
+    echo '    vim       Install Vim environments'
     ;;
 esac

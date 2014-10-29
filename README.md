@@ -36,7 +36,7 @@ Command option | Description
 ---------------|-----------------------------------------------
 `link`         | Install symbolic links
 `brew`         | Install Homebrew
-`brews`        | Install brews
+`formulae`     | Install Homebrew formulae using Brewfile
 `npm`          | Install global Node.js packages
 `ntfs`         | Install ntfs-3g to write to NTFS external disk
 `rbenv`        | Install rbenv
@@ -72,11 +72,11 @@ If you want to install [Homebrew](http://brew.sh),
 ./install.sh brew
 ```
 
-Then install brews with:
+Then install Homebrew formulae with:
 
 ``` sh
 rvm use system # To compile Vim with Ruby support
-./install.sh brews
+./install.sh formulae
 ```
 
 ### Ruby
