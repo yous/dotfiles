@@ -19,6 +19,9 @@ install node
 # Keybase (Requires Node.js)
 install keybase
 
+# Python
+install python
+
 # Vim
 install lua
 install vim --with-lua --with-tcl
