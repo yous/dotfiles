@@ -88,7 +88,7 @@ case "$1" in
     while read COMMAND; do
       [[ -z "$COMMAND" || ${COMMAND:0:1} == '#' ]] && continue
       brew $COMMAND
-    done < Brewfile
+    done < "$DIR/Brewfile"
     echo 'Done.'
     ;;
   npm)
