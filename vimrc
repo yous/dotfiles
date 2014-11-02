@@ -414,6 +414,9 @@ let g:syntastic_aggregate_errors = 1
 " Check header files
 let g:syntastic_c_check_header = 1
 let g:syntastic_cpp_check_header = 1
+" Extend max error count for JSLint
+let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
+      \ --bitwise --newcap --sloppy --vars --maxerr=1000'
 
 " Fugitive
 let s:fugitive_insert = 0
