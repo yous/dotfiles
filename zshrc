@@ -100,6 +100,14 @@ antigen apply
 # https://github.com/seebi/dircolors-solarized/issues/10
 [[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+# Check if reboot is required for Ubuntu
+if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
+  function reboot-required()
+  {
+    /usr/lib/update-notifier/update-motd-reboot-required
+  }
+fi
+
 # Define aliases
 alias git='noglob git'
 alias rake='noglob rake'
