@@ -158,7 +158,7 @@ if has('gui_running')
   colorscheme wombat256mod
 else
   " colorscheme solarized
-  colorscheme Tomorrow-Night-Eighties
+  colorscheme Tomorrow-Night
 endif
 
 augroup colorcolumn
