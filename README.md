@@ -87,6 +87,12 @@ If you want to install [RVM](http://rvm.io),
 ./install.sh rvm
 ```
 
+Update RVM with:
+
+``` sh
+rvm get stable
+```
+
 If you want to install [rbenv](https://github.com/sstephenson/rbenv),
 
 ``` sh
