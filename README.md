@@ -96,14 +96,16 @@ If you want to install [rbenv](https://github.com/sstephenson/rbenv),
 If you are using RVM,
 
 ``` sh
+gem update --system
 rvm use current@global
-gem install wirble
+gem install rake rubocop wirble
 ```
 
 Otherwise just install gems:
 
 ``` sh
-gem install wirble
+gem update --system
+gem install rake rubocop wirble
 ```
 
 ### Zsh
