@@ -182,7 +182,7 @@ For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syn
 To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 
 1. Open File > Import Settings… in [IntelliJ](http://www.jetbrains.com/idea/) or [Android Studio](http://developer.android.com/sdk/installing/studio.html).
-2. Select `tomorrow-theme/Jetbrains/settings.jar`.
+2. Select `tomorrow-theme/JetBrains/settings.jar`.
 3. Open Settings > Editor > Colors & Fonts.
 4. Select a scheme of Tomorrow Theme.
 
