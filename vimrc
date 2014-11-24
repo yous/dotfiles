@@ -298,22 +298,35 @@ function SetHelpMapping()
   nnoremap <buffer> q :q<CR>
 endfunction
 autocmd FileType help call SetHelpMapping()
-autocmd BufEnter *
-      \ if winnr('$') == 1 &&
-      \     getbufvar(winbufnr(winnr()), '&buftype') == 'help' |
-      \   q |
-      \ endif
 
 " Quickfix
 function SetQuickfixMapping()
   nnoremap <buffer> q :ccl<CR>
 endfunction
 autocmd FileType qf call SetQuickfixMapping()
-autocmd BufEnter *
-      \ if winnr('$') == 1 &&
-      \     getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix' |
-      \   q |
-      \ endif
+
+" Auto quit Vim when actual files are closed
+function! CheckLeftBuffers()
+  if tabpagenr('$') == 1
+    let i = 1
+    while i <= winnr('$')
+      if getbufvar(winbufnr(i), '&buftype') == 'help' ||
+            \ getbufvar(winbufnr(i), '&buftype') == 'quickfix' ||
+            \ exists('t:NERDTreeBufName') &&
+            \   bufname(winbufnr(i)) == t:NERDTreeBufName ||
+            \ bufname(winbufnr(i)) == '__Tag_List__'
+        let i += 1
+      else
+        break
+      endif
+    endwhile
+    if i == winnr('$') + 1
+      qall
+    endif
+    unlet i
+  endif
+endfunction
+autocmd BufEnter * call CheckLeftBuffers()
 
 " Search regex
 nnoremap / /\v
@@ -473,11 +486,6 @@ endfunction
 autocmd VimEnter *
       \ if (s:open_sidebar) |
       \   call OpenSidebar() |
-      \ endif
-autocmd BufEnter *
-      \ if winnr('$') == 1 &&
-      \     exists('b:NERDTreeType') && b:NERDTreeType == 'primary' |
-      \   q |
       \ endif
 
 " ConqueTerm
