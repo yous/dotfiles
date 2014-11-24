@@ -442,8 +442,8 @@ autocmd VimEnter *
       \ if (s:fugitive_insert) |
       \   startinsert |
       \ endif
-autocmd FileType gitcommit let s:open_nerdtree = 0
-autocmd FileType gitrebase let s:open_nerdtree = 0
+autocmd FileType gitcommit let s:open_sidebar = 0
+autocmd FileType gitrebase let s:open_sidebar = 0
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
@@ -452,15 +452,27 @@ nnoremap <Leader>G :Goyo<CR>
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-" NERD Tree
-let s:open_nerdtree = 1
+" NERD Tree and Tag List
+let s:open_sidebar = 1
 if &diff
-  let s:open_nerdtree = 0
+  let s:open_sidebar = 0
 endif
+let Tlist_Inc_Winwidth = 0
+
+function! OpenSidebar()
+  NERDTree
+  TlistOpen
+  wincmd J
+  wincmd W
+  wincmd L
+  NERDTreeFocus
+  normal AA
+  wincmd p
+endfunction
+
 autocmd VimEnter *
-      \ if (s:open_nerdtree) |
-      \   NERDTree |
-      \   wincmd p |
+      \ if (s:open_sidebar) |
+      \   call OpenSidebar() |
       \ endif
 autocmd BufEnter *
       \ if winnr('$') == 1 &&
