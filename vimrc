@@ -36,6 +36,9 @@ Plug 'tpope/vim-eunuch'
 Plug 'scrooloose/syntastic'
 " Switch between source files and header files
 Plug 'a.vim'
+" Automated tag file generation and syntax highlighting of tags
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 " Enable repeating supported plugin maps with "."
@@ -48,6 +51,8 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'bling/vim-airline'
 " Explore filesystem
 Plug 'scrooloose/nerdtree'
+" Source code browser
+Plug 'taglist.vim'
 " Show a git diff in the gutter and stages/reverts hunks
 Plug 'airblade/vim-gitgutter'
 

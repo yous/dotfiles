@@ -12,6 +12,7 @@ install autojump --HEAD
 install imagemagick
 install zsh
 install tmux
+install ctags
 
 # Node.js
 install node
