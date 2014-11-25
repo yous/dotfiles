@@ -5,7 +5,6 @@ set smartcase
 
 " UI
 set display+=lastline
-set hlsearch
 set scrolloff=3
 set sidescroll=1
 set sidescrolloff=10
