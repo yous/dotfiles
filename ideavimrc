@@ -1,0 +1,39 @@
+" General
+set ignorecase
+set incsearch
+set smartcase
+
+" UI
+set display+=lastline
+set hlsearch
+set scrolloff=3
+set sidescroll=1
+set sidescrolloff=10
+set splitbelow
+set splitright
+
+" Mappings
+noremap H ^
+noremap L $
+inoremap <C-A> <ESC>I
+inoremap <C-E> <ESC>A
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+
+" Center display after searching
+nnoremap n nzz
+nnoremap N nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" Reselect visual block after shifting
+vnoremap < <gv
+vnoremap > >gv
+
+" Splitted windows
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l

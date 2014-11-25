@@ -66,6 +66,7 @@ case "$1" in
       'gemrc' \
       'gitconfig' \
       'gitignore_global' \
+      'ideavimrc' \
       'irbrc' \
       'profile' \
       'screenrc' \
