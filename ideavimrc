@@ -22,7 +22,7 @@ cnoremap <C-E> <End>
 
 " Center display after searching
 nnoremap n nzz
-nnoremap N nzz
+nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
