@@ -426,6 +426,11 @@ let g:PreserveNoEOL = 1
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
+" unimpaired.vim
+" Center display on move between SCM conflicts
+nnoremap [n [nzz
+nnoremap ]n ]nzz
+
 " Syntastic
 " Display all of the errors from all of the checkers together
 let g:syntastic_aggregate_errors = 1
