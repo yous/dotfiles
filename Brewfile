@@ -6,7 +6,7 @@ install reattach-to-user-namespace
 
 # Tools
 install git
-install homebrew/dupes/grep --default-names
+install homebrew/dupes/grep --with-default-names
 install wget
 install autojump --HEAD
 install imagemagick
