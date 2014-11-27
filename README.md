@@ -1,6 +1,6 @@
 # dotfiles
 
-[@yous](https://github.com/yous)'s dotfiles.
+[@yous](https://github.com/yous)' dotfiles.
 
 - [Requirements](#requirements)
 - [Install](#install)
