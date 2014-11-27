@@ -1,6 +1,6 @@
-# Config
+# dotfiles
 
-Configuration files for [@yous](https://github.com/yous).
+[@yous](https://github.com/yous)'s dotfiles.
 
 - [Requirements](#requirements)
 - [Install](#install)
@@ -22,8 +22,8 @@ Configuration files for [@yous](https://github.com/yous).
 Clone this repository:
 
 ``` sh
-git clone https://github.com/yous/config.git
-cd config
+git clone https://github.com/yous/dotfiles.git
+cd dotfiles
 ```
 
 For available install options:
