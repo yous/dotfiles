@@ -41,7 +41,6 @@ Command option | Description
 `ntfs`         | Install ntfs-3g to write to NTFS external disk
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
-`vim`          | Install Vim environments
 
 ### Git
 
@@ -148,22 +147,22 @@ sudo mv /etc/zshenv /etc/zshrc
 
 ### Vim
 
-To install [vim-plug](https://github.com/junegunn/vim-plug) and other [Vim](http://www.vim.org) plugins,
-
-``` sh
-./install.sh vim
-```
-
-To update vim-plug:
+To install [Vim](http://www.vim.org) plugins,
 
 ```
-:PlugUpgrade
+:PlugInstall
 ```
 
 To update Vim plugins:
 
 ```
 :PlugUpdate
+```
+
+To update [vim-plug](https://github.com/junegunn/vim-plug):
+
+```
+:PlugUpgrade
 ```
 
 For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syntastic):

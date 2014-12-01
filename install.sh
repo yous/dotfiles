@@ -71,6 +71,7 @@ case "$1" in
       'profile' \
       'screenrc' \
       'tmux.conf' \
+      'vimrc' \
       'zprofile' \
       'zshrc'
     do
@@ -134,16 +135,6 @@ case "$1" in
   rvm)
     \curl -sSL https://get.rvm.io | bash -s stable
     ;;
-  vim)
-    replace_file 'vimrc'
-    echo 'mkdir -p ~/.vim/autoload'
-    mkdir -p ~/.vim/autoload
-    echo 'Downloading plug.vim to ~/.vim/autoload/plug.vim...'
-    curl -fLo ~/.vim/autoload/plug.vim \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    vim +PlugInstall +qall
-    echo 'Done.'
-    ;;
   *)
     echo "usage: $(basename $0) <command>"
     echo ''
@@ -155,6 +146,5 @@ case "$1" in
     echo '    ntfs      Install ntfs-3g to write to NTFS external disk'
     echo '    rbenv     Install rbenv'
     echo '    rvm       Install RVM'
-    echo '    vim       Install Vim environments'
     ;;
 esac
