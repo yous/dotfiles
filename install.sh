@@ -112,21 +112,6 @@ case "$1" in
       done
     fi
     ;;
-  ntfs)
-    brew remove fuse4x
-    brew install ntfs-3g
-    if [ ! -e /sbin/mount_ntfs.orig ]; then
-      echo 'sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig'
-      sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig
-    fi
-    echo 'sudo ln -s /usr/local/Cellar/ntfs-3g/2014.2.15/sbin/mount_ntfs /sbin/mount_ntfs'
-    sudo ln -s /usr/local/Cellar/ntfs-3g/2014.2.15/sbin/mount_ntfs /sbin/mount_ntfs
-    echo 'sudo /bin/cp -RfX /usr/local/opt/osxfuse/Library/Filesystems/osxfusefs.fs /Library/Filesystems/'
-    sudo /bin/cp -RfX /usr/local/opt/osxfuse/Library/Filesystems/osxfusefs.fs /Library/Filesystems/
-    echo 'sudo chmod +s /Library/Filesystems/osxfusefs.fs/Support/load_osxfusefs'
-    sudo chmod +s /Library/Filesystems/osxfusefs.fs/Support/load_osxfusefs
-    echo 'Done.'
-    ;;
   rbenv)
     git_clone https://github.com/sstephenson/rbenv.git .rbenv
     git_clone https://github.com/sstephenson/ruby-build.git .rbenv/plugins/ruby-build
@@ -143,7 +128,6 @@ case "$1" in
     echo '    brew      Install Homebrew'
     echo '    formulae  Install Homebrew formulae using Brewfile'
     echo '    npm       Install global Node.js packages'
-    echo '    ntfs      Install ntfs-3g to write to NTFS external disk'
     echo '    rbenv     Install rbenv'
     echo '    rvm       Install RVM'
     ;;
