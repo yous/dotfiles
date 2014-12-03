@@ -208,4 +208,4 @@ To write to NTFS external disk, be sure [FUSE for OS X](http://osxfuse.github.io
 brew install ntfs-3g
 ```
 
-If you are Mac OS X version is 10.9 or earlier, you can install FUSE for OS X with brew command. See more information in [How to Write to NTFS External Disk Drives from OS X 10.9.2 Mavericks](http://coolestguidesontheplanet.com/how-to-write-to-a-ntfs-drive-from-os-x-mavericks/). The original `/sbin/mount_ntfs` links to `/System/Library/Filesystems/ntfs.fs/Contents/Resources/mount_ntfs`.
+If your Mac OS X version is 10.9 or earlier, you can install FUSE for OS X with brew command. See more information in [How to Write to NTFS External Disk Drives from OS X 10.9.2 Mavericks](http://coolestguidesontheplanet.com/how-to-write-to-a-ntfs-drive-from-os-x-mavericks/). The original `/sbin/mount_ntfs` links to `/System/Library/Filesystems/ntfs.fs/Contents/Resources/mount_ntfs`.
