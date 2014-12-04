@@ -77,6 +77,8 @@ Plug 'mojako/adblock-filter.vim', { 'for': 'adblockfilter' }
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
 " Coffee script
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+" Crystal
+Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 " Cucumber
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 " Jade
