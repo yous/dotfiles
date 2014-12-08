@@ -9,6 +9,8 @@
 	ui = auto
 [commit]
 	gpgsign = true
+[difftool]
+	prompt = false
 [fetch]
 	prune = true
 [push]
