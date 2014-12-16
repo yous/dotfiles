@@ -523,3 +523,5 @@ nmap <Leader>ra :Rake<CR>
 
 " RuboCop
 let g:vimrubocop_extra_args = '--display-cop-names'
+let g:vimrubocop_keymap = 0
+nmap <Leader>ru :RuboCop<CR>
