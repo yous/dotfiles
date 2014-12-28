@@ -429,9 +429,6 @@ autocmd BufNewFile,BufRead *.json setlocal filetype=json
 " zsh-theme view
 autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
 
-" ANSI escape for Rails log
-autocmd FileType railslog :AnsiEsc
-
 " mobile.erb view
 augroup rails_subtypes
   autocmd!
@@ -535,6 +532,9 @@ nmap <Leader>ra :Rake<CR>
 let g:vimrubocop_extra_args = '--display-cop-names'
 let g:vimrubocop_keymap = 0
 nmap <Leader>ru :RuboCop<CR>
+
+" ANSI escape for Rails log
+autocmd FileType railslog :AnsiEsc
 
 " Mac OS
 if has('mac') || has('macunix')
