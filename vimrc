@@ -1,4 +1,4 @@
-" Vundle
+" Plug
 set nocompatible
 filetype off
 if empty(glob('~/.vim/autoload/plug.vim'))
