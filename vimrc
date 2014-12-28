@@ -109,6 +109,16 @@ Plug 'tpope/vim-rails'
 " ANSI escape
 Plug 'AnsiEsc.vim', { 'for': 'railslog' }
 
+" Mac OS
+if has('mac') || has('macunix')
+  " Launch queries for Dash.app from inside Vim
+  Plug 'rizzatti/dash.vim', { 'on': [
+        \ 'Dash',
+        \ 'DashKeywords',
+        \ '<Plug>DashSearch',
+        \ '<Plug>DashGlobalSearch'] }
+endif
+
 call plug#end()
 filetype plugin indent on
 syntax on
@@ -525,3 +535,12 @@ nmap <Leader>ra :Rake<CR>
 let g:vimrubocop_extra_args = '--display-cop-names'
 let g:vimrubocop_keymap = 0
 nmap <Leader>ru :RuboCop<CR>
+
+" Mac OS
+if has('mac') || has('macunix')
+  " dash.vim
+  let g:dash_map = {
+        \   'java' : 'android'
+        \ }
+  nmap <Leader>d <Plug>DashSearch
+endif
