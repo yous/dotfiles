@@ -176,7 +176,6 @@ set sidescrolloff=10
 set splitbelow
 set splitright
 set title
-set t_Co=256
 
 if has('gui_running')
   colorscheme wombat256mod
