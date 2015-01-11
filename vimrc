@@ -14,7 +14,8 @@ if has('gui_running')
   Plug 'wombat256.vim'
 else
   " Plug 'altercation/vim-colors-solarized'
-  Plug 'khwon/vim-tomorrow-theme'
+  Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
+        \ 'rtp': 'vim' }
 endif
 
 " General
