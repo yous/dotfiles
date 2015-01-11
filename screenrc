@@ -378,6 +378,7 @@
 # this makes screen work within rxvt on cygwin:
   termcapinfo rxvt-cygwin-native ti@:te@
 #
+  term screen-256color
 # ===============================================================
 # VARIABLES - Number values
 # ===============================================================
