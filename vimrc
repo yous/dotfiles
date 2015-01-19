@@ -353,6 +353,10 @@ vnoremap / /\v
 cnoremap %s/ %smagic/
 cnoremap \>s/ \>smagic/
 
+" Search for visually selected text
+vnoremap * y/<C-R>"<CR>
+vnoremap # y?<C-R>"<CR>
+
 " Auto close
 inoremap (<CR> (<CR>)<ESC>O
 inoremap [<CR> [<CR>]<ESC>O
