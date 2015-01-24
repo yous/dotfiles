@@ -10,13 +10,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Colorscheme
-if has('gui_running')
-  Plug 'wombat256.vim'
-else
-  " Plug 'altercation/vim-colors-solarized'
-  Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
-        \ 'rtp': 'vim' }
-endif
+Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
+      \ 'rtp': 'vim' }
 
 " General
 " Preserve missing EOL at the end of text files
@@ -178,12 +173,7 @@ set splitbelow
 set splitright
 set title
 
-if has('gui_running')
-  colorscheme wombat256mod
-else
-  " colorscheme solarized
-  colorscheme Tomorrow-Night
-endif
+colorscheme Tomorrow-Night
 
 augroup colorcolumn
   autocmd!
