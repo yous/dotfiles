@@ -1,13 +1,28 @@
 " Plug
 set nocompatible
 filetype off
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !mkdir -p ~/.vim/autoload
-  silent !curl -fLo ~/.vim/autoload/plug.vim
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if has('win32')
+  let vimfiles = '~/vimfiles'
+else
+  let vimfiles = '~/.vim'
+endif
+if empty(glob(vimfiles . '/autoload/plug.vim'))
+  let plug_url =
+        \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  if has('win32')
+    let autoload_dir = escape('%HOMEDRIVE%%HOMEPATH%\vimfiles\autoload', '%\')
+    silent execute '!md ' . autoload_dir
+    silent execute '!curl -fLo ' . autoload_dir . '\\plug.vim ' . plug_url
+    unlet autoload_dir
+  else
+    silent !mkdir -p ~/.vim/autoload
+    silent execute '!curl -fLo ~/.vim/autoload/plug.vim ' . plug_url
+  endif
+  unlet plug_url
   autocmd VimEnter * PlugInstall | quit
 endif
-call plug#begin('~/.vim/plugged')
+call plug#begin(vimfiles . '/plugged')
+unlet vimfiles
 
 " Colorscheme
 Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
