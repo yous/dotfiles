@@ -345,7 +345,7 @@ function! CheckLeftBuffers()
       endif
     endwhile
     if i == winnr('$') + 1
-      qall
+      call feedkeys(":qall\<CR>", 'n')
     endif
     unlet i
   endif
