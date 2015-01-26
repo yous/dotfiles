@@ -41,6 +41,8 @@ Command option | Description
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
 
+In Windows, use `install.bat`. It links `gitconfig`, `gitignore_global`, `vimrc` to the user's home directory.
+
 ### Git
 
 Set user-specific configurations on `gitconfig`:
