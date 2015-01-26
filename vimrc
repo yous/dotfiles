@@ -202,7 +202,7 @@ augroup END
 " GUI
 if has('gui_running')
   set encoding=utf-8
-  set guifont=DejaVu\ Sans\ Mono:h10:cANSI
+  set guifont=Consolas:h10:cANSI
   set guioptions-=m " Menu bar
   set guioptions-=T " Toolbar
   set guioptions-=r " Right-hand scrollbar
