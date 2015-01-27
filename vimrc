@@ -497,6 +497,10 @@ let g:airline_right_sep = ''
 
 " NERD Tree and Tag List
 let s:open_sidebar = 1
+" Windows Vim
+if !empty(&t_Co) && &t_Co <= 16
+  let s:open_sidebar = 0
+endif
 if &diff
   let s:open_sidebar = 0
 endif
