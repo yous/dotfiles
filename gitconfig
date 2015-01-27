@@ -6,6 +6,7 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim
 	pager = less -F -R -X
+	quotepath = false
 [color]
 	ui = auto
 [commit]
