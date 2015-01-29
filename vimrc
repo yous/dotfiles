@@ -172,7 +172,9 @@ endif
 autocmd InsertLeave * set nopaste
 
 " Vim UI
-set cursorline " Highlight the screen line of the cursor
+if has('gui_running') && &t_Co > 16
+  set cursorline " Highlight the screen line of the cursor
+endif
 set display+=lastline " Show as much as possible of the last line
 set display+=uhex " Show unprintable characters as a hex number
 set hlsearch " Search with highlight
