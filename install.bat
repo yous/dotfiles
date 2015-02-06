@@ -1,7 +1,9 @@
 @echo off
 
 :: Files to link
-set files=gitconfig^
+set files=gemrc^
+
+gitconfig^
 
 gitignore_global^
 
