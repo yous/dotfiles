@@ -1,7 +1,9 @@
 @echo off
 
 :: Files to link
-set files=gemrc^
+set files=irbrc^
+
+gemrc^
 
 gitconfig^
 
