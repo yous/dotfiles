@@ -92,12 +92,12 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 " Cucumber
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
+" HTML5
+Plug 'othree/html5.vim'
 " Jade
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " JSON
 Plug 'elzr/vim-json', { 'for': 'json' }
-" HTML5
-Plug 'othree/html5.vim'
 " Markdown
 Plug 'godlygeek/tabular', { 'for': 'mkd' }
 Plug 'plasticboy/vim-markdown', { 'for': 'mkd' }
