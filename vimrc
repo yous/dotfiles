@@ -98,6 +98,8 @@ Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " JSON
 Plug 'elzr/vim-json', { 'for': 'json' }
+" Liquid
+Plug 'tpope/vim-liquid'
 " Markdown
 Plug 'godlygeek/tabular', { 'for': 'mkd' }
 Plug 'plasticboy/vim-markdown', { 'for': 'mkd' }
