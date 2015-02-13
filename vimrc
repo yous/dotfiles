@@ -152,8 +152,6 @@ set incsearch
 set nobackup
 set smartcase
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set nottimeout
-set ttimeoutlen=100
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.png
 set wildignore+=*.dll,*.exe,*.o,*.obj
