@@ -1,6 +1,3 @@
-update
-upgrade
-
 # Mac OS X
 install reattach-to-user-namespace
 
@@ -27,5 +24,3 @@ install python
 # Vim
 install lua
 install vim --with-lua --with-tcl
-
-cleanup
