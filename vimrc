@@ -113,8 +113,6 @@ Plug 'plasticboy/vim-markdown', { 'for': 'mkd' }
 Plug 'php.vim-html-enhanced'
 " Racket
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
-" TomDoc
-Plug 'wellbredgrapefruit/tomdoc.vim'
 " XML
 Plug 'othree/xml.vim', { 'for': 'xml' }
 
@@ -127,6 +125,8 @@ Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 Plug 'tpope/vim-rails'
 " ANSI escape
 Plug 'AnsiEsc.vim', { 'for': 'railslog' }
+" TomDoc
+Plug 'wellbredgrapefruit/tomdoc.vim', { 'for': 'ruby' }
 
 " Mac OS
 if has('mac') || has('macunix')
