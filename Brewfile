@@ -13,6 +13,7 @@ install imagemagick
 install zsh
 install tmux
 install ctags
+install editorconfig
 
 # Node.js
 install node
