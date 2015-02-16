@@ -154,6 +154,8 @@ To install [Vim](http://www.vim.org) plugins,
 :PlugInstall
 ```
 
+You should install [Exuberant Ctags](http://ctags.sourceforge.net/) to use [taglist.vim](http://www.vim.org/script.php?script_id=273).
+
 To update Vim plugins:
 
 ```
