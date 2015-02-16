@@ -37,7 +37,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
 
-# Set PATH to includes user's bin if it exists
+# Set PATH to include user's bin if it exists
 if [ -d "$HOME/bin" ]; then
   PATH=$HOME/bin:$PATH
 fi
