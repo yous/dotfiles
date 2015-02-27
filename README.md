@@ -58,6 +58,11 @@ If you are using [Keybase](https://keybase.io):
 ```
 [user]
 	signingkey = YOUR KEY
+```
+
+You can also sign your each commit automatically:
+
+```
 [commit]
 	gpgsign = true
 ```

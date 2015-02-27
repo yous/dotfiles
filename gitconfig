@@ -9,8 +9,6 @@
 	quotepath = false
 [color]
 	ui = auto
-[commit]
-	gpgsign = true
 [difftool]
 	prompt = false
 [fetch]
