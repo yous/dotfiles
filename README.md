@@ -45,7 +45,7 @@ In Windows, use `install.bat`. It links `gitconfig`, `gitignore_global`, `vimrc`
 
 ### Git
 
-Set user-specific configurations on `gitconfig`:
+Set user-specific configurations on `~/.gitconfig.local`:
 
 ```
 [user]
