@@ -69,6 +69,15 @@ You can also sign your each commit automatically:
 
 For more information about signing commits, see [A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
 
+If you want to use latest release of Git for Ubuntu:
+
+``` sh
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+```
+
+Visit [the PPA of Git for Ubuntu](https://launchpad.net/~git-core/+archive/ubuntu/ppa) for more information.
+
 ### Homebrew
 
 If you want to install [Homebrew](http://brew.sh),
