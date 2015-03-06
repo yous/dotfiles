@@ -175,6 +175,8 @@ set wildignore+=*.dll,*.exe,*.o,*.obj
 set wildignore+=*.sw?
 set wildignore+=*.DS_Store
 set wildignore+=*.pyc
+" Ignore case when completing file names and directories
+set wildignorecase
 " Enhanced command-line completion
 set wildmenu
 
