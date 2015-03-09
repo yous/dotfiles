@@ -247,7 +247,6 @@ if has('gui_running')
   set guioptions-=T " Toolbar
   set guioptions-=r " Right-hand scrollbar
   set guioptions-=L " Left-hand scrollbar when window is vertically split
-  set mouse=
 
   source $VIMRUNTIME/delmenu.vim
   set langmenu=ko.UTF-8
