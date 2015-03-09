@@ -15,7 +15,7 @@ if empty(glob(vimfiles . '/autoload/plug.vim'))
         \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   if has('win32')
     let autoload_dir = escape('%USERPROFILE%\vimfiles\autoload', '%\')
-    silent execute '!md ' . autoload_dir
+    silent execute '!mkdir ' . autoload_dir
     silent execute '!curl -fLo ' . autoload_dir . '\\plug.vim ' . plug_url
     unlet autoload_dir
   else
