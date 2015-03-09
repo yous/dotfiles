@@ -5,30 +5,44 @@ set nocompatible
 filetype off
 
 " Install vim-plug if it isn't installed
-if has('win32')
-  let vimfiles = '~/vimfiles'
-else
-  let vimfiles = '~/.vim'
-endif
-if empty(glob(vimfiles . '/autoload/plug.vim'))
-  let plug_url =
-        \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+function s:download_vim_plug()
   if has('win32')
-    let autoload_dir = escape('%USERPROFILE%\vimfiles\autoload', '%\')
-    silent execute '!mkdir ' . autoload_dir
-    silent execute '!curl -fLo ' . autoload_dir . '\\plug.vim ' . plug_url
-    unlet autoload_dir
+    let vimfiles = '~/vimfiles'
   else
-    silent !mkdir -p ~/.vim/autoload
-    silent execute '!curl -fLo ~/.vim/autoload/plug.vim ' . plug_url
+    let vimfiles = '~/.vim'
   endif
-  unlet plug_url
+  if empty(glob(vimfiles . '/autoload/plug.vim'))
+    let plug_url =
+          \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    if executable('curl')
+      let downloader = '!curl -fLo '
+    elseif executable('wget')
+      let downloader = '!wget -O '
+    else
+      echohl ErrorMsg
+      echomsg 'Missing curl or wget executable'
+      echohl NONE
+    endif
+    if has('win32')
+      let autoload_dir = escape('%USERPROFILE%\vimfiles\autoload', '%\')
+      silent execute '!mkdir ' . autoload_dir
+      silent execute downloader . autoload_dir . '\\plug.vim ' . plug_url
+      unlet downloader
+      unlet autoload_dir
+    else
+      silent !mkdir -p ~/.vim/autoload
+      silent execute downloader . '~/.vim/autoload/plug.vim ' . plug_url
+      unlet downloader
+    endif
+    unlet plug_url
 
-  " Install plugins at first
-  autocmd VimEnter * PlugInstall | quit
-endif
-call plug#begin(vimfiles . '/plugged')
-unlet vimfiles
+    " Install plugins at first
+    autocmd VimEnter * PlugInstall | quit
+  endif
+  call plug#begin(vimfiles . '/plugged')
+  unlet vimfiles
+endfunction
+call s:download_vim_plug()
 
 " Colorscheme
 Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
