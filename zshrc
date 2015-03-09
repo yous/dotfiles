@@ -32,14 +32,21 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+function add_to_path_once()
+{
+  if [[ ":$PATH:" != *":$1:"* ]]; then
+    export PATH="$1:$PATH"
+  fi
+}
+
 # Add /usr/local/bin to PATH for Mac OS X
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  PATH=/usr/local/bin:/usr/local/sbin:$PATH
+  add_to_path_once "/usr/local/bin:/usr/local/sbin"
 fi
 
 # Set PATH to include user's bin if it exists
 if [ -d "$HOME/bin" ]; then
-  PATH=$HOME/bin:$PATH
+  add_to_path_once "$HOME/bin"
 fi
 
 # Load RVM into a shell session *as a function*
@@ -107,6 +114,9 @@ if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
     /usr/lib/update-notifier/update-motd-reboot-required
   }
 fi
+
+# Unset local functions
+unset -f add_to_path_once
 
 # Define aliases
 alias git='noglob git'
