@@ -165,6 +165,8 @@ set incsearch
 set nobackup
 " Override the 'ignorecase' if the search pattern contains upper case
 set smartcase
+" Enable list mode
+set list
 " Strings to use in 'list' mode and for the :list command
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 " List of file patterns to ignore when expanding wildcards, completing file or
