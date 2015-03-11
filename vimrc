@@ -609,6 +609,9 @@ endif
 let Tlist_Inc_Winwidth = 0
 
 function! OpenSidebar()
+  if !exists(':NERDTree') || !exists(':TlistOpen')
+    return
+  endif
   NERDTree
   TlistOpen
   wincmd J
