@@ -42,6 +42,19 @@ function s:download_vim_plug()
   call plug#begin(vimfiles . '/plugged')
   unlet vimfiles
 endfunction
+
+function s:version_requirement(val, min)
+  for idx in range(0, len(a:min) - 1)
+    let v = get(a:val, idx, 0)
+    if v < a:min[idx]
+      return 0
+    elseif v > a:min[idx]
+      return 1
+    endif
+  endfor
+  return 1
+endfunction
+
 call s:download_vim_plug()
 
 " Colorscheme
@@ -49,8 +62,18 @@ Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
       \ 'rtp': 'vim' }
 
 " General
-" Preserve missing EOL at the end of text files
-Plug 'PreserveNoEOL'
+if has('python')
+  redir => pyv
+  silent python import platform; print(platform.python_version())
+  redir END
+
+  " PreserveNoEOL requires Python 2.6
+  if s:version_requirement(
+        \ map(split(split(pyv)[0], '\.'), 'str2nr(v:val)'), [2, 6])
+    " Preserve missing EOL at the end of text files
+    Plug 'PreserveNoEOL'
+  endif
+endif
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
 " Full path finder
