@@ -4,12 +4,14 @@
 set nocompatible
 filetype off
 
-" Install vim-plug if it isn't installed
+" Install vim-plug if it isn't installed and call plug#begin() out of box
 function s:download_vim_plug()
-  if has('win32')
-    let vimfiles = '~/vimfiles'
+  if !empty(&rtp)
+    let vimfiles = split(&rtp, ',')[0]
   else
-    let vimfiles = '~/.vim'
+    echohl ErrorMsg
+    echomsg 'Unable to determine runtime path for Vim.'
+    echohl NONE
   endif
   if empty(glob(vimfiles . '/autoload/plug.vim'))
     let plug_url =
@@ -23,18 +25,16 @@ function s:download_vim_plug()
       echomsg 'Missing curl or wget executable'
       echohl NONE
     endif
+    if !isdirectory(vimfiles . '/autoload')
+      call mkdir(vimfiles . '/autoload', 'p')
+    endif
     if has('win32')
-      let autoload_dir = escape('%USERPROFILE%\vimfiles\autoload', '%\')
-      silent execute '!mkdir ' . autoload_dir
-      silent execute downloader . autoload_dir . '\\plug.vim ' . plug_url
-      unlet downloader
-      unlet autoload_dir
+      silent execute downloader . vimfiles . '\\autoload\\plug.vim ' . plug_url
     else
-      silent !mkdir -p ~/.vim/autoload
-      silent execute downloader . '~/.vim/autoload/plug.vim ' . plug_url
-      unlet downloader
+      silent execute downloader . vimfiles . '/autoload/plug.vim ' . plug_url
     endif
     unlet plug_url
+    unlet downloader
 
     " Install plugins at first
     autocmd VimEnter * PlugInstall | quit
