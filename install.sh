@@ -62,7 +62,6 @@ case "$1" in
   link)
     init_submodules
     for FILENAME in \
-      'antigen' \
       'gemrc' \
       'gitconfig' \
       'gitignore_global' \
@@ -72,6 +71,8 @@ case "$1" in
       'screenrc' \
       'tmux.conf' \
       'vimrc' \
+      'zgen/_zgen' \
+      'zgen/zgen.zsh' \
       'zprofile' \
       'zshrc'
     do

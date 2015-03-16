@@ -70,38 +70,41 @@ if [ -e "$HOME/.rbenv" ]; then
   eval "$(rbenv init -)"
 fi
 
-# Load Antigen
-source $HOME/.antigen/antigen.zsh
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-# A cd command that learns - easily navigate directories from the command line.
-antigen bundle autojump
-# Homebrew aliases and completion.
-antigen bundle brew
-# Run commands with bundle and bundle aliases
-antigen bundle bundler
-# Guess what to install when running an unknown command.
-antigen bundle command-not-found
-# Extracts different types of archives
-antigen bundle extract
-# Autocompletion for gem command.
-antigen bundle gem
-# Git aliases and completion.
-antigen bundle git
-# npm completion.
-antigen bundle npm
-# RVM aliases and completion.
-antigen bundle rvm
-# tmux aliases and configurations.
-if which tmux &> /dev/null; then
-  antigen bundle tmux
+# Load zgen
+source $HOME/.zgen/zgen.zsh
+# Check if there's no init script.
+if ! zgen saved; then
+  # Load the oh-my-zsh's library.
+  zgen oh-my-zsh
+  # A cd command that learns - easily navigate directories from the command line.
+  zgen oh-my-zsh plugins/autojump
+  # Homebrew aliases and completion.
+  zgen oh-my-zsh plugins/brew
+  # Run commands with bundle and bundle aliases
+  zgen oh-my-zsh plugins/bundler
+  # Guess what to install when running an unknown command.
+  zgen oh-my-zsh plugins/command-not-found
+  # Extracts different types of archives
+  zgen oh-my-zsh plugins/extract
+  # Autocompletion for gem command.
+  zgen oh-my-zsh plugins/gem
+  # Git aliases and completion.
+  zgen oh-my-zsh plugins/git
+  # npm completion.
+  zgen oh-my-zsh plugins/npm
+  # RVM aliases and completion.
+  zgen oh-my-zsh plugins/rvm
+  # tmux aliases and configurations.
+  if which tmux &> /dev/null; then
+    zgen oh-my-zsh plugins/tmux
+  fi
+  # Syntax highlighting bundle.
+  zgen load zsh-users/zsh-syntax-highlighting
+  # Load the theme.
+  zgen load yous/zsh-themes lime
+  # Save all to init script.
+  zgen save
 fi
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-# Load the theme.
-antigen theme yous/zsh-themes lime
-# Tell antigen that you're done.
-antigen apply
 
 # For ls colors in Solarized theme
 # https://github.com/seebi/dircolors-solarized/issues/10
