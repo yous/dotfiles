@@ -310,7 +310,7 @@
 # allpartial        on  # default: ???  refresh only current line on window
   # interesting to see what exactly applications are updating.
   # but can be quite confusing, too.  dont use for real work. ;)
-# altscreen         on  # default: off  enable "alternate screen" support
+  altscreen         on  # default: off  enable "alternate screen" support
   autodetach        on  # default: on   automatically detach on hangup
 # autonuke          ??  # default: ???  "clear screen" nukes unwritten output
 # bce               ??  # default: ???  "background color erase"
