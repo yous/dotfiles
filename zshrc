@@ -106,9 +106,9 @@ if ! zgen saved; then
   zgen save
 fi
 
-# For ls colors in Solarized theme
-# https://github.com/seebi/dircolors-solarized/issues/10
-[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+# Oh My Zsh sets custom LSCOLORS from lib/theme-and-appearance.zsh
+# This is default LSCOLORS from the man page of ls
+[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=exfxcxdxbxegedabagacad
 
 # Check if reboot is required for Ubuntu
 if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
