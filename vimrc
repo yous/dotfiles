@@ -92,6 +92,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
+" Produce increasing/decreasing columns of numbers, dates, or daynames
+Plug 'visincr'
 " Syntax checking plugin
 Plug 'scrooloose/syntastic'
 " Switch between source files and header files
