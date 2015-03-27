@@ -2,6 +2,7 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim
 	pager = less -F -R -X
+	precomposeunicode = true
 	quotepath = false
 [color]
 	ui = auto
