@@ -389,6 +389,7 @@ autocmd FileType *
 " Mappings
 " --------
 
+" We do line wrap
 noremap j gj
 noremap k gk
 noremap <Down> gj
@@ -397,12 +398,65 @@ noremap gj j
 noremap gk k
 noremap H ^
 noremap L $
+" Unix shell behavior
 inoremap <C-A> <ESC>I
 inoremap <C-E> <ESC>A
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 " Break the undo block when Ctrl-u
 inoremap <C-U> <C-G>u<C-U>
+
+" Tab
+map <C-S-T> :tabnew<CR>
+
+" Move cursor between splitted windows
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+
+" Auto close brackets
+inoremap (<CR> (<CR>)<ESC>O
+inoremap [<CR> [<CR>]<ESC>O
+inoremap {<CR> {<CR>}<ESC>O
+
+" Reselect visual block after shifting
+vnoremap < <gv
+vnoremap > >gv
+
+" Search regex
+" All ASCII characters except 0-9, a-z, A-Z and '_' have a special meaning
+nnoremap / /\v
+vnoremap / /\v
+cnoremap %s/ %smagic/
+cnoremap \>s/ \>smagic/
+
+" Search for visually selected text
+vnoremap * y/<C-R>"<CR>
+vnoremap # y?<C-R>"<CR>
+
+" Center display after searching
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" Zoom and restore window
+function! s:ZoomToggle()
+  if exists('t:zoomed') && t:zoomed
+    execute t:zoom_winrestcmd
+    let t:zoomed = 0
+  else
+    let t:zoom_winrestcmd = winrestcmd()
+    resize
+    vertical resize
+    let t:zoomed = 1
+  endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <Leader>z :ZoomToggle<CR>
 
 " Help
 function SetHelpMapping()
@@ -438,58 +492,6 @@ function! CheckLeftBuffers()
   endif
 endfunction
 autocmd BufEnter * call CheckLeftBuffers()
-
-" Search regex
-" All ASCII characters except 0-9, a-z, A-Z and '_' have a special meaning
-nnoremap / /\v
-vnoremap / /\v
-cnoremap %s/ %smagic/
-cnoremap \>s/ \>smagic/
-
-" Search for visually selected text
-vnoremap * y/<C-R>"<CR>
-vnoremap # y?<C-R>"<CR>
-
-" Auto close brackets
-inoremap (<CR> (<CR>)<ESC>O
-inoremap [<CR> [<CR>]<ESC>O
-inoremap {<CR> {<CR>}<ESC>O
-
-" Center display after searching
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
-" Reselect visual block after shifting
-vnoremap < <gv
-vnoremap > >gv
-
-" Move cursor between splitted windows
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-H> <C-W>h
-nnoremap <C-L> <C-W>l
-
-" Zoom and restore window
-function! s:ZoomToggle()
-  if exists('t:zoomed') && t:zoomed
-    execute t:zoom_winrestcmd
-    let t:zoomed = 0
-  else
-    let t:zoom_winrestcmd = winrestcmd()
-    resize
-    vertical resize
-    let t:zoomed = 1
-  endif
-endfunction
-command! ZoomToggle call s:ZoomToggle()
-nnoremap <Leader>z :ZoomToggle<CR>
-
-" Tab
-map <C-S-T> :tabnew<CR>
 
 " C, C++ compile & execute
 autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
