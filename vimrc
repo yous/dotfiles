@@ -489,14 +489,7 @@ command! ZoomToggle call s:ZoomToggle()
 nnoremap <Leader>z :ZoomToggle<CR>
 
 " Tab
-map <C-T> :tabnew<CR>
-if has('win32')
-  map <C-Tab> :tabnext<CR>
-  map <C-S-Tab> :tabprevious<CR>
-elseif has('unix')
-  map t :tabnext<CR>
-  map T :tabprevious<CR>
-endif
+map <C-S-T> :tabnew<CR>
 
 " C, C++ compile & execute
 autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
