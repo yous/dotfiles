@@ -5,7 +5,7 @@ set nocompatible
 filetype off
 
 " Install vim-plug if it isn't installed and call plug#begin() out of box
-function s:download_vim_plug()
+function! s:download_vim_plug()
   if !empty(&rtp)
     let vimfiles = split(&rtp, ',')[0]
   else
@@ -40,7 +40,7 @@ function s:download_vim_plug()
   call plug#begin(vimfiles . '/plugged')
 endfunction
 
-function s:version_requirement(val, min)
+function! s:version_requirement(val, min)
   for idx in range(0, len(a:min) - 1)
     let v = get(a:val, idx, 0)
     if v < a:min[idx]
@@ -641,10 +641,10 @@ let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_ReadUnfocused = 1
 autocmd vimrc FileType conque_term highlight clear ExtraWhitespace
-command -nargs=* Sh ConqueTerm <args>
-command -nargs=* Shsp ConqueTermSplit <args>
-command -nargs=* Shtab ConqueTermTab <args>
-command -nargs=* Shvs ConqueTermVSplit <args>
+command! -nargs=* Sh ConqueTerm <args>
+command! -nargs=* Shsp ConqueTermSplit <args>
+command! -nargs=* Shtab ConqueTermTab <args>
+command! -nargs=* Shvs ConqueTermVSplit <args>
 
 " Adblock
 let g:adblock_filter_auto_checksum = 1
