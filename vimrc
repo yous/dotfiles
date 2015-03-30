@@ -181,6 +181,11 @@ syntax on
 " General
 " -------
 
+" Define the 'vimrc' autocmd group
+augroup vimrc
+  autocmd!
+augroup END
+
 if &shell =~# 'fish$'
   set shell=sh
 endif
@@ -222,10 +227,10 @@ set wildmenu
 
 if has('win32')
   " Enable the Input Method only on Insert mode
-  autocmd InsertEnter * set noimdisable
-  autocmd InsertLeave * set imdisable
-  autocmd FocusGained * set imdisable
-  autocmd FocusLost * set noimdisable
+  autocmd vimrc InsertEnter * set noimdisable
+  autocmd vimrc InsertLeave * set imdisable
+  autocmd vimrc FocusGained * set imdisable
+  autocmd vimrc FocusLost * set noimdisable
   language messages en
   " Directory names for the swap file
   set directory=.,$TEMP
@@ -233,7 +238,7 @@ if has('win32')
   set shellslash
 endif
 " Exit Paste mode when leaving Insert mode
-autocmd InsertLeave * set nopaste
+autocmd vimrc InsertLeave * set nopaste
 
 " Vim UI
 " ------
@@ -346,23 +351,26 @@ if has('gui_running')
   if !exists('g:screen_size_by_vim_instance')
     let g:screen_size_by_vim_instance = 1
   endif
-  autocmd VimEnter *
-        \ if g:screen_size_restore_pos == 1 |
-        \   call s:ScreenRestore() |
-        \ endif
-  autocmd VimLeavePre *
-        \ if g:screen_size_restore_pos == 1 |
-        \   call s:ScreenSave() |
-        \ endif
+  augroup ScreenRestore
+    autocmd!
+    autocmd VimEnter *
+          \ if g:screen_size_restore_pos == 1 |
+          \   call s:ScreenRestore() |
+          \ endif
+    autocmd VimLeavePre *
+          \ if g:screen_size_restore_pos == 1 |
+          \   call s:ScreenSave() |
+          \ endif
+  augroup END
 endif
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace //
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd vimrc BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd vimrc InsertEnter * match ExtraWhitespace //
+autocmd vimrc InsertLeave * match ExtraWhitespace /\s\+$/
 if version >= 702
-  autocmd BufWinLeave * call clearmatches()
+  autocmd vimrc BufWinLeave * call clearmatches()
 endif
 
 " Text formatting
@@ -377,10 +385,10 @@ set softtabstop=2
 set shiftwidth=2
 " Number of spaces that a <Tab> in the file counts for
 set tabstop=2
-autocmd FileType c,cpp,java,mkd,markdown,python
+autocmd vimrc FileType c,cpp,java,mkd,markdown,python
       \ setlocal softtabstop=4 shiftwidth=4 tabstop=4
 " Disable automatic comment insertion
-autocmd FileType *
+autocmd vimrc FileType *
       \ setlocal formatoptions-=c formatoptions-=o
 
 " Mappings
@@ -459,13 +467,13 @@ nnoremap <Leader>z :ZoomToggle<CR>
 function! s:SetHelpMapping()
   nnoremap <buffer> q :q<CR>
 endfunction
-autocmd FileType help call s:SetHelpMapping()
+autocmd vimrc FileType help call s:SetHelpMapping()
 
 " Quickfix
 function! s:SetQuickfixMapping()
   nnoremap <buffer> q :ccl<CR>
 endfunction
-autocmd FileType qf call s:SetQuickfixMapping()
+autocmd vimrc FileType qf call s:SetQuickfixMapping()
 
 " Auto quit Vim when actual files are closed
 function! s:CheckLeftBuffers()
@@ -487,19 +495,21 @@ function! s:CheckLeftBuffers()
     endif
   endif
 endfunction
-autocmd BufEnter * call s:CheckLeftBuffers()
+autocmd vimrc BufEnter * call s:CheckLeftBuffers()
 
 " C, C++ compile & execute
-autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
-autocmd FileType c,cpp imap <F5> <ESC>:w<CR>:make %<CR>
-autocmd FileType c
-      \ if !filereadable('Makefile') && !filereadable('makefile') |
-      \   setlocal makeprg=gcc\ -o\ %< |
-      \ endif
-autocmd FileType cpp
-      \ if !filereadable('Makefile') && !filereadable('makefile') |
-      \   setlocal makeprg=g++\ -o\ %< |
-      \ endif
+augroup vimrc
+  autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
+  autocmd FileType c,cpp imap <F5> <ESC>:w<CR>:make %<CR>
+  autocmd FileType c
+        \ if !filereadable('Makefile') && !filereadable('makefile') |
+        \   setlocal makeprg=gcc\ -o\ %< |
+        \ endif
+  autocmd FileType cpp
+        \ if !filereadable('Makefile') && !filereadable('makefile') |
+        \   setlocal makeprg=g++\ -o\ %< |
+        \ endif
+augroup END
 if has('win32')
   map <F6> :!%<.exe<CR>
   imap <F6> <ESC>:!%<.exe<CR>
@@ -508,29 +518,31 @@ elseif has('unix')
   imap <F6> <ESC>:!./%<<CR>
 endif
 
-" Python execute
-autocmd FileType python map <F5> :w<CR>:!python %<CR>
-autocmd FileType python imap <F5> <ESC>:w<CR>:!python %<CR>
+augroup vimrc
+  " Python execute
+  autocmd FileType python map <F5> :w<CR>:!python %<CR>
+  autocmd FileType python imap <F5> <ESC>:w<CR>:!python %<CR>
 
-" Ruby execute
-autocmd FileType ruby map <F5> :w<CR>:!ruby %<CR>
-autocmd FileType ruby imap <F5> <ESC>:w<CR>:!ruby %<CR>
+  " Ruby execute
+  autocmd FileType ruby map <F5> :w<CR>:!ruby %<CR>
+  autocmd FileType ruby imap <F5> <ESC>:w<CR>:!ruby %<CR>
 
-" man page settings
-autocmd FileType c,cpp set keywordprg=man
-autocmd FileType ruby set keywordprg=ri
+  " man page settings
+  autocmd FileType c,cpp set keywordprg=man
+  autocmd FileType ruby set keywordprg=ri
 
-" Ruby configuration files view
-autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
+  " Ruby configuration files view
+  autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
 
-" Gradle view
-autocmd BufNewFile,BufRead *.gradle setlocal filetype=groovy
+  " Gradle view
+  autocmd BufNewFile,BufRead *.gradle setlocal filetype=groovy
 
-" Json view
-autocmd BufNewFile,BufRead *.json setlocal filetype=json
+  " Json view
+  autocmd BufNewFile,BufRead *.json setlocal filetype=json
 
-" zsh-theme view
-autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
+  " zsh-theme view
+  autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
+augroup END
 
 " mobile.erb view
 augroup rails_subtypes
@@ -566,7 +578,6 @@ let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
 " Fugitive
 let s:fugitive_insert = 0
 augroup colorcolumn
-  autocmd!
   autocmd FileType gitcommit
         \ if exists('+colorcolumn') |
         \   set colorcolumn=73 |
@@ -574,16 +585,19 @@ augroup colorcolumn
         \   let w:m2 = matchadd('ErrorMsg', '\%>72v.\+', -1) |
         \ endif
 augroup END
-autocmd FileType gitcommit
-      \ if byte2line(2) == 2 |
-      \   let s:fugitive_insert = 1 |
-      \ endif
-autocmd VimEnter *
-      \ if (s:fugitive_insert) |
-      \   startinsert |
-      \ endif
-autocmd FileType gitcommit let s:open_sidebar = 0
-autocmd FileType gitrebase let s:open_sidebar = 0
+augroup Fugitive
+  autocmd!
+  autocmd FileType gitcommit
+        \ if byte2line(2) == 2 |
+        \   let s:fugitive_insert = 1 |
+        \ endif
+  autocmd VimEnter *
+        \ if (s:fugitive_insert) |
+        \   startinsert |
+        \ endif
+augroup END
+autocmd vimrc FileType gitcommit let s:open_sidebar = 0
+autocmd vimrc FileType gitrebase let s:open_sidebar = 0
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
@@ -617,7 +631,7 @@ function! s:OpenSidebar()
   wincmd p
 endfunction
 
-autocmd VimEnter *
+autocmd vimrc VimEnter *
       \ if (s:open_sidebar) |
       \   call s:OpenSidebar() |
       \ endif
@@ -626,7 +640,7 @@ autocmd VimEnter *
 let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_ReadUnfocused = 1
-autocmd FileType conque_term highlight clear ExtraWhitespace
+autocmd vimrc FileType conque_term highlight clear ExtraWhitespace
 command -nargs=* Sh ConqueTerm <args>
 command -nargs=* Shsp ConqueTermSplit <args>
 command -nargs=* Shtab ConqueTermTab <args>
@@ -647,7 +661,7 @@ let g:vimrubocop_keymap = 0
 nmap <Leader>ru :RuboCop<CR>
 
 " ANSI escape for Rails log
-autocmd FileType railslog :AnsiEsc
+autocmd vimrc FileType railslog :AnsiEsc
 
 " Mac OS
 if has('mac') || has('macunix')
