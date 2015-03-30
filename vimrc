@@ -33,14 +33,11 @@ function s:download_vim_plug()
     else
       silent execute downloader . vimfiles . '/autoload/plug.vim ' . plug_url
     endif
-    unlet plug_url
-    unlet downloader
 
     " Install plugins at first
     autocmd VimEnter * PlugInstall | quit
   endif
   call plug#begin(vimfiles . '/plugged')
-  unlet vimfiles
 endfunction
 
 function s:version_requirement(val, min)
@@ -488,7 +485,6 @@ function! CheckLeftBuffers()
     if i == winnr('$') + 1
       call feedkeys(":qall\<CR>", 'n')
     endif
-    unlet i
   endif
 endfunction
 autocmd BufEnter * call CheckLeftBuffers()
