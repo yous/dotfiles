@@ -294,7 +294,7 @@ if has('gui_running')
     set guifontwide=DotumChe:h10:cDEFAULT
   endif
 
-  function! ScreenFilename()
+  function! s:ScreenFilename()
     if has('amiga')
       return 's:.vimsize'
     elseif has('win32')
@@ -303,7 +303,7 @@ if has('gui_running')
       return $HOME.'/.vimsize'
     endif
   endfunction
-  function! ScreenRestore()
+  function! s:ScreenRestore()
     " Restore window size (columns and lines) and position
     " from values stored in vimsize file.
     " Must set font first so columns and lines are based on font size.
@@ -321,7 +321,7 @@ if has('gui_running')
       endfor
     endif
   endfunction
-  function! ScreenSave()
+  function! s:ScreenSave()
     " Save window size and position.
     if has('gui_running') && g:screen_size_restore_pos
       let vim_instance =
@@ -348,11 +348,11 @@ if has('gui_running')
   endif
   autocmd VimEnter *
         \ if g:screen_size_restore_pos == 1 |
-        \   call ScreenRestore() |
+        \   call s:ScreenRestore() |
         \ endif
   autocmd VimLeavePre *
         \ if g:screen_size_restore_pos == 1 |
-        \   call ScreenSave() |
+        \   call s:ScreenSave() |
         \ endif
 endif
 
@@ -456,19 +456,19 @@ command! ZoomToggle call s:ZoomToggle()
 nnoremap <Leader>z :ZoomToggle<CR>
 
 " Help
-function SetHelpMapping()
+function! s:SetHelpMapping()
   nnoremap <buffer> q :q<CR>
 endfunction
-autocmd FileType help call SetHelpMapping()
+autocmd FileType help call s:SetHelpMapping()
 
 " Quickfix
-function SetQuickfixMapping()
+function! s:SetQuickfixMapping()
   nnoremap <buffer> q :ccl<CR>
 endfunction
-autocmd FileType qf call SetQuickfixMapping()
+autocmd FileType qf call s:SetQuickfixMapping()
 
 " Auto quit Vim when actual files are closed
-function! CheckLeftBuffers()
+function! s:CheckLeftBuffers()
   if tabpagenr('$') == 1
     let i = 1
     while i <= winnr('$')
@@ -487,7 +487,7 @@ function! CheckLeftBuffers()
     endif
   endif
 endfunction
-autocmd BufEnter * call CheckLeftBuffers()
+autocmd BufEnter * call s:CheckLeftBuffers()
 
 " C, C++ compile & execute
 autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
@@ -603,7 +603,7 @@ if &diff
 endif
 let Tlist_Inc_Winwidth = 0
 
-function! OpenSidebar()
+function! s:OpenSidebar()
   if !exists(':NERDTree') || !exists(':TlistOpen')
     return
   endif
@@ -619,7 +619,7 @@ endfunction
 
 autocmd VimEnter *
       \ if (s:open_sidebar) |
-      \   call OpenSidebar() |
+      \   call s:OpenSidebar() |
       \ endif
 
 " ConqueTerm
