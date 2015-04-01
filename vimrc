@@ -411,9 +411,6 @@ cnoremap <C-E> <End>
 " Break the undo block when Ctrl-u
 inoremap <C-U> <C-G>u<C-U>
 
-" Tab
-map <C-S-T> :tabnew<CR>
-
 " Move cursor between splitted windows
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
