@@ -312,7 +312,7 @@ if has('gui_running')
     " Restore window size (columns and lines) and position
     " from values stored in vimsize file.
     " Must set font first so columns and lines are based on font size.
-    let f = ScreenFilename()
+    let f = s:ScreenFilename()
     if has('gui_running') && g:screen_size_restore_pos && filereadable(f)
       let vim_instance =
             \ (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
@@ -334,7 +334,7 @@ if has('gui_running')
       let data = vim_instance.' '.&columns.' '.&lines.' '.
             \ (getwinposx() < 0 ? 0: getwinposx()).' '.
             \ (getwinposy() < 0 ? 0: getwinposy())
-      let f = ScreenFilename()
+      let f = s:ScreenFilename()
       if filereadable(f)
         let lines = readfile(f)
         call filter(lines, "v:val !~ '^".vim_instance."\\>'")
