@@ -11,7 +11,7 @@
     - [Vim](#vim)
     - [IntelliJ, Android Studio](#intellij-android-studio)
     - [iTerm2](#iterm2)
-    - [Mac OS X](#mac-os-x)
+    - [OS X](#os-x)
 
 ## Requirements
 
@@ -154,7 +154,7 @@ To update Zsh plugins:
 antigen update
 ```
 
-To make RVM works on Mac OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as [Tim Pope mentioned](https://github.com/tpope/vim-rvm#faq).
+To make RVM works on OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as [Tim Pope mentioned](https://github.com/tpope/vim-rvm#faq).
 
 ``` sh
 sudo mv /etc/zshenv /etc/zshrc
@@ -225,7 +225,7 @@ To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2/`.
 4. Click 'Load Presets…' again and select one of Tomorrow Theme.
 
-### Mac OS X
+### OS X
 
 To disable press-and-hold for keys in favor of key repeat:
 
@@ -241,4 +241,4 @@ To write to NTFS external disk, be sure [FUSE for OS X](http://osxfuse.github.io
 brew install ntfs-3g
 ```
 
-If your Mac OS X version is 10.9 or earlier, you can install FUSE for OS X with brew command. See more information in [How to Write to NTFS External Disk Drives from OS X 10.9.2 Mavericks](http://coolestguidesontheplanet.com/how-to-write-to-a-ntfs-drive-from-os-x-mavericks/). The original `/sbin/mount_ntfs` links to `/System/Library/Filesystems/ntfs.fs/Contents/Resources/mount_ntfs`.
+If your OS X version is 10.9 or earlier, you can install FUSE for OS X with brew command. See more information in [How to Write to NTFS External Disk Drives from OS X 10.9.2 Mavericks](http://coolestguidesontheplanet.com/how-to-write-to-a-ntfs-drive-from-os-x-mavericks/). The original `/sbin/mount_ntfs` links to `/System/Library/Filesystems/ntfs.fs/Contents/Resources/mount_ntfs`.
