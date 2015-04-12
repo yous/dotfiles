@@ -227,6 +227,14 @@ To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 
 ### Mac OS X
 
+To disable press-and-hold for keys in favor of key repeat:
+
+``` sh
+default write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+```
+
+For additional options for `defaults`, see [mathiasbynens' dotfiles](https://github.com/mathiasbynens/dotfiles/blob/master/.osx).
+
 To write to NTFS external disk, be sure [FUSE for OS X](http://osxfuse.github.io) is installed already. After that,
 
 ``` sh
