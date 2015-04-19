@@ -134,6 +134,8 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 " Cucumber
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
+" Dockerfile
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 " HTML5
 Plug 'othree/html5.vim'
 " Jade
