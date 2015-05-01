@@ -1,5 +1,5 @@
 #!/bin/bash
-DIR="$( cd $( dirname "$0" ) && pwd )"
+DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 function echoerr()
 {
@@ -28,7 +28,7 @@ function replace_file()
 
   # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
   # File exists and is a directory.
-  [ ! -d $(dirname "$HOME/$DEST") ] && mkdir -p $(dirname "$HOME/$DEST")
+  [ ! -d "$(dirname "$HOME/$DEST")" ] && mkdir -p "$(dirname "$HOME/$DEST")"
 
   # FILE exists and is a symbolic link.
   if [ -h "$HOME/$DEST" ]; then
@@ -76,11 +76,11 @@ case "$1" in
       'zprofile' \
       'zshrc'
     do
-      replace_file $FILENAME
+      replace_file "$FILENAME"
     done
     for FILENAME in bin/*
     do
-      replace_file $FILENAME $FILENAME
+      replace_file "$FILENAME" "$FILENAME"
     done
     echo 'Done.'
     ;;
@@ -108,7 +108,7 @@ case "$1" in
           echoerr "$PACKAGE is already installed."
         else
           echo "npm install -g $PACKAGE"
-          npm install -g $PACKAGE
+          npm install -g "$PACKAGE"
         fi
       done
     fi
@@ -122,7 +122,7 @@ case "$1" in
     \curl -sSL https://get.rvm.io | bash -s stable
     ;;
   *)
-    echo "usage: $(basename $0) <command>"
+    echo "usage: $(basename "$0") <command>"
     echo ''
     echo 'Available commands:'
     echo '    link      Install symbolic links'
