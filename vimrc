@@ -394,9 +394,10 @@ set shiftwidth=2
 set tabstop=2
 autocmd vimrc FileType c,cpp,java,mkd,markdown,python
       \ setlocal softtabstop=4 shiftwidth=4 tabstop=4
-" Disable automatic comment insertion
+" c, o: Disable automatic comment insertion
+" j: Remove a comment leader when joining lines
 autocmd vimrc FileType *
-      \ setlocal formatoptions-=c formatoptions-=o
+      \ setlocal formatoptions-=co formatoptions+=j
 
 " Mappings
 " --------
