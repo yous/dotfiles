@@ -385,6 +385,8 @@ endif
 
 set autoindent
 set expandtab
+" Insert only one space after a '.', '?' and '!' with a join command
+set nojoinspaces
 set smartindent
 " Number of spaces that a <Tab> counts for while editing
 set softtabstop=2
