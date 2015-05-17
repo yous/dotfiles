@@ -398,6 +398,9 @@ autocmd vimrc FileType c,cpp,java,mkd,markdown,python
 " j: Remove a comment leader when joining lines
 autocmd vimrc FileType *
       \ setlocal formatoptions-=co formatoptions+=j
+" Automatic formatting of paragraphs in 80 column
+autocmd vimrc FileType mkd,markdown
+      \ setlocal textwidth=80 formatoptions+=a
 
 " Mappings
 " --------
