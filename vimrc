@@ -15,8 +15,6 @@ function! s:download_vim_plug()
     return
   endif
   if empty(glob(vimfiles . '/autoload/plug.vim'))
-    echo 'Downloading the latest version of vim-plug'
-    redraw
     let plug_url = 'https://github.com/junegunn/vim-plug.git'
     let tmp = tempname()
     let new = tmp . '/plug.vim'
