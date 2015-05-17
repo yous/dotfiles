@@ -12,30 +12,37 @@ function! s:download_vim_plug()
     echohl ErrorMsg
     echomsg 'Unable to determine runtime path for Vim.'
     echohl NONE
+    return
   endif
   if empty(glob(vimfiles . '/autoload/plug.vim'))
-    let plug_url =
-          \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    if executable('curl')
-      let downloader = '!curl -fLo '
-    elseif executable('wget')
-      let downloader = '!wget -O '
-    else
-      echohl ErrorMsg
-      echomsg 'Missing curl or wget executable'
-      echohl NONE
-    endif
-    if !isdirectory(vimfiles . '/autoload')
-      call mkdir(vimfiles . '/autoload', 'p')
-    endif
-    if has('win32')
-      silent execute downloader . vimfiles . '\\autoload\\plug.vim ' . plug_url
-    else
-      silent execute downloader . vimfiles . '/autoload/plug.vim ' . plug_url
-    endif
+    echo 'Downloading the latest version of vim-plug'
+    redraw
+    let plug_url = 'https://github.com/junegunn/vim-plug.git'
+    let tmp = tempname()
+    let new = tmp . '/plug.vim'
 
-    " Install plugins at first
-    autocmd VimEnter * PlugInstall | quit
+    try
+      let out = system(printf('git clone --depth 1 %s %s', plug_url, tmp))
+      if v:shell_error
+        echohl ErrorMsg
+        echomsg 'Error downloading vim-plug: ' . out
+        echohl NONE
+        return
+      endif
+
+      if !isdirectory(vimfiles . '/autoload')
+        call mkdir(vimfiles . '/autoload', 'p')
+      endif
+      call rename(new, vimfiles . '/autoload/plug.vim')
+
+      " Install plugins at first
+      autocmd VimEnter * PlugInstall | quit
+    finally
+      if isdirectory(tmp)
+        let dir = '"' . escape(tmp, '"') . '"'
+        silent call system(has('win32') ? 'rmdir /S /Q ' : 'rm -rf ' . dir)
+      endif
+    endtry
   endif
   call plug#begin(vimfiles . '/plugged')
 endfunction
