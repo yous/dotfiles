@@ -402,7 +402,7 @@ autocmd vimrc FileType *
       \ setlocal formatoptions-=co formatoptions+=j
 " Automatic formatting of paragraphs in 80 column
 autocmd vimrc FileType mkd,markdown
-      \ setlocal textwidth=80 formatoptions+=a
+      \ setlocal textwidth=80
 
 " Mappings
 " --------
