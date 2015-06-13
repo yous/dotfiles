@@ -16,6 +16,13 @@ Session.vim
 .netrwhist
 *~
 
+# Node.js
+node_modules/
+
+# Python
+*.pyc
+venv/
+
 # Ruby
 .rvmrc
 .ruby-version
