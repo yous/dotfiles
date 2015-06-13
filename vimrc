@@ -396,10 +396,13 @@ set shiftwidth=2
 set tabstop=2
 autocmd vimrc FileType c,cpp,java,mkd,markdown,python
       \ setlocal softtabstop=4 shiftwidth=4 tabstop=4
-" c, o: Disable automatic comment insertion
+" c: Disable automatic comment insertion on auto-wrap
+" o: Disable automatic comment insertion on hitting 'o' or 'O' in normal mode
 " j: Remove a comment leader when joining lines
 autocmd vimrc FileType *
-      \ setlocal formatoptions-=co formatoptions+=j
+      \ setlocal formatoptions-=c |
+      \ setlocal formatoptions-=o |
+      \ setlocal formatoptions+=j
 " Automatic formatting of paragraphs in 80 column
 autocmd vimrc FileType mkd,markdown
       \ setlocal textwidth=80
