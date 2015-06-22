@@ -662,6 +662,9 @@ command! -nargs=* Shvs ConqueTermVSplit <args>
 " Adblock
 let g:adblock_filter_auto_checksum = 1
 
+" vim-json
+let g:vim_json_syntax_conceal = 0
+
 " Markdown Vim Mode
 let g:vim_markdown_folding_disabled = 1
 
