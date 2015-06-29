@@ -303,7 +303,7 @@ if has('gui_running')
   source $VIMRUNTIME/menu.vim
 
   if has('win32')
-    set guifontwide=DotumChe:h10:cDEFAULT
+    set guifontwide=NanumGothicCoding:h10:cDEFAULT,DotumChe:h10:cDEFAULT
   endif
 
   function! s:ScreenFilename()
