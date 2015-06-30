@@ -5,7 +5,7 @@ set nocompatible
 filetype off
 
 " Install vim-plug if it isn't installed and call plug#begin() out of box
-function! s:download_vim_plug()
+function! s:DownloadVimPlug()
   if !empty(&rtp)
     let vimfiles = split(&rtp, ',')[0]
   else
@@ -45,7 +45,7 @@ function! s:download_vim_plug()
   call plug#begin(vimfiles . '/plugged')
 endfunction
 
-function! s:version_requirement(val, min)
+function! s:VersionRequirement(val, min)
   for idx in range(0, len(a:min) - 1)
     let v = get(a:val, idx, 0)
     if v < a:min[idx]
@@ -57,7 +57,7 @@ function! s:version_requirement(val, min)
   return 1
 endfunction
 
-call s:download_vim_plug()
+call s:DownloadVimPlug()
 
 " Colorscheme
 Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
@@ -70,7 +70,7 @@ if has('python')
   redir END
 
   " PreserveNoEOL requires Python 2.6
-  if s:version_requirement(
+  if s:VersionRequirement(
         \ map(split(split(pyv)[0], '\.'), 'str2nr(v:val)'), [2, 6])
     " Preserve missing EOL at the end of text files
     Plug 'PreserveNoEOL'
