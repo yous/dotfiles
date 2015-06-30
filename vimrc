@@ -414,6 +414,9 @@ autocmd vimrc FileType mkd,markdown
 " Mappings
 " --------
 
+" Commander
+nnoremap ; :
+
 " We do line wrap
 noremap j gj
 noremap k gk
@@ -423,11 +426,13 @@ noremap gj j
 noremap gk k
 noremap H ^
 noremap L $
+
 " Unix shell behavior
 inoremap <C-A> <ESC>I
 inoremap <C-E> <ESC>A
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
+
 " Break the undo block when Ctrl-u
 inoremap <C-U> <C-G>u<C-U>
 
