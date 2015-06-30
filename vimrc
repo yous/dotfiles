@@ -217,6 +217,8 @@ set smartcase
 set list
 " Strings to use in 'list' mode and for the :list command
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+" The key sequence that toggles the 'paste' option
+set pastetoggle=<F2>
 " Maximum number of changes that can be undone
 set undolevels=1000
 " List of file patterns to ignore when expanding wildcards, completing file or
