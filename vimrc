@@ -458,6 +458,9 @@ vnoremap / /\v
 cnoremap %s/ %smagic/
 cnoremap \>s/ \>smagic/
 
+" Stop the highlighting for hlsearch
+nnoremap <silent> ,/ :nohlsearch<CR>
+
 " Search for visually selected text
 vnoremap * y/<C-R>"<CR>
 vnoremap # y?<C-R>"<CR>
