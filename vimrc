@@ -600,6 +600,9 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
       \ --bitwise --newcap --sloppy --vars --maxerr=1000'
 
+" easytags
+let g:easytags_auto_highlight = 0
+
 " Fugitive
 let s:fugitive_insert = 0
 augroup colorcolumn
