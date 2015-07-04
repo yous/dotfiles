@@ -145,8 +145,12 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'othree/html5.vim'
 " Jade
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+" JavaScript
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " JSON
 Plug 'elzr/vim-json', { 'for': 'json' }
+" JSX
+Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 " Liquid
 Plug 'tpope/vim-liquid'
 " Markdown
