@@ -637,6 +637,8 @@ nnoremap <Leader>G :Goyo<CR>
 " airline
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
 
 " NERD Tree and Tag List
 let s:open_sidebar = 1
