@@ -230,7 +230,7 @@ To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 To disable press-and-hold for keys in favor of key repeat:
 
 ``` sh
-default write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 ```
 
 For additional options for `defaults`, see [mathiasbynens' dotfiles](https://github.com/mathiasbynens/dotfiles/blob/master/.osx).
