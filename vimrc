@@ -410,7 +410,9 @@ autocmd vimrc FileType c,cpp,java,mkd,markdown,python
 autocmd vimrc FileType *
       \ setlocal formatoptions-=c |
       \ setlocal formatoptions-=o |
-      \ setlocal formatoptions+=j
+      \ if (v:version >= 704 || v:version == 703 && has('patch541')) |
+      \   setlocal formatoptions+=j |
+      \ endif
 " Automatic formatting of paragraphs in 80 column
 autocmd vimrc FileType mkd,markdown
       \ setlocal textwidth=80
