@@ -89,10 +89,10 @@ case "$1" in
     ;;
   formulae)
     while read COMMAND; do
+      trap 'break' INT
       [[ -z "$COMMAND" || ${COMMAND:0:1} == '#' ]] && continue
       brew $COMMAND
-    done < "$DIR/Brewfile"
-    echo 'Done.'
+    done < "$DIR/Brewfile" && echo 'Done.'
     ;;
   npm)
     if ! which npm &> /dev/null; then
