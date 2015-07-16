@@ -639,6 +639,8 @@ let g:airline_right_sep = ''
 if !empty(&t_Co) && &t_Co > 16
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#buffer_min_count = 2
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
 endif
 
 " NERD Tree and Tag List
