@@ -113,8 +113,8 @@ Plug 'tpope/vim-repeat'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Vim UI
-" Status, tabline
-Plug 'bling/vim-airline'
+" A light and configurable statusline/tabline for Vim
+Plug 'itchyny/lightline.vim'
 " Explore filesystem
 Plug 'scrooloose/nerdtree'
 " Source code browser
@@ -594,6 +594,7 @@ nnoremap [n [nzz
 nnoremap ]n ]nzz
 
 " Syntastic
+let g:syntastic_mode_map = { 'mode': 'passive' }
 " Display all of the errors from all of the checkers together
 let g:syntastic_aggregate_errors = 1
 " Check header files
@@ -633,15 +634,140 @@ autocmd vimrc FileType gitrebase let s:open_sidebar = 0
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
 
-" airline
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-if !empty(&t_Co) && &t_Co > 16
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#buffer_min_count = 2
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
-endif
+" lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'active': {
+      \   'left': [
+      \     ['mode', 'paste'],
+      \     ['filename', 'readonly', 'modified']],
+      \   'right': [
+      \     ['syntastic', 'lineinfo'],
+      \     ['percent'],
+      \     ['filetype', 'fileencoding', 'fileformat']] },
+      \ 'tabline': { 'left': [['tabs']], 'right': [[]] },
+      \ 'tab': {
+      \   'active': ['filename', 'modified'],
+      \   'inactive': ['filename', 'modified'] },
+      \ 'component_function': {},
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag' },
+      \ 'component_type': {
+      \   'readonly': 'warning',
+      \   'syntastic': 'error' },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '|' } }
+
+for k in ['mode', 'filename', 'modified', 'readonly', 'fileencoding',
+      \ 'fileformat', 'filetype', 'percent', 'lineinfo']
+  let g:lightline.component_function[k] = 'LightLine' . toupper(k[0]) . k[1:]
+endfor
+
+function! LightLineWide(component)
+  let component_visible_width = {
+        \ 'mode': 60,
+        \ 'fileencoding': 70,
+        \ 'fileformat': 70,
+        \ 'filetype': 70,
+        \ 'percent': 50 }
+  return winwidth(0) >= get(component_visible_width, a:component, 0)
+endfunction
+
+function! LightLineVisible(component)
+  let fname = expand('%:t')
+  return fname != '__Tag_List__' &&
+        \ fname != 'ControlP' &&
+        \ fname !~ 'NERD_tree' &&
+        \ LightLineWide(a:component)
+endfunction
+
+function! LightLineMode()
+  let short_mode_map = {
+        \ 'n': 'N',
+        \ 'i': 'I',
+        \ 'R': 'R',
+        \ 'v': 'V',
+        \ 'V': 'V',
+        \ 'c': 'C',
+        \ "\<C-v>": 'V',
+        \ 's': 'S',
+        \ 'S': 'S',
+        \ "\<C-s>": 'S',
+        \ 't': 'T',
+        \ '?': ' ' }
+  let fname = expand('%:t')
+  return fname == '__Tag_List__' ? 'TagList' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname =~ 'NERD_tree' ? '' :
+        \ LightLineWide('mode') ? lightline#mode() :
+        \ get(short_mode_map, mode(), short_mode_map['?'])
+endfunction
+
+function! LightLineFilename()
+  let fname = expand('%:t')
+  return fname == '__Tag_List__' ? '' :
+        \ fname == 'ControlP' ? '' :
+        \ fname =~ 'NERD_tree' ?
+        \   (exists('g:NERDTreeFileNode') ?
+        \     g:NERDTreeFileNode.GetSelected().path.getLastPathComponent(0) :
+        \     '') :
+        \ '' != fname ? fname : '[No Name]'
+endfunction
+
+function! LightLineModified()
+  return &modified ? '+' : ''
+endfunction
+
+function! LightLineReadonly()
+  return &readonly? 'RO' : ''
+endfunction
+
+function! LightLineFileencoding()
+  return LightLineVisible('fileencoding') ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineFileformat()
+  return LightLineVisible('fileformat') ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return LightLineVisible('filetype') ?
+        \ (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLinePercent()
+  return LightLineVisible('percent') ? (100 * line('.') / line('$')) . '%' : ''
+endfunction
+
+function! LightLineLineinfo()
+  return LightLineVisible('lineinfo') ?
+        \ printf("%3d:%-2d", line('.'), col('.')) : ''
+endfunction
+
+let g:lightline.syntastic_mode_active = 1
+augroup LightLineSyntastic
+  autocmd!
+  autocmd BufWritePost * call s:LightLineSyntastic()
+augroup END
+
+function! s:LightLineSyntastic()
+  if g:lightline.syntastic_mode_active
+    SyntasticCheck
+    call lightline#update()
+  endif
+endfunction
+
+function! s:LightLineSyntasticToggleMode()
+  if g:lightline.syntastic_mode_active
+    let g:lightline.syntastic_mode_active = 0
+    echo 'Syntastic: passive mode enabled'
+  else
+    let g:lightline.syntastic_mode_active = 1
+    echo 'Syntastic: active mode enabled'
+  endif
+  SyntasticReset
+endfunction
+command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
 
 " NERD Tree and Tag List
 let s:open_sidebar = 1
