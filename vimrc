@@ -672,6 +672,7 @@ autocmd vimrc VimEnter *
       \ if (s:open_sidebar) |
       \   call s:OpenSidebar() |
       \ endif
+command! OpenSidebar call s:OpenSidebar()
 
 " ConqueTerm
 let g:ConqueTerm_InsertOnEnter = 1
