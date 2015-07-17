@@ -708,7 +708,7 @@ function! LightLineFilename()
   return fname == '__Tag_List__' ? '' :
         \ fname == 'ControlP' ? '' :
         \ fname =~ 'NERD_tree' ?
-        \   (exists('g:NERDTreeFileNode') ?
+        \   (exists('g:NERDTreeFileNode') && has_key(g:NERDTreeFileNode.GetSelected(), 'path') ?
         \     g:NERDTreeFileNode.GetSelected().path.getLastPathComponent(0) :
         \     '') :
         \ '' != fname ? fname : '[No Name]'
