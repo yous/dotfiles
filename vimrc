@@ -708,9 +708,8 @@ function! LightLineFilename()
   return fname == '__Tag_List__' ? '' :
         \ fname == 'ControlP' ? '' :
         \ fname =~ 'NERD_tree' ?
-        \   (exists('g:NERDTreeFileNode') && has_key(g:NERDTreeFileNode.GetSelected(), 'path') ?
-        \     g:NERDTreeFileNode.GetSelected().path.getLastPathComponent(0) :
-        \     '') :
+        \   (index(['" Press ? for help', '.. (up a dir)'], getline('.')) < 0 ?
+        \     matchstr(getline('.'), '[0-9A-Za-z_/].*') : '') :
         \ '' != fname ? fname : '[No Name]'
 endfunction
 
