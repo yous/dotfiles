@@ -257,6 +257,11 @@ endif
 " Exit Paste mode when leaving Insert mode
 autocmd vimrc InsertLeave * set nopaste
 
+" Reload vimrc on the fly
+augroup vimrc
+  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+augroup END
+
 " Vim UI
 " ------
 
