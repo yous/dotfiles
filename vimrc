@@ -297,6 +297,15 @@ augroup colorcolumn
   endif
 augroup END
 
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd vimrc BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd vimrc InsertEnter * match ExtraWhitespace //
+autocmd vimrc InsertLeave * match ExtraWhitespace /\s\+$/
+if version >= 702
+  autocmd vimrc BufWinLeave * call clearmatches()
+endif
+
 " GUI
 " ---
 
@@ -379,15 +388,6 @@ if has('gui_running')
           \   call s:ScreenSave() |
           \ endif
   augroup END
-endif
-
-" Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd vimrc BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd vimrc InsertEnter * match ExtraWhitespace //
-autocmd vimrc InsertLeave * match ExtraWhitespace /\s\+$/
-if version >= 702
-  autocmd vimrc BufWinLeave * call clearmatches()
 endif
 
 " Text formatting
