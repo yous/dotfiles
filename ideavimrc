@@ -1,4 +1,9 @@
 " General
+" Define the 'vimrc' autocmd group
+augroup vimrc
+  autocmd!
+augroup END
+
 set ignorecase
 set incsearch
 set smartcase
@@ -11,13 +16,38 @@ set sidescrolloff=10
 set splitbelow
 set splitright
 
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd vimrc BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd vimrc InsertEnter * match ExtraWhitespace //
+autocmd vimrc InsertLeave * match ExtraWhitespace /\s\+$/
+if version >= 702
+  autocmd vimrc BufWinLeave * call clearmatches()
+endif
+
 " Mappings
+" Commander
+nnoremap ; :
+
 noremap H ^
 noremap L $
+
+" Unix shell behavior
 inoremap <C-A> <ESC>I
 inoremap <C-E> <ESC>A
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
+
+" Reselect visual block after shifting
+vnoremap < <gv
+vnoremap > >gv
+
+" Stop the highlighting for hlsearch
+nnoremap <silent> ,/ :nohlsearch<CR>
+
+" Search for visually selected text
+vnoremap * y/<C-R>"<CR>
+vnoremap # y?<C-R>"<CR>
 
 " Center display after searching
 nnoremap n nzz
@@ -26,10 +56,6 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
-
-" Reselect visual block after shifting
-vnoremap < <gv
-vnoremap > >gv
 
 " Splitted windows
 nnoremap <C-J> <C-W>j
