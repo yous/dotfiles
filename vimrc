@@ -859,7 +859,6 @@ autocmd vimrc FileType railslog :AnsiEsc
 if has('mac') || has('macunix')
   " dash.vim
   let g:dash_map = {
-        \   'java' : 'android'
-        \ }
+        \ 'java' : 'android' }
   nmap <Leader>d <Plug>DashSearch
 endif
