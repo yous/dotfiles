@@ -136,13 +136,13 @@ Plug 'mojako/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
 " Coffee script
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'kchmck/vim-coffee-script', { 'for': ['coffee', 'markdown'] }
 " Crystal
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 " Cucumber
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 " Dockerfile
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'markdown'] }
 " HTML5
 Plug 'othree/html5.vim'
 " Jade
@@ -150,14 +150,13 @@ Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " JSON
-Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'elzr/vim-json', { 'for': ['json', 'markdown'] }
 " JSX
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 " Liquid
 Plug 'tpope/vim-liquid'
 " Markdown
-Plug 'godlygeek/tabular', { 'for': 'mkd' }
-Plug 'plasticboy/vim-markdown', { 'for': 'mkd' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " PHP
 Plug 'php.vim-html-enhanced'
 " Racket
@@ -573,6 +572,9 @@ augroup vimrc
   " Json view
   autocmd BufNewFile,BufRead *.json setlocal filetype=json
 
+  " Markdown view
+  autocmd BufNewFile,BufRead *.md setfiletype markdown
+
   " zsh-theme view
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
 augroup END
@@ -820,8 +822,27 @@ let g:adblock_filter_auto_checksum = 1
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
-" Markdown Vim Mode
-let g:vim_markdown_folding_disabled = 1
+" vim-markdown
+let g:markdown_fenced_languages = [
+      \ 'bat=dosbatch', 'batch=dosbatch',
+      \ 'c',
+      \ 'coffee',
+      \ 'cpp',
+      \ 'cs', 'csharp=cs',
+      \ 'css',
+      \ 'diff',
+      \ 'dockerfile=Dockerfile',
+      \ 'erb=eruby',
+      \ 'haml',
+      \ 'html',
+      \ 'javascript', 'js=javascript',
+      \ 'php',
+      \ 'python',
+      \ 'ruby', 'rb=ruby',
+      \ 'sass',
+      \ 'sh',
+      \ 'vim',
+      \ 'xml']
 
 " Rake
 nmap <Leader>ra :Rake<CR>
