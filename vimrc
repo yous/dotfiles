@@ -260,6 +260,14 @@ autocmd vimrc InsertLeave * set nopaste
 augroup vimrc
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
+" Reload symlink of vimrc on the fly
+let resolved_vimrc = resolve(expand($MYVIMRC))
+if expand($MYVIMRC) !=# resolved_vimrc
+  augroup vimrc
+    execute 'autocmd BufWritePost ' . resolved_vimrc . ' nested source $MYVIMRC'
+  augroup END
+endif
+unlet resolved_vimrc
 
 " Vim UI
 " ------
