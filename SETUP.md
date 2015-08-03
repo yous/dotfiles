@@ -10,6 +10,23 @@
     - Standalone loading mode
 - [WizMouse](http://antibody-software.com/web/software/software/wizmouse-makes-your-mouse-wheel-work-on-the-window-under-the-mouse/)
 - [날개셋](http://moogi.new21.org/prg4.html)
+- Map CapsLock key to Control with `caps_lock_to_control.reg`:
+
+  ``` registry
+  Windows Registry Editor Version 5.00
+
+  [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+  "Scancode Map"=hex:00,00,00,00,00,00,00,00,02,00,00,00,1d,00,3a,00,00,00,00,00
+  ```
+
+  You can revert with `remove_scancode_mappings.reg`:
+
+  ``` registry
+  Windows Registry Editor Version 5.00
+
+  [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+  "Scancode Map"=-
+  ```
 
 ## Fonts
 
