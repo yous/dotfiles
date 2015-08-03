@@ -10,6 +10,9 @@
     - Standalone loading mode
 - [WizMouse](http://antibody-software.com/web/software/software/wizmouse-makes-your-mouse-wheel-work-on-the-window-under-the-mouse/)
 - [날개셋](http://moogi.new21.org/prg4.html)
+- Turn on Remote Desktop
+- Windows Update: Download updates but let me choose whether to install them
+- Turn on Sticky Keys when SHIFT is pressed five times: Uncheck
 - Map CapsLock key to Control with `caps_lock_to_control.reg`:
 
   ``` registry
@@ -42,6 +45,7 @@
 - [gVim](http://www.vim.org/download.php#pc) and [Yongwei's gvim74.zip](http://wyw.dcweb.cn/#download)
     - [Python 2.7](https://www.python.org/downloads/)
     - [Ruby 2.0.0 (x86)](http://rubyinstaller.org/downloads/)
+        - Add `bin` to `%PATH%`
     - [Ctags](http://ctags.sourceforge.net)
         - Put into `%USERPROFILE%\bin`
 - [iPuTTY](https://bitbucket.org/daybreaker/iputty)
@@ -76,6 +80,7 @@
 ## Applications
 
 - [1Password](https://agilebits.com/onepassword)
+- [Bandizip](http://www.bandisoft.co.kr/bandizip/)
 - [Chrome](https://www.google.com/chrome/)
 - [Daum PotPlayer](http://tvpot.daum.net/application/PotPlayer.do)
 - [Dropbox](https://www.dropbox.com/install)
