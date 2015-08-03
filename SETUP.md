@@ -13,6 +13,14 @@
 - Turn on Remote Desktop
 - Windows Update: Download updates but let me choose whether to install them
 - Turn on Sticky Keys when SHIFT is pressed five times: Uncheck
+- Add a task to Tasks Scheduler:
+    - Name: Windows Defender Update
+    - Location: \
+    - Run whether user is logged on or not: Check
+    - Triggers: Daily, At 4:00 AM every day
+    - Actions: Start a program, "C:\Program Files\Windows Defender\MpCmdRun.exe" -SignatureUpdate -MMPC
+    - Allow task to be run on demand: Check
+    - If the running task does not end when requested, force it to stop: Check
 - Map CapsLock key to Control with `caps_lock_to_control.reg`:
 
   ``` registry
