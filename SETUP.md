@@ -82,6 +82,23 @@
       ```
 - [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [MSYS2](https://msys2.github.io)
+    - Option
+        - Cursor: Block
+        - Blinking: Uncheck
+        - Font: Consolas, 10-point
+        - Show bold as font: Check
+        - Locale: en\_US
+        - Character set: UTF-8
+        - Terminal Type: xterm-256color
+    - Setup
+        - `pacman -Suy`
+        - `pacman -S zsh vim wget curl grep tar unzip`
+        - `C:\msys64\msys2_shell.bat`:
+
+          ``` diff
+          -start %WD%mintty -i /msys2.ico /usr/bin/bash --login %*
+          +start %WD%mintty -i /msys2.ico /usr/bin/zsh --login %*
+          ```
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
 - Add `%USERPROFILE%\bin` to `%PATH%`
 
