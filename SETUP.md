@@ -93,7 +93,7 @@
         - Terminal Type: xterm-256color
     - Setup
         - `pacman -Suy`
-        - `pacman -S zsh vim wget curl grep tar unzip`
+        - `pacman -S zsh vim wget curl openssh grep tar unzip`
         - `C:\msys64\msys2_shell.bat`:
 
           ``` diff
