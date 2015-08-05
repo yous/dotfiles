@@ -83,6 +83,7 @@
 - [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [MSYS2](https://msys2.github.io)
     - Option
+        - Transparency: Med.
         - Cursor: Block
         - Blinking: Uncheck
         - Font: Consolas, 10-point
