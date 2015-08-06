@@ -603,6 +603,9 @@ let g:PreserveNoEOL = 1
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
+" Auto Pairs
+let g:AutoPairsCenterLine = 0
+
 " unimpaired.vim
 " Center display on move between SCM conflicts
 nnoremap [n [nzz
