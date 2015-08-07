@@ -58,12 +58,14 @@
         - Put into `%USERPROFILE%\bin`
 - [iPuTTY](https://bitbucket.org/daybreaker/iputty)
     - Put `putty.exe` into `%USERPROFILE%\bin`
+    - Import [tomorrow-theme/PuTTY/Tomorrow Night.reg](https://github.com/chriskempson/tomorrow-theme/blob/master/PuTTY/Tomorrow%20Night.reg)
     - Default Settings
         - Columns: 80, Rows: 66
         - Lines of scrollback: 10000
         - Font: Consolas, 10-point
         - Use separated unicode font: Check
-        - Font for unicode characters: 나눔고딕코딩, 10-point
+        - Font for unicode characters: 돋움체, 10-point
+        - Hide mouse pointer when typing in window: Check
         - Show tray icon: Never
         - Remote character set: UTF-8
         - Terminal-type string: xterm-256color
