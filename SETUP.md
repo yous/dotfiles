@@ -100,6 +100,7 @@
           -start %WD%mintty -i /msys2.ico /usr/bin/bash --login %*
           +start %WD%mintty -i /msys2.ico /usr/bin/zsh --login %*
           ```
+        - `ssh-keygen -t rsa -b 4096 -C "$(git config user.email)"`
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
 - Add `%USERPROFILE%\bin` to `%PATH%`
 
