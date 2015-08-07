@@ -142,16 +142,16 @@ If you use custom Zsh like compiled one by [Homebrew](http://brew.sh),
 chsh -s /usr/local/bin/zsh
 ```
 
-To update [Antigen](http://antigen.sharats.me):
+To update [zgen](https://github.com/tarjoilija/zgen):
 
 ``` sh
-antigen selfupdate
+zgen selfupdate
 ```
 
 To update Zsh plugins:
 
 ``` sh
-antigen update
+zgen update
 ```
 
 To make RVM works on OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as [Tim Pope mentioned](https://github.com/tpope/vim-rvm#faq).
