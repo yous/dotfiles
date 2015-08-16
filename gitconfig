@@ -1,4 +1,5 @@
 [core]
+	attributesfile = ~/.gitattributes_global
 	excludesfile = ~/.gitignore_global
 	editor = vim
 	pager = less -F -R -X
@@ -6,6 +7,8 @@
 	quotepath = false
 [color]
 	ui = auto
+[diff "utf-16"]
+	textconv = iconv -f utf-16 -t utf-8
 [difftool]
 	prompt = false
 [fetch]

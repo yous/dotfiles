@@ -5,6 +5,8 @@ set files=irbrc^
 
 gemrc^
 
+gitattributes_global^
+
 gitconfig^
 
 gitignore_global^

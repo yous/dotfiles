@@ -63,6 +63,7 @@ case "$1" in
     init_submodules
     for FILENAME in \
       'gemrc' \
+      'gitattributes_global' \
       'gitconfig' \
       'gitignore_global' \
       'ideavimrc' \
