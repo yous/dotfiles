@@ -208,6 +208,8 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 set fileencodings=ucs-bom,utf-8,cp949,latin1
 set fileformats=unix,mac,dos
+" Sets 'foldlevel' when starting to edit another buffer in a window
+set foldlevelstart=99
 " Number of remembered ":" commands
 set history=1000
 " Ignore case in search
