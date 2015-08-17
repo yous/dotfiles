@@ -86,8 +86,8 @@ Plug 'justinmk/vim-gtfo'
 Plug 'Lokaltog/vim-easymotion'
 " Extended % matching
 Plug 'matchit.zip'
-" TextMate-like insert closing pair for brackets, parens, quotes
-Plug 'simple-pairs'
+" Provides insert mode auto-completion for quotes, parens, brackets, etc
+Plug 'Raimondi/delimitMate'
 " Autocomplete if end
 Plug 'tpope/vim-endwise'
 " Easily delete, change and add surroundings in pairs
@@ -462,11 +462,6 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
 
-" Auto close brackets
-inoremap (<CR> (<CR>)<ESC>O
-inoremap [<CR> [<CR>]<ESC>O
-inoremap {<CR> {<CR>}<ESC>O
-
 " Reselect visual block after shifting
 vnoremap < <gv
 vnoremap > >gv
@@ -607,6 +602,9 @@ let g:PreserveNoEOL = 1
 
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
+
+" delimitMate
+let g:delimitMate_expand_cr = 2
 
 " unimpaired.vim
 " Center display on move between SCM conflicts
