@@ -82,6 +82,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'kien/ctrlp.vim'
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
+" Provide CamelCase motion through words
+Plug 'bkad/CamelCaseMotion'
 " Much simpler way to use some motions
 Plug 'Lokaltog/vim-easymotion'
 " Extended % matching
