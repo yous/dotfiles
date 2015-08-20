@@ -13,6 +13,11 @@
 - Turn on Remote Desktop
 - Windows Update: Download updates but let me choose whether to install them
 - Turn on Sticky Keys when SHIFT is pressed five times: Uncheck
+- Configure Windows Updates
+    - Run `gpedit.msc`
+    - Select Computer Configuration > Administrative Templates > Windows Components > Windows Update
+    - Open Configure Automatic Updates
+    - Set it Enabled and choose "3 - Auto download and notify for install"
 - Add a task to Tasks Scheduler:
     - Name: Windows Defender Update
     - Location: \
