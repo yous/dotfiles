@@ -180,6 +180,8 @@ Plug 'wellbredgrapefruit/tomdoc.vim', { 'for': 'ruby' }
 
 " Mac OS
 if has('mac') || has('macunix')
+  " Add plist editing support to Vim
+  Plug 'darfink/vim-plist'
   " Launch queries for Dash.app from inside Vim
   Plug 'rizzatti/dash.vim', { 'on': [
         \ 'Dash',
