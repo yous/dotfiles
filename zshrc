@@ -123,7 +123,6 @@ unset -f add_to_path_once
 
 # Define aliases
 alias git='noglob git'
-alias rake='noglob rake'
 alias v='vim'
 alias vi='vim'
 alias ruby-server='ruby -run -ehttpd . -p8000'
