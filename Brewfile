@@ -5,7 +5,7 @@ install reattach-to-user-namespace
 install git
 install homebrew/dupes/grep --with-default-names
 install wget
-install autojump --HEAD
+install autojump
 install imagemagick
 install zsh
 install tmux
