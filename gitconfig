@@ -7,6 +7,8 @@
 	quotepath = false
 [color]
 	ui = auto
+[diff]
+	renames = true
 [diff "utf-16"]
 	textconv = iconv -f utf-16 -t utf-8
 [difftool]
