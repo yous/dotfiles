@@ -542,6 +542,70 @@ function! s:CheckLeftBuffers()
 endfunction
 autocmd vimrc BufEnter * call s:CheckLeftBuffers()
 
+function! s:IncludeSyntax(lang, b, e)
+  let syns = split(globpath(&rtp, 'syntax/' . a:lang . '.vim'), '\n')
+  if empty(syns)
+    return
+  endif
+
+  if exists('b:current_syntax')
+    let csyn = b:current_syntax
+    unlet b:current_syntax
+  endif
+
+  silent! exec printf('syntax include @markdownHighlight%s %s', a:lang, syns[0])
+  exec printf('syntax region markdownHighlight%s matchgroup=Snip ' .
+        \ 'start=%s end=%s keepend ' .
+        \ 'contains=@markdownHighlight%s containedin=ALL',
+        \ a:lang, a:b, a:e, a:lang)
+
+  if exists('csyn')
+    let b:current_syntax = csyn
+  endif
+endfunction
+
+function! s:FileTypeHandler()
+  if &ft ==# 'mkd.markdown'
+    let map = {
+          \ 'bash': 'sh',
+          \ 'bat': 'dosbatch', 'batch': 'dosbatch',
+          \ 'coffeescript': 'coffee',
+          \ 'csharp': 'cs',
+          \ 'dockerfile': 'Dockerfile',
+          \ 'erb': 'eruby',
+          \ 'js': 'javascript',
+          \ 'rb': 'ruby' }
+    for lang in [
+          \ 'bat', 'batch',
+          \ 'c',
+          \ 'coffee',
+          \ 'cpp',
+          \ 'crystal',
+          \ 'cs', 'csharp',
+          \ 'css',
+          \ 'diff',
+          \ 'dockerfile',
+          \ 'erb',
+          \ 'groovy',
+          \ 'haml',
+          \ 'html',
+          \ 'java',
+          \ 'javascript', 'js',
+          \ 'php',
+          \ 'python',
+          \ 'ruby', 'rb',
+          \ 'sass',
+          \ 'scss',
+          \ 'sh', 'bash',
+          \ 'vim',
+          \ 'xml',
+          \ 'yaml']
+      call s:IncludeSyntax(get(map, lang, lang),
+            \ '/^\s*```\s*' . lang . '\s*$/', '/^\s*```\s*$/')
+    endfor
+  endif
+endfunction
+
 " C, C++ compile & execute
 augroup vimrc
   autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
@@ -590,6 +654,9 @@ augroup vimrc
 
   " zsh-theme view
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
+
+  " Included syntax
+  autocmd FileType,ColorScheme * call s:FileTypeHandler()
 augroup END
 
 " mobile.erb view
