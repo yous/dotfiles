@@ -118,14 +118,14 @@ If you are using RVM,
 ``` sh
 gem update --system
 rvm use current@global
-gem install rake rubocop wirble
+gem install bundler rubocop ruby-lint wirble
 ```
 
 Otherwise just install gems:
 
 ``` sh
 gem update --system
-gem install rake rubocop wirble
+gem install bundler rubocop ruby-lint wirble
 ```
 
 ### Zsh
