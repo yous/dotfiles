@@ -41,7 +41,8 @@ Command option | Description
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
 
-In Windows, use `install.bat`. It links `gitconfig`, `gitignore_global`, `vimrc` to the user's home directory.
+In Windows, use `install.bat`. It links `gitconfig`, `gitignore_global`, `vimrc`
+to the user's home directory.
 
 ### Git
 
@@ -67,7 +68,8 @@ You can also sign your each commit automatically:
 	gpgsign = true
 ```
 
-For more information about signing commits, see [A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
+For more information about signing commits, see
+[A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
 
 If you want to use latest release of Git for Ubuntu:
 
@@ -76,7 +78,8 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 ```
 
-Visit [the PPA of Git for Ubuntu](https://launchpad.net/~git-core/+archive/ubuntu/ppa) for more information.
+Visit [the PPA of Git for Ubuntu](https://launchpad.net/~git-core/+archive/ubuntu/ppa)
+for more information.
 
 ### Homebrew
 
@@ -154,7 +157,8 @@ To update Zsh plugins:
 zgen update
 ```
 
-To make RVM works on OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as [Tim Pope mentioned](https://github.com/tpope/vim-rvm#faq).
+To make RVM works on OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as
+[Tim Pope mentioned](https://github.com/tpope/vim-rvm#faq).
 
 ``` sh
 sudo mv /etc/zshenv /etc/zshrc
@@ -168,7 +172,8 @@ To install [Vim](http://www.vim.org) plugins,
 :PlugInstall
 ```
 
-You should install [Exuberant Ctags](http://ctags.sourceforge.net/) to use [taglist.vim](http://www.vim.org/script.php?script_id=273).
+You should install [Exuberant Ctags](http://ctags.sourceforge.net/) to use
+[taglist.vim](http://www.vim.org/script.php?script_id=273).
 
 To update Vim plugins:
 
@@ -197,7 +202,8 @@ For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syn
 
 To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 
-1. Open File > Import Settings… in [IntelliJ](http://www.jetbrains.com/idea/) or [Android Studio](http://developer.android.com/sdk/installing/studio.html).
+1. Open File > Import Settings… in [IntelliJ](http://www.jetbrains.com/idea/) or
+   [Android Studio](http://developer.android.com/sdk/installing/studio.html).
 2. Select `tomorrow-theme/JetBrains/settings.jar`.
 3. Open Settings > Editor > Colors & Fonts.
 4. Select a scheme of Tomorrow Theme.
@@ -241,10 +247,15 @@ defaults write com.apple.screencapture -string name 'Screenshot'
 
 For additional options for `defaults`, see [mathiasbynens' dotfiles](https://github.com/mathiasbynens/dotfiles/blob/master/.osx).
 
-To write to NTFS external disk, be sure [FUSE for OS X](http://osxfuse.github.io) is installed already. After that,
+To write to NTFS external disk, be sure [FUSE for OS X](http://osxfuse.github.io)
+is installed already. After that,
 
 ``` sh
 brew install ntfs-3g
 ```
 
-If your OS X version is 10.9 or earlier, you can install FUSE for OS X with brew command. See more information in [How to Write to NTFS External Disk Drives from OS X 10.9.2 Mavericks](http://coolestguidesontheplanet.com/how-to-write-to-a-ntfs-drive-from-os-x-mavericks/). The original `/sbin/mount_ntfs` links to `/System/Library/Filesystems/ntfs.fs/Contents/Resources/mount_ntfs`.
+If your OS X version is 10.9 or earlier, you can install FUSE for OS X with brew
+command. See more information in
+[How to Write to NTFS External Disk Drives from OS X 10.9.2 Mavericks](http://coolestguidesontheplanet.com/how-to-write-to-a-ntfs-drive-from-os-x-mavericks/).
+The original `/sbin/mount_ntfs` links to
+`/System/Library/Filesystems/ntfs.fs/Contents/Resources/mount_ntfs`.
