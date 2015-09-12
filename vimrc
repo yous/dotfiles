@@ -578,7 +578,7 @@ function! s:FileTypeHandler()
     for lang in [
           \ 'bat', 'batch',
           \ 'c',
-          \ 'coffee',
+          \ 'coffee', 'coffeescript',
           \ 'cpp',
           \ 'crystal',
           \ 'cs', 'csharp',
