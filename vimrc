@@ -138,13 +138,13 @@ Plug 'mojako/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
 " Coffee script
-Plug 'kchmck/vim-coffee-script', { 'for': ['coffee', 'markdown'] }
+Plug 'kchmck/vim-coffee-script', { 'for': ['coffee', 'mkd.markdown'] }
 " Crystal
-Plug 'rhysd/vim-crystal', { 'for': ['crystal', 'markdown'] }
+Plug 'rhysd/vim-crystal', { 'for': ['crystal', 'mkd.markdown'] }
 " Cucumber
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 " Dockerfile
-Plug 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'markdown'] }
+Plug 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'mkd.markdown'] }
 " HTML5
 Plug 'othree/html5.vim'
 " Jade
@@ -152,13 +152,12 @@ Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " JSON
-Plug 'elzr/vim-json', { 'for': ['json', 'markdown'] }
+Plug 'elzr/vim-json', { 'for': ['json', 'mkd.markdown'] }
 " JSX
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
-" Liquid
-Plug 'tpope/vim-liquid'
 " Markdown
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'godlygeek/tabular', { 'for': 'mkd.markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'mkd.markdown' }
 " PHP
 Plug 'php.vim-html-enhanced'
 " Racket
@@ -422,7 +421,7 @@ set softtabstop=2
 set shiftwidth=2
 " Number of spaces that a <Tab> in the file counts for
 set tabstop=2
-autocmd vimrc FileType c,cpp,java,mkd,markdown,python
+autocmd vimrc FileType c,cpp,java,markdown,mkd.markdown,python
       \ setlocal softtabstop=4 shiftwidth=4 tabstop=4
 " c: Disable automatic comment insertion on auto-wrap
 " o: Disable automatic comment insertion on hitting 'o' or 'O' in normal mode
@@ -434,7 +433,7 @@ autocmd vimrc FileType *
       \   setlocal formatoptions+=j |
       \ endif
 " Automatic formatting of paragraphs in 80 column
-autocmd vimrc FileType mkd,markdown
+autocmd vimrc FileType markdown,mkd.markdown
       \ setlocal textwidth=80
 
 " Mappings
@@ -840,27 +839,7 @@ let g:adblock_filter_auto_checksum = 1
 let g:vim_json_syntax_conceal = 0
 
 " vim-markdown
-let g:markdown_fenced_languages = [
-      \ 'bat=dosbatch', 'batch=dosbatch',
-      \ 'c',
-      \ 'coffee',
-      \ 'cpp',
-      \ 'crystal',
-      \ 'cs', 'csharp=cs',
-      \ 'css',
-      \ 'diff',
-      \ 'dockerfile=Dockerfile',
-      \ 'erb=eruby',
-      \ 'haml',
-      \ 'html',
-      \ 'javascript', 'js=javascript',
-      \ 'php',
-      \ 'python',
-      \ 'ruby', 'rb=ruby',
-      \ 'sass',
-      \ 'sh',
-      \ 'vim',
-      \ 'xml']
+let g:vim_markdown_frontmatter = 1
 
 " Rake
 nmap <Leader>ra :Rake<CR>
