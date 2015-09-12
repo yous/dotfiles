@@ -139,7 +139,8 @@ To use [Zsh](http://www.zsh.org) as default shell,
 chsh -s /bin/zsh
 ```
 
-If you use custom Zsh like compiled one by [Homebrew](http://brew.sh),
+If you use custom Zsh like compiled one by [Homebrew](http://brew.sh), add
+`/usr/local/bin/zsh` to `/etc/shells` and
 
 ``` sh
 chsh -s /usr/local/bin/zsh
