@@ -78,6 +78,7 @@ case "$1" in
     do
       replace_file "$FILENAME"
     done
+    replace_file 'tpm' '.tmux/plugins/tpm'
     for FILENAME in bin/*
     do
       replace_file "$FILENAME" "$FILENAME"
