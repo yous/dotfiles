@@ -44,6 +44,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   add_to_path_once "/usr/local/bin:/usr/local/sbin"
 fi
 
+# Load Linuxbrew
+if [[ -d "$HOME/.linuxbrew" ]]; then
+  add_to_path_once "$HOME/.linuxbrew/bin"
+  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
+
 # Set PATH to include user's bin if it exists
 if [ -d "$HOME/bin" ]; then
   add_to_path_once "$HOME/bin"
