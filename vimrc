@@ -250,8 +250,8 @@ if has('win32')
   " Enable the Input Method only on Insert mode
   autocmd vimrc InsertEnter * set noimdisable
   autocmd vimrc InsertLeave * set imdisable
-  autocmd vimrc FocusGained * set imdisable
-  autocmd vimrc FocusLost * set noimdisable
+  autocmd vimrc FocusGained * set noimdisable
+  autocmd vimrc FocusLost * set imdisable
   language messages en
   " Directory names for the swap file
   set directory=.,$TEMP
