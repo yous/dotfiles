@@ -6,7 +6,6 @@ install git
 install homebrew/dupes/grep --with-default-names
 install wget
 install autojump
-install imagemagick
 install zsh
 install tmux
 install ctags
