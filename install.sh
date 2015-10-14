@@ -62,6 +62,7 @@ case "$1" in
   link)
     init_submodules
     for FILENAME in \
+      'bashrc' \
       'gemrc' \
       'gitattributes_global' \
       'gitconfig' \
