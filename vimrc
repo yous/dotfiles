@@ -872,17 +872,21 @@ endif
 let Tlist_Inc_Winwidth = 0
 
 function! s:OpenSidebar()
-  if !exists(':NERDTree') || !exists(':TlistOpen')
+  if !exists(':NERDTree')
     return
+  elseif !exists(':TlistOpen')
+    NERDTree
+    wincmd p
+  else
+    NERDTree
+    TlistOpen
+    wincmd J
+    wincmd W
+    wincmd L
+    NERDTreeFocus
+    normal AA
+    wincmd p
   endif
-  NERDTree
-  TlistOpen
-  wincmd J
-  wincmd W
-  wincmd L
-  NERDTreeFocus
-  normal AA
-  wincmd p
 endfunction
 
 autocmd vimrc VimEnter *
