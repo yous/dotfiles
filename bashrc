@@ -141,17 +141,19 @@ if [ -d "$HOME/bin" ]; then
 fi
 
 # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+  source "$HOME/.rvm/scripts/rvm"
 
-if [[ "$(type rvm | head -n 1)" == "rvm is a shell function" ]]; then
-  # Add RVM to PATH for scripting
-  PATH=$PATH:$HOME/.rvm/bin
-  export rvmsudo_secure_path=1
+  if [[ "$(type rvm | head -n 1)" == "rvm is a shell function" ]]; then
+    # Add RVM to PATH for scripting
+    PATH=$PATH:$HOME/.rvm/bin
+    export rvmsudo_secure_path=1
 
-  # Use right RVM gemset when using tmux
-  if [[ "$TMUX" != "" ]]; then
-    rvm use default
-    cd ..;cd -
+    # Use right RVM gemset when using tmux
+    if [[ "$TMUX" != "" ]]; then
+      rvm use default
+      cd ..;cd -
+    fi
   fi
 fi
 
