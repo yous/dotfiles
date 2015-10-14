@@ -39,7 +39,7 @@ function replace_file()
     fi
   # FILE exists.
   elif [ -e "$HOME/$DEST" ]; then
-    if mv "$HOME/$DEST" "$HOME/$DEST.old"; then
+    if mv --backup=number "$HOME/$DEST" "$HOME/$DEST.old"; then
       echo "Renamed ~/$DEST to ~/$DEST.old"
       if ln -s "$DIR/$1" "$HOME/$DEST"; then
         echo "Created ~/$DEST"
