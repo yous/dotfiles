@@ -115,3 +115,64 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+function add_to_path_once()
+{
+  if [[ ":$PATH:" != *":$1:"* ]]; then
+    export PATH="$1:$PATH"
+  fi
+}
+
+# Add /usr/local/bin to PATH for Mac OS X
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  add_to_path_once "/usr/local/bin:/usr/local/sbin"
+fi
+
+# Load Linuxbrew
+if [[ -d "$HOME/.linuxbrew" ]]; then
+  add_to_path_once "$HOME/.linuxbrew/bin"
+  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
+
+# Set PATH to include user's bin if it exists
+if [ -d "$HOME/bin" ]; then
+  add_to_path_once "$HOME/bin"
+fi
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+if [[ "$(type rvm | head -n 1)" == "rvm is a shell function" ]]; then
+  # Add RVM to PATH for scripting
+  PATH=$PATH:$HOME/.rvm/bin
+  export rvmsudo_secure_path=1
+
+  # Use right RVM gemset when using tmux
+  if [[ "$TMUX" != "" ]]; then
+    rvm use default
+    cd ..;cd -
+  fi
+fi
+
+# Load rbenv
+if [ -e "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+# Check if reboot is required for Ubuntu
+if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
+  function reboot-required()
+  {
+    /usr/lib/update-notifier/update-motd-reboot-required
+  }
+fi
+
+# Unset local functions
+unset -f add_to_path_once
+
+# Define aliases
+alias v='vim'
+alias vi='vim'
+alias ruby-server='ruby -run -ehttpd . -p8000'
