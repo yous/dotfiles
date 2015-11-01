@@ -209,16 +209,22 @@ set background=dark
 set backspace=indent,eol,start
 " Use the clipboard register '*'
 set clipboard=unnamed
-set fileencodings=ucs-bom,utf-8,cp949,latin1
+if has('multi_byte')
+  set fileencodings=ucs-bom,utf-8,cp949,latin1
+endif
 set fileformats=unix,mac,dos
-" Sets 'foldlevel' when starting to edit another buffer in a window
-set foldlevelstart=99
+if has('folding')
+  " Sets 'foldlevel' when starting to edit another buffer in a window
+  set foldlevelstart=99
+endif
 " Number of remembered ":" commands
 set history=1000
 " Ignore case in search
 set ignorecase
-" Show where the pattern while typing a search command
-set incsearch
+if has('extra_search')
+  " Show where the pattern while typing a search command
+  set incsearch
+endif
 " Don't make a backup before overwriting a file
 set nobackup
 " Override the 'ignorecase' if the search pattern contains upper case
@@ -231,20 +237,24 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set pastetoggle=<F2>
 " Maximum number of changes that can be undone
 set undolevels=1000
-" List of file patterns to ignore when expanding wildcards, completing file or
-" directory names, and influences the result of expand(), glob() and globpath()
-set wildignore+=.git,.hg,.svn
-set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.png
-set wildignore+=*.dll,*.exe,*.o,*.obj
-set wildignore+=*.sw?
-set wildignore+=*.DS_Store
-set wildignore+=*.pyc
+if has('wildignore')
+  " List of file patterns to ignore when expanding wildcards, completing file or
+  " directory names, and influences the result of expand(), glob() and globpath()
+  set wildignore+=.git,.hg,.svn
+  set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.png
+  set wildignore+=*.dll,*.exe,*.o,*.obj
+  set wildignore+=*.sw?
+  set wildignore+=*.DS_Store
+  set wildignore+=*.pyc
+endif
 if exists('&wildignorecase')
   " Ignore case when completing file names and directories
   set wildignorecase
 endif
-" Enhanced command-line completion
-set wildmenu
+if has('wildmenu')
+  " Enhanced command-line completion
+  set wildmenu
+endif
 
 if has('win32')
   " Enable the Input Method only on Insert mode
@@ -277,7 +287,7 @@ unlet resolved_vimrc
 " Vim UI
 " ------
 
-if has('gui_running') && &t_Co > 16
+if has('syntax') && has('gui_running') && &t_Co > 16
   " Highlight the screen line of the cursor
   set cursorline
 endif
@@ -285,23 +295,33 @@ endif
 set display+=lastline
 " Show unprintable characters as a hex number
 set display+=uhex
-set hlsearch
+if has('extra_search')
+  set hlsearch
+endif
 " Always show a status line
 set laststatus=2
 set number
 " Don't consider octal number when using the CTRL-A and CTRL-X commands
 set nrformats-=octal
 set scrolloff=3
-" Show command in the last line of the screen
-set showcmd
+if has('cmdline_info')
+  " Show command in the last line of the screen
+  set showcmd
+endif
 " Briefly jump to the matching one when a bracket is inserted
 set showmatch
 " The minimal number of columns to scroll horizontally
 set sidescroll=1
 set sidescrolloff=10
-set splitbelow
-set splitright
-set title
+if has('windows')
+  set splitbelow
+endif
+if has('vertsplit')
+  set splitright
+endif
+if has('title')
+  set title
+endif
 
 try
   colorscheme Tomorrow-Night
@@ -332,7 +352,9 @@ endif
 " ---
 
 if has('gui_running')
-  set encoding=utf-8
+  if has('multi_byte')
+    set encoding=utf-8
+  endif
   set guifont=Consolas:h10:cANSI
   set guioptions-=m " Menu bar
   set guioptions-=T " Toolbar
@@ -340,7 +362,9 @@ if has('gui_running')
   set guioptions-=L " Left-hand scrollbar when window is vertically split
 
   source $VIMRUNTIME/delmenu.vim
-  set langmenu=ko.UTF-8
+  if has('menu') && has('multi_lang')
+    set langmenu=ko.UTF-8
+  endif
   source $VIMRUNTIME/menu.vim
 
   if has('win32')
@@ -421,7 +445,9 @@ set autoindent
 set expandtab
 " Insert only one space after a '.', '?' and '!' with a join command
 set nojoinspaces
-set smartindent
+if has('smartindent')
+  set smartindent
+endif
 " Number of spaces that a <Tab> counts for while editing
 set softtabstop=2
 " Number of spaces to use for each setp of (auto)indent
