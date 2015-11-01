@@ -303,7 +303,12 @@ set splitbelow
 set splitright
 set title
 
-colorscheme Tomorrow-Night
+try
+  colorscheme Tomorrow-Night
+catch
+  colorscheme default
+  set background=dark
+endtry
 
 augroup colorcolumn
   autocmd!
