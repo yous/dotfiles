@@ -453,9 +453,9 @@ set softtabstop=2
 " Number of spaces to use for each setp of (auto)indent
 set shiftwidth=2
 " Number of spaces that a <Tab> in the file counts for
-set tabstop=2
+set tabstop=8
 autocmd vimrc FileType c,cpp,java,markdown,mkd.markdown,python
-      \ setlocal softtabstop=4 shiftwidth=4 tabstop=4
+      \ setlocal softtabstop=4 shiftwidth=4
 " c: Disable automatic comment insertion on auto-wrap
 " o: Disable automatic comment insertion on hitting 'o' or 'O' in normal mode
 " j: Remove a comment leader when joining lines
