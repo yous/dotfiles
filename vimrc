@@ -737,7 +737,7 @@ augroup colorcolumn
         \ if exists('+colorcolumn') |
         \   set colorcolumn=73 |
         \ else |
-        \   let w:m2 = matchadd('ErrorMsg', '\%>72v.\+', -1) |
+        \   let w:m2 = matchadd('ErrorMsg', '\%73v', -1) |
         \ endif
 augroup END
 augroup Fugitive
