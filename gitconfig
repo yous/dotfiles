@@ -6,6 +6,7 @@
 	cm = checkout master
 	co = checkout
 	d = diff
+	dca = diff --cached
 	f = fetch
 	l = pull
 	lgga = log --graph --decorate --all
