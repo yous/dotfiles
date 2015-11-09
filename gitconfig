@@ -38,5 +38,7 @@
 	prune = true
 [include]
 	path = ~/.gitconfig.local
+[log]
+	date = iso8601
 [push]
 	default = simple
