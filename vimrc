@@ -495,16 +495,12 @@ cnoremap <C-E> <End>
 
 " Easy newline insert
 function! s:MapNewlineInsert()
-  if getbufvar(winbufnr(0), '&buftype') == 'help' ||
+  if !(getbufvar(winbufnr(0), '&buftype') == 'help' ||
         \ getbufvar(winbufnr(0), '&buftype') == 'quickfix' ||
         \ exists('t:NERDTreeBufName') &&
         \   bufname(winbufnr(0)) == t:NERDTreeBufName ||
-        \ bufname(winbufnr(0)) == '__Tag_List__'
-    if maparg('<CR>', 'n') == 'o<Esc>'
-      nunmap <CR>
-    endif
-  else
-    nnoremap <CR> o<ESC>
+        \ bufname(winbufnr(0)) == '__Tag_List__')
+    nnoremap <buffer> <CR> o<ESC>
   endif
 endfunction
 autocmd BufNewFile,BufRead * call s:MapNewlineInsert()
