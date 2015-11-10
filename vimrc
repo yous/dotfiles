@@ -482,6 +482,8 @@ noremap <Down> gj
 noremap <Up> gk
 noremap gj j
 noremap gk k
+
+" Easy navigation on a line
 noremap H ^
 noremap L $
 
