@@ -494,7 +494,20 @@ cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 
 " Easy newline insert
-nnoremap <CR> o<ESC>
+function! s:MapNewlineInsert()
+  if getbufvar(winbufnr(0), '&buftype') == 'help' ||
+        \ getbufvar(winbufnr(0), '&buftype') == 'quickfix' ||
+        \ exists('t:NERDTreeBufName') &&
+        \   bufname(winbufnr(0)) == t:NERDTreeBufName ||
+        \ bufname(winbufnr(0)) == '__Tag_List__'
+    if maparg('<CR>', 'n') == 'o<Esc>'
+      nunmap <CR>
+    endif
+  else
+    nnoremap <CR> o<ESC>
+  endif
+endfunction
+autocmd BufEnter,BufRead * call s:MapNewlineInsert()
 
 " Break the undo block when Ctrl-u
 inoremap <C-U> <C-G>u<C-U>
