@@ -847,7 +847,7 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineReadonly()
-  return &readonly? 'RO' : ''
+  return &readonly ? 'RO' : ''
 endfunction
 
 function! LightLineModified()
