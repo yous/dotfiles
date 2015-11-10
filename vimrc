@@ -784,6 +784,7 @@ let g:lightline = {
       \   'inactive': ['filename', 'modified'] },
       \ 'component_function': {},
       \ 'component_expand': {
+      \   'readonly': 'LightLineReadonly',
       \   'syntastic': 'SyntasticStatuslineFlag' },
       \ 'component_type': {
       \   'readonly': 'warning',
@@ -791,8 +792,8 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '|' } }
 
-for k in ['mode', 'filename', 'readonly', 'modified', 'filetype',
-      \ 'fileencoding', 'fileformat', 'percent', 'lineinfo']
+for k in ['mode', 'filename', 'modified', 'filetype', 'fileencoding',
+      \ 'fileformat', 'percent', 'lineinfo']
   let g:lightline.component_function[k] = 'LightLine' . toupper(k[0]) . k[1:]
 endfor
 
