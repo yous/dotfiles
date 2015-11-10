@@ -507,7 +507,7 @@ function! s:MapNewlineInsert()
     nnoremap <CR> o<ESC>
   endif
 endfunction
-autocmd BufEnter,BufRead * call s:MapNewlineInsert()
+autocmd BufNewFile,BufRead * call s:MapNewlineInsert()
 
 " Break the undo block when Ctrl-u
 inoremap <C-U> <C-G>u<C-U>
