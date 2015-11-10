@@ -791,8 +791,8 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '|' } }
 
-for k in ['mode', 'filename', 'modified', 'readonly', 'fileencoding',
-      \ 'fileformat', 'filetype', 'percent', 'lineinfo']
+for k in ['mode', 'filename', 'readonly', 'modified', 'filetype',
+      \ 'fileencoding', 'fileformat', 'percent', 'lineinfo']
   let g:lightline.component_function[k] = 'LightLine' . toupper(k[0]) . k[1:]
 endfor
 
@@ -846,12 +846,17 @@ function! LightLineFilename()
         \ '' != fname ? fname : '[No Name]'
 endfunction
 
+function! LightLineReadonly()
+  return &readonly? 'RO' : ''
+endfunction
+
 function! LightLineModified()
   return &modified ? '+' : ''
 endfunction
 
-function! LightLineReadonly()
-  return &readonly? 'RO' : ''
+function! LightLineFiletype()
+  return LightLineVisible('filetype') ?
+        \ (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
 function! LightLineFileencoding()
@@ -860,11 +865,6 @@ endfunction
 
 function! LightLineFileformat()
   return LightLineVisible('fileformat') ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return LightLineVisible('filetype') ?
-        \ (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
 function! LightLinePercent()
