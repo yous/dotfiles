@@ -773,7 +773,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [
       \     ['mode', 'paste'],
-      \     ['filename', 'readonly', 'modified']],
+      \     ['filename', 'readonly', 'eol', 'modified']],
       \   'right': [
       \     ['syntastic', 'lineinfo'],
       \     ['percent'],
@@ -785,9 +785,11 @@ let g:lightline = {
       \ 'component_function': {},
       \ 'component_expand': {
       \   'readonly': 'LightLineReadonly',
+      \   'eol': 'LightLineEol',
       \   'syntastic': 'SyntasticStatuslineFlag' },
       \ 'component_type': {
       \   'readonly': 'warning',
+      \   'eol': 'warning',
       \   'syntastic': 'error' },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '|' } }
@@ -849,6 +851,10 @@ endfunction
 
 function! LightLineReadonly()
   return &readonly ? 'RO' : ''
+endfunction
+
+function! LightLineEol()
+  return &eol ? '' : 'EOL'
 endfunction
 
 function! LightLineModified()
