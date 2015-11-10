@@ -493,6 +493,9 @@ inoremap <C-E> <ESC>A
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 
+" Easy newline insert
+nnoremap <CR> o<ESC>
+
 " Break the undo block when Ctrl-u
 inoremap <C-U> <C-G>u<C-U>
 
