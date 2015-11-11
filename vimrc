@@ -854,7 +854,7 @@ function! LightLineReadonly()
 endfunction
 
 function! LightLineEol()
-  return &eol ? '' : 'EOL'
+  return &eol ? '' : 'NOEOL'
 endfunction
 
 function! LightLineModified()
