@@ -64,18 +64,8 @@ Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
       \ 'rtp': 'vim' }
 
 " General
-if has('python')
-  redir => pyv
-  silent python import platform; print(platform.python_version())
-  redir END
-
-  " PreserveNoEOL requires Python 2.6
-  if s:VersionRequirement(
-        \ map(split(split(pyv)[0], '\.'), 'str2nr(v:val)'), [2, 6])
-    " Preserve missing EOL at the end of text files
-    Plug 'PreserveNoEOL'
-  endif
-endif
+" Preserve missing EOL at the end of text files
+Plug 'yous/PreserveNoEOL'
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
 " Full path finder
