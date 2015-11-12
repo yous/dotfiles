@@ -110,7 +110,14 @@ Update RVM with:
 rvm get stable
 ```
 
-If you want to install [rbenv](https://github.com/sstephenson/rbenv),
+If you want to install [rbenv](https://github.com/sstephenson/rbenv), if you're
+on OS X,
+
+``` sh
+brew install rbenv
+```
+
+Otherwise,
 
 ``` sh
 ./install.sh rbenv
