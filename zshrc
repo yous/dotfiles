@@ -79,6 +79,11 @@ if [ -e "$HOME/.rbenv" ]; then
   eval "$(rbenv init -)"
 fi
 
+# Load pyenv
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
 # Load zgen
 source $HOME/.zgen/zgen.zsh
 # Check if there's no init script.

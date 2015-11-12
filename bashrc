@@ -168,6 +168,11 @@ if [ -e "$HOME/.rbenv" ]; then
   eval "$(rbenv init -)"
 fi
 
+# Load pyenv
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
 # Check if reboot is required for Ubuntu
 if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
   function reboot-required()

@@ -7,6 +7,7 @@
     - [Git](#git)
     - [Homebrew](#homebrew)
     - [Ruby](#ruby)
+    - [Python](#python)
     - [Zsh](#zsh)
     - [Vim](#vim)
     - [IntelliJ, Android Studio](#intellij-android-studio)
@@ -38,6 +39,7 @@ Command option | Description
 `brew`         | Install Homebrew
 `formulae`     | Install Homebrew formulae using Brewfile
 `npm`          | Install global Node.js packages
+`pyenv`        | Install pyenv
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
 
@@ -136,6 +138,21 @@ Otherwise just install gems:
 ``` sh
 gem update --system
 gem install bundler rubocop ruby-lint wirble
+```
+
+### Python
+
+If you want to install [pyenv](https://github.com/yyuu/pyenv), if you're on OS
+X,
+
+``` sh
+brew install pyenv
+```
+
+Otherwise,
+
+``` sh
+./install.sh pyenv
 ```
 
 ### Zsh

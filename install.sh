@@ -116,6 +116,9 @@ case "$1" in
       done
     fi
     ;;
+  pyenv)
+    curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+    ;;
   rbenv)
     git_clone https://github.com/sstephenson/rbenv.git .rbenv
     git_clone https://github.com/sstephenson/ruby-build.git .rbenv/plugins/ruby-build
@@ -132,6 +135,7 @@ case "$1" in
     echo '    brew      Install Homebrew'
     echo '    formulae  Install Homebrew formulae using Brewfile'
     echo '    npm       Install global Node.js packages'
+    echo '    pyenv     Install pyenv'
     echo '    rbenv     Install rbenv'
     echo '    rvm       Install RVM'
     ;;
