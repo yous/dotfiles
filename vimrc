@@ -82,6 +82,8 @@ Plug 'matchit.zip'
 Plug 'Raimondi/delimitMate'
 " Autocomplete if end
 Plug 'tpope/vim-endwise'
+" Simplify the transition between multiline and single-line code
+Plug 'AndrewRadev/splitjoin.vim'
 " Easily delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
 " Pairs of handy bracket mappings
