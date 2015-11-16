@@ -74,8 +74,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'justinmk/vim-gtfo'
 " Provide CamelCase motion through words
 Plug 'bkad/CamelCaseMotion'
-" Much simpler way to use some motions
-Plug 'Lokaltog/vim-easymotion'
+" Vim motions on speed!
+Plug 'easymotion/vim-easymotion'
 " Extended % matching
 Plug 'matchit.zip'
 " Provides insert mode auto-completion for quotes, parens, brackets, etc
@@ -720,7 +720,7 @@ endfunction
 call s:CreateCamelCaseMotionMappings()
 
 " EasyMotion
-let g:EasyMotion_leader_key = '<Leader>'
+map <Leader> <Plug>(easymotion-prefix)
 
 " delimitMate
 let g:delimitMate_expand_cr = 2
