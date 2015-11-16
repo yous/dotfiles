@@ -707,6 +707,18 @@ augroup END
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
 
+" CamelCaseMotion
+function! s:CreateCamelCaseMotionMappings()
+  for l:mode in ['n', 'o', 'x']
+    for l:motion in ['w', 'b', 'e']
+      let l:target_mapping = '<Plug>CamelCaseMotion_' . l:motion
+      execute l:mode . 'map <silent> <Leader><Leader>' . l:motion . ' '
+            \ . l:target_mapping
+    endfor
+  endfor
+endfunction
+call s:CreateCamelCaseMotionMappings()
+
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
