@@ -56,6 +56,17 @@ if [ -d "$HOME/bin" ]; then
   add_to_path_once "$HOME/bin"
 fi
 
+# Load rbenv
+if [ -e "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+# Load pyenv
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
 # Load RVM into a shell session *as a function*
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
   source "$HOME/.rvm/scripts/rvm"
@@ -71,17 +82,6 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
       cd ..;cd -
     fi
   fi
-fi
-
-# Load rbenv
-if [ -e "$HOME/.rbenv" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
-# Load pyenv
-if which pyenv > /dev/null; then
-  eval "$(pyenv init -)"
 fi
 
 # Load zgen
