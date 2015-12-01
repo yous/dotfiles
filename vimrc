@@ -78,8 +78,6 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'easymotion/vim-easymotion'
 " Extended % matching
 Plug 'matchit.zip'
-" Provides insert mode auto-completion for quotes, parens, brackets, etc
-Plug 'Raimondi/delimitMate'
 " Autocomplete if end
 Plug 'tpope/vim-endwise'
 " Simplify the transition between multiline and single-line code
