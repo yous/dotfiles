@@ -720,9 +720,6 @@ call s:CreateCamelCaseMotionMappings()
 " EasyMotion
 map <Leader> <Plug>(easymotion-prefix)
 
-" delimitMate
-let g:delimitMate_expand_cr = 2
-
 " unimpaired.vim
 " Center display on move between SCM conflicts
 nnoremap [n [nzz
