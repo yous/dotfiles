@@ -128,13 +128,13 @@ Plug 'mojako/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
 " Coffee script
-Plug 'kchmck/vim-coffee-script', { 'for': ['coffee', 'mkd.markdown'] }
+Plug 'kchmck/vim-coffee-script', { 'for': ['coffee', 'markdown'] }
 " Crystal
-Plug 'rhysd/vim-crystal', { 'for': ['crystal', 'mkd.markdown'] }
+Plug 'rhysd/vim-crystal', { 'for': ['crystal', 'markdown'] }
 " Cucumber
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 " Dockerfile
-Plug 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'mkd.markdown'] }
+Plug 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'markdown'] }
 " HTML5
 Plug 'othree/html5.vim'
 " Jade
@@ -142,12 +142,12 @@ Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " JSON
-Plug 'elzr/vim-json', { 'for': ['json', 'mkd.markdown'] }
+Plug 'elzr/vim-json', { 'for': ['json', 'markdown'] }
 " JSX
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 " Markdown
-Plug 'godlygeek/tabular', { 'for': 'mkd.markdown' }
-Plug 'plasticboy/vim-markdown', { 'for': 'mkd.markdown' }
+Plug 'godlygeek/tabular', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " PHP
 Plug 'php.vim-html-enhanced'
 " Racket
@@ -444,7 +444,7 @@ set softtabstop=2
 set shiftwidth=2
 " Number of spaces that a <Tab> in the file counts for
 set tabstop=8
-autocmd vimrc FileType c,cpp,java,markdown,mkd.markdown,python
+autocmd vimrc FileType c,cpp,java,markdown,python
       \ setlocal softtabstop=4 shiftwidth=4
 " c: Disable automatic comment insertion on auto-wrap
 " o: Disable automatic comment insertion on hitting 'o' or 'O' in normal mode
@@ -456,7 +456,7 @@ autocmd vimrc FileType *
       \   setlocal formatoptions+=j |
       \ endif
 " Automatic formatting of paragraphs in 80 column
-autocmd vimrc FileType markdown,mkd.markdown
+autocmd vimrc FileType markdown
       \ setlocal textwidth=80
 
 " Mappings
@@ -598,7 +598,7 @@ function! s:IncludeSyntax(lang, b, e)
 endfunction
 
 function! s:FileTypeHandler()
-  if &ft ==# 'mkd.markdown'
+  if &ft ==# 'markdown'
     let map = {
           \ 'bash': 'sh',
           \ 'bat': 'dosbatch', 'batch': 'dosbatch',
