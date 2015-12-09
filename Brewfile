@@ -11,10 +11,7 @@ install tmux
 install ctags
 install editorconfig
 
-# Node.js
-install node
-
-# Keybase (Requires Node.js)
+# Keybase
 install keybase
 
 # Python
