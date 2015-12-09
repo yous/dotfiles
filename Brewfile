@@ -18,5 +18,4 @@ install keybase
 install python
 
 # Vim
-install lua
-install vim --with-lua --with-tcl
+install vim
