@@ -99,7 +99,9 @@
         - Character set: UTF-8
         - Terminal Type: xterm-256color
     - Setup
-        - `pacman -Suy`
+        - `update-core`
+        - Run MSYS2 again.
+        - `pacman -Su`
         - `pacman -S zsh vim wget curl openssh grep tar unzip`
         - `C:\msys64\msys2_shell.bat`:
 
