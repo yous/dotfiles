@@ -13,6 +13,8 @@
 - Turn on Remote Desktop
 - Windows Update: Download updates but let me choose whether to install them
 - Turn on Sticky Keys when SHIFT is pressed five times: Uncheck
+- Disallow the system to suggest companion windows when using Snap
+    - Turn off Settings > Multitasking > Allow the system to suggest companion windows when using Snap
 - Configure Windows Updates
     - Run `gpedit.msc`
     - Select Computer Configuration > Administrative Templates > Windows Components > Windows Update
