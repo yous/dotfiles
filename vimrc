@@ -483,6 +483,9 @@ inoremap <C-E> <ESC>A
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 
+" Delete without copying
+vnoremap <BS> "_d
+
 " Easy newline insert
 function! s:MapNewlineInsert()
   if getbufvar(winbufnr(0), '&modifiable') && maparg('<CR>', 'n') == ''
