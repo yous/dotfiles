@@ -478,8 +478,8 @@ noremap H ^
 noremap L $
 
 " Unix shell behavior
-inoremap <C-A> <ESC>I
-inoremap <C-E> <ESC>A
+inoremap <C-A> <Esc>I
+inoremap <C-E> <Esc>A
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 
@@ -489,7 +489,7 @@ vnoremap <BS> "_d
 " Easy newline insert
 function! s:MapNewlineInsert()
   if getbufvar(winbufnr(0), '&modifiable') && maparg('<CR>', 'n') == ''
-    nnoremap <buffer> <CR> o<ESC>
+    nnoremap <buffer> <CR> o<Esc>
   endif
 endfunction
 autocmd BufNewFile,BufRead * call s:MapNewlineInsert()
@@ -645,7 +645,7 @@ endfunction
 " C, C++ compile & execute
 augroup vimrc
   autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
-  autocmd FileType c,cpp imap <F5> <ESC>:w<CR>:make %<CR>
+  autocmd FileType c,cpp imap <F5> <Esc>:w<CR>:make %<CR>
   autocmd FileType c
         \ if !filereadable('Makefile') && !filereadable('makefile') |
         \   setlocal makeprg=gcc\ -o\ %< |
@@ -657,20 +657,20 @@ augroup vimrc
 augroup END
 if has('win32')
   map <F6> :!%<.exe<CR>
-  imap <F6> <ESC>:!%<.exe<CR>
+  imap <F6> <Esc>:!%<.exe<CR>
 elseif has('unix')
   map <F6> :!./%<<CR>
-  imap <F6> <ESC>:!./%<<CR>
+  imap <F6> <Esc>:!./%<<CR>
 endif
 
 augroup vimrc
   " Python execute
   autocmd FileType python map <F5> :w<CR>:!python %<CR>
-  autocmd FileType python imap <F5> <ESC>:w<CR>:!python %<CR>
+  autocmd FileType python imap <F5> <Esc>:w<CR>:!python %<CR>
 
   " Ruby execute
   autocmd FileType ruby map <F5> :w<CR>:!ruby %<CR>
-  autocmd FileType ruby imap <F5> <ESC>:w<CR>:!ruby %<CR>
+  autocmd FileType ruby imap <F5> <Esc>:w<CR>:!ruby %<CR>
 
   " man page settings
   autocmd FileType c,cpp set keywordprg=man
