@@ -545,17 +545,11 @@ endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <Leader>z :ZoomToggle<CR>
 
-" Help
-function! s:SetHelpMapping()
-  nnoremap <buffer> q :q<CR>
-endfunction
-autocmd vimrc FileType help call s:SetHelpMapping()
+" Quit help window
+autocmd vimrc FileType help nnoremap <buffer> q :q<CR>
 
-" Quickfix
-function! s:SetQuickfixMapping()
-  nnoremap <buffer> q :ccl<CR>
-endfunction
-autocmd vimrc FileType qf call s:SetQuickfixMapping()
+" Quit quickfix window
+autocmd vimrc FileType qf nnoremap <buffer> q :ccl<CR>
 
 " Auto quit Vim when actual files are closed
 function! s:CheckLeftBuffers()
