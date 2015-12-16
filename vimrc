@@ -191,6 +191,12 @@ augroup vimrc
   autocmd!
 augroup END
 
+try
+  colorscheme Tomorrow-Night
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+endtry
+
 if &shell =~# 'fish$'
   set shell=sh
 endif
@@ -312,13 +318,6 @@ endif
 if has('title')
   set title
 endif
-
-try
-  colorscheme Tomorrow-Night
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-  set background=dark
-endtry
 
 augroup colorcolumn
   autocmd!
