@@ -135,6 +135,10 @@ fi
 # Unset local functions
 unset -f add_to_path_once
 
+if [ -f "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi
+
 # Define aliases
 alias git='noglob git'
 alias v='vim'
