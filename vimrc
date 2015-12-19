@@ -433,12 +433,12 @@ endif
 " ---------------
 
 set autoindent
+if has('cindent')
+  set cindent
+endif
 set expandtab
 " Insert only one space after a '.', '?' and '!' with a join command
 set nojoinspaces
-if has('smartindent')
-  set smartindent
-endif
 " Number of spaces that a <Tab> counts for while editing
 set softtabstop=2
 " Number of spaces to use for each setp of (auto)indent
