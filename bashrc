@@ -184,6 +184,11 @@ fi
 # Unset local functions
 unset -f add_to_path_once
 
+# Source local bashrc
+if [ -f "$HOME/.bashrc.local" ]; then
+  source "$HOME/.bashrc.local"
+fi
+
 # Define aliases
 alias v='vim'
 alias vi='vim'

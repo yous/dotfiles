@@ -135,6 +135,7 @@ fi
 # Unset local functions
 unset -f add_to_path_once
 
+# Source local zshrc
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
