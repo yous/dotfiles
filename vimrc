@@ -154,6 +154,8 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'php.vim-html-enhanced'
 " Racket
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+" SMT-LIB
+Plug 'raichoo/smt-vim', { 'for': 'smt' }
 " XML
 Plug 'othree/xml.vim', { 'for': 'xml' }
 
