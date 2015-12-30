@@ -4,9 +4,6 @@
 [submodule "solarized"]
 	path = solarized
 	url = https://github.com/altercation/solarized.git
-[submodule "zgen"]
-	path = zgen
-	url = https://github.com/tarjoilija/zgen.git
 [submodule "tpm"]
 	path = tpm
 	url = https://github.com/tmux-plugins/tpm.git
