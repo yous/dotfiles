@@ -170,16 +170,16 @@ If you use custom Zsh like compiled one by [Homebrew](http://brew.sh), add
 chsh -s /usr/local/bin/zsh
 ```
 
-To update [zgen](https://github.com/tarjoilija/zgen):
+To install [zplug](https://github.com/b4b4r07/zplug):
 
 ``` sh
-zgen selfupdate
+./install.sh zplug
 ```
 
 To update Zsh plugins:
 
 ``` sh
-zgen update
+zplug update
 ```
 
 To make RVM works on OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as

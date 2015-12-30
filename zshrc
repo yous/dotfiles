@@ -84,41 +84,43 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
   fi
 fi
 
-# Load zgen
-source $HOME/.zgen/zgen.zsh
-# Check if there's no init script.
-if ! zgen saved; then
-  # Load the oh-my-zsh's library.
-  zgen oh-my-zsh
-  # A cd command that learns - easily navigate directories from the command line.
-  zgen oh-my-zsh plugins/autojump
-  # Homebrew aliases and completion.
-  zgen oh-my-zsh plugins/brew
-  # Run commands with bundle and bundle aliases
-  zgen oh-my-zsh plugins/bundler
-  # Guess what to install when running an unknown command.
-  zgen oh-my-zsh plugins/command-not-found
-  # Extracts different types of archives
-  zgen oh-my-zsh plugins/extract
-  # Autocompletion for gem command.
-  zgen oh-my-zsh plugins/gem
-  # Git aliases and completion.
-  zgen oh-my-zsh plugins/git
-  # npm completion.
-  zgen oh-my-zsh plugins/npm
-  # RVM aliases and completion.
-  zgen oh-my-zsh plugins/rvm
-  # tmux aliases and configurations.
-  if which tmux &> /dev/null; then
-    zgen oh-my-zsh plugins/tmux
-  fi
-  # Syntax highlighting bundle.
-  zgen load zsh-users/zsh-syntax-highlighting
-  # Load the theme.
-  zgen load yous/zsh-themes lime
-  # Save all to init script.
-  zgen save
+# Load zplug
+source $HOME/.zplug/zplug
+
+# Let zplug manage zplug
+zplug "b4b4r07/zplug"
+# A cd command that learns - easily navigate directories from the command line.
+zplug "plugins/autojump", from:oh-my-zsh
+# Homebrew aliases and completion.
+zplug "plugins/brew", from:oh-my-zsh
+# Run commands with bundle and bundle aliases
+zplug "plugins/bundler", from:oh-my-zsh
+# Guess what to install when running an unknown command.
+zplug "plugins/command-not-found", from:oh-my-zsh
+# Extracts different types of archives
+zplug "plugins/extract", from:oh-my-zsh
+# Autocompletion for gem command.
+zplug "plugins/gem", from:oh-my-zsh
+# Git aliases and completion.
+zplug "plugins/git", from:oh-my-zsh
+# npm completion.
+zplug "plugins/npm", from:oh-my-zsh
+# RVM aliases and completion.
+zplug "plugins/rvm", from:oh-my-zsh
+# tmux aliases and configurations.
+zplug "plugins/tmux", from:oh-my-zsh, if:"which tmux"
+# Load the theme.
+zplug "yous/zsh-themes", of:"lime.zsh-theme"
+# Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
+# excuting compinit command and sourcing other plugins.
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check; then
+  zplug install
 fi
+# Then, source plugins and add commands to $PATH
+zplug load
 
 # Oh My Zsh sets custom LSCOLORS from lib/theme-and-appearance.zsh
 # This is default LSCOLORS from the man page of ls
