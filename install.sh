@@ -74,7 +74,6 @@ case "$1" in
       'screenrc' \
       'tmux.conf' \
       'vimrc' \
-      'zgen' \
       'zprofile' \
       'zshrc'
     do
