@@ -1,5 +1,6 @@
 #!/bin/bash
-DIR="$( cd "$( dirname "$0" )" && pwd )"
+DIRNAME="$(dirname "$0")"
+DIR="$(cd $DIRNAME && pwd)"
 
 function echoerr()
 {
