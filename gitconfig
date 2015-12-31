@@ -3,6 +3,7 @@
 	apa = add --patch
 	b = branch
 	c = commit -v
+	ca = commit -v -a
 	cm = checkout master
 	co = checkout
 	d = diff
