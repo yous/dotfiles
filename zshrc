@@ -51,39 +51,6 @@ if [[ -d "$HOME/.linuxbrew" ]]; then
   export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
-# Set PATH to include user's bin if it exists
-if [ -d "$HOME/bin" ]; then
-  add_to_path_once "$HOME/bin"
-fi
-
-# Load rbenv
-if [ -e "$HOME/.rbenv" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
-# Load pyenv
-if which pyenv > /dev/null; then
-  eval "$(pyenv init -)"
-fi
-
-# Load RVM into a shell session *as a function*
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
-  source "$HOME/.rvm/scripts/rvm"
-
-  if [[ "$(type rvm | head -n 1)" == "rvm is a shell function" ]]; then
-    # Add RVM to PATH for scripting
-    PATH=$PATH:$HOME/.rvm/bin
-    export rvmsudo_secure_path=1
-
-    # Use right RVM gemset when using tmux
-    if [[ "$TMUX" != "" ]]; then
-      rvm use default
-      cd ..;cd -
-    fi
-  fi
-fi
-
 # Load zplug
 source $HOME/.zplug/zplug
 
@@ -121,6 +88,39 @@ if ! zplug check; then
 fi
 # Then, source plugins and add commands to $PATH
 zplug load
+
+# Set PATH to include user's bin if it exists
+if [ -d "$HOME/bin" ]; then
+  add_to_path_once "$HOME/bin"
+fi
+
+# Load rbenv
+if [ -e "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+# Load pyenv
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
+# Load RVM into a shell session *as a function*
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+  source "$HOME/.rvm/scripts/rvm"
+
+  if [[ "$(type rvm | head -n 1)" == "rvm is a shell function" ]]; then
+    # Add RVM to PATH for scripting
+    PATH=$PATH:$HOME/.rvm/bin
+    export rvmsudo_secure_path=1
+
+    # Use right RVM gemset when using tmux
+    if [[ "$TMUX" != "" ]]; then
+      rvm use default
+      cd ..;cd -
+    fi
+  fi
+fi
 
 # Oh My Zsh sets custom LSCOLORS from lib/theme-and-appearance.zsh
 # This is default LSCOLORS from the man page of ls
