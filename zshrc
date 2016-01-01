@@ -73,7 +73,7 @@ zplug "plugins/git", from:oh-my-zsh
 # npm completion.
 zplug "plugins/npm", from:oh-my-zsh
 # RVM aliases and completion.
-zplug "plugins/rvm", from:oh-my-zsh
+zplug "plugins/rvm", from:oh-my-zsh, if:"which rvm"
 # tmux aliases and configurations.
 zplug "plugins/tmux", from:oh-my-zsh, if:"which tmux"
 # Load the theme.
