@@ -94,6 +94,12 @@ if [ -d "$HOME/bin" ]; then
   add_to_path_once "$HOME/bin"
 fi
 
+# Load chruby
+if [ -e /usr/local/share/chruby/chruby.sh ]; then
+  source /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/auto.sh
+fi
+
 # Load rbenv
 if [ -e "$HOME/.rbenv" ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"

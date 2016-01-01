@@ -100,6 +100,43 @@ rvm use system # To compile Vim with Ruby support
 
 ### Ruby
 
+#### chruby
+
+If you want to install [chruby](https://github.com/postmodern/chruby), if you're
+on OS X,
+
+``` sh
+brew install ruby-install
+brew install chruby
+```
+
+Otherwise, install [ruby-install](https://github.com/postmodern/ruby-install)
+first:
+
+``` sh
+wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
+tar -xzvf ruby-install-0.6.0.tar.gz
+cd ruby-install-0.6.0/
+sudo make install
+```
+
+Then install chruby, if you're on Arch Linux,
+
+``` sh
+yaourt -S chruby
+```
+
+Otherwise,
+
+``` sh
+wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+tar -xzvf chruby-0.3.9.tar.gz
+cd chruby-0.3.9/
+sudo make install
+```
+
+#### RVM
+
 If you want to install [RVM](http://rvm.io),
 
 ``` sh
@@ -111,6 +148,8 @@ Update RVM with:
 ``` sh
 rvm get stable
 ```
+
+#### rbenv
 
 If you want to install [rbenv](https://github.com/sstephenson/rbenv), if you're
 on OS X,
@@ -124,6 +163,8 @@ Otherwise,
 ``` sh
 ./install.sh rbenv
 ```
+
+#### Gems
 
 If you are using RVM,
 
