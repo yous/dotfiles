@@ -77,7 +77,7 @@ zplug "plugins/rvm", from:oh-my-zsh, if:"which rvm"
 # tmux aliases and configurations.
 zplug "plugins/tmux", from:oh-my-zsh, if:"which tmux"
 # Load the theme.
-zplug "yous/zsh-themes", of:"lime.zsh-theme"
+zplug "yous/lime"
 # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
 # excuting compinit command and sourcing other plugins.
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
