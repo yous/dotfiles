@@ -17,5 +17,9 @@ install keybase
 # Python
 install python
 
+# Ruby
+install ruby-install
+install chruby
+
 # Vim
 install vim
