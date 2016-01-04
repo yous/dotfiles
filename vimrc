@@ -631,7 +631,8 @@ function! s:FileTypeHandler()
           \ 'sh', 'bash',
           \ 'vim',
           \ 'xml',
-          \ 'yaml']
+          \ 'yaml',
+          \ 'zsh']
       call s:IncludeSyntax(get(map, lang, lang),
             \ '/^\s*```\s*' . lang . '\s*$/', '/^\s*```\s*$/')
     endfor
