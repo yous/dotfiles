@@ -111,7 +111,13 @@ brew install chruby
 ```
 
 Otherwise, install [ruby-install](https://github.com/postmodern/ruby-install)
-first:
+first, if you're on Arch Linux,
+
+``` sh
+yaourt -S ruby-install
+```
+
+Otherwise,
 
 ``` sh
 wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
