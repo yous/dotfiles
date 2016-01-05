@@ -126,13 +126,7 @@ cd ruby-install-0.6.0/
 sudo make install
 ```
 
-Then install chruby, if you're on Arch Linux,
-
-``` sh
-yaourt -S chruby
-```
-
-Otherwise,
+Then install chruby,
 
 ``` sh
 wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
