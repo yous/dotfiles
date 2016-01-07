@@ -32,11 +32,12 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Make the $path array have unique values.
+typeset -U path
+
 function add_to_path_once()
 {
-  if [[ ":$PATH:" != *":$1:"* ]]; then
-    export PATH="$1:$PATH"
-  fi
+  path=("$1" $path)
 }
 
 # Add /usr/local/bin to PATH for Mac OS X
