@@ -145,6 +145,9 @@ if [ -d "$HOME/bin" ]; then
   add_to_path_once "$HOME/bin"
 fi
 
+# Load fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # Load chruby
 if [ -e /usr/local/share/chruby/chruby.sh ]; then
   source /usr/local/share/chruby/chruby.sh

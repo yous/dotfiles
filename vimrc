@@ -68,8 +68,8 @@ Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
 Plug 'yous/PreserveNoEOL'
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
-" Full path finder
-Plug 'kien/ctrlp.vim'
+" A command-line fuzzy finder written in Go
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
 " Provide CamelCase motion through words
