@@ -107,10 +107,6 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " Vim UI
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
-" Explore filesystem
-Plug 'scrooloose/nerdtree'
-" Source code browser
-Plug 'taglist.vim'
 " Show a git diff in the gutter and stages/reverts hunks
 Plug 'airblade/vim-gitgutter'
 
@@ -758,8 +754,6 @@ augroup Fugitive
         \   startinsert |
         \ endif
 augroup END
-autocmd vimrc FileType gitcommit let s:open_sidebar = 0
-autocmd vimrc FileType gitrebase let s:open_sidebar = 0
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
@@ -904,41 +898,6 @@ function! s:LightLineSyntasticToggleMode()
   SyntasticReset
 endfunction
 command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
-
-" NERD Tree and Tag List
-let s:open_sidebar = 1
-" Windows Vim
-if !empty(&t_Co) && &t_Co <= 16
-  let s:open_sidebar = 0
-endif
-if &diff
-  let s:open_sidebar = 0
-endif
-let Tlist_Inc_Winwidth = 0
-
-function! s:OpenSidebar()
-  if !exists(':NERDTree')
-    return
-  elseif !exists(':TlistOpen')
-    NERDTree
-    wincmd p
-  else
-    NERDTree
-    TlistOpen
-    wincmd J
-    wincmd W
-    wincmd L
-    NERDTreeFocus
-    normal AA
-    wincmd p
-  endif
-endfunction
-
-autocmd vimrc VimEnter *
-      \ if (s:open_sidebar) |
-      \   call s:OpenSidebar() |
-      \ endif
-command! OpenSidebar call s:OpenSidebar()
 
 " ConqueTerm
 let g:ConqueTerm_InsertOnEnter = 1
