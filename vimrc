@@ -552,6 +552,37 @@ autocmd vimrc FileType help nnoremap <buffer> q :q<CR>
 " Quit quickfix window
 autocmd vimrc FileType qf nnoremap <buffer> q :ccl<CR>
 
+" Compile and execute
+augroup vimrc
+  " C, C++ compile
+  autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
+  autocmd FileType c,cpp imap <F5> <Esc>:w<CR>:make %<CR>
+  autocmd FileType c
+        \ if !filereadable('Makefile') && !filereadable('makefile') |
+        \   setlocal makeprg=gcc\ -o\ %< |
+        \ endif
+  autocmd FileType cpp
+        \ if !filereadable('Makefile') && !filereadable('makefile') |
+        \   setlocal makeprg=g++\ -o\ %< |
+        \ endif
+
+  " Python
+  autocmd FileType python map <F5> :w<CR>:!python %<CR>
+  autocmd FileType python imap <F5> <Esc>:w<CR>:!python %<CR>
+
+  " Ruby
+  autocmd FileType ruby map <F5> :w<CR>:!ruby %<CR>
+  autocmd FileType ruby imap <F5> <Esc>:w<CR>:!ruby %<CR>
+augroup END
+" C, C++ execute
+if has('win32')
+  map <F6> :!%<.exe<CR>
+  imap <F6> <Esc>:!%<.exe<CR>
+elseif has('unix')
+  map <F6> :!./%<<CR>
+  imap <F6> <Esc>:!./%<<CR>
+endif
+
 " Auto quit Vim when actual files are closed
 function! s:CheckLeftBuffers()
   if tabpagenr('$') == 1
@@ -636,36 +667,7 @@ function! s:FileTypeHandler()
   endif
 endfunction
 
-" C, C++ compile & execute
 augroup vimrc
-  autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
-  autocmd FileType c,cpp imap <F5> <Esc>:w<CR>:make %<CR>
-  autocmd FileType c
-        \ if !filereadable('Makefile') && !filereadable('makefile') |
-        \   setlocal makeprg=gcc\ -o\ %< |
-        \ endif
-  autocmd FileType cpp
-        \ if !filereadable('Makefile') && !filereadable('makefile') |
-        \   setlocal makeprg=g++\ -o\ %< |
-        \ endif
-augroup END
-if has('win32')
-  map <F6> :!%<.exe<CR>
-  imap <F6> <Esc>:!%<.exe<CR>
-elseif has('unix')
-  map <F6> :!./%<<CR>
-  imap <F6> <Esc>:!./%<<CR>
-endif
-
-augroup vimrc
-  " Python execute
-  autocmd FileType python map <F5> :w<CR>:!python %<CR>
-  autocmd FileType python imap <F5> <Esc>:w<CR>:!python %<CR>
-
-  " Ruby execute
-  autocmd FileType ruby map <F5> :w<CR>:!ruby %<CR>
-  autocmd FileType ruby imap <F5> <Esc>:w<CR>:!ruby %<CR>
-
   " man page settings
   autocmd FileType c,cpp set keywordprg=man
   autocmd FileType ruby set keywordprg=ri
