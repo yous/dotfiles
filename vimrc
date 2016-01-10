@@ -545,8 +545,7 @@ function! s:ZoomToggle()
     let t:zoomed = 1
   endif
 endfunction
-command! ZoomToggle call s:ZoomToggle()
-nnoremap <Leader>z :ZoomToggle<CR>
+nnoremap <Leader>z :call <SID>ZoomToggle()<CR>
 
 " Quit help window
 autocmd vimrc FileType help nnoremap <buffer> q :q<CR>
