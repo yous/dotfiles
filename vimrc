@@ -602,6 +602,7 @@ function! s:CheckLeftBuffers()
 endfunction
 autocmd vimrc BufEnter * call s:CheckLeftBuffers()
 
+" Syntax highlighting in code snippets
 function! s:IncludeSyntax(lang, b, e)
   let syns = split(globpath(&rtp, 'syntax/' . a:lang . '.vim'), '\n')
   if empty(syns)
@@ -923,15 +924,15 @@ let g:vim_json_syntax_conceal = 0
 " vim-markdown
 let g:vim_markdown_frontmatter = 1
 
-" Rake
+" vim-rake
 nmap <Leader>ra :Rake<CR>
 
-" RuboCop
+" vim-rubocop
 let g:vimrubocop_extra_args = '--display-cop-names'
 let g:vimrubocop_keymap = 0
 nmap <Leader>ru :RuboCop<CR>
 
-" ANSI escape for Rails log
+" AnsiEsc.vim
 autocmd vimrc FileType railslog :AnsiEsc
 
 " Mac OS
