@@ -195,12 +195,6 @@ augroup vimrc
   autocmd!
 augroup END
 
-try
-  colorscheme Tomorrow-Night
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-endtry
-
 if &shell =~# 'fish$'
   set shell=sh
 endif
@@ -286,6 +280,12 @@ unlet resolved_vimrc
 
 " Vim UI
 " ------
+
+try
+  colorscheme Tomorrow-Night
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+endtry
 
 if has('syntax') && has('gui_running') && &t_Co > 16
   " Highlight the screen line of the cursor
