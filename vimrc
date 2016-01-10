@@ -1,5 +1,8 @@
-" vim-plug
-" --------
+" vim: set foldmethod=marker foldlevel=0
+
+" =============================================================================
+" Vim Plug: {{{
+" =============================================================================
 
 set nocompatible
 filetype off
@@ -187,8 +190,10 @@ call plug#end()
 " filetype plugin indent on
 " syntax on
 
-" General
-" -------
+" }}}
+" =============================================================================
+" General: {{{
+" =============================================================================
 
 " Define the 'vimrc' autocmd group
 augroup vimrc
@@ -278,8 +283,10 @@ if expand($MYVIMRC) !=# resolved_vimrc
 endif
 unlet resolved_vimrc
 
-" Vim UI
-" ------
+" }}}
+" =============================================================================
+" Vim UI: {{{
+" =============================================================================
 
 try
   colorscheme Tomorrow-Night
@@ -341,8 +348,10 @@ if version >= 702
   autocmd vimrc BufWinLeave * call clearmatches()
 endif
 
-" GUI
-" ---
+" }}}
+" =============================================================================
+" GUI: {{{
+" =============================================================================
 
 if has('gui_running')
   if has('multi_byte')
@@ -431,8 +440,10 @@ if has('gui_running')
   augroup END
 endif
 
-" Text formatting
-" ---------------
+" }}}
+" =============================================================================
+" Text Formatting: {{{
+" =============================================================================
 
 set autoindent
 if has('cindent')
@@ -462,8 +473,10 @@ autocmd vimrc FileType *
 autocmd vimrc FileType markdown
       \ setlocal textwidth=80
 
-" Mappings
-" --------
+" }}}
+" =============================================================================
+" Mappings: {{{
+" =============================================================================
 
 " Commander
 nnoremap ; :
@@ -583,6 +596,11 @@ elseif has('unix')
   imap <F6> <Esc>:!./%<<CR>
 endif
 
+" }}}
+" =============================================================================
+" Functions And Commands: {{{
+" =============================================================================
+
 " Auto quit Vim when actual files are closed
 function! s:CheckLeftBuffers()
   if tabpagenr('$') == 1
@@ -668,6 +686,11 @@ function! s:FileTypeHandler()
   endif
 endfunction
 
+" }}}
+" =============================================================================
+" Autocmd: {{{
+" =============================================================================
+
 augroup vimrc
   " man page settings
   autocmd FileType c,cpp set keywordprg=man
@@ -699,8 +722,10 @@ augroup rails_subtypes
   autocmd BufNewFile,BufRead *.mobile.erb setfiletype eruby
 augroup END
 
-" Plugins
-" -------
+" }}}
+" =============================================================================
+" Plugins: {{{
+" =============================================================================
 
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
@@ -942,3 +967,6 @@ if has('mac') || has('macunix')
         \ 'java' : 'android' }
   nmap <Leader>d <Plug>DashSearch
 endif
+
+" }}}
+" =============================================================================
