@@ -85,6 +85,13 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
+" ConqueTerm
+" Plug 'Conque-Shell'
+Plug 'yous/conque', { 'on': [
+      \ 'ConqueTerm',
+      \ 'ConqueTermSplit',
+      \ 'ConqueTermVSplit',
+      \ 'ConqueTermTab'] }
 
 " Motions and text changing
 " Provide CamelCase motion through words
@@ -113,14 +120,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 " Distraction-free writing in Vim
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-
-" ConqueTerm
-" Plug 'Conque-Shell'
-Plug 'yous/conque', { 'on': [
-      \ 'ConqueTerm',
-      \ 'ConqueTermSplit',
-      \ 'ConqueTermVSplit',
-      \ 'ConqueTermTab'] }
 
 " Support file types
 " AdBlock
