@@ -184,8 +184,9 @@ if has('mac') || has('macunix')
 endif
 
 call plug#end()
-filetype plugin indent on
-syntax on
+" Followings are done by `plug#end()`:
+" filetype plugin indent on
+" syntax on
 
 " General
 " -------
