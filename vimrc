@@ -72,43 +72,45 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
+" Autocomplete if end
+Plug 'tpope/vim-endwise'
+" Vim sugar for the UNIX shell commands
+Plug 'tpope/vim-eunuch'
+" Syntax checking plugin
+Plug 'scrooloose/syntastic'
+" Automated tag file generation and syntax highlighting of tags
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+
+" Motions and text changing
 " Provide CamelCase motion through words
 Plug 'bkad/CamelCaseMotion'
 " Vim motions on speed!
 Plug 'easymotion/vim-easymotion'
 " Extended % matching
 Plug 'matchit.zip'
-" Autocomplete if end
-Plug 'tpope/vim-endwise'
 " Simplify the transition between multiline and single-line code
 Plug 'AndrewRadev/splitjoin.vim'
 " Easily delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
-" Vim sugar for the UNIX shell commands
-Plug 'tpope/vim-eunuch'
 " Produce increasing/decreasing columns of numbers, dates, or daynames
 Plug 'visincr'
-" Syntax checking plugin
-Plug 'scrooloose/syntastic'
 " Switch between source files and header files
 Plug 'a.vim'
-" Automated tag file generation and syntax highlighting of tags
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
-" Git wrapper
-Plug 'tpope/vim-fugitive'
 " Enable repeating supported plugin maps with "."
 Plug 'tpope/vim-repeat'
-" Distraction-free writing in Vim
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Vim UI
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
 " Show a git diff in the gutter and stages/reverts hunks
 Plug 'airblade/vim-gitgutter'
+" Distraction-free writing in Vim
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " ConqueTerm
 " Plug 'Conque-Shell'
