@@ -70,6 +70,8 @@ Plug 'yous/PreserveNoEOL'
 Plug 'editorconfig/editorconfig-vim'
 " A command-line fuzzy finder written in Go
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Combine with netrw to create a delicious salad dressing
+Plug 'tpope/vim-vinegar'
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
 " Autocomplete if end
