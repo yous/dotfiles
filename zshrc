@@ -70,7 +70,7 @@ function bundle_install()
 }
 
 # Add /usr/local/bin to PATH for Mac OS X
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$(uname)" == 'Darwin' ]]; then
   add_to_path_once "/usr/local/bin:/usr/local/sbin"
 fi
 
@@ -156,7 +156,7 @@ fi
 
 # Oh My Zsh sets custom LSCOLORS from lib/theme-and-appearance.zsh
 # This is default LSCOLORS from the man page of ls
-[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=exfxcxdxbxegedabagacad
+[[ "$(uname)" == 'Darwin' ]] && export LSCOLORS=exfxcxdxbxegedabagacad
 
 # Check if reboot is required for Ubuntu
 if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then

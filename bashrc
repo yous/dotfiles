@@ -158,7 +158,7 @@ function bundle_install()
 }
 
 # Add /usr/local/bin to PATH for Mac OS X
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$(uname)" == 'Darwin' ]]; then
   add_to_path_once "/usr/local/bin:/usr/local/sbin"
 fi
 
