@@ -57,24 +57,10 @@ source $HOME/.zplug/zplug
 
 # Let zplug manage zplug
 zplug "b4b4r07/zplug"
-# Homebrew aliases and completion.
-zplug "plugins/brew", from:oh-my-zsh
 # Run commands with bundle and bundle aliases
 zplug "plugins/bundler", from:oh-my-zsh
-# Guess what to install when running an unknown command.
-zplug "plugins/command-not-found", from:oh-my-zsh
-# Extracts different types of archives
-zplug "plugins/extract", from:oh-my-zsh
-# Autocompletion for gem command.
-zplug "plugins/gem", from:oh-my-zsh
 # Git aliases and completion.
 zplug "plugins/git", from:oh-my-zsh
-# npm completion.
-zplug "plugins/npm", from:oh-my-zsh
-# RVM aliases and completion.
-zplug "plugins/rvm", from:oh-my-zsh, if:"which rvm"
-# tmux aliases and configurations.
-zplug "plugins/tmux", from:oh-my-zsh, if:"which tmux"
 # Additional completion definitions for Zsh
 zplug "zsh-users/zsh-completions"
 # Load the theme.
