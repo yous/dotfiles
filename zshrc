@@ -75,6 +75,8 @@ zplug "plugins/npm", from:oh-my-zsh
 zplug "plugins/rvm", from:oh-my-zsh, if:"which rvm"
 # tmux aliases and configurations.
 zplug "plugins/tmux", from:oh-my-zsh, if:"which tmux"
+# Additional completion definitions for Zsh
+zplug "zsh-users/zsh-completions"
 # Load the theme.
 zplug "yous/lime"
 # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
