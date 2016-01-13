@@ -57,8 +57,6 @@ source $HOME/.zplug/zplug
 
 # Let zplug manage zplug
 zplug "b4b4r07/zplug"
-# A cd command that learns - easily navigate directories from the command line.
-zplug "plugins/autojump", from:oh-my-zsh
 # Homebrew aliases and completion.
 zplug "plugins/brew", from:oh-my-zsh
 # Run commands with bundle and bundle aliases
@@ -93,6 +91,17 @@ zplug load
 # Set PATH to include user's bin if it exists
 if [ -d "$HOME/bin" ]; then
   add_to_path_once "$HOME/bin"
+fi
+
+# Load autojump
+if which autojump &> /dev/null; then
+  if [ -f /etc/profile.d/autojump.zsh ]; then
+    source /etc/profile.d/autojump.zsh
+  elif [ -f /usr/share/autojump/autojump.zsh ]; then
+    source /usr/share/autojump/autojump.zsh
+  elif [ which brew &> /dev/null -a -f `brew --prefix`/etc/autojump.sh ]; then
+    source `brew --prefix`/etc/autojump.sh
+  fi
 fi
 
 # Load fzf
