@@ -169,11 +169,6 @@ fi
 # Unset local functions
 unset -f add_to_path_once
 
-# Source local zshrc
-if [ -f "$HOME/.zshrc.local" ]; then
-  source "$HOME/.zshrc.local"
-fi
-
 # Define aliases
 # Bundler
 alias be='bundle exec'
@@ -219,3 +214,8 @@ alias v='vim'
 alias vi='vim'
 
 alias ruby-server='ruby -run -ehttpd . -p8000'
+
+# Source local zshrc
+if [ -f "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi
