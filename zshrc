@@ -135,7 +135,7 @@ if [ -e "$HOME/.rbenv" ]; then
 fi
 
 # Load pyenv
-if which pyenv > /dev/null; then
+if which pyenv &> /dev/null; then
   eval "$(pyenv init -)"
 fi
 
