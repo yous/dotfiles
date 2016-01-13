@@ -40,6 +40,35 @@ function add_to_path_once()
   path=("$1" $path)
 }
 
+function bundle_install()
+{
+  local bundler_version bundler_1_4_0
+  bundler_version=($(bundle version))
+  bundler_version=(${(s/./)bundler_version[3]})
+  bundler_1_4_0=(1 4 0)
+
+  local jobs_available=1
+  for i in {1..3}; do
+    if [ ${bundler_version[$i]} -gt ${bundler_1_4_0[$i]} ]; then
+      break
+    fi
+    if [ ${bundler_version[$i]} -lt ${bundler_1_4_0[$i]} ]; then
+      jobs_available=0
+      break
+    fi
+  done
+  if [ $jobs_available -eq 1 ]; then
+    if [[ "$(uname)" == 'Darwin' ]]; then
+      local cores_num="$(sysctl -n hw.ncpu)"
+    else
+      local cores_num="$(nproc)"
+    fi
+    bundle install --jobs=$cores_num $@
+  else
+    bundle install $@
+  fi
+}
+
 # Add /usr/local/bin to PATH for Mac OS X
 if [[ "$OSTYPE" == "darwin"* ]]; then
   add_to_path_once "/usr/local/bin:/usr/local/sbin"
@@ -57,8 +86,6 @@ source $HOME/.zplug/zplug
 
 # Let zplug manage zplug
 zplug "b4b4r07/zplug"
-# Run commands with bundle and bundle aliases
-zplug "plugins/bundler", from:oh-my-zsh
 # Git aliases and completion.
 zplug "plugins/git", from:oh-my-zsh
 # Additional completion definitions for Zsh
@@ -150,6 +177,9 @@ if [ -f "$HOME/.zshrc.local" ]; then
 fi
 
 # Define aliases
+alias be='bundle exec'
+alias bi='bundle_install'
+alias bu='bundle update'
 alias git='noglob git'
 alias v='vim'
 alias vi='vim'

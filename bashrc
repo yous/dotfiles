@@ -128,6 +128,35 @@ function add_to_path_once()
   fi
 }
 
+function bundle_install()
+{
+  local bundler_version bundler_1_4_0
+  bundler_version=($(bundle version))
+  bundler_version=(${bundler_version[2]//./ })
+  bundler_1_4_0=(1 4 0)
+
+  local jobs_available=1
+  for i in {0..2}; do
+    if [ ${bundler_version[$i]} -gt ${bundler_1_4_0[$i]} ]; then
+      break
+    fi
+    if [ ${bundler_version[$i]} -lt ${bundler_1_4_0[$i]} ]; then
+      jobs_available=0
+      break
+    fi
+  done
+  if [ $jobs_available -eq 1 ]; then
+    if [[ "$(uname)" == 'Darwin' ]]; then
+      local cores_num="$(sysctl -n hw.ncpu)"
+    else
+      local cores_num="$(nproc)"
+    fi
+    bundle install --jobs=$cores_num $@
+  else
+    bundle install $@
+  fi
+}
+
 # Add /usr/local/bin to PATH for Mac OS X
 if [[ "$OSTYPE" == "darwin"* ]]; then
   add_to_path_once "/usr/local/bin:/usr/local/sbin"
@@ -210,6 +239,9 @@ if [ -f "$HOME/.bashrc.local" ]; then
 fi
 
 # Define aliases
+alias be='bundle exec'
+alias bi='bundle_install'
+alias bu='bundle update'
 alias v='vim'
 alias vi='vim'
 alias ruby-server='ruby -run -ehttpd . -p8000'
