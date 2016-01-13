@@ -86,8 +86,6 @@ source $HOME/.zplug/zplug
 
 # Let zplug manage zplug
 zplug "b4b4r07/zplug"
-# Git aliases and completion.
-zplug "plugins/git", from:oh-my-zsh
 # Additional completion definitions for Zsh
 zplug "zsh-users/zsh-completions"
 # Load the theme.
@@ -177,10 +175,47 @@ if [ -f "$HOME/.zshrc.local" ]; then
 fi
 
 # Define aliases
+# Bundler
 alias be='bundle exec'
 alias bi='bundle_install'
 alias bu='bundle update'
+
+# Git
 alias git='noglob git'
+alias g='git'
+alias ga='git add'
+alias gapa='git add --patch'
+alias gb='git branch'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gcb='git checkout -b'
+alias gcm='git checkout master'
+alias gco='git checkout'
+alias gcp='git cherry-pick'
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias gf='git fetch'
+alias gl='git pull'
+alias glg='git log --graph --pretty=format:"%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+alias glga='git log --graph --pretty=format:"%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --all'
+alias glgg='git log --graph --decorate'
+alias glgga='git log --graph --decorate --all'
+alias gp='git push'
+alias gr='git remote'
+alias gra='git remote add'
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbi='git rebase -i'
+alias gst='git status'
+alias gsta='git stash'
+alias gstd='git stash drop'
+alias gstp='git stash pop'
+
+# Vim
 alias v='vim'
 alias vi='vim'
+
 alias ruby-server='ruby -run -ehttpd . -p8000'
