@@ -82,7 +82,7 @@ if which autojump &> /dev/null; then
     source /etc/profile.d/autojump.zsh
   elif [ -f /usr/share/autojump/autojump.zsh ]; then
     source /usr/share/autojump/autojump.zsh
-  elif [ which brew &> /dev/null -a -f `brew --prefix`/etc/autojump.sh ]; then
+  elif which brew &> /dev/null && [ -f `brew --prefix`/etc/autojump.sh ]; then
     source `brew --prefix`/etc/autojump.sh
   fi
 fi
