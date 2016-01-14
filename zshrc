@@ -26,6 +26,9 @@ setopt hist_ignore_all_dups
 HISTSIZE=10000
 SAVEHIST=10000
 
+# Input/Output
+unsetopt flow_control
+
 # Make the $path array have unique values.
 typeset -U path
 
