@@ -12,6 +12,14 @@ unsetopt menu_complete
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ''
 
+# History
+setopt append_history
+setopt hist_ignore_all_dups
+
+[ -z "$HISTFILE" ] && HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
 # Make the $path array have unique values.
 typeset -U path
 
