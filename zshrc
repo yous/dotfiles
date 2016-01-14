@@ -2,9 +2,9 @@
 
 # Changing Directories
 setopt auto_cd
-setopt always_to_end
 
 # Completion
+setopt always_to_end
 setopt auto_menu
 setopt complete_in_word
 unsetopt list_beep
