@@ -10,6 +10,9 @@ setopt complete_in_word
 unsetopt list_beep
 unsetopt menu_complete
 
+# More useful Ctrl-W
+WORDCHARS=''
+
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
