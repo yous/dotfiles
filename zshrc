@@ -16,6 +16,7 @@ if [ -z "$LS_COLORS" ]; then
 else
   zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # History
 setopt append_history
