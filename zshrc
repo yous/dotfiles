@@ -7,6 +7,7 @@ setopt always_to_end
 # Completion
 setopt auto_menu
 setopt complete_in_word
+unsetopt list_beep
 unsetopt menu_complete
 
 zstyle ':completion:*' menu select
