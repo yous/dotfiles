@@ -330,9 +330,6 @@ endif
 if has('vertsplit')
   set splitright
 endif
-if has('title')
-  set title
-endif
 
 augroup colorcolumn
   autocmd!
