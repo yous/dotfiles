@@ -1,6 +1,16 @@
-# If a command is not in the hash table, and there exists an executable
-# directory by that name, perform the `cd` command to that directory.
+# See http://zsh.sourceforge.net/Doc/Release/Options.html.
+
+# Changing Directories
 setopt auto_cd
+setopt always_to_end
+
+# Completion
+setopt auto_menu
+setopt complete_in_word
+unsetopt menu_complete
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ''
 
 # Make the $path array have unique values.
 typeset -U path
