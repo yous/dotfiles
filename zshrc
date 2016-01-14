@@ -11,7 +11,11 @@ unsetopt list_beep
 unsetopt menu_complete
 
 zstyle ':completion:*' menu select
-zstyle ':completion:*' list-colors ''
+if [ -z "$LS_COLORS" ]; then
+  zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
+else
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
 
 # History
 setopt append_history
