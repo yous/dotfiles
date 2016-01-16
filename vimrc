@@ -161,6 +161,10 @@ Plug 'raichoo/smt-vim', { 'for': 'smt' }
 " XML
 Plug 'othree/xml.vim', { 'for': 'xml' }
 
+" Python
+" A nicer Python indentation style for vim
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+
 " Ruby
 " Rake
 Plug 'tpope/vim-rake'
