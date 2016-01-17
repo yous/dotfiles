@@ -70,6 +70,7 @@ function bundle_install()
 {
   local bundler_version bundler_1_4_0
   bundler_version=($(bundle version))
+  [ -z "${bundler_version}" ] && return
   bundler_version=(${(s/./)bundler_version[3]})
   bundler_1_4_0=(1 4 0)
 
