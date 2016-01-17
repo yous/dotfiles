@@ -13,8 +13,29 @@ unsetopt menu_complete
 # More useful Ctrl-W
 WORDCHARS=''
 
+zmodload zsh/complist
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# http://zshwiki.org/home/zle/bindkeys#reading_terminfo
+# Make sure the terminal is in application mode, which zle is active. Only then
+# are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+  function zle-line-init()
+  {
+    echoti smkx
+  }
+
+  function zle-line-finish()
+  {
+    echoti rmkx
+  }
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
+
+# Shift-Tab
+[ -n "${terminfo[kcbt]}" ] && bindkey "${terminfo[kcbt]}" reverse-menu-complete
 
 # Set LS_COLORS
 if [ -x /usr/bin/dircolors ]; then
