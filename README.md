@@ -39,7 +39,7 @@ Command option | Description
 `brew`         | Install Homebrew
 `formulae`     | Install Homebrew formulae using Brewfile
 `npm`          | Install global Node.js packages
-`pyenv`        | Install pyenv
+`pyenv`        | Install pyenv with pyenv-virtualenv
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
 `zplug`        | Install zplug
@@ -184,11 +184,12 @@ gem install bundler rubocop ruby-lint wirble
 
 ### Python
 
-If you want to install [pyenv](https://github.com/yyuu/pyenv), if you're on OS
-X,
+If you want to install [pyenv](https://github.com/yyuu/pyenv) and
+[pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv), if you're on OS X,
 
 ``` sh
 brew install pyenv
+brew install pyenv-virtualenv
 ```
 
 Otherwise,

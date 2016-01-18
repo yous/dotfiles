@@ -140,7 +140,7 @@ case "$1" in
     echo '    brew      Install Homebrew'
     echo '    formulae  Install Homebrew formulae using Brewfile'
     echo '    npm       Install global Node.js packages'
-    echo '    pyenv     Install pyenv'
+    echo '    pyenv     Install pyenv with pyenv-virtualenv'
     echo '    rbenv     Install rbenv'
     echo '    rvm       Install RVM'
     echo '    zplug     Install zplug'
