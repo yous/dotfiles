@@ -42,6 +42,7 @@ Command option | Description
 `pyenv`        | Install pyenv
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
+`zplug`        | Install zplug
 
 In Windows, use `install.bat`. It links `gitconfig`, `gitignore_global`, `vimrc`
 to the user's home directory.
