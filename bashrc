@@ -30,7 +30,7 @@ shopt -s checkwinsize
 # If set, a command name that is the name of a directory is executed
 # as if it were the argument to the cd command. This option is only
 # used by interactive shells.
-shopt -s autocd
+[ "${BASH_VERSINFO[0]}" -ge 4 ] && shopt -s autocd
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
