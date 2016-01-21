@@ -137,6 +137,8 @@ Plug 'rhysd/vim-crystal', { 'for': ['crystal', 'markdown'] }
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 " Dockerfile
 Plug 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'markdown'] }
+" fish
+Plug 'dag/vim-fish', { 'for': ['fish'] }
 " HTML5
 Plug 'othree/html5.vim'
 " Jade
