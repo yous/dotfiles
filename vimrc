@@ -502,6 +502,9 @@ inoremap <C-E> <Esc>A
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 
+" Make Y behave like C and D
+nnoremap Y y$
+
 " Delete without copying
 vnoremap <BS> "_d
 
