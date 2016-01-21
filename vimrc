@@ -551,6 +551,9 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+" Execute @q which is recorded by qq
+nnoremap Q @q
+
 " Zoom and restore window
 function! s:ZoomToggle()
   if exists('t:zoomed') && t:zoomed
