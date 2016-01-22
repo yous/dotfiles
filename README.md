@@ -12,7 +12,6 @@
     - [Vim](#vim)
     - [IntelliJ, Android Studio](#intellij-android-studio)
     - [iTerm2](#iterm2)
-    - [OS X](#os-x)
 
 ## Requirements
 
@@ -298,22 +297,3 @@ To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 2. Click 'Load Presets…' and select 'Import…'.
 3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2/`.
 4. Click 'Load Presets…' again and select one of Tomorrow Theme.
-
-### OS X
-
-To disable press-and-hold for keys in favor of key repeat:
-
-``` sh
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-```
-
-To set the prefix name of screen shots:
-
-``` sh
-defaults write com.apple.screencapture -string name 'Screenshot'
-```
-
-For additional options for `defaults`, see [mathiasbynens' dotfiles](https://github.com/mathiasbynens/dotfiles/blob/master/.osx).
-
-To write to NTFS external disk, use [Mounty for
-NTFS](http://enjoygineering.com/mounty/).

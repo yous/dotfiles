@@ -1,3 +1,42 @@
+# OS X
+
+## Tweak
+
+- [구름 입력기](http://gureum.io)
+    - [세벌식 3-2012](http://pat.im/938)
+- System Preferences
+    - Language & Region > Advanced… > Times
+        - Set "Medium" to "00-23:08:09"
+    - Keyboard
+        - Turn on "Automatically switch to a document's input source"
+    - Users & Groups
+        - Disable Guest User
+    - App Store
+        - Turn off "Automatically download apps purchased on other Macs"
+- FaceTime
+    - Turn off "Calls From iPhone"
+- Safari
+    - General
+        - Set "Remove history items" to "After one month" or "After two weeks"
+        - Turn off "Open “safe” files after downloading"
+    - AutoFill
+        - Turn off every fields
+    - Passwords
+        - Turn off every fields
+    - Extensions
+        - [Invisible Status Bar](http://dbergey.github.io)
+        - [uBlock](https://www.ublock.org)
+- Disable press-and-hold for keys in favor of key repeat:
+
+    ``` sh
+    defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+    ```
+- Set the prefix name of screen shots:
+
+    ``` sh
+    defaults write com.apple.screencapture name -string 'Screenshot'
+    ```
+
 # Windows
 
 ## Tweak
@@ -10,6 +49,7 @@
     - Standalone loading mode
 - [WizMouse](http://antibody-software.com/web/software/software/wizmouse-makes-your-mouse-wheel-work-on-the-window-under-the-mouse/)
 - [날개셋](http://moogi.new21.org/prg4.html)
+    - [신세벌식 P](http://pat.im/1110)
 - Turn on Remote Desktop
 - Windows Update: Download updates but let me choose whether to install them
 - Turn on Sticky Keys when SHIFT is pressed five times: Uncheck
