@@ -122,6 +122,4 @@
 - [Chrome](https://www.google.com/chrome/)
 - [Daum PotPlayer](http://tvpot.daum.net/application/PotPlayer.do)
 - [Dropbox](https://www.dropbox.com/install)
-- [FileZilla](https://filezilla-project.org)
-- [Gitter](https://gitter.im)
 - [VNC Viewer](https://www.realvnc.com/download/viewer/)
