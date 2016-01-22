@@ -49,7 +49,7 @@
 ## Fonts
 
 - [나눔글꼴](http://hangeul.naver.com/font) (나눔바른고딕, 나눔명조)
-- [나눔고딕코딩](http://dev.naver.com/projects/nanumfont/)
+- [D2 Coding](http://dev.naver.com/projects/d2coding)
 - [KoPub 서체](http://www.kopus.org/biz/electronic/font.aspx)
 - [Noto Sans CJK](https://www.google.com/get/noto/help/cjk/)
 
@@ -71,7 +71,7 @@
         - Lines of scrollback: 10000
         - Font: Consolas, 10-point
         - Use separated unicode font: Check
-        - Font for unicode characters: 돋움체, 10-point
+        - Font for unicode characters: D2Coding, 10-point
         - Hide mouse pointer when typing in window: Check
         - Show tray icon: Never
         - Remote character set: UTF-8
