@@ -21,13 +21,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:
 # Make sure the terminal is in application mode, which zle is active. Only then
 # are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-  function zle-line-init()
-  {
+  function zle-line-init() {
     echoti smkx
   }
 
-  function zle-line-finish()
-  {
+  function zle-line-finish() {
     echoti rmkx
   }
   zle -N zle-line-init
@@ -61,13 +59,11 @@ unsetopt flow_control
 # Make the $path array have unique values.
 typeset -U path
 
-function add_to_path_once()
-{
+function add_to_path_once() {
   path=("$1" $path)
 }
 
-function bundle_install()
-{
+function bundle_install() {
   local bundler_version bundler_1_4_0
   bundler_version=($(bundle version))
   [ -z "${bundler_version}" ] && return
@@ -194,8 +190,7 @@ fi
 
 # Check if reboot is required for Ubuntu
 if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
-  function reboot-required()
-  {
+  function reboot-required() {
     /usr/lib/update-notifier/update-motd-reboot-required
   }
 fi
