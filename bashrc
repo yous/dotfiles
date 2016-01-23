@@ -170,7 +170,21 @@ if which autojump &> /dev/null; then
 fi
 
 # Load fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if [ -f ~/.fzf.bash ]; then
+  source ~/.fzf.bash
+
+  # fshow - git commit browser
+  fshow() {
+    git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(green)%cr%C(reset)" "$@" |
+    fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+        (grep -o '[a-f0-9]\{7\}' | head -1 |
+        xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+        {}
+FZF-EOF"
+  }
+fi
 
 # Load chruby
 if [ -e /usr/local/share/chruby/chruby.sh ]; then
