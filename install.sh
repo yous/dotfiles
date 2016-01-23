@@ -75,6 +75,7 @@ case "$1" in
       'screenrc' \
       'tmux.conf' \
       'vimrc' \
+      'weechat' \
       'zprofile' \
       'zshrc'
     do
