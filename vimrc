@@ -766,6 +766,8 @@ let g:syntastic_aggregate_errors = 1
 " Check header files
 let g:syntastic_c_check_header = 1
 let g:syntastic_cpp_check_header = 1
+" Enable JSCS for JavaScript files
+let g:syntastic_javascript_checkers = ['jshint', 'jslint', 'jscs']
 " Extend max error count for JSLint
 let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
       \ --bitwise --newcap --sloppy --vars --maxerr=1000'
