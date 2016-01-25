@@ -572,7 +572,7 @@ nnoremap <Leader>z :call <SID>ZoomToggle()<CR>
 autocmd vimrc FileType help nnoremap <buffer> q :q<CR>
 
 " Quit quickfix window
-autocmd vimrc FileType qf nnoremap <buffer> q :ccl<CR>
+autocmd vimrc FileType qf nnoremap <buffer> q :q<CR>
 
 " Compile and execute
 augroup vimrc
