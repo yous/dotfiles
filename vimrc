@@ -926,6 +926,7 @@ function! s:LightLineSyntastic()
     call lightline#update()
   endif
 endfunction
+command! LightLineSyntastic call s:LightLineSyntastic()
 
 function! s:LightLineSyntasticToggleMode()
   if g:lightline.syntastic_mode_active
