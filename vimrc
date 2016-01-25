@@ -760,6 +760,8 @@ nnoremap [n [nzz
 nnoremap ]n ]nzz
 
 " Syntastic
+" Skip checks when you issue :wq, :x and :ZZ
+let g:syntastic_check_on_wq = 0
 " Display all of the errors from all of the checkers together
 let g:syntastic_aggregate_errors = 1
 " Sort errors by file, line number, type, column number
