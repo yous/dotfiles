@@ -762,6 +762,8 @@ nnoremap ]n ]nzz
 " Syntastic
 " Display all of the errors from all of the checkers together
 let g:syntastic_aggregate_errors = 1
+" Sort errors by file, line number, type, column number
+let g:syntastic_sort_aggregated_errors = 1
 let g:syntastic_mode_map = { 'mode': 'passive' }
 " Check header files
 let g:syntastic_c_check_header = 1
