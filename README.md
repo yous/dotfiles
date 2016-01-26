@@ -56,7 +56,7 @@ Set user-specific configurations on `~/.gitconfig.local`:
 	email = you@example.com
 ```
 
-If you are using [Keybase](https://keybase.io):
+If you are using a public PGP key:
 
 ```
 [user]

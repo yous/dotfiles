@@ -11,9 +11,6 @@ install tmux
 install ctags
 install editorconfig
 
-# Keybase
-install keybase
-
 # Python
 install python
 
