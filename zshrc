@@ -198,6 +198,13 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
   fi
 fi
 
+# Set GOPATH for Go
+if which go &> /dev/null; then
+  [ -d "$HOME/.go" ] || mkdir "$HOME/.go"
+  export GOPATH="$HOME/.go"
+  export PATH="$PATH:$GOPATH/bin"
+fi
+
 # Oh My Zsh sets custom LSCOLORS from lib/theme-and-appearance.zsh
 # This is default LSCOLORS from the man page of ls
 [[ "$(uname)" == 'Darwin' ]] && export LSCOLORS=exfxcxdxbxegedabagacad

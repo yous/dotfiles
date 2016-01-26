@@ -227,6 +227,13 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
   fi
 fi
 
+# Set GOPATH for Go
+if which go &> /dev/null; then
+  [ -d "$HOME/.go" ] || mkdir "$HOME/.go"
+  export GOPATH="$HOME/.go"
+  export PATH="$PATH:$GOPATH/bin"
+fi
+
 # Check if reboot is required for Ubuntu
 if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
   function reboot-required() {
