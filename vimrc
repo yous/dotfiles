@@ -73,6 +73,8 @@ Plug 'yous/PreserveNoEOL'
 Plug 'editorconfig/editorconfig-vim'
 " A command-line fuzzy finder written in Go
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Use latest netrw because of https://github.com/tpope/vim-vinegar/issues/58
+Plug '~/.vim/bundle/netrw'
 " Combine with netrw to create a delicious salad dressing
 Plug 'tpope/vim-vinegar'
 " Go to Terminal or File manager
