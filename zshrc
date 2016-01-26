@@ -131,7 +131,9 @@ fi
 
 # Load autojump
 if which autojump &> /dev/null; then
-  if [ -f /etc/profile.d/autojump.zsh ]; then
+  if [ -f "$HOME/.autojump/etc/profile.d/autojump.sh" ]; then
+    source "$HOME/.autojump/etc/profile.d/autojump.sh"
+  elif [ -f /etc/profile.d/autojump.zsh ]; then
     source /etc/profile.d/autojump.zsh
   elif [ -f /usr/share/autojump/autojump.zsh ]; then
     source /usr/share/autojump/autojump.zsh
