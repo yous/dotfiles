@@ -71,8 +71,10 @@ Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
 Plug 'yous/PreserveNoEOL'
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
-" A command-line fuzzy finder written in Go
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+if !has('win32')
+  " A command-line fuzzy finder written in Go
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
 " Use latest netrw because of https://github.com/tpope/vim-vinegar/issues/58
 Plug '~/.vim/bundle/netrw'
 " Combine with netrw to create a delicious salad dressing
