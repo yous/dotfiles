@@ -213,6 +213,12 @@ augroup END
 if &shell =~# 'fish$'
   set shell=sh
 endif
+if has('gui_running')
+  language messages en
+  if has('multi_byte')
+    set encoding=utf-8
+  endif
+endif
 set autoread
 set background=dark
 set backspace=indent,eol,start
@@ -271,7 +277,6 @@ if has('win32')
   autocmd vimrc InsertLeave * set imdisable
   autocmd vimrc FocusGained * set noimdisable
   autocmd vimrc FocusLost * set imdisable
-  language messages en
   " Directory names for the swap file
   set directory=.,$TEMP
   " Use a forward slash when expanding file names
@@ -361,9 +366,6 @@ endif
 " =============================================================================
 
 if has('gui_running')
-  if has('multi_byte')
-    set encoding=utf-8
-  endif
   set guifont=Consolas:h10:cANSI
   set guioptions-=m " Menu bar
   set guioptions-=T " Toolbar
