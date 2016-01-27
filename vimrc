@@ -272,18 +272,11 @@ if has('wildmenu')
 endif
 
 if has('win32')
-  " Enable the Input Method only on Insert mode
-  autocmd vimrc InsertEnter * set noimdisable
-  autocmd vimrc InsertLeave * set imdisable
-  autocmd vimrc FocusGained * set noimdisable
-  autocmd vimrc FocusLost * set imdisable
   " Directory names for the swap file
   set directory=.,$TEMP
   " Use a forward slash when expanding file names
   set shellslash
 endif
-" Exit Paste mode when leaving Insert mode
-autocmd vimrc InsertLeave * set nopaste
 
 " Reload vimrc on the fly
 autocmd vimrc BufWritePost $MYVIMRC nested source $MYVIMRC
@@ -704,6 +697,17 @@ endfunction
 " =============================================================================
 
 augroup vimrc
+  if has('win32')
+    " Enable the Input Method only on Insert mode
+    autocmd InsertEnter * set noimdisable
+    autocmd InsertLeave * set imdisable
+    autocmd FocusGained * set noimdisable
+    autocmd FocusLost * set imdisable
+  endif
+
+  " Exit Paste mode when leaving Insert mode
+  autocmd InsertLeave * set nopaste
+
   " man page settings
   autocmd FileType c,cpp set keywordprg=man
   autocmd FileType ruby set keywordprg=ri
