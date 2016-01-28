@@ -837,9 +837,10 @@ let g:lightline = {
       \     ['filetype', 'fileencoding', 'fileformat']] },
       \ 'tabline': { 'left': [['tabs']], 'right': [[]] },
       \ 'tab': {
-      \   'active': ['filename', 'modified'],
-      \   'inactive': ['filename', 'modified'] },
+      \   'active': ['tabfilename', 'tabmodified'],
+      \   'inactive': ['tabfilename', 'tabmodified'] },
       \ 'component_function': {},
+      \ 'tab_component_function': {},
       \ 'component_expand': {
       \   'readonly': 'LightLineReadonly',
       \   'eol': 'LightLineEol',
@@ -854,6 +855,10 @@ let g:lightline = {
 for k in ['mode', 'filename', 'modified', 'filetype', 'fileencoding',
       \ 'fileformat', 'percent', 'lineinfo']
   let g:lightline.component_function[k] = 'LightLine' . toupper(k[0]) . k[1:]
+endfor
+for k in ['filename', 'modified']
+  let g:lightline.tab_component_function['tab' . k] =
+        \ 'LightLineTab' . toupper(k[0]) . k[1:]
 endfor
 
 function! LightLineWide(component)
@@ -938,6 +943,20 @@ endfunction
 function! LightLineLineinfo()
   return LightLineVisible('lineinfo') ?
         \ printf("%3d:%-2d", line('.'), col('.')) : ''
+endfunction
+
+function! LightLineTabFilename(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let fname = expand('#' . buflist[winnr - 1] . ':t')
+  let filetype = gettabwinvar(a:n, winnr, '&filetype')
+  return filetype == 'GV' ? 'GV' :
+        \ '' != fname ? fname : '[No Name]'
+endfunction
+
+function! LightLineTabModified(n)
+  let winnr = tabpagewinnr(a:n)
+  return gettabwinvar(a:n, winnr, '&modified') ? '+' : ''
 endfunction
 
 let g:lightline.syntastic_mode_active = 1
