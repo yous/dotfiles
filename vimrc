@@ -963,6 +963,7 @@ let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_ReadUnfocused = 1
 autocmd ExtraWhitespace FileType conque_term highlight clear ExtraWhitespace
+autocmd vimrc FileType conque_term setlocal nolist
 command! -nargs=* Sh ConqueTerm <args>
 command! -nargs=* Shsp ConqueTermSplit <args>
 command! -nargs=* Shtab ConqueTermTab <args>
