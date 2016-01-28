@@ -585,6 +585,10 @@ augroup vimrc
         \   setlocal makeprg=g++\ -o\ %< |
         \ endif
 
+  " Go
+  autocmd FileType go map <F5> :w<CR> :!go run %<CR>
+  autocmd FileType go imap <F5> <Esc>:w<CR>:!go run %<CR>
+
   " Python
   autocmd FileType python map <F5> :w<CR>:!python %<CR>
   autocmd FileType python imap <F5> <Esc>:w<CR>:!python %<CR>
