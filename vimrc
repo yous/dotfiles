@@ -341,12 +341,15 @@ augroup END
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd vimrc BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd vimrc InsertEnter * match ExtraWhitespace //
-autocmd vimrc InsertLeave * match ExtraWhitespace /\s\+$/
-if version >= 702
-  autocmd vimrc BufWinLeave * call clearmatches()
-endif
+augroup ExtraWhitespace
+  autocmd! * <buffer>
+  autocmd BufWinEnter <buffer> match ExtraWhitespace /\s\+$/
+  autocmd InsertEnter <buffer> match ExtraWhitespace //
+  autocmd InsertLeave <buffer> match ExtraWhitespace /\s\+$/
+  if version >= 702
+    autocmd BufWinLeave <buffer> call clearmatches()
+  endif
+augroup END
 
 " }}}
 " =============================================================================
@@ -959,7 +962,7 @@ command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
 let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_ReadUnfocused = 1
-autocmd vimrc FileType conque_term highlight clear ExtraWhitespace
+autocmd ExtraWhitespace FileType conque_term highlight clear ExtraWhitespace
 command! -nargs=* Sh ConqueTerm <args>
 command! -nargs=* Shsp ConqueTermSplit <args>
 command! -nargs=* Shtab ConqueTermTab <args>
