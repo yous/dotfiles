@@ -88,8 +88,7 @@ Plug 'tpope/vim-eunuch'
 " Syntax checking plugin
 Plug 'scrooloose/syntastic'
 " Automated tag file generation and syntax highlighting of tags
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 " ConqueTerm
@@ -154,8 +153,7 @@ Plug 'elzr/vim-json', { 'for': ['json', 'markdown'] }
 " JSX
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 " Markdown
-Plug 'godlygeek/tabular', { 'for': 'markdown' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'godlygeek/tabular', { 'for': 'markdown' } | Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " PHP
 Plug 'php.vim-html-enhanced'
 " Racket
