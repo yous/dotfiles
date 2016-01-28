@@ -89,8 +89,8 @@ Plug 'tpope/vim-eunuch'
 Plug 'scrooloose/syntastic'
 " Automated tag file generation and syntax highlighting of tags
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
-" Git wrapper
-Plug 'tpope/vim-fugitive'
+" Git wrapper             | A git commit browser
+Plug 'tpope/vim-fugitive' | Plug 'junegunn/gv.vim'
 " ConqueTerm
 " Plug 'Conque-Shell'
 Plug 'yous/conque', { 'on': [
