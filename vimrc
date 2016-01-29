@@ -75,8 +75,10 @@ if !has('win32')
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
-" Use latest netrw because of https://github.com/tpope/vim-vinegar/issues/58
-Plug '~/.vim/bundle/netrw'
+if !empty(&rtp)
+  " Use latest netrw because of https://github.com/tpope/vim-vinegar/issues/58
+  Plug split(&rtp, ',')[0] . '/bundle/netrw'
+endif
 " Combine with netrw to create a delicious salad dressing
 Plug 'tpope/vim-vinegar'
 " Go to Terminal or File manager
