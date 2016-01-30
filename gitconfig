@@ -9,6 +9,8 @@
 	ui = auto
 [diff]
 	renames = true
+[diff "nodiff"]
+	command = true
 [diff "utf-16"]
 	textconv = iconv -f utf-16 -t utf-8
 [difftool]
