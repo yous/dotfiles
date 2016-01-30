@@ -522,6 +522,15 @@ autocmd BufNewFile,BufRead * call s:MapNewlineInsert()
 " Break the undo block when Ctrl-u
 inoremap <C-U> <C-G>u<C-U>
 
+if has('wildmenu')
+  " Move into subdirectory in wildmenu
+  function! s:WildmenuEnterSubdir()
+    call feedkeys("\<Down>", 't')
+    return ''
+  endfunction
+  cnoremap <expr> <C-J> <SID>WildmenuEnterSubdir()
+endif
+
 " Move cursor between splitted windows
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
