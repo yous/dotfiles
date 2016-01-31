@@ -93,8 +93,8 @@ Plug 'scrooloose/syntastic'
 Plug 'xolox/vim-misc' |
 Plug 'xolox/vim-easytags'
 " Git wrapper
-Plug 'tpope/vim-fugitive' |
-" A git commit browser
+Plug 'tpope/vim-fugitive'
+" A git commit browser, requires tpope/vim-fugitive
 Plug 'junegunn/gv.vim'
 " ConqueTerm
 " Plug 'Conque-Shell'
@@ -155,7 +155,7 @@ Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " JSON
 Plug 'elzr/vim-json', { 'for': ['json', 'markdown'] }
-" JSX
+" JSX, requires pangloss/vim-javascript
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 " Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } |
