@@ -126,9 +126,8 @@ Plug 'tpope/vim-repeat'
 " Vim UI
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
-" Rainbow parentheses improved, shorter code, no level limit, smooth and fast,
-" powerful configuration
-Plug 'luochen1990/rainbow', { 'for': ['lisp', 'racket'] }
+" Simpler Rainbow Parentheses
+Plug 'junegunn/rainbow_parentheses.vim'
 " Show a git diff in the gutter and stages/reverts hunks
 Plug 'airblade/vim-gitgutter'
 " Distraction-free writing in Vim
@@ -1008,8 +1007,8 @@ function! s:LightLineSyntasticToggleMode()
 endfunction
 command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
 
-" Rainbow Parentheses Improved
-let g:rainbow_active = 1
+" rainbow_parentheses.vim
+autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
