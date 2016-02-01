@@ -96,8 +96,7 @@ Plug 'xolox/vim-easytags'
 Plug 'tpope/vim-fugitive'
 " A git commit browser, requires tpope/vim-fugitive
 Plug 'junegunn/gv.vim'
-" ConqueTerm
-" Plug 'Conque-Shell'
+" Run interactive commands inside a Vim buffer
 Plug 'yous/conque', { 'on': [
       \ 'ConqueTerm',
       \ 'ConqueTermSplit',
