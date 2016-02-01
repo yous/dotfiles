@@ -766,26 +766,6 @@ augroup END
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
 
-" CamelCaseMotion
-function! s:CreateCamelCaseMotionMappings()
-  for l:mode in ['n', 'o', 'x']
-    for l:motion in ['w', 'b', 'e']
-      let l:target_mapping = '<Plug>CamelCaseMotion_' . l:motion
-      execute l:mode . 'map <silent> <Leader><Leader>' . l:motion . ' '
-            \ . l:target_mapping
-    endfor
-  endfor
-endfunction
-call s:CreateCamelCaseMotionMappings()
-
-" EasyMotion
-map <Leader> <Plug>(easymotion-prefix)
-
-" unimpaired.vim
-" Center display on move between SCM conflicts
-nnoremap [n [nzz
-nnoremap ]n ]nzz
-
 " Syntastic
 " Skip checks when you issue :wq, :x and :ZZ
 let g:syntastic_check_on_wq = 0
@@ -830,8 +810,36 @@ augroup Fugitive
         \ endif
 augroup END
 
-" goyo.vim
-nnoremap <Leader>G :Goyo<CR>
+" ConqueTerm
+let g:ConqueTerm_InsertOnEnter = 1
+let g:ConqueTerm_CWInsert = 1
+let g:ConqueTerm_ReadUnfocused = 1
+autocmd ExtraWhitespace FileType conque_term highlight clear ExtraWhitespace
+autocmd vimrc FileType conque_term setlocal nolist
+command! -nargs=* Sh ConqueTerm <args>
+command! -nargs=* Shsp ConqueTermSplit <args>
+command! -nargs=* Shtab ConqueTermTab <args>
+command! -nargs=* Shvs ConqueTermVSplit <args>
+
+" CamelCaseMotion
+function! s:CreateCamelCaseMotionMappings()
+  for l:mode in ['n', 'o', 'x']
+    for l:motion in ['w', 'b', 'e']
+      let l:target_mapping = '<Plug>CamelCaseMotion_' . l:motion
+      execute l:mode . 'map <silent> <Leader><Leader>' . l:motion . ' '
+            \ . l:target_mapping
+    endfor
+  endfor
+endfunction
+call s:CreateCamelCaseMotionMappings()
+
+" EasyMotion
+map <Leader> <Plug>(easymotion-prefix)
+
+" unimpaired.vim
+" Center display on move between SCM conflicts
+nnoremap [n [nzz
+nnoremap ]n ]nzz
 
 " lightline.vim
 let g:lightline = {
@@ -994,16 +1002,8 @@ function! s:LightLineSyntasticToggleMode()
 endfunction
 command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
 
-" ConqueTerm
-let g:ConqueTerm_InsertOnEnter = 1
-let g:ConqueTerm_CWInsert = 1
-let g:ConqueTerm_ReadUnfocused = 1
-autocmd ExtraWhitespace FileType conque_term highlight clear ExtraWhitespace
-autocmd vimrc FileType conque_term setlocal nolist
-command! -nargs=* Sh ConqueTerm <args>
-command! -nargs=* Shsp ConqueTermSplit <args>
-command! -nargs=* Shtab ConqueTermTab <args>
-command! -nargs=* Shvs ConqueTermVSplit <args>
+" goyo.vim
+nnoremap <Leader>G :Goyo<CR>
 
 " Adblock
 let g:adblock_filter_auto_checksum = 1
