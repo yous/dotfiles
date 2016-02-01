@@ -762,6 +762,10 @@ augroup END
 " Plugins: {{{
 " =============================================================================
 
+" vim-plug
+autocmd ExtraWhitespace FileType vim-plug highlight clear ExtraWhitespace
+autocmd vimrc FileType vim-plug setlocal nolist
+
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
 
