@@ -795,8 +795,6 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_sort_aggregated_errors = 1
 " Always stick any detected errors into the location-list
 let g:syntastic_always_populate_loc_list = 1
-" Open error window automatically, close when none are detected
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_mode_map = { 'mode': 'passive' }
 " Check header files
 let g:syntastic_c_check_header = 1
