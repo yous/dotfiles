@@ -28,7 +28,11 @@ if not "%2" == "" (
 )
 for %%f in ("%dest%") do set dirname=%%~dpf
 if not exist %dirname% mkdir %dirname%
-mklink %dest% %~dp0%1
+if exist %~dp0%1\* (
+  mklink /j %dest% %~dp0%1
+) else (
+  mklink %dest% %~dp0%1
+)
 if %errorlevel% == 0 (
   echo Created %dest%
 ) else (
