@@ -640,7 +640,7 @@ function! s:CheckLeftBuffers()
       endif
     endwhile
     if i == winnr('$') + 1
-      call feedkeys(":qall\<CR>", 'n')
+      call feedkeys(":only\<CR>:q\<CR>", 'n')
     endif
   endif
 endfunction
