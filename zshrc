@@ -47,7 +47,10 @@ fi
 
 # History
 setopt append_history
-setopt hist_ignore_all_dups
+setopt hist_expire_dups_first
+setopt hist_find_no_dups
+setopt hist_verify
+setopt inc_append_history
 
 [ -z "$HISTFILE" ] && HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
