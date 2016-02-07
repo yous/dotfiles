@@ -1,63 +1,3 @@
-# See http://zsh.sourceforge.net/Doc/Release/Options.html.
-
-# Changing Directories
-setopt auto_cd
-setopt auto_pushd
-setopt pushd_ignore_dups
-
-# Completion
-setopt always_to_end
-setopt complete_in_word
-unsetopt list_beep
-
-# More useful Ctrl-W
-WORDCHARS=''
-
-zmodload zsh/complist
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-# http://zshwiki.org/home/zle/bindkeys#reading_terminfo
-# Make sure the terminal is in application mode, which zle is active. Only then
-# are the values from $terminfo valid.
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-  function zle-line-init() {
-    echoti smkx
-  }
-
-  function zle-line-finish() {
-    echoti rmkx
-  }
-  zle -N zle-line-init
-  zle -N zle-line-finish
-fi
-
-# Shift-Tab
-[ -n "${terminfo[kcbt]}" ] && bindkey "${terminfo[kcbt]}" reverse-menu-complete
-
-# Set LS_COLORS
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-fi
-if [ -z "$LS_COLORS" ]; then
-  zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
-else
-  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-fi
-
-# History
-setopt hist_expire_dups_first
-setopt hist_find_no_dups
-setopt hist_verify
-setopt inc_append_history
-
-[ -z "$HISTFILE" ] && HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-
-# Input/Output
-unsetopt flow_control
-
 # Make the $path array have unique values.
 typeset -U path
 
@@ -120,6 +60,8 @@ source $HOME/.zplug/zplug
 
 # Let zplug manage zplug
 zplug "b4b4r07/zplug"
+# Vanilla shell
+zplug "yous/vanilli.sh"
 # Additional completion definitions for Zsh
 zplug "zsh-users/zsh-completions"
 # Load the theme.
