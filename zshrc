@@ -7,10 +7,8 @@ setopt pushd_ignore_dups
 
 # Completion
 setopt always_to_end
-setopt auto_menu
 setopt complete_in_word
 unsetopt list_beep
-unsetopt menu_complete
 
 # More useful Ctrl-W
 WORDCHARS=''
@@ -48,7 +46,6 @@ else
 fi
 
 # History
-setopt append_history
 setopt hist_expire_dups_first
 setopt hist_find_no_dups
 setopt hist_verify
