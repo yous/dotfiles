@@ -2,6 +2,8 @@
 
 # Changing Directories
 setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
 
 # Completion
 setopt always_to_end
