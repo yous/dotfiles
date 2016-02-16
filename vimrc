@@ -581,14 +581,13 @@ function! s:ZoomToggle()
 endfunction
 nnoremap <Leader>z :call <SID>ZoomToggle()<CR>
 
-" Quit help window
-autocmd vimrc FileType help nnoremap <buffer> q :q<CR>
-
-" Quit quickfix window
-autocmd vimrc FileType qf nnoremap <buffer> q :q<CR>
-
-" Compile and execute
 augroup vimrc
+  " Quit help window
+  autocmd FileType help nnoremap <buffer> q :q<CR>
+
+  " Quit quickfix window
+  autocmd FileType qf nnoremap <buffer> q :q<CR>
+
   " C, C++ compile
   autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:make %<CR>
   autocmd FileType c,cpp inoremap <buffer> <F5> <Esc>:w<CR>:make %<CR>
