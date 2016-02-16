@@ -27,7 +27,7 @@ node_modules/
 
 # Python
 *.pyc
-venv/
+.python-version
 
 # Ruby
 .rvmrc
