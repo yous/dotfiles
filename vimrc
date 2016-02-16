@@ -600,6 +600,9 @@ augroup vimrc
         \   setlocal makeprg=g++\ -o\ %< |
         \ endif
 
+  " Markdown code snippets
+  autocmd FileType markdown inoremap <buffer> <Leader>` ```
+
   " Go
   autocmd FileType go nnoremap <buffer> <F5> :w<CR>:!go run %<CR>
   autocmd FileType go inoremap <buffer> <F5> <Esc>:w<CR>:!go run %<CR>
