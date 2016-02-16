@@ -590,8 +590,8 @@ autocmd vimrc FileType qf nnoremap <buffer> q :q<CR>
 " Compile and execute
 augroup vimrc
   " C, C++ compile
-  autocmd FileType c,cpp map <F5> :w<CR>:make %<CR>
-  autocmd FileType c,cpp imap <F5> <Esc>:w<CR>:make %<CR>
+  autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:make %<CR>
+  autocmd FileType c,cpp inoremap <buffer> <F5> <Esc>:w<CR>:make %<CR>
   autocmd FileType c
         \ if !filereadable('Makefile') && !filereadable('makefile') |
         \   setlocal makeprg=gcc\ -o\ %< |
@@ -602,24 +602,25 @@ augroup vimrc
         \ endif
 
   " Go
-  autocmd FileType go map <F5> :w<CR> :!go run %<CR>
-  autocmd FileType go imap <F5> <Esc>:w<CR>:!go run %<CR>
+  autocmd FileType go nnoremap <buffer> <F5> :w<CR>:!go run %<CR>
+  autocmd FileType go inoremap <buffer> <F5> <Esc>:w<CR>:!go run %<CR>
 
   " Python
-  autocmd FileType python map <F5> :w<CR>:!python %<CR>
-  autocmd FileType python imap <F5> <Esc>:w<CR>:!python %<CR>
+  autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!python %<CR>
+  autocmd FileType python inoremap <buffer> <F5> <Esc>:w<CR>:!python %<CR>
 
   " Ruby
-  autocmd FileType ruby map <F5> :w<CR>:!ruby %<CR>
-  autocmd FileType ruby imap <F5> <Esc>:w<CR>:!ruby %<CR>
+  autocmd FileType ruby nnoremap <buffer> <F5> :w<CR>:!ruby %<CR>
+  autocmd FileType ruby inoremap <buffer> <F5> <Esc>:w<CR>:!ruby %<CR>
 augroup END
-" C, C++ execute
+
+" File execution
 if has('win32')
-  map <F6> :!%<.exe<CR>
-  imap <F6> <Esc>:!%<.exe<CR>
+  nnoremap <F6> :!%<.exe<CR>
+  inoremap <F6> <Esc>:!%<.exe<CR>
 elseif has('unix')
-  map <F6> :!./%<<CR>
-  imap <F6> <Esc>:!./%<<CR>
+  nnoremap <F6> :!./%<<CR>
+  inoremap <F6> <Esc>:!./%<<CR>
 endif
 
 " }}}
