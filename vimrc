@@ -154,6 +154,8 @@ Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'markdown'] }
 " fish
 Plug 'dag/vim-fish', { 'for': ['fish'] }
+" Go
+Plug 'fatih/vim-go', { 'for': 'go' }
 " HTML5
 Plug 'othree/html5.vim'
 " Jade
@@ -466,6 +468,8 @@ set shiftwidth=2
 set tabstop=8
 autocmd vimrc FileType c,cpp,java,markdown,python
       \ setlocal softtabstop=4 shiftwidth=4
+autocmd vimrc FileType go
+      \ setlocal noexpandtab softtabstop=4 shiftwidth=4 tabstop=4
 " c: Disable automatic comment insertion on auto-wrap
 " o: Disable automatic comment insertion on hitting 'o' or 'O' in normal mode
 " j: Remove a comment leader when joining lines
