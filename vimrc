@@ -263,7 +263,8 @@ set pastetoggle=<F2>
 set undolevels=1000
 if has('wildignore')
   " List of file patterns to ignore when expanding wildcards, completing file or
-  " directory names, and influences the result of expand(), glob() and globpath()
+  " directory names, and influences the result of expand(), glob() and
+  " globpath()
   set wildignore+=.git,.hg,.svn
   set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.png
   set wildignore+=*.dll,*.exe,*.o,*.obj
