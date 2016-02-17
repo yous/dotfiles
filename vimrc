@@ -292,16 +292,6 @@ if has('win32')
   set shellslash
 endif
 
-" Reload vimrc on the fly
-autocmd vimrc BufWritePost $MYVIMRC nested source $MYVIMRC
-" Reload symlink of vimrc on the fly
-let resolved_vimrc = resolve(expand($MYVIMRC))
-if expand($MYVIMRC) !=# resolved_vimrc
-  execute 'autocmd vimrc BufWritePost ' . resolved_vimrc .
-        \ ' nested source $MYVIMRC'
-endif
-unlet resolved_vimrc
-
 " }}}
 " =============================================================================
 " Vim UI: {{{
@@ -730,6 +720,9 @@ endfunction
 " =============================================================================
 
 augroup vimrc
+  " Reload vimrc on the fly
+  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+
   " Exit Paste mode when leaving Insert mode
   autocmd InsertLeave * set nopaste
 
@@ -750,6 +743,10 @@ augroup vimrc
   " Markdown view
   autocmd BufNewFile,BufRead *.md setfiletype markdown
 
+  " mobile.erb view
+  autocmd BufNewFile,BufRead *.mobile.erb let b:eruby_subtype = 'html'
+  autocmd BufNewFile,BufRead *.mobile.erb setfiletype eruby
+
   " zsh-theme view
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
 
@@ -757,12 +754,13 @@ augroup vimrc
   autocmd FileType,ColorScheme * call s:FileTypeHandler()
 augroup END
 
-" mobile.erb view
-augroup rails_subtypes
-  autocmd!
-  autocmd BufNewFile,BufRead *.mobile.erb let b:eruby_subtype = 'html'
-  autocmd BufNewFile,BufRead *.mobile.erb setfiletype eruby
-augroup END
+" Reload symlink of vimrc on the fly
+let resolved_vimrc = resolve(expand($MYVIMRC))
+if expand($MYVIMRC) !=# resolved_vimrc
+  execute 'autocmd vimrc BufWritePost ' . resolved_vimrc .
+        \ ' nested source $MYVIMRC'
+endif
+unlet resolved_vimrc
 
 " }}}
 " =============================================================================
