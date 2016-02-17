@@ -730,14 +730,6 @@ endfunction
 " =============================================================================
 
 augroup vimrc
-  if has('win32')
-    " Enable the Input Method only on Insert mode
-    autocmd InsertEnter * set noimdisable
-    autocmd InsertLeave * set imdisable
-    autocmd FocusGained * set noimdisable
-    autocmd FocusLost * set imdisable
-  endif
-
   " Exit Paste mode when leaving Insert mode
   autocmd InsertLeave * set nopaste
 
