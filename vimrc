@@ -41,7 +41,7 @@ function! s:DownloadVimPlug()
     finally
       if isdirectory(tmp)
         let dir = '"' . escape(tmp, '"') . '"'
-        silent call system(has('win32') ? 'rmdir /S /Q ' : 'rm -rf ' . dir)
+        silent call system((has('win32') ? 'rmdir /S /Q ' : 'rm -rf ') . dir)
       endif
     endtry
   endif
