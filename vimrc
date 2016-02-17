@@ -127,7 +127,11 @@ Plug 'tpope/vim-repeat'
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
 " Simpler Rainbow Parentheses
-Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/rainbow_parentheses.vim', { 'for': [
+      \ 'clojure',
+      \ 'lisp',
+      \ 'racket',
+      \ 'scheme'] }
 " Show a git diff in the gutter and stages/reverts hunks
 Plug 'airblade/vim-gitgutter'
 " Distraction-free writing in Vim
