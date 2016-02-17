@@ -132,8 +132,10 @@ Plug 'junegunn/rainbow_parentheses.vim', { 'for': [
       \ 'lisp',
       \ 'racket',
       \ 'scheme'] }
-" Show a git diff in the gutter and stages/reverts hunks
-Plug 'airblade/vim-gitgutter'
+if has('signs')
+  " Show a git diff in the gutter and stages/reverts hunks
+  Plug 'airblade/vim-gitgutter'
+endif
 " Distraction-free writing in Vim
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
