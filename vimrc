@@ -734,6 +734,7 @@ augroup vimrc
 
   " Keyword lookup program
   autocmd FileType c,cpp setlocal keywordprg=man
+  autocmd FileType help,vim setlocal keywordprg=:help
   autocmd FileType ruby setlocal keywordprg=ri
 
   " Ruby configuration files view
