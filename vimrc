@@ -470,12 +470,18 @@ autocmd vimrc FileType c,cpp,java,markdown,python
       \ setlocal softtabstop=4 shiftwidth=4
 autocmd vimrc FileType go
       \ setlocal noexpandtab softtabstop=4 shiftwidth=4 tabstop=4
-" c: Disable automatic comment insertion on auto-wrap
-" o: Disable automatic comment insertion on hitting 'o' or 'O' in normal mode
+" t: Auto-wrap text using textwidth
+" c: Auto-wrap comments using textwidth
+" r: Automatically insert the current comment leader after hitting <Enter> in
+"    Insert mode
+" o: Automatically insert the current comment leader after hitting 'o' or 'O' in
+"    Normal mode
+" q: Allow formatting of comments with "gq"
+" l: Long lines are not broken in insert mode
 " j: Remove a comment leader when joining lines
 autocmd vimrc FileType *
-      \ setlocal formatoptions-=c |
-      \ setlocal formatoptions-=o |
+      \ setlocal formatoptions+=crql |
+      \ setlocal formatoptions-=to |
       \ if (v:version >= 704 || v:version == 703 && has('patch541')) |
       \   setlocal formatoptions+=j |
       \ endif
