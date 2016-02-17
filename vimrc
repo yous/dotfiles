@@ -263,6 +263,8 @@ set listchars=tab:>\ ,trail:·,extends:»,precedes:«,nbsp:+
 set pastetoggle=<F2>
 " Maximum number of changes that can be undone
 set undolevels=1000
+" Update swap file and trigger CursorHold after 1 second
+set updatetime=1000
 if has('wildignore')
   " List of file patterns to ignore when expanding wildcards, completing file or
   " directory names, and influences the result of expand(), glob() and
