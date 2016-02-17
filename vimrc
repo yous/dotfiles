@@ -732,9 +732,9 @@ augroup vimrc
   " Exit Paste mode when leaving Insert mode
   autocmd InsertLeave * set nopaste
 
-  " man page settings
-  autocmd FileType c,cpp set keywordprg=man
-  autocmd FileType ruby set keywordprg=ri
+  " Keyword lookup program
+  autocmd FileType c,cpp setlocal keywordprg=man
+  autocmd FileType ruby setlocal keywordprg=ri
 
   " Ruby configuration files view
   autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
