@@ -486,8 +486,10 @@ autocmd vimrc FileType *
       \   formatoptions+=r
       \   formatoptions+=q
       \   formatoptions+=l
-      \   formatoptions-=t
       \   formatoptions-=o |
+      \ if &filetype !=# 'gitcommit' && &filetype !=# 'markdown' |
+      \   setlocal formatoptions-=t |
+      \ endif |
       \ if v:version >= 704 || v:version == 703 && has('patch541') |
       \   setlocal formatoptions+=j |
       \ endif
