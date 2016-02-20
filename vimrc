@@ -138,6 +138,8 @@ if has('signs')
   " Show a git diff in the gutter and stages/reverts hunks
   Plug 'airblade/vim-gitgutter'
 endif
+" The fancy start screen for Vim
+Plug 'mhinz/vim-startify'
 " Distraction-free writing in Vim
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
