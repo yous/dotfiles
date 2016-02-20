@@ -482,9 +482,13 @@ autocmd vimrc FileType go
 " l: Long lines are not broken in insert mode
 " j: Remove a comment leader when joining lines
 autocmd vimrc FileType *
-      \ setlocal formatoptions+=crql |
-      \ setlocal formatoptions-=to |
-      \ if (v:version >= 704 || v:version == 703 && has('patch541')) |
+      \ setlocal formatoptions+=c
+      \   formatoptions+=r
+      \   formatoptions+=q
+      \   formatoptions+=l
+      \   formatoptions-=t
+      \   formatoptions-=o |
+      \ if v:version >= 704 || v:version == 703 && has('patch541') |
       \   setlocal formatoptions+=j |
       \ endif
 " Automatic formatting of paragraphs in 80 column
