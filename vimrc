@@ -343,9 +343,11 @@ endif
 augroup colorcolumn
   autocmd!
   if exists('+colorcolumn')
-    set colorcolumn=81
+    " Highlight column after 'textwidth'
+    set colorcolumn=+1
   else
-    autocmd BufWinEnter * let w:m2 = matchadd('ErrorMsg', '\%81v', -1)
+    autocmd BufWinEnter *
+          \ let w:m2 = matchadd('ErrorMsg', '\%' . (&textwidth + 1) . 'v', -1)
   endif
 augroup END
 
@@ -468,6 +470,8 @@ set softtabstop=2
 set shiftwidth=2
 " Number of spaces that a <Tab> in the file counts for
 set tabstop=8
+" Maximum width of text that is being inserted
+set textwidth=80
 autocmd vimrc FileType c,cpp,java,markdown,python
       \ setlocal softtabstop=4 shiftwidth=4
 autocmd vimrc FileType go
@@ -493,9 +497,6 @@ autocmd vimrc FileType *
       \ if v:version >= 704 || v:version == 703 && has('patch541') |
       \   setlocal formatoptions+=j |
       \ endif
-" Automatic formatting of paragraphs in 80 column
-autocmd vimrc FileType markdown
-      \ setlocal textwidth=80
 
 " }}}
 " =============================================================================
@@ -816,14 +817,6 @@ let g:easytags_auto_highlight = 0
 
 " Fugitive
 let s:fugitive_insert = 0
-augroup colorcolumn
-  autocmd FileType gitcommit
-        \ if exists('+colorcolumn') |
-        \   set colorcolumn=73 |
-        \ else |
-        \   let w:m2 = matchadd('ErrorMsg', '\%73v', -1) |
-        \ endif
-augroup END
 augroup Fugitive
   autocmd!
   autocmd FileType gitcommit
