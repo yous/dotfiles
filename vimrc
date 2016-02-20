@@ -610,7 +610,7 @@ augroup vimrc
         \ endif
 
   " Markdown code snippets
-  autocmd FileType markdown inoremap <buffer> <Leader>` ```
+  autocmd FileType markdown inoremap <buffer> <LocalLeader>` ```
 
   " Go
   autocmd FileType go nnoremap <buffer> <F5> :w<CR>:!go run %<CR>
