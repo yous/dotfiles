@@ -278,7 +278,7 @@ if has('wildignore')
   set wildignore+=*.DS_Store
   set wildignore+=*.pyc
 endif
-if exists('&wildignorecase')
+if exists('+wildignorecase')
   " Ignore case when completing file names and directories
   set wildignorecase
 endif
