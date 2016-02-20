@@ -224,8 +224,8 @@ To update Zsh plugins:
 zplug update
 ```
 
-To make RVM works on OS X Vim, move `/etc/zshenv` to `/etc/zshrc` as
-[Tim Pope mentioned](https://github.com/tpope/vim-rvm#faq).
+To make RVM works with Vim on OS X Yosemite or earlier, move `/etc/zshenv` to
+`/etc/zshrc` as [Tim Pope mentioned](https://github.com/tpope/vim-rvm#faq).
 
 ``` sh
 sudo mv /etc/zshenv /etc/zshrc
