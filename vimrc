@@ -92,6 +92,8 @@ Plug 'scrooloose/syntastic'
 " Automated tag file generation and syntax highlighting of tags
 Plug 'xolox/vim-misc' |
 Plug 'xolox/vim-easytags'
+" Vim Git runtime files
+Plug 'tpope/vim-git'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 " A git commit browser, requires tpope/vim-fugitive
