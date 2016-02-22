@@ -2,19 +2,16 @@
 DIRNAME="$(dirname "$0")"
 DIR="$(cd "$DIRNAME" && pwd)"
 
-function echoerr()
-{
+function echoerr() {
   echo "$@" 1>&2
 }
 
-function init_submodules()
-{
+function init_submodules() {
   git submodule init
   git submodule update
 }
 
-function git_clone()
-{
+function git_clone() {
   if [ ! -e "$HOME/$2" ]; then
     echo "Cloning '$1'..."
     git clone "$1" "$HOME/$2"
@@ -23,8 +20,7 @@ function git_clone()
   fi
 }
 
-function replace_file()
-{
+function replace_file() {
   DEST=${2:-.$1}
 
   # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
