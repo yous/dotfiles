@@ -354,14 +354,21 @@ augroup colorcolumn
 augroup END
 
 " Highlight trailing whitespace
+function! s:MatchExtraWhitespace(enabled)
+  if a:enabled && index(['conque_term', 'vim-plug'], &filetype) < 0
+    match ExtraWhitespace /\s\+$/
+  else
+    match ExtraWhitespace //
+  endif
+endfunction
 highlight ExtraWhitespace ctermbg=red guibg=red
 augroup ExtraWhitespace
-  autocmd! * <buffer>
-  autocmd BufWinEnter <buffer> match ExtraWhitespace /\s\+$/
-  autocmd InsertEnter <buffer> match ExtraWhitespace //
-  autocmd InsertLeave <buffer> match ExtraWhitespace /\s\+$/
+  autocmd!
+  autocmd BufWinEnter * call s:MatchExtraWhitespace(1)
+  autocmd InsertEnter * call s:MatchExtraWhitespace(0)
+  autocmd InsertLeave * call s:MatchExtraWhitespace(1)
   if version >= 702
-    autocmd BufWinLeave <buffer> call clearmatches()
+    autocmd BufWinLeave * call clearmatches()
   endif
 augroup END
 
@@ -798,7 +805,6 @@ unlet resolved_vimrc
 " =============================================================================
 
 " vim-plug
-autocmd ExtraWhitespace FileType vim-plug highlight clear ExtraWhitespace
 autocmd vimrc FileType vim-plug setlocal colorcolumn= nolist textwidth=0
 
 " PreserveNoEOL
@@ -844,7 +850,6 @@ augroup END
 let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_ReadUnfocused = 1
-autocmd ExtraWhitespace FileType conque_term highlight clear ExtraWhitespace
 autocmd vimrc FileType conque_term setlocal colorcolumn= nolist textwidth=0
 command! -nargs=* Sh ConqueTerm <args>
 command! -nargs=* Shsp ConqueTermSplit <args>
