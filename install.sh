@@ -7,8 +7,8 @@ function echoerr() {
 }
 
 function init_submodules() {
-  git submodule init
-  git submodule update
+  (cd "$DIR" && git submodule init)
+  (cd "$DIR" && git submodule update)
 }
 
 function git_clone() {
