@@ -768,6 +768,10 @@ augroup vimrc
   autocmd FileType help,vim setlocal keywordprg=:help
   autocmd FileType ruby setlocal keywordprg=ri
 
+  " Plain view for plugins
+  autocmd FileType conque_term,vim-plug
+        \ setlocal colorcolumn= nolist textwidth=0
+
   " Ruby configuration files view
   autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
 
@@ -803,9 +807,6 @@ unlet resolved_vimrc
 " =============================================================================
 " Plugins: {{{
 " =============================================================================
-
-" vim-plug
-autocmd vimrc FileType vim-plug setlocal colorcolumn= nolist textwidth=0
 
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
@@ -850,7 +851,6 @@ augroup END
 let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_ReadUnfocused = 1
-autocmd vimrc FileType conque_term setlocal colorcolumn= nolist textwidth=0
 command! -nargs=* Sh ConqueTerm <args>
 command! -nargs=* Shsp ConqueTermSplit <args>
 command! -nargs=* Shtab ConqueTermTab <args>
