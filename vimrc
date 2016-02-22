@@ -681,8 +681,9 @@ function! s:IncludeSyntax(lang, b, e)
     unlet b:current_syntax
   endif
 
-  silent! exec printf('syntax include @markdownHighlight%s %s', a:lang, syns[0])
-  exec printf('syntax region markdownHighlight%s matchgroup=Snip ' .
+  silent! execute printf('syntax include @markdownHighlight%s %s',
+        \ a:lang, syns[0])
+  execute printf('syntax region markdownHighlight%s matchgroup=Snip ' .
         \ 'start=%s end=%s keepend ' .
         \ 'contains=@markdownHighlight%s containedin=ALL',
         \ a:lang, a:b, a:e, a:lang)
