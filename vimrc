@@ -573,8 +573,16 @@ cnoremap \>s/ \>smagic/
 nnoremap <silent> ,/ :nohlsearch<CR>
 
 " Search for visually selected text
-vnoremap * y/<C-R>"<CR>
-vnoremap # y?<C-R>"<CR>
+function! s:VSearch(cmd)
+  let old_reg = getreg('"')
+  let old_regtype = getregtype('"')
+  normal! gvy
+  let @/ = escape(@", a:cmd . '\')
+  normal! gV
+  call setreg('"', old_reg, old_regtype)
+endfunction
+vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>
+vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>"<CR>
 
 " Center display after searching
 nnoremap n nzz
