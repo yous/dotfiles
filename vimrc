@@ -355,7 +355,7 @@ augroup END
 
 " Highlight trailing whitespace
 function! s:MatchExtraWhitespace(enabled)
-  if a:enabled && index(['conque_term', 'vim-plug'], &filetype) < 0
+  if a:enabled && index(['conque_term', 'startify', 'vim-plug'], &filetype) < 0
     match ExtraWhitespace /\s\+$/
   else
     match ExtraWhitespace //
@@ -769,7 +769,7 @@ augroup vimrc
   autocmd FileType ruby setlocal keywordprg=ri
 
   " Plain view for plugins
-  autocmd FileType conque_term,vim-plug
+  autocmd FileType conque_term,startify,vim-plug
         \ setlocal colorcolumn= nolist textwidth=0
 
   " Ruby configuration files view
