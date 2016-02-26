@@ -264,7 +264,11 @@ set smartcase
 " Enable list mode
 set list
 " Strings to use in 'list' mode and for the :list command
-set listchars=tab:>\ ,trail:·,extends:»,precedes:«,nbsp:+
+try
+  set listchars=tab:>\ ,trail:·,extends:≫,precedes:≪,nbsp:+
+catch /^Vim\%((\a\+)\)\=:E474/
+  set listchars=tab:>\ ,trail:_,extends:>,precedes:<,nbsp:+
+endtry
 " The key sequence that toggles the 'paste' option
 set pastetoggle=<F2>
 " Maximum number of changes that can be undone
