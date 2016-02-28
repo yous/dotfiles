@@ -369,6 +369,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 augroup ExtraWhitespace
   autocmd!
   autocmd BufWinEnter * call s:MatchExtraWhitespace(1)
+  autocmd FileType * call s:MatchExtraWhitespace(1)
   autocmd InsertEnter * call s:MatchExtraWhitespace(0)
   autocmd InsertLeave * call s:MatchExtraWhitespace(1)
   if version >= 702
