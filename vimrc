@@ -181,6 +181,8 @@ Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'kelwin/vim-smali', { 'for': 'smali' }
 " SMT-LIB
 Plug 'raichoo/smt-vim', { 'for': 'smt' }
+" tmux.conf
+Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " XML
 Plug 'othree/xml.vim', { 'for': 'xml' }
 
