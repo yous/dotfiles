@@ -19,10 +19,15 @@
   ],
   "safeContextKeyword": ["self"],
   "validateLineBreaks": "LF",
+  "validateQuoteMarks": {
+    "mark": "'",
+    "escape": false,
+    "ignoreJSX": true
+  },
 
   "excludeFiles": [
     "node_modules/**"
   ],
   "fileExtensions": [".js", ".jsx"],
-  "esprima": "esprima-fb"
+  "esnext": true
 }
