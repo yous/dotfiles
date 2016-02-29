@@ -244,7 +244,9 @@ if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
 fi
 
 # Enable keychain
-which keychain &> /dev/null && eval `keychain --eval --agents ssh id_rsa`
+if which keychain &> /dev/null; then
+  eval `keychain --eval --quiet --agents ssh id_rsa`
+fi
 
 # Unset local functions
 unset -f add_to_path_once
