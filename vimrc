@@ -183,6 +183,8 @@ Plug 'kelwin/vim-smali', { 'for': 'smali' }
 Plug 'raichoo/smt-vim', { 'for': 'smt' }
 " tmux.conf
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
+" Vader
+Plug 'junegunn/vader.vim', { 'for': 'vader' }
 " XML
 Plug 'othree/xml.vim', { 'for': 'xml' }
 
