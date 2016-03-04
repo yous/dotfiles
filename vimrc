@@ -1057,6 +1057,7 @@ let g:adblock_filter_auto_checksum = 1
 let g:vim_json_syntax_conceal = 0
 
 " vim-markdown
+let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_frontmatter = 1
 
 " vim-rake
