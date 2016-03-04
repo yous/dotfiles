@@ -1,9 +1,6 @@
 [submodule "tomorrow-theme"]
 	path = tomorrow-theme
 	url = https://github.com/chriskempson/tomorrow-theme.git
-[submodule "solarized"]
-	path = solarized
-	url = https://github.com/altercation/solarized.git
 [submodule "tpm"]
 	path = tpm
 	url = https://github.com/tmux-plugins/tpm.git

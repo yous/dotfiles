@@ -277,20 +277,6 @@ To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 
 ### iTerm2
 
-To use [Solarized](https://github.com/altercation/solarized) on [iTerm2](http://www.iterm2.com):
-
-1. Open Preferences… > Profiles > Colors.
-2. Click 'Load Presets…' and select 'Import…'.
-3. Select `*.itermcolors` files under `solarized/iterm2-colors-solarized/`.
-4. Click 'Load Presets…' again and select one of Solarized.
-5. You should modify `LSCOLORS` in your `.zshrc`:
-
-    ``` zsh
-    # For ls colors in Solarized theme
-    # https://github.com/seebi/dircolors-solarized/issues/10
-    [[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-    ```
-
 To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 
 1. Open Preferences… > Profiles > Colors.
