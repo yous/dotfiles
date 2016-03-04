@@ -691,73 +691,6 @@ function! s:CheckLeftBuffers()
 endfunction
 autocmd vimrc BufEnter * call s:CheckLeftBuffers()
 
-" Syntax highlighting in code snippets
-function! s:IncludeSyntax(lang, b, e)
-  let syns = split(globpath(&rtp, 'syntax/' . a:lang . '.vim'), '\n')
-  if empty(syns)
-    return
-  endif
-
-  if exists('b:current_syntax')
-    let csyn = b:current_syntax
-    unlet b:current_syntax
-  endif
-
-  silent! execute printf('syntax include @markdownHighlight%s %s',
-        \ a:lang, syns[0])
-  execute printf('syntax region markdownHighlight%s matchgroup=Snip ' .
-        \ 'start=%s end=%s keepend ' .
-        \ 'contains=@markdownHighlight%s containedin=ALL',
-        \ a:lang, a:b, a:e, a:lang)
-
-  if exists('csyn')
-    let b:current_syntax = csyn
-  endif
-endfunction
-
-function! s:FileTypeHandler()
-  if &ft ==# 'markdown'
-    let map = {
-          \ 'bash': 'sh',
-          \ 'bat': 'dosbatch', 'batch': 'dosbatch',
-          \ 'coffeescript': 'coffee',
-          \ 'csharp': 'cs',
-          \ 'dockerfile': 'Dockerfile',
-          \ 'erb': 'eruby',
-          \ 'js': 'javascript',
-          \ 'rb': 'ruby' }
-    for lang in [
-          \ 'bat', 'batch',
-          \ 'c',
-          \ 'coffee', 'coffeescript',
-          \ 'cpp',
-          \ 'crystal',
-          \ 'cs', 'csharp',
-          \ 'css',
-          \ 'diff',
-          \ 'dockerfile',
-          \ 'erb',
-          \ 'groovy',
-          \ 'haml',
-          \ 'html',
-          \ 'java',
-          \ 'javascript', 'js',
-          \ 'php',
-          \ 'python',
-          \ 'ruby', 'rb',
-          \ 'sass',
-          \ 'scss',
-          \ 'sh', 'bash',
-          \ 'vim',
-          \ 'xml',
-          \ 'yaml',
-          \ 'zsh']
-      call s:IncludeSyntax(get(map, lang, lang),
-            \ '/^\s*```\s*' . lang . '\s*$/', '/^\s*```\s*$/')
-    endfor
-  endif
-endfunction
-
 " }}}
 " =============================================================================
 " Autocmd: {{{
@@ -797,9 +730,6 @@ augroup vimrc
 
   " zsh-theme view
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
-
-  " Included syntax
-  autocmd FileType,ColorScheme * call s:FileTypeHandler()
 augroup END
 
 " Reload symlink of vimrc on the fly
@@ -1058,6 +988,18 @@ let g:vim_json_syntax_conceal = 0
 
 " vim-markdown
 let g:vim_markdown_no_default_key_mappings = 1
+let g:vim_markdown_fenced_languages = [
+      \ 'bat=dosbatch', 'batch=dosbatch',
+      \ 'coffeescript=coffee',
+      \ 'c++=cpp',
+      \ 'csharp=cs',
+      \ 'dockerfile=Dockerfile',
+      \ 'erb=eruby',
+      \ 'ini=dosini',
+      \ 'js=javascript',
+      \ 'rb=ruby',
+      \ 'bash=sh',
+      \ 'viml=vim']
 let g:vim_markdown_frontmatter = 1
 
 " vim-rake
