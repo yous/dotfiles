@@ -50,7 +50,7 @@ to the user's home directory.
 
 Set user-specific configurations on `~/.gitconfig.local`:
 
-```
+``` gitconfig
 [user]
 	name = Your Name
 	email = you@example.com
@@ -58,14 +58,14 @@ Set user-specific configurations on `~/.gitconfig.local`:
 
 If you are using a public PGP key:
 
-```
+``` gitconfig
 [user]
 	signingkey = YOUR KEY
 ```
 
 You can also sign your each commit automatically:
 
-```
+``` gitconfig
 [commit]
 	gpgsign = true
 ```
