@@ -157,7 +157,7 @@ Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 " Dockerfile
 Plug 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'markdown'] }
 " fish
-Plug 'dag/vim-fish', { 'for': ['fish'] }
+Plug 'dag/vim-fish', { 'for': 'fish' }
 " GLSL
 Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' }
 " Go
