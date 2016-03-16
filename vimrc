@@ -719,7 +719,7 @@ augroup vimrc
   " Automatically build TeX files
   autocmd BufWritePost *.tex
         \ if filereadable('Makefile') || filereadable('makefile') |
-        \   silent make
+        \   silent make |
         \ endif
 
   " Ruby configuration files view
