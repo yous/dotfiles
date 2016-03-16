@@ -716,12 +716,6 @@ augroup vimrc
   autocmd FileType conque_term,startify,vim-plug
         \ setlocal colorcolumn= nolist textwidth=0
 
-  " Automatically build TeX files
-  autocmd BufWritePost *.tex
-        \ if filereadable('Makefile') || filereadable('makefile') |
-        \   silent make |
-        \ endif
-
   " Ruby configuration files view
   autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
 
