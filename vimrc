@@ -550,14 +550,6 @@ nnoremap Y y$
 " Delete without copying
 vnoremap <BS> "_d
 
-" Easy newline insert
-function! s:MapNewlineInsert()
-  if getbufvar(winbufnr(0), '&modifiable') && maparg('<CR>', 'n') == ''
-    nnoremap <buffer> <CR> o<Esc>
-  endif
-endfunction
-autocmd BufNewFile,BufRead * call s:MapNewlineInsert()
-
 " Break the undo block when Ctrl-u
 inoremap <C-U> <C-G>u<C-U>
 
