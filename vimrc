@@ -744,6 +744,9 @@ unlet resolved_vimrc
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
 
+" EditorConfig
+let g:EditorConfig_core_mode = 'external_command'
+
 " Syntastic
 " Skip checks when you issue :wq, :x and :ZZ
 let g:syntastic_check_on_wq = 0
