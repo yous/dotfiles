@@ -72,6 +72,11 @@ Plug 'yous/PreserveNoEOL'
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
 if !has('win32')
+  " A code-completion engine for Vim
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py'
+        \ . ' --clang-completer'
+        \ . ' --gocode-completer'
+        \ . ' --tern-completer' }
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   if !empty(&rtp)
