@@ -973,7 +973,9 @@ augroup END
 function! s:LightLineSyntastic()
   if g:lightline.syntastic_mode_active
     SyntasticCheck
-    call lightline#update()
+    if exists('#lightline')
+      call lightline#update()
+    endif
   endif
 endfunction
 command! LightLineSyntastic call s:LightLineSyntastic()
