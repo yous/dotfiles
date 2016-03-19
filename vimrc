@@ -70,7 +70,19 @@ Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
 " Preserve missing EOL at the end of text files
 Plug 'yous/PreserveNoEOL'
 " EditorConfig
-Plug 'editorconfig/editorconfig-vim'
+if executable('editorconfig') == 1
+  Plug 'editorconfig/editorconfig-vim'
+elseif has('python')
+  redir => pyv
+  silent python import platform; print(platform.python_version())
+  redir END
+
+  " editorconfig-core-py requires Python 2.6
+  if s:VersionRequirement(
+        \ map(split(split(pyv)[0], '\.'), 'str2nr(v:val)'), [2, 6])
+    Plug 'editorconfig/editorconfig-vim'
+  endif
+endif
 if !has('win32')
   " A code-completion engine for Vim
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py'
