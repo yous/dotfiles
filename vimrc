@@ -87,11 +87,14 @@ if executable('editorconfig') == 1 || has('python3') || s:python26
   Plug 'editorconfig/editorconfig-vim'
 endif
 if !has('win32')
-  " A code-completion engine for Vim
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py'
-        \ . ' --clang-completer'
-        \ . ' --gocode-completer'
-        \ . ' --tern-completer' }
+  if v:version >= 704 || v:version == 703 && has('patch598') &&
+        \ (has('python3') || s:python26)
+    " A code-completion engine for Vim
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py'
+          \ . ' --clang-completer'
+          \ . ' --gocode-completer'
+          \ . ' --tern-completer' }
+  endif
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   if !empty(&rtp)
