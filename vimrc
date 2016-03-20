@@ -1,6 +1,31 @@
 " vim: set foldmethod=marker:
 
 " =============================================================================
+" Requirement Checks: {{{
+" =============================================================================
+
+function! s:VersionRequirement(val, min)
+  for idx in range(0, len(a:min) - 1)
+    let v = get(a:val, idx, 0)
+    if v < a:min[idx]
+      return 0
+    elseif v > a:min[idx]
+      return 1
+    endif
+  endfor
+  return 1
+endfunction
+
+if has('python')
+  redir => s:pyv
+  silent python import platform; print(platform.python_version())
+  redir END
+
+  let s:python26 = s:VersionRequirement(
+        \ map(split(split(s:pyv)[0], '\.'), 'str2nr(v:val)'), [2, 6])
+endif
+
+" =============================================================================
 " Vim Plug: {{{
 " =============================================================================
 
@@ -48,18 +73,6 @@ function! s:DownloadVimPlug()
   call plug#begin(vimfiles . '/plugged')
 endfunction
 
-function! s:VersionRequirement(val, min)
-  for idx in range(0, len(a:min) - 1)
-    let v = get(a:val, idx, 0)
-    if v < a:min[idx]
-      return 0
-    elseif v > a:min[idx]
-      return 1
-    endif
-  endfor
-  return 1
-endfunction
-
 call s:DownloadVimPlug()
 
 " Colorscheme
@@ -70,18 +83,8 @@ Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
 " Preserve missing EOL at the end of text files
 Plug 'yous/PreserveNoEOL'
 " EditorConfig
-if executable('editorconfig') == 1
+if executable('editorconfig') == 1 || has('python3') || s:python26
   Plug 'editorconfig/editorconfig-vim'
-elseif has('python')
-  redir => pyv
-  silent python import platform; print(platform.python_version())
-  redir END
-
-  " editorconfig-core-py requires Python 2.6
-  if s:VersionRequirement(
-        \ map(split(split(pyv)[0], '\.'), 'str2nr(v:val)'), [2, 6])
-    Plug 'editorconfig/editorconfig-vim'
-  endif
 endif
 if !has('win32')
   " A code-completion engine for Vim
