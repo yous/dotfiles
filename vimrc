@@ -89,11 +89,21 @@ endif
 if !has('win32')
   if v:version >= 704 || v:version == 703 && has('patch598') &&
         \ (has('python3') || s:python26)
+    function! BuildYCM(info)
+      " info is a dictionary with 3 fields
+      " - name: name of the plugin
+      " - status: 'installed', 'updated', or 'unchanged'
+      " - force: set on PlugInstall! or PlugUpdate!
+      if a:info.status == 'installed' || a:info.force
+        !./install.py
+              \ --clang-completer
+              \ --gocode-completer
+              \ --tern-completer
+      endif
+    endfunction
+
     " A code-completion engine for Vim
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py'
-          \ . ' --clang-completer'
-          \ . ' --gocode-completer'
-          \ . ' --tern-completer' }
+    Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
   endif
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
