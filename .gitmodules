@@ -1,3 +1,6 @@
+[submodule "Gdbinit"]
+	path = Gdbinit
+	url = https://github.com/gdbinit/Gdbinit.git
 [submodule "tomorrow-theme"]
 	path = tomorrow-theme
 	url = https://github.com/chriskempson/tomorrow-theme.git

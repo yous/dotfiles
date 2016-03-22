@@ -78,6 +78,7 @@ case "$1" in
     do
       replace_file "$FILENAME"
     done
+    replace_file 'Gdbinit/gdbinit' '.gdbinit'
     replace_file 'tpm' '.tmux/plugins/tpm'
     echo 'Done.'
     ;;
