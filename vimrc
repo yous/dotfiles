@@ -111,6 +111,8 @@ if !has('win32')
 
     " A code-completion engine for Vim
     Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+    " Generates config files for YouCompleteMe
+    Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
   endif
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
