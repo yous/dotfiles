@@ -791,6 +791,9 @@ if executable('editorconfig')
   let g:EditorConfig_core_mode = 'external_command'
 endif
 
+" YouCompleteMe
+let g:ycm_confirm_extra_conf = 0
+
 " Syntastic
 " Skip checks when you issue :wq, :x and :ZZ
 let g:syntastic_check_on_wq = 0
