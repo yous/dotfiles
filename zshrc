@@ -68,7 +68,9 @@ zplug "zsh-users/zsh-completions"
 zplug "yous/lime"
 # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
 # excuting compinit command and sourcing other plugins.
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", nice:9
+# ZSH port of Fish shell's history search feature
+zplug "zsh-users/zsh-history-substring-search", nice:10
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then
@@ -76,6 +78,15 @@ if ! zplug check; then
 fi
 # Then, source plugins and add commands to $PATH
 zplug load
+
+# zsh-users/zsh-completions
+zmodload zsh/terminfo
+[ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
+[ -n "${terminfo[kcud1]}" ] && bindkey "${terminfo[kcud1]}" history-substring-search-down
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # Set PATH to include user's bin if it exists
 if [ -d "$HOME/bin" ]; then
