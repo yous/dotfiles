@@ -23,6 +23,8 @@ if has('python')
 
   let s:python26 = s:VersionRequirement(
         \ map(split(split(s:pyv)[0], '\.'), 'str2nr(v:val)'), [2, 6])
+else
+  let s:python26 = 0
 endif
 
 " =============================================================================
