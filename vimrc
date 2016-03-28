@@ -90,7 +90,7 @@ if executable('editorconfig') == 1 || has('python3') || s:python26
 endif
 if !has('win32')
   if v:version >= 704 || v:version == 703 && has('patch598') &&
-        \ (has('python3') || s:python26)
+        \ executable('cmake') && (has('python3') || s:python26)
     function! BuildYCM(info)
       " info is a dictionary with 3 fields
       " - name: name of the plugin
