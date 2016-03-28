@@ -799,6 +799,10 @@ if executable('editorconfig')
 endif
 
 " YouCompleteMe
+if exists('s:vimfiles')
+  let g:ycm_global_ycm_extra_conf = s:vimfiles .
+        \ '/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+endif
 let g:ycm_confirm_extra_conf = 0
 
 " Syntastic
