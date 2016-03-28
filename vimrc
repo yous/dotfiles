@@ -134,8 +134,10 @@ Plug 'tpope/vim-eunuch'
 " Syntax checking plugin
 Plug 'scrooloose/syntastic'
 " Automated tag file generation and syntax highlighting of tags
-Plug 'xolox/vim-misc' |
-Plug 'xolox/vim-easytags'
+if executable('ctags')
+  Plug 'xolox/vim-misc' |
+  Plug 'xolox/vim-easytags'
+endif
 " Vim Git runtime files
 Plug 'tpope/vim-git'
 " Git wrapper
