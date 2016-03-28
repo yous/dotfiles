@@ -97,16 +97,16 @@ if !has('win32')
       " - status: 'installed', 'updated', or 'unchanged'
       " - force: set on PlugInstall! or PlugUpdate!
       if a:info.status == 'installed' || a:info.force
-        let options = ['--clang-completer']
-        if executable('go')
-          let options += ['--gocode-completer']
-        endif
-        if executable('npm')
-          let options += ['--tern-completer']
-        endif
-        if executable('cargo')
-          let options += ['--racer-completer']
-        endif
+        let options = []
+        let requirements = [['clang', '--clang-completer'],
+              \ ['go', '--gocode-completer'],
+              \ ['npm', '--tern-completer'],
+              \ ['cargo', '--racer-completer']]
+        for r in requirements
+          if executable(r[0])
+            let options += [r[1]]
+          endif
+        endfor
         execute '!./install.py ' . join(options, ' ')
       endif
     endfunction
