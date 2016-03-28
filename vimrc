@@ -27,6 +27,14 @@ else
   let s:python26 = 0
 endif
 
+if !empty(&rtp)
+  let s:vimfiles = split(&rtp, ',')[0]
+else
+  echohl ErrorMsg
+  echomsg 'Unable to determine runtime path for Vim.'
+  echohl NONE
+endif
+
 " =============================================================================
 " Vim Plug: {{{
 " =============================================================================
@@ -36,15 +44,10 @@ filetype off
 
 " Install vim-plug if it isn't installed and call plug#begin() out of box
 function! s:DownloadVimPlug()
-  if !empty(&rtp)
-    let vimfiles = split(&rtp, ',')[0]
-  else
-    echohl ErrorMsg
-    echomsg 'Unable to determine runtime path for Vim.'
-    echohl NONE
+  if !exists('s:vimfiles')
     return
   endif
-  if empty(glob(vimfiles . '/autoload/plug.vim'))
+  if empty(glob(s:vimfiles . '/autoload/plug.vim'))
     let plug_url = 'https://github.com/junegunn/vim-plug.git'
     let tmp = tempname()
     let new = tmp . '/plug.vim'
@@ -58,10 +61,10 @@ function! s:DownloadVimPlug()
         return
       endif
 
-      if !isdirectory(vimfiles . '/autoload')
-        call mkdir(vimfiles . '/autoload', 'p')
+      if !isdirectory(s:vimfiles . '/autoload')
+        call mkdir(s:vimfiles . '/autoload', 'p')
       endif
-      call rename(new, vimfiles . '/autoload/plug.vim')
+      call rename(new, s:vimfiles . '/autoload/plug.vim')
 
       " Install plugins at first
       autocmd VimEnter * PlugInstall | quit
@@ -72,7 +75,7 @@ function! s:DownloadVimPlug()
       endif
     endtry
   endif
-  call plug#begin(vimfiles . '/plugged')
+  call plug#begin(s:vimfiles . '/plugged')
 endfunction
 
 call s:DownloadVimPlug()
