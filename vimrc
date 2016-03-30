@@ -92,7 +92,7 @@ if executable('editorconfig') == 1 || has('python3') || s:python26
   Plug 'editorconfig/editorconfig-vim'
 endif
 if !has('win32')
-  if v:version >= 704 || v:version == 703 && has('patch598') &&
+  if (v:version >= 704 || v:version == 703 && has('patch598')) &&
         \ executable('cmake') && (has('python3') || s:python26)
     function! s:BuildYCM(info)
       " info is a dictionary with 3 fields
