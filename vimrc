@@ -94,7 +94,7 @@ endif
 if !has('win32')
   if v:version >= 704 || v:version == 703 && has('patch598') &&
         \ executable('cmake') && (has('python3') || s:python26)
-    function! BuildYCM(info)
+    function! s:BuildYCM(info)
       " info is a dictionary with 3 fields
       " - name: name of the plugin
       " - status: 'installed', 'updated', or 'unchanged'
@@ -115,7 +115,9 @@ if !has('win32')
     endfunction
 
     " A code-completion engine for Vim
-    Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+    let BuildYCMRef = function('s:BuildYCM')
+    Plug 'Valloric/YouCompleteMe', { 'do': BuildYCMRef }
+    unlet BuildYCMRef
     " Generates config files for YouCompleteMe
     Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
   endif
