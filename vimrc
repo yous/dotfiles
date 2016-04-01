@@ -801,6 +801,18 @@ if executable('editorconfig')
 endif
 
 " YouCompleteMe
+let g:ycm_filetype_blacklist = {
+      \ 'infolog': 1,
+      \ 'mail': 1,
+      \ 'markdown': 1,
+      \ 'netrw': 1,
+      \ 'notes': 1,
+      \ 'pandoc': 1,
+      \ 'qf': 1,
+      \ 'tagbar': 1,
+      \ 'text': 1,
+      \ 'unite': 1,
+      \ 'vimwiki': 1 }
 if exists('s:vimfiles')
   let g:ycm_global_ycm_extra_conf = s:vimfiles .
         \ '/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
