@@ -223,6 +223,8 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'elzr/vim-json', { 'for': ['json', 'markdown'] }
 " JSX, requires pangloss/vim-javascript
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+" LaTeX
+Plug 'lervag/vimtex', { 'for': 'tex' }
 " Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } |
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
