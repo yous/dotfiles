@@ -816,6 +816,7 @@ let g:ycm_filetype_blacklist = {
       \ 'unite': 1,
       \ 'vimwiki': 1 }
 let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
 if exists('s:vimfiles')
   let g:ycm_global_ycm_extra_conf = s:vimfiles .
         \ '/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
