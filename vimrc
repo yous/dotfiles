@@ -727,7 +727,8 @@ function! s:CheckLeftBuffers()
     let i = 1
     while i <= winnr('$')
       let l:filetypes = ['help', 'quickfix', 'nerdtree', 'taglist']
-      if index(l:filetypes, getbufvar(winbufnr(i), '&filetype')) >= 0
+      if index(l:filetypes, getbufvar(winbufnr(i), '&filetype')) >= 0 ||
+            \ getwinvar(i, '&previewwindow')
         let i += 1
       else
         break
