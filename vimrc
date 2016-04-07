@@ -832,6 +832,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 " Sort errors by file, line number, type, column number
 let g:syntastic_sort_aggregated_errors = 1
+" Turn off highlighting for marking errors
+let g:syntastic_enable_highlighting = 0
 " Always stick any detected errors into the location-list
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_mode_map = { 'mode': 'passive' }
