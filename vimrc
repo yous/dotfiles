@@ -805,6 +805,7 @@ endif
 
 " YouCompleteMe
 let g:ycm_filetype_blacklist = {
+      \ 'diff': 1,
       \ 'infolog': 1,
       \ 'mail': 1,
       \ 'markdown': 1,
