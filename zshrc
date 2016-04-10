@@ -137,14 +137,14 @@ fi
 
 # Load pyenv
 if which pyenv &> /dev/null; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init - zsh)"
   if which pyenv-virtualenv-init &> /dev/null; then
-    eval "$(pyenv virtualenv-init -)"
+    eval "$(pyenv virtualenv-init - zsh)"
   fi
 elif [ -e "$HOME/.pyenv" ]; then
   export PATH="$HOME/.pyenv/bin:$PATH"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+  eval "$(pyenv init - zsh)"
+  eval "$(pyenv virtualenv-init - zsh)"
 fi
 
 # Load RVM into a shell session *as a function*
