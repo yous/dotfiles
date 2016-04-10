@@ -159,12 +159,12 @@ if [ -d "$HOME/bin" ]; then
 fi
 
 # Load autojump
-if which autojump &> /dev/null; then
+if command -v autojump &> /dev/null; then
   if [ -f /etc/profile.d/autojump.bash ]; then
     source /etc/profile.d/autojump.bash
   elif [ -f /usr/share/autojump/autojump.bash ]; then
     source /usr/share/autojump/autojump.bash
-  elif which brew &> /dev/null && [ -f `brew --prefix`/etc/autojump.sh ]; then
+  elif command -v brew &> /dev/null && [ -f `brew --prefix`/etc/autojump.sh ]; then
     source `brew --prefix`/etc/autojump.sh
   fi
 elif [ -f "$HOME/.autojump/etc/profile.d/autojump.sh" ]; then
@@ -201,9 +201,9 @@ if [ -e "$HOME/.rbenv" ]; then
 fi
 
 # Load pyenv
-if which pyenv &> /dev/null; then
+if command -v pyenv &> /dev/null; then
   eval "$(pyenv init - bash)"
-  if which pyenv-virtualenv-init &> /dev/null; then
+  if command -v pyenv-virtualenv-init &> /dev/null; then
     eval "$(pyenv virtualenv-init - bash)"
   fi
 elif [ -e "$HOME/.pyenv" ]; then
@@ -230,7 +230,7 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
 fi
 
 # Set GOPATH for Go
-if which go &> /dev/null; then
+if command -v go &> /dev/null; then
   [ -d "$HOME/.go" ] || mkdir "$HOME/.go"
   export GOPATH="$HOME/.go"
   export PATH="$PATH:$GOPATH/bin"
@@ -244,7 +244,7 @@ if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
 fi
 
 # Enable keychain
-if which keychain &> /dev/null; then
+if command -v keychain &> /dev/null; then
   eval `keychain --eval --quiet --agents ssh id_rsa`
 fi
 
