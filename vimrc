@@ -103,7 +103,6 @@ if !has('win32')
         let options = []
         let requirements = [['clang', '--clang-completer'],
               \ ['go', '--gocode-completer'],
-              \ ['npm', '--tern-completer'],
               \ ['cargo', '--racer-completer']]
         for r in requirements
           if executable(r[0])
