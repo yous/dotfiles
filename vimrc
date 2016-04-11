@@ -663,7 +663,8 @@ function! s:ZoomToggle()
   if exists('t:zoomed') && t:zoomed
     execute t:zoom_winrestcmd
     let t:zoomed = 0
-  else
+  elseif tabpagewinnr(tabpagenr('$'), '$') > 1
+    " Resize only when multiple windows are in the current tab page
     let t:zoom_winrestcmd = winrestcmd()
     resize
     vertical resize
