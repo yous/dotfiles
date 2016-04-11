@@ -671,7 +671,7 @@ function! s:ZoomToggle()
     let t:zoomed = 1
   endif
 endfunction
-nnoremap <Leader>z :call <SID>ZoomToggle()<CR>
+nnoremap <silent> <Leader>z :call <SID>ZoomToggle()<CR>
 
 augroup vimrc
   " Quit help window
