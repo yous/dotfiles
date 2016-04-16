@@ -39,15 +39,6 @@ if [[ "$(uname)" == 'Darwin' ]]; then
   add_to_path_once "/usr/local/bin:/usr/local/sbin"
 fi
 
-# Completions for Homebrew
-if command -v brew &> /dev/null; then
-  if [ ! -f `brew --prefix`/share/zsh/site-functions/_brew ]; then
-    mkdir -p `brew --prefix`/share/zsh/site-functions
-    ln -s `brew --prefix`/Library/Contributions/brew_zsh_completion.zsh \
-      `brew --prefix`/share/zsh/site-functions/_brew
-  fi
-fi
-
 # Load Linuxbrew
 if [[ -d "$HOME/.linuxbrew" ]]; then
   add_to_path_once "$HOME/.linuxbrew/bin"
