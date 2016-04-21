@@ -122,7 +122,7 @@ if !has('win32')
   endif
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  if !empty(&rtp)
+  if !empty(&rtp) && (v:version >= 705 || v:version == 704 && has('patch213'))
     " Use latest netrw because of https://github.com/tpope/vim-vinegar/issues/58
     Plug split(&rtp, ',')[0] . '/bundle/netrw'
   endif
