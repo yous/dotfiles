@@ -1,3 +1,5 @@
+[commit]
+	gpgsign = true
 [user]
 	name = Chayoung You
 	email = yousbe@gmail.com
