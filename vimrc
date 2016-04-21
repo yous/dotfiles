@@ -228,7 +228,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'godlygeek/tabular', { 'for': 'markdown' } |
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " PHP
-Plug 'php.vim-html-enhanced'
+Plug 'php.vim-html-enhanced', { 'for': ['html', 'php'] }
 " Racket
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 " smali
