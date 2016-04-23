@@ -140,6 +140,7 @@ Plug 'scrooloose/syntastic'
 " Automated tag file generation and syntax highlighting of tags
 if executable('ctags')
   Plug 'xolox/vim-misc' |
+  Plug 'xolox/vim-shell' |
   Plug 'xolox/vim-easytags'
 endif
 " Vim Git runtime files
@@ -846,8 +847,12 @@ let g:syntastic_javascript_checkers = ['jshint', 'jslint', 'jscs']
 let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
       \ --bitwise --newcap --sloppy --vars --maxerr=1000'
 
-" easytags
+" vim-shell
+let g:shell_hl_exclude = '^.*$'
+
+" vim-easytags
 let g:easytags_auto_highlight = 0
+let g:easytags_async = 1
 
 " Fugitive
 let s:fugitive_insert = 0
