@@ -46,6 +46,9 @@
 - [날개셋](http://moogi.new21.org/prg4.html)
     - [신세벌식 P](http://pat.im/1110)
 - Turn on Remote Desktop
+    - Set custom RDP port number via `regedit.exe`. Navigate to
+      `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp`
+      and modify the value of `PortNumber`.
 - Windows Update: Download updates but let me choose whether to install them
 - Turn on Sticky Keys when SHIFT is pressed five times: Uncheck
 - Disallow the system to suggest companion windows when using Snap
