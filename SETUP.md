@@ -42,11 +42,6 @@
 ## Tweak
 
 - [Greenshot](http://getgreenshot.org)
-- [MacType](https://code.google.com/p/mactype/)
-    - [Custom.ini](https://www.dropbox.com/s/ass01wzc9l3zwoz/Custom.ini?dl=0)
-    - Load with MacTray
-    - Run as Administrator: Check
-    - Standalone loading mode
 - [WizMouse](http://antibody-software.com/web/software/software/wizmouse-makes-your-mouse-wheel-work-on-the-window-under-the-mouse/)
 - [날개셋](http://moogi.new21.org/prg4.html)
     - [신세벌식 P](http://pat.im/1110)
