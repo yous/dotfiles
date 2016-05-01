@@ -2,8 +2,8 @@
 
 ## Tweak
 
-- [구름 입력기](http://gureum.io)
-    - [세벌식 3-2012](http://pat.im/938)
+- [구름 입력기](http://gureum.io) ([Unofficial 1.9.0](https://github.com/soomtong/gureum/releases/tag/GureumKIM-1.9.0))
+    - [신세벌식 P](http://pat.im/1110)
 - System Preferences
     - Language & Region > Advanced… > Times
         - Set "Medium" to "00-23:08:09"
