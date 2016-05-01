@@ -16,16 +16,21 @@
 - FaceTime
     - Turn off "Calls From iPhone"
 - Safari
-    - General
-        - Set "Remove history items" to "After one month" or "After two weeks"
-        - Turn off "Open “safe” files after downloading"
-    - AutoFill
-        - Turn off every fields
-    - Passwords
-        - Turn off every fields
-    - Extensions
-        - [Invisible Status Bar](http://dbergey.github.io)
-        - [uBlock](https://www.ublock.org)
+    - View
+        - Show Status Bar
+    - Preferences
+        - General
+            - Set "Remove history items" to "After one month" or "After two weeks"
+            - Turn off "Open “safe” files after downloading"
+        - AutoFill
+            - Turn off every fields
+        - Passwords
+            - Turn off every fields
+        - Extensions
+            - [1Password](https://agilebits.com/onepassword)
+            - [uBlock](https://www.ublock.org)
+        - Advanced
+            - Turn on "Show full website address"
 - Disable press-and-hold for keys in favor of key repeat:
 
     ``` sh
