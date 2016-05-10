@@ -2,7 +2,7 @@
 
 ## Tweak
 
-- [구름 입력기](http://gureum.io) ([Unofficial 1.9.0](https://github.com/soomtong/gureum/releases/tag/GureumKIM-1.9.0))
+- [구름 입력기](http://gureum.io) ([Unofficial releases](https://github.com/soomtong/gureum/releases))
     - [신세벌식 P](http://pat.im/1110)
 - System Preferences
     - Language & Region > Advanced… > Times
