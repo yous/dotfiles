@@ -47,10 +47,10 @@ if [[ -d "$HOME/.linuxbrew" ]]; then
 fi
 
 # Load zplug
-source $HOME/.zplug/zplug
+source $HOME/.zplug/init.zsh
 
 # Let zplug manage zplug
-zplug "b4b4r07/zplug"
+zplug "zplug/zplug"
 # Vanilla shell
 zplug "yous/vanilli.sh"
 # Additional completion definitions for Zsh

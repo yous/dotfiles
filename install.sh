@@ -123,8 +123,8 @@ case "$1" in
     \curl -sSL https://get.rvm.io | bash -s stable
     ;;
   zplug)
-    git_clone https://github.com/b4b4r07/zplug.git .zplug/repos/b4b4r07/zplug
-    ln -s "$HOME/.zplug/repos/b4b4r07/zplug/zplug" "$HOME/.zplug/zplug"
+    git_clone https://github.com/zplug/zplug.git .zplug/repos/zplug/zplug
+    ln -s "$HOME/.zplug/repos/zplug/zplug/init.zsh" "$HOME/.zplug/init.zsh"
     echo 'Done.'
     ;;
   *)

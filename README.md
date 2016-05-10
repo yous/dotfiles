@@ -212,7 +212,7 @@ If you use custom Zsh like compiled one by [Homebrew](http://brew.sh), add
 chsh -s /usr/local/bin/zsh
 ```
 
-To install [zplug](https://github.com/b4b4r07/zplug):
+To install [zplug](https://github.com/zplug/zplug):
 
 ``` sh
 ./install.sh zplug
