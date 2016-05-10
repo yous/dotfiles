@@ -1,4 +1,4 @@
-*pi_netrw.txt*  For Vim version 7.4.  Last change: 2016 Jan 11
+*pi_netrw.txt*  For Vim version 7.4.  Last change: 2016 May 03
 
 	    ------------------------------------------------
 	    NETRW REFERENCE MANUAL    by Charles E. Campbell
@@ -6,7 +6,7 @@
 Author:  Charles E. Campbell  <NdrOchip@ScampbellPfamily.AbizM>
 	  (remove NOSPAM from Campbell's email first)
 
-Copyright: Copyright (C) 1999-2015 Charles E Campbell    *netrw-copyright*
+Copyright: Copyright (C) 2016 Charles E Campbell    *netrw-copyright*
 	The VIM LICENSE applies to the files in this package, including
 	netrw.vim, pi_netrw.txt, netrwFileHandlers.vim, netrwSettings.vim, and
 	syntax/netrw.vim.  Like anything else that's free, netrw.vim and its
@@ -51,7 +51,7 @@ Copyright: Copyright (C) 1999-2015 Charles E Campbell    *netrw-copyright*
       Banner Display......................................|netrw-I|
       Bookmarking A Directory.............................|netrw-mb|
       Browsing............................................|netrw-cr|
-        Squeezing the Current Tree-Listing Directory......|netrw-s-cr|
+      Squeezing the Current Tree-Listing Directory........|netrw-s-cr|
       Browsing With A Horizontally Split Window...........|netrw-o|
       Browsing With A New Tab.............................|netrw-t|
       Browsing With A Vertically Split Window.............|netrw-v|
@@ -1525,6 +1525,7 @@ the |'isfname'| option (which is global, so netrw doesn't modify it).
 Associated setting variables:
 	|g:netrw_gx|	control how gx picks up the text under the cursor
 	|g:netrw_nogx|	prevent gx map while editing
+	|g:netrw_suppress_gx_mesg| controls gx's suppression of browser messages
 
 							*netrw_filehandler*
 
@@ -1738,8 +1739,9 @@ Also see: |g:netrw_alto| |g:netrw_altv| |g:netrw_winsize|
 EXPLORING WITH STARS AND PATTERNS {{{2
 
 When Explore, Sexplore, Hexplore, or Vexplore are used with one of the
-following four patterns Explore generates a list of files which satisfy
-the request. >
+following four patterns Explore generates a list of files which satisfy the
+request for the local file system.  These exploration patterns will not work
+with remote file browsing.
 
     */filepat	files in current directory which satisfy filepat
     **/filepat	files in current directory or below which satisfy the
@@ -2713,6 +2715,7 @@ your browsing preferences.  (see also: |netrw-settings|)
   *g:netrw_home*		The home directory for where bookmarks and
 				history are saved (as .netrwbook and
 				.netrwhist).
+				Netrw uses |expand()|on the string.
 				 default: the first directory on the
 				         |'runtimepath'|
 
@@ -2930,6 +2933,13 @@ your browsing preferences.  (see also: |netrw-settings|)
 				such as listing, file removal, etc.
 				 default: ssh
 
+ *g:netrw_suppress_gx_mesg*	=1 : browsers sometimes produce messages
+				which are normally unwanted intermixed
+				with the page.
+				However, when using links, for example,
+				those messages are what the browser produces.
+				By setting this option to 0, netrw will not
+				suppress browser messages.
 
   *g:netrw_tmpfile_escape*	=' &;'
 				escape() is applied to all temporary files
@@ -3082,14 +3092,14 @@ These will:
 	Related: if you like this idea, you may also find :Lexplore
 	         (|netrw-:Lexplore|) or |g:netrw_chgwin| of interest
 
-Also see: |g:netrw_chgwin| |netrw-P| |'previewwindow'|
+Also see: |g:netrw_chgwin| |netrw-P| |'previewwindow'| |CTRL-W_z| |:pclose|
 
 
 PREVIOUS WINDOW					*netrw-P* *netrw-prvwin* {{{2
 
-To edit a file or directory in the previously used (last accessed) window (see
-:he |CTRL-W_p|), press a "P".  If there's only one window, then the one window
-will be horizontally split (by default).
+To edit a file or directory under the cursor in the previously used (last
+accessed) window (see :he |CTRL-W_p|), press a "P".  If there's only one
+window, then the one window will be horizontally split (by default).
 
 If there's more than one window, the previous window will be re-used on
 the selected file/directory.  If the previous window's associated buffer
@@ -3228,7 +3238,7 @@ only if your terminal supports differentiating <c-tab> from a plain
   * Else bring up a |:Lexplore| window
 
 If |g:netrw_usetab| exists or is zero, or if there is a pre-existing mapping
-for <c-tab>, then the <tab> will not be mapped.  One may map something other
+for <c-tab>, then the <c-tab> will not be mapped.  One may map something other
 than a <c-tab>, too: (but you'll still need to have had g:netrw_usetab set) >
 
 	nmap <unique> (whatever)	<Plug>NetrwShrink
@@ -3695,13 +3705,13 @@ called netrw.vimrc with the following contents: >
 <
 Then run netrw as follows: >
 
-	vim -u netrw.vimrc --noplugins [some path here]
+	vim -u netrw.vimrc --noplugins -i NONE [some path here]
 <
 Perform whatever netrw commands you need to, and check that the problem is
 still present.  This procedure sidesteps any issues due to personal .vimrc
-settings and other plugins.  If the problem does not appear, then you need
-to determine what setting in your .vimrc is causing the conflict with netrw
-or which plugin.
+settings, .viminfo file, and other plugins.  If the problem does not appear,
+then you need to determine which setting in your .vimrc is causing the
+conflict with netrw or which plugin(s) is/are involved.
 
 Step 3: If the problem still is present, then get a debugging trace from
 netrw:
@@ -3756,6 +3766,31 @@ netrw:
 ==============================================================================
 12. History						*netrw-history* {{{1
 
+	v157:	Apr 20, 2016	* (Nicola) had set up a "nmap <expr> ..." with
+				  a function that returned a 0 while silently
+				  invoking a shell command.  The shell command
+				  activated a ShellCmdPost event which in turn
+				  called s:LocalBrowseRefresh().  That looks
+				  over all netrw buffers for changes needing
+				  refreshes.  However, inside a |:map-<expr>|,
+				  tab and window changes are disallowed.  Fixed.
+	v156:	Feb 18, 2016	* Changed =~ to =~# where appropriate
+		Feb 23, 2016	* s:ComposePath(base,subdir) now uses
+				  fnameescape() on the base portion
+		Mar 01, 2016	* (gt_macki) reported where :Explore would
+				  make file unlisted. Fixed (tst943)
+		Apr 04, 2016	* (reported by John Little) netrw normally
+				  suppresses browser messages, but sometimes
+				  those "messages" are what is wanted.
+				  See |g:netrw_suppress_gx_mesg|
+		Apr 06, 2016	* (reported by Carlos Pita) deleting a remote
+				  file was giving an error message.  Fixed.
+		Apr 08, 2016	* (Charles Cooper) had a problem with an
+				  undefined b:netrw_curdir.  He also provided
+				  a fix.
+		Apr 20, 2016	* Changed s:NetrwGetBuffer(); now uses
+				  dictionaries.  Also fixed the "No Name"
+				  buffer problem.
 	v155:	Oct 29, 2015	* (Timur Fayzrakhmanov) reported that netrw's
 				  mapping of ctrl-l was not allowing refresh of
 				  other windows when it was done in a netrw
@@ -3778,6 +3813,15 @@ netrw:
 				  maps.
 		Jan 05, 2016	* |netrw-qL| implemented to mark files based
 				  upon |location-list|s; similar to |netrw-qF|.
+		Jan 19, 2016	* using - call delete(directoryname,"d") -
+				  instead of using g:netrw_localrmdir if
+				  v7.4 + patch#1107 is available
+		Jan 28, 2016	* changed to using |winsaveview()| and
+				  |winrestview()|
+		Jan 28, 2016	* s:NetrwTreePath() now does a save and
+				  restore of view
+		Feb 08, 2016	* Fixed a tree-listing problem with remote
+				  directories
 	v154:	Feb 26, 2015	* (Yuri Kanivetsky) reported a situation where
 				  a file was not treated properly as a file
 				  due to g:netrw_keepdir == 1
