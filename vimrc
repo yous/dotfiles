@@ -1063,6 +1063,10 @@ command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
 " rainbow_parentheses.vim
 autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
 
+" vim-startify
+" let g:startify_custom_header = startify#fortune#cowsay()
+let g:startify_custom_header = 'map(startify#fortune#boxed(), "\"   \".v:val")'
+
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
 
