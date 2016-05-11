@@ -46,6 +46,12 @@ if [[ -d "$HOME/.linuxbrew" ]]; then
   export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
+# Check if zplug is installed
+if [[ ! -d "$HOME/.zplug" ]]; then
+  git clone https://github.com/zplug/zplug "$HOME/.zplug/repos/zplug/zplug"
+  ln -s "$HOME/.zplug/repos/zplug/zplug/init.zsh" "$HOME/.zplug/init.zsh"
+fi
+
 # Load zplug
 source $HOME/.zplug/init.zsh
 

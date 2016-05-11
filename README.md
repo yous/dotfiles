@@ -41,7 +41,6 @@ Command option | Description
 `pyenv`        | Install pyenv with pyenv-virtualenv
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
-`zplug`        | Install zplug
 
 In Windows, use `install.bat`. It links `gitconfig`, `gitignore_global`, `vimrc`
 to the user's home directory.
@@ -210,12 +209,6 @@ If you use custom Zsh like compiled one by [Homebrew](http://brew.sh), add
 
 ``` sh
 chsh -s /usr/local/bin/zsh
-```
-
-To install [zplug](https://github.com/zplug/zplug):
-
-``` sh
-./install.sh zplug
 ```
 
 To update Zsh plugins:
