@@ -47,7 +47,6 @@
 ## Tweak
 
 - [Greenshot](http://getgreenshot.org)
-- [WizMouse](http://antibody-software.com/web/software/software/wizmouse-makes-your-mouse-wheel-work-on-the-window-under-the-mouse/)
 - [날개셋](http://moogi.new21.org/prg4.html)
     - [신세벌식 P](http://pat.im/1110)
 - Turn on Remote Desktop
