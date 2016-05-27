@@ -28,6 +28,7 @@
             - Turn off every fields
         - Extensions
             - [1Password](https://agilebits.com/onepassword)
+            - [retab](https://github.com/brj/retab)
             - [uBlock](https://www.ublock.org)
         - Advanced
             - Turn on "Show full website address"
