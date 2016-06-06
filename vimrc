@@ -851,6 +851,7 @@ let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
 
 " vim-shell
 let g:shell_hl_exclude = '^.*$'
+let g:shell_mappings_enabled = 0
 
 " vim-easytags
 let g:easytags_auto_highlight = 0
