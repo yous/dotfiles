@@ -122,7 +122,7 @@
     - Loco
         - Host Name: bbs@loco.kaist.ac.kr
         - Columns: 80, Rows: 62
-        - Font: Fixedsys, 10-point
+        - Font: Fixedsys, 10-point (Script: Korean)
         - Use separated unicode font: Uncheck
         - Remote character set: Use font encoding
         - Treat CJK ambiguous characters as wide: Check
