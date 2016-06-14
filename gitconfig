@@ -8,6 +8,7 @@
 [color]
 	ui = auto
 [diff]
+	compactionHeuristic = true
 	renames = true
 [diff "nodiff"]
 	command = true
