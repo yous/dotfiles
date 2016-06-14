@@ -24,7 +24,13 @@
 	smudge = git-lfs smudge %f
 [include]
 	path = ~/.gitconfig.local
+[interactive]
+	diffFilter = diff-highlight
 [log]
 	date = iso8601
+[pager]
+	diff = diff-highlight | $(git config core.pager)
+	log = diff-highlight | $(git config core.pager)
+	show = diff-highlight | $(git config core.pager)
 [push]
 	default = simple
