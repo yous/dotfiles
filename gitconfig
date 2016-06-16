@@ -34,3 +34,5 @@
 	show = diff-highlight | $(git config core.pager)
 [push]
 	default = simple
+[user]
+	useConfigOnly = true
