@@ -1,10 +1,10 @@
 [core]
-	attributesfile = ~/.gitattributes_global
-	excludesfile = ~/.gitignore_global
+	attributesFile = ~/.gitattributes_global
+	excludesFile = ~/.gitignore_global
 	editor = vim
 	pager = less -F -R -X
-	precomposeunicode = true
-	quotepath = false
+	precomposeUnicode = true
+	quotePath = false
 [color]
 	ui = auto
 [diff]
