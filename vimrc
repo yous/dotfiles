@@ -760,6 +760,8 @@ augroup vimrc
 
   " Keyword lookup program
   autocmd FileType c,cpp setlocal keywordprg=man
+  autocmd FileType gitconfig
+        \ setlocal keywordprg=man\ git-config\ \|\ less\ -i\ -p
   autocmd FileType help,vim setlocal keywordprg=:help
   autocmd FileType ruby setlocal keywordprg=ri
 
