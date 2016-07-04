@@ -4,6 +4,8 @@
 
 - [구름 입력기](http://gureum.io) ([Unofficial releases](https://github.com/soomtong/gureum/releases))
     - [신세벌식 P](http://pat.im/1110)
+- [Workman Layout](http://www.workmanlayout.com/blog/)
+    - Remove Qwerty from `~/Library/Preferences/com.apple.HIToolbox.plist`, and then re-login
 - System Preferences
     - Language & Region > Advanced… > Times
         - Set "Medium" to "00-23:08:09"
