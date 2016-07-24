@@ -201,32 +201,10 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'mojako/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
-" Coffee script
-Plug 'kchmck/vim-coffee-script', { 'for': ['coffee', 'markdown'] }
-" Crystal
-Plug 'rhysd/vim-crystal', { 'for': ['crystal', 'markdown'] }
-" Cucumber
-Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
-" Dockerfile
-Plug 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'markdown'] }
-" fish
-Plug 'dag/vim-fish', { 'for': 'fish' }
-" GLSL
-Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' }
-" Go
-Plug 'fatih/vim-go', { 'for': 'go' }
-" HTML5
-Plug 'othree/html5.vim'
 " Jade
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
-" JavaScript
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " JSON
 Plug 'elzr/vim-json', { 'for': ['json', 'markdown'] }
-" JSX, requires pangloss/vim-javascript
-Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
-" LaTeX
-Plug 'lervag/vimtex', { 'for': 'tex' }
 " Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } |
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -238,12 +216,12 @@ Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'kelwin/vim-smali', { 'for': 'smali' }
 " SMT-LIB
 Plug 'raichoo/smt-vim', { 'for': 'smt' }
-" tmux.conf
-Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " Vader
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
 " XML
 Plug 'othree/xml.vim', { 'for': 'xml' }
+" A solid language pack for Vim
+Plug 'sheerun/vim-polyglot'
 
 " Python
 " A nicer Python indentation style for vim
@@ -1083,9 +1061,6 @@ let g:adblock_filter_auto_checksum = 1
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
-" vimtex
-let g:vimtex_view_enabled = 0
-
 " vim-markdown
 let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_fenced_languages = [
@@ -1101,6 +1076,9 @@ let g:vim_markdown_fenced_languages = [
       \ 'bash=sh',
       \ 'viml=vim']
 let g:vim_markdown_frontmatter = 1
+
+" vim-polyglot
+let g:polyglot_disabled = ['json', 'markdown']
 
 " vim-rake
 nmap <Leader>ra :Rake<CR>
