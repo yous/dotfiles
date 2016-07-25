@@ -4,6 +4,7 @@ install reattach-to-user-namespace
 # Tools
 install git
 install homebrew/dupes/grep --with-default-names
+install homebrew/dupes/openssh
 install wget
 install autojump
 install zsh
