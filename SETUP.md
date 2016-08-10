@@ -68,6 +68,9 @@
     - Set custom RDP port number via `regedit.exe`. Navigate to
       `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp`
       and modify the value of `PortNumber`.
+    - Ignore remote keyboard layout by adding `IgnoreRemoteKeyboardLayout` under
+      `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout` with
+      data type `REG_DWORD` and the value `1`.
 - Windows Update: Download updates but let me choose whether to install them
 - Turn on Sticky Keys when SHIFT is pressed five times: Uncheck
 - Disallow the system to suggest companion windows when using Snap
