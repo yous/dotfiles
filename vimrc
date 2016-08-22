@@ -724,6 +724,9 @@ function! s:CheckLeftBuffers()
 endfunction
 autocmd vimrc BufEnter * call s:CheckLeftBuffers()
 
+command! Gdiffs cexpr system('git diff \| diff-hunk-list') |
+      \ cwindow | wincmd p
+
 " }}}
 " =============================================================================
 " Autocmd: {{{
