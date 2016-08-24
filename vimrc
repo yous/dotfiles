@@ -157,6 +157,8 @@ Plug 'yous/conque', { 'on': [
       \ 'ConqueTermSplit',
       \ 'ConqueTermVSplit',
       \ 'ConqueTermTab'] }
+" A Vim plugin for looking up words in an online thesaurus
+Plug 'beloglazov/vim-online-thesaurus'
 
 " Motions and text changing
 " Provide CamelCase motion through words
