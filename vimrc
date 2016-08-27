@@ -1083,7 +1083,7 @@ let g:vim_markdown_fenced_languages = [
 let g:vim_markdown_frontmatter = 1
 
 " vim-polyglot
-let g:polyglot_disabled = ['json', 'markdown']
+let g:polyglot_disabled = ['json', 'markdown', 'python']
 
 " vim-rake
 nmap <Leader>ra :Rake<CR>
