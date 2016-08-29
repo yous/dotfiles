@@ -581,6 +581,17 @@ inoremap <C-E> <Esc>A
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 
+" Leave insert mode
+function! s:CtrlL()
+  " Keep the original feature of Ctrl-l. See :help i_CTRL-L.
+  if exists('&insertmode') && &insertmode
+    call feedkeys("\<C-L>", 'n')
+  else
+    call feedkeys("\e", 't')
+  endif
+endfunction
+inoremap <silent> <C-L> <C-O>:call <SID>CtrlL()<CR>
+
 " Make Y behave like C and D
 nnoremap Y y$
 
