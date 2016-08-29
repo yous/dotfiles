@@ -546,8 +546,12 @@ autocmd vimrc FileType *
       \ setlocal formatoptions+=c
       \   formatoptions+=r
       \   formatoptions+=q
-      \   formatoptions+=l
-      \   formatoptions-=o |
+      \   formatoptions+=l |
+      \ if &filetype ==# 'markdown' |
+      \   setlocal formatoptions+=o |
+      \ else |
+      \   setlocal formatoptions-=o |
+      \ endif |
       \ if index(['gitcommit', 'markdown', 'tex'], &filetype) < 0 |
       \   setlocal formatoptions-=t |
       \ endif |
