@@ -57,6 +57,29 @@
     defaults write com.apple.screencapture name -string 'Screenshot'
     ```
 
+## Applications
+
+- [1Password](https://agilebits.com/downloads)
+- [Chrome](https://www.google.com/chrome/)
+- [Dropbox](https://www.dropbox.com/install)
+- [GPG Suite](https://gpgtools.org)
+    - Customize > Uncheck GPGMail
+- [HyperSwitch](https://bahoom.com/hyperswitch)
+    - App Switcher
+        - Check "When activating an app without windows, try to open the default window"
+- [Palua](https://itunes.apple.com/kr/app/palua/id431494195?mt=12)
+- [Safari Extensions](https://safari-extensions.apple.com)
+    - [1Password](https://safari-extensions.apple.com/details/?id=com.agilebits.onepassword4-safari-2BUA8C4S2C)
+    - [uBlock](https://www.ublock.org)
+- Quick Look
+    - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
+    - [Suspicious Package](http://www.mothersruin.com/software/SuspiciousPackage/)
+    - [QLColorCode](https://github.com/anthonygelibert/QLColorCode)
+    - [QLMarkdown](https://github.com/toland/qlmarkdown)
+    - [QLStephen](https://whomwah.github.io/qlstephen/)
+    - [QuickLookCSV](https://github.com/p2/quicklook-csv)
+    - [qlImageSize](https://github.com/Nyx0uf/qlImageSize)
+
 # Windows
 
 ## Tweak
@@ -177,7 +200,7 @@
 
 ## Applications
 
-- [1Password](https://agilebits.com/onepassword)
+- [1Password](https://agilebits.com/downloads)
 - [Bandizip](http://www.bandisoft.co.kr/bandizip/)
 - [Chrome](https://www.google.com/chrome/)
 - [Daum PotPlayer](http://tvpot.daum.net/application/PotPlayer.do)
