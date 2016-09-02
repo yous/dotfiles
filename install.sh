@@ -70,7 +70,6 @@ case "$1" in
       'profile' \
       'screenrc' \
       'tmux.conf' \
-      'vim/bundle/netrw' \
       'vimrc' \
       'weechat' \
       'zprofile' \

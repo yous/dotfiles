@@ -124,13 +124,9 @@ if !has('win32')
   endif
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  if !empty(&rtp) && (v:version >= 705 || v:version == 704 && has('patch213'))
-    " Use latest netrw because of https://github.com/tpope/vim-vinegar/issues/58
-    Plug split(&rtp, ',')[0] . '/bundle/netrw'
-  endif
 endif
-" Combine with netrw to create a delicious salad dressing
-Plug 'tpope/vim-vinegar'
+" Directory viewer for Vim
+Plug 'justinmk/vim-dirvish'
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
 " Autocomplete if end
