@@ -427,9 +427,6 @@ if has('gui_running')
   set guioptions-=L " Left-hand scrollbar when window is vertically split
 
   source $VIMRUNTIME/delmenu.vim
-  if has('menu') && has('multi_lang')
-    set langmenu=ko.UTF-8
-  endif
   source $VIMRUNTIME/menu.vim
 
   if has('win32')
