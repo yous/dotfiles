@@ -3,7 +3,7 @@
 ## Tweak
 
 - [구름 입력기](http://gureum.io) ([Unofficial releases](https://github.com/soomtong/gureum/releases))
-    - [신세벌식 P](http://pat.im/1110)
+    - [신세벌식 P2](http://pat.im/1136)
 - [Workman Layout](http://www.workmanlayout.com/blog/)
     - Remove U.S. from `AppleEnabledInputSources` in `~/Library/Preferences/com.apple.HIToolbox.plist`, and then re-login
 
@@ -87,7 +87,7 @@
 
 - [Greenshot](http://getgreenshot.org)
 - [날개셋](http://moogi.new21.org/prg4.html)
-    - [신세벌식 P](http://pat.im/1110)
+    - [신세벌식 P2](http://pat.im/1136)
 - Turn on Remote Desktop
     - Set custom RDP port number via `regedit.exe`. Navigate to
       `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp`
