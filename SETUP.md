@@ -171,7 +171,7 @@
 
       ``` bat
       @echo off
-      start /b putty -load loco
+      start /b putty -load Loco
       ```
 - [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [MSYS2](https://msys2.github.io)
@@ -185,16 +185,12 @@
         - Character set: UTF-8
         - Terminal Type: xterm-256color
     - Setup
-        - `update-core`
-        - Run MSYS2 again.
+        - `pacman -Sy pacman`
+        - Run MSYS2 again if needed.
+        - `pacman -Syu`
+        - Run MSYS2 again if needed.
         - `pacman -Su`
-        - `pacman -S zsh vim wget curl openssh grep tar unzip`
-        - `C:\msys64\msys2_shell.bat`:
-
-          ``` diff
-          -start %WD%mintty -i /msys2.ico /usr/bin/bash --login %*
-          +start %WD%mintty -i /msys2.ico /usr/bin/zsh --login %*
-          ```
+        - `pacman -S vim wget curl openssh grep tar unzip`
         - `ssh-keygen -t rsa -b 4096 -C "$(git config user.email)"`
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
 - Add `%USERPROFILE%\bin` to `%PATH%`
