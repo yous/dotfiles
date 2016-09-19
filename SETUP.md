@@ -141,9 +141,9 @@
 
 - [Git](http://git-scm.com)
     - [dotfiles](https://github.com/yous/dotfiles)
-- [gVim](http://www.vim.org/download.php#pc) and [Yongwei's gvim74.zip](http://wyw.dcweb.cn/#download)
+- [gVim](http://www.vim.org/download.php#pc) and [Yongwei's gvim80.zip](http://wyw.dcweb.cn/#download)
     - [Python 2.7](https://www.python.org/downloads/)
-    - [Ruby 2.0.0 (x86)](http://rubyinstaller.org/downloads/)
+    - [Ruby 2.2.5 (x86)](http://rubyinstaller.org/downloads/)
         - Add `bin` to `%PATH%`
     - [Ctags](http://ctags.sourceforge.net)
         - Put into `%USERPROFILE%\bin`
