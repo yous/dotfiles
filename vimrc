@@ -203,6 +203,8 @@ Plug 'yous/aheui.vim', { 'for': 'aheui' }
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " JSON
 Plug 'elzr/vim-json', { 'for': ['json', 'markdown'] }
+" LaTeX
+Plug 'lervag/vimtex', { 'for': ['bib', 'tex'] }
 " Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } |
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -1074,6 +1076,9 @@ let g:adblock_filter_auto_checksum = 1
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
+" vimtex
+let g:vimtex_view_enabled = 0
+
 " vim-markdown
 let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_fenced_languages = [
@@ -1091,7 +1096,7 @@ let g:vim_markdown_fenced_languages = [
 let g:vim_markdown_frontmatter = 1
 
 " vim-polyglot
-let g:polyglot_disabled = ['json', 'markdown', 'python']
+let g:polyglot_disabled = ['json', 'latex', 'markdown', 'python']
 
 " vim-rake
 nmap <Leader>ra :Rake<CR>
