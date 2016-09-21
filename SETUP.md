@@ -40,10 +40,6 @@
             - Turn off every fields
         - Passwords
             - Turn off every fields
-        - Extensions
-            - [1Password](https://agilebits.com/onepassword)
-            - [retab](https://github.com/brj/retab)
-            - [uBlock](https://www.ublock.org)
         - Advanced
             - Turn on "Show full website address"
 - Disable press-and-hold for keys in favor of key repeat:
@@ -70,7 +66,6 @@
 - [Palua](https://itunes.apple.com/kr/app/palua/id431494195?mt=12)
 - [Safari Extensions](https://safari-extensions.apple.com)
     - [1Password](https://safari-extensions.apple.com/details/?id=com.agilebits.onepassword4-safari-2BUA8C4S2C)
-    - [retab](https://github.com/bucaran/retab)
     - [uBlock](https://www.ublock.org)
 - Quick Look
     - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
