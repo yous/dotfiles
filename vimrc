@@ -82,8 +82,7 @@ endfunction
 call s:DownloadVimPlug()
 
 " Colorscheme
-Plug 'yous/tomorrow-theme', { 'branch': 'revert-git-summary-bold',
-      \ 'rtp': 'vim' }
+Plug 'yous/vim-open-color'
 
 " General
 " Preserve missing EOL at the end of text files
@@ -347,9 +346,10 @@ endif
 " =============================================================================
 
 try
-  colorscheme Tomorrow-Night
+  colorscheme open-color
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
+  set background=dark
 endtry
 
 if has('syntax') && has('gui_running') && &t_Co > 16
@@ -383,6 +383,10 @@ if has('windows')
 endif
 if has('vertsplit')
   set splitright
+endif
+if empty($TMUX) && has('termguicolors') &&
+      \ exists('g:colors_name') && g:colors_name !=# 'default'
+  set termguicolors
 endif
 
 augroup colorcolumn
