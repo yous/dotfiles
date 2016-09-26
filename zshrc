@@ -49,11 +49,10 @@ fi
 # Check if zplug is installed
 if [[ ! -d "$HOME/.zplug" ]]; then
   git clone https://github.com/zplug/zplug "$HOME/.zplug/repos/zplug/zplug"
-  ln -s "$HOME/.zplug/repos/zplug/zplug/init.zsh" "$HOME/.zplug/init.zsh"
 fi
 
 # Load zplug
-source $HOME/.zplug/init.zsh
+source $HOME/.zplug/repos/zplug/zplug/init.zsh
 
 # Let zplug manage zplug
 zplug "zplug/zplug"
