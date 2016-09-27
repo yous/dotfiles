@@ -384,7 +384,7 @@ endif
 if has('vertsplit')
   set splitright
 endif
-if empty($TMUX) && has('termguicolors') &&
+if empty($TMUX) && empty($STY) && has('termguicolors') &&
       \ exists('g:colors_name') && g:colors_name !=# 'default'
   set termguicolors
 endif
