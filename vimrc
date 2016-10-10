@@ -386,7 +386,9 @@ if has('vertsplit')
 endif
 if empty($TMUX) && empty($STY) && has('termguicolors') &&
       \ exists('g:colors_name') && g:colors_name !=# 'default'
-  set termguicolors
+  if !has('mac') || $TERM_PROGRAM ==# 'iTerm.app'
+    set termguicolors
+  endif
 endif
 
 augroup colorcolumn
