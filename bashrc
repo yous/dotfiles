@@ -251,7 +251,11 @@ fi
 
 # Enable keychain
 if command -v keychain &> /dev/null; then
-  eval `keychain --eval --quiet --agents ssh id_rsa`
+  if [ -f "$HOME/.ssh/id_rsa" ]; then
+    eval `keychain --eval --quiet --agents ssh id_rsa`
+  elif [ -f "$HOME/.ssh/id_ed25519" ]; then
+    eval `keychain --eval --quiet --agents ssh id_ed25519`
+  fi
 fi
 
 # Unset local functions
