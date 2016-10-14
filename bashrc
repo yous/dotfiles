@@ -331,7 +331,7 @@ alias gstp='git stash pop'
 alias v='vim'
 alias vi='vim'
 
-alias ruby-server='ruby -run -ehttpd . -p8000'
+alias ruby-server='ruby -run -ehttpd . -p8000 --bind-address=localhost'
 
 # http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
 function man() {
