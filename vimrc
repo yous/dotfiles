@@ -198,6 +198,8 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'mojako/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
+" CUP
+Plug 'gcollura/cup.vim', { 'for': 'cup' }
 " Jade
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " JSON
