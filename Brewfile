@@ -12,7 +12,6 @@ install tmux
 install cmake
 install ctags
 install editorconfig
-install gnupg2
 
 # Python
 install python
