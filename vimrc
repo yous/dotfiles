@@ -126,6 +126,8 @@ if !has('win32')
   " A Vim plugin for looking up words in an online thesaurus
   Plug 'beloglazov/vim-online-thesaurus'
 endif
+" Enhancing in-buffer search experience
+Plug 'junegunn/vim-slash'
 " Directory viewer for Vim
 Plug 'justinmk/vim-dirvish'
 " Go to Terminal or File manager
@@ -634,29 +636,6 @@ vnoremap / /\v
 cnoremap %s/ %smagic/
 cnoremap \>s/ \>smagic/
 
-" Stop the highlighting for hlsearch
-nnoremap <silent> ,/ :nohlsearch<CR>
-
-" Search for visually selected text
-function! s:VSearch(cmd)
-  let old_reg = getreg('"')
-  let old_regtype = getregtype('"')
-  normal! gvy
-  let @/ = escape(@", a:cmd . '\')
-  normal! gV
-  call setreg('"', old_reg, old_regtype)
-endfunction
-vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>
-vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>"<CR>
-
-" Center display after searching
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
 " Execute @q which is recorded by qq
 nnoremap Q @q
 
@@ -832,6 +811,10 @@ if exists('s:vimfiles')
         \ '/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 endif
 let g:ycm_confirm_extra_conf = 0
+
+" vim-slash
+" Center display after searching
+noremap <Plug>(slash-after) zz
 
 " Syntastic
 " Skip checks when you issue :wq, :x and :ZZ
