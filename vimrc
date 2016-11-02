@@ -1068,7 +1068,32 @@ let g:adblock_filter_auto_checksum = 1
 let g:vim_json_syntax_conceal = 0
 
 " vimtex
-let g:vimtex_view_enabled = 0
+if !has('clientserver')
+  let g:vimtex_latexmk_callback = 0
+endif
+if !empty(glob('/Applications/Skim.app'))
+  let g:vimtex_view_general_viewer =
+        \ '/Applications/Skim.app/Contents/SharedSupport/displayline'
+  let g:vimtex_view_general_options = '-r @line @pdf @tex'
+elseif executable('SumatraPDF.exe')
+  let g:vimtex_view_general_viewer = 'SumatraPDF'
+  let g:vimtex_view_general_options =
+        \ '-reuse-instance -forward-search @tex @line @pdf'
+  let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+endif
+let g:vimtex_syntax_minted = [
+      \ {
+      \   'lang': 'c'
+      \ },
+      \ {
+      \   'lang': 'cpp'
+      \ },
+      \ {
+      \   'lang': 'python'
+      \ },
+      \ {
+      \   'lang': 'ruby'
+      \ }]
 
 " vim-markdown
 let g:vim_markdown_no_default_key_mappings = 1
