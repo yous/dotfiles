@@ -364,9 +364,6 @@ endif
 set display+=lastline
 " Show unprintable characters as a hex number
 set display+=uhex
-if has('extra_search')
-  set hlsearch
-endif
 " Always show a status line
 set laststatus=2
 set number
