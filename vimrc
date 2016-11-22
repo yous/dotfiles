@@ -1065,6 +1065,11 @@ let g:adblock_filter_auto_checksum = 1
 let g:vim_json_syntax_conceal = 0
 
 " vimtex
+if has('win32unix')
+  let g:vimtex_complete_enabled = 0
+  let g:vimtex_latexmk_enabled = 0
+  let g:vimtex_view_enabled = 0
+endif
 if !has('clientserver')
   let g:vimtex_latexmk_callback = 0
 endif
