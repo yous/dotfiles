@@ -190,8 +190,6 @@ if has('signs')
   " Show a git diff in the gutter and stages/reverts hunks
   Plug 'airblade/vim-gitgutter'
 endif
-" The fancy start screen for Vim
-Plug 'mhinz/vim-startify'
 " Distraction-free writing in Vim
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
@@ -405,7 +403,7 @@ augroup END
 
 " Highlight trailing whitespace
 function! s:MatchExtraWhitespace(enabled)
-  if a:enabled && index(['conque_term', 'startify', 'vim-plug'], &filetype) < 0
+  if a:enabled && index(['conque_term', 'vim-plug'], &filetype) < 0
     match ExtraWhitespace /\s\+$/
   else
     match ExtraWhitespace //
@@ -743,7 +741,7 @@ augroup vimrc
   autocmd FileType ruby setlocal keywordprg=ri
 
   " Plain view for plugins
-  autocmd FileType conque_term,startify,vim-plug
+  autocmd FileType conque_term,vim-plug
         \ setlocal colorcolumn= nolist textwidth=0
 
   " Ruby configuration files view
@@ -1050,10 +1048,6 @@ command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
 
 " rainbow_parentheses.vim
 autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
-
-" vim-startify
-" let g:startify_custom_header = startify#fortune#cowsay()
-let g:startify_custom_header = 'map(startify#fortune#boxed(), "\"   \".v:val")'
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
