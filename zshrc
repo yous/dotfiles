@@ -47,7 +47,7 @@ if [[ -d "$HOME/.linuxbrew" ]]; then
 fi
 
 # Check if Antibody is installed
-if ! command -v antibody &> /dev/null; then
+if [[ "$(uname)" == 'Linux' ]] && ! command -v antibody &> /dev/null; then
   curl -s https://raw.githubusercontent.com/getantibody/installer/master/install | bash -s
 fi
 

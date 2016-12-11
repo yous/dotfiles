@@ -23,3 +23,7 @@ install chruby
 
 # Vim
 install vim
+
+# Antibody
+tab getantibody/homebrew-antibody
+install antibody
