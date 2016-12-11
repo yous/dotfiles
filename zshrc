@@ -46,36 +46,26 @@ if [[ -d "$HOME/.linuxbrew" ]]; then
   export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
-# Check if zplug is installed
-if [[ ! -d "$HOME/.zplug" ]]; then
-  git clone https://github.com/zplug/zplug "$HOME/.zplug"
-  mkdir -p "$HOME/.zplug/repos/zplug"
-  ln -s "$HOME/.zplug" "$HOME/.zplug/repos/zplug/zplug"
+# Check if Antibody is installed
+if ! command -v antibody &> /dev/null; then
+  curl -s https://raw.githubusercontent.com/getantibody/installer/master/install | bash -s
 fi
 
-# Load zplug
-source $HOME/.zplug/init.zsh
+source <(antibody init)
 
-# Let zplug manage zplug
-zplug "zplug/zplug", ignore:init.zsh
+antibody bundle <<EOF
 # Vanilla shell
-zplug "yous/vanilli.sh"
+yous/vanilli.sh
 # Additional completion definitions for Zsh
-zplug "zsh-users/zsh-completions"
+zsh-users/zsh-completions
 # Load the theme.
-zplug "yous/lime"
+yous/lime
+EOF
 # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
 # excuting compinit command and sourcing other plugins.
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+antibody bundle zsh-users/zsh-syntax-highlighting
 # ZSH port of Fish shell's history search feature
-zplug "zsh-users/zsh-history-substring-search", defer:3
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check; then
-  zplug install
-fi
-# Then, source plugins and add commands to $PATH
-zplug load
+antibody bundle zsh-users/zsh-history-substring-search
 
 # zsh-users/zsh-completions
 zmodload zsh/terminfo
