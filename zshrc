@@ -56,14 +56,14 @@ if [[ "$(uname)" == 'Linux' ]] || [[ "$(uname)" == 'Darwin' ]]; then
   # Load Antibody
   source <(antibody init)
 
-  antibody bundle <<-EOF
+  antibody bundle <<EOF
   # Vanilla shell
   yous/vanilli.sh
   # Additional completion definitions for Zsh
   zsh-users/zsh-completions
   # Load the theme.
   yous/lime
-  EOF
+EOF
   # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
   # excuting compinit command and sourcing other plugins.
   antibody bundle zsh-users/zsh-syntax-highlighting
