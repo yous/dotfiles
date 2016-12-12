@@ -25,5 +25,5 @@ install chruby
 install vim
 
 # Antibody
-tab getantibody/homebrew-antibody
+tap getantibody/homebrew-antibody
 install antibody
