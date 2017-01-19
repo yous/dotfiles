@@ -79,9 +79,11 @@ case "$1" in
     done
     replace_file 'Gdbinit/gdbinit' '.gdbinit'
     replace_file 'tpm' '.tmux/plugins/tpm'
-    for FILENAME in bin/*
+    for FILENAME in \
+      'diff-highlight' \
+      'diff-hunk-list'
     do
-      replace_file "$FILENAME" "$FILENAME"
+      replace_file "bin/$FILENAME" "bin/$FILENAME"
     done
     echo 'Done.'
     ;;
