@@ -248,7 +248,7 @@ alias grbc='git rebase --continue'
 alias grbi='git rebase -i'
 alias grup='git remote update'
 alias gst='git status'
-alias gsta='git stash'
+alias gsta='git -c commit.gpgsign=false stash'
 alias gstd='git stash drop'
 alias gstp='git stash pop'
 
