@@ -1,15 +1,15 @@
 @echo off
 
 :: Files to link
-set files=irbrc^
-
-gemrc^
+set files=gemrc^
 
 gitattributes_global^
 
 gitconfig^
 
 gitignore_global^
+
+irbrc^
 
 vimrc
 
