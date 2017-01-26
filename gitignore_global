@@ -15,6 +15,7 @@ $RECYCLE.BIN/
 Session.vim
 .netrwhist
 *~
+tags
 .ycm_extra_conf.py
 
 # JetBrains IDE
