@@ -846,6 +846,7 @@ let g:shell_mappings_enabled = 0
 " vim-easytags
 let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
+let g:easytags_dynamic_files = 1
 
 " Fugitive
 let s:fugitive_insert = 0
