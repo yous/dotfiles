@@ -60,6 +60,7 @@ case "$1" in
     init_submodules
     for FILENAME in \
       'bashrc' \
+      'ctags' \
       'gemrc' \
       'gitattributes_global' \
       'gitconfig' \

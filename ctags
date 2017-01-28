@@ -1,0 +1,7 @@
+--exclude=.idea
+--exclude=build
+--exclude=db
+--exclude=node_modules
+--exclude=log
+--exclude=tmp
+--exclude=vendor
