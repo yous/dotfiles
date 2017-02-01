@@ -823,29 +823,33 @@ let g:ycm_confirm_extra_conf = 0
 " Center display after searching
 noremap <Plug>(slash-after) zz
 
-" Syntastic
-" Skip checks when you issue :wq, :x and :ZZ
-let g:syntastic_check_on_wq = 0
-" Display all of the errors from all of the checkers together
-let g:syntastic_aggregate_errors = 1
-" Sort errors by file, line number, type, column number
-let g:syntastic_sort_aggregated_errors = 1
-" Turn off highlighting for marking errors
-let g:syntastic_enable_highlighting = 0
-" Always stick any detected errors into the location-list
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_mode_map = { 'mode': 'passive' }
-" Check header files
-let g:syntastic_c_check_header = 1
-let g:syntastic_cpp_check_header = 1
-" Enable JSCS for JavaScript files
-let g:syntastic_javascript_checkers = ['jshint', 'jslint', 'jscs']
-" Extend max error count for JSLint
-let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
-      \ --bitwise --newcap --sloppy --vars --maxerr=1000'
-
 " ale
-let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
+if has_key(g:plugs, 'ale')
+  let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
+endif
+
+" Syntastic
+if has_key(g:plugs, 'syntastic')
+  " Skip checks when you issue :wq, :x and :ZZ
+  let g:syntastic_check_on_wq = 0
+  " Display all of the errors from all of the checkers together
+  let g:syntastic_aggregate_errors = 1
+  " Sort errors by file, line number, type, column number
+  let g:syntastic_sort_aggregated_errors = 1
+  " Turn off highlighting for marking errors
+  let g:syntastic_enable_highlighting = 0
+  " Always stick any detected errors into the location-list
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_mode_map = { 'mode': 'passive' }
+  " Check header files
+  let g:syntastic_c_check_header = 1
+  let g:syntastic_cpp_check_header = 1
+  " Enable JSCS for JavaScript files
+  let g:syntastic_javascript_checkers = ['jshint', 'jslint', 'jscs']
+  " Extend max error count for JSLint
+  let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
+        \ --bitwise --newcap --sloppy --vars --maxerr=1000'
+endif
 
 " vim-shell
 let g:shell_hl_exclude = '^.*$'
@@ -1036,44 +1040,48 @@ function! LightLineTabModified(n)
   return gettabwinvar(a:n, winnr, '&modified') ? '+' : ''
 endfunction
 
-augroup LightLineALE
-  autocmd!
-  autocmd User ALELint call s:LightLineALE()
-augroup END
+if has_key(g:plugs, 'ale')
+  augroup LightLineALE
+    autocmd!
+    autocmd User ALELint call s:LightLineALE()
+  augroup END
 
-function! s:LightLineALE()
-  if exists('#lightline')
-    call lightline#update()
-  endif
-endfunction
-
-let g:lightline.syntastic_mode_active = 1
-augroup LightLineSyntastic
-  autocmd!
-  autocmd BufWritePost * call s:LightLineSyntastic()
-augroup END
-
-function! s:LightLineSyntastic()
-  if g:lightline.syntastic_mode_active
-    SyntasticCheck
+  function! s:LightLineALE()
     if exists('#lightline')
       call lightline#update()
     endif
-  endif
-endfunction
-command! LightLineSyntastic call s:LightLineSyntastic()
+  endfunction
+endif
 
-function! s:LightLineSyntasticToggleMode()
-  if g:lightline.syntastic_mode_active
-    let g:lightline.syntastic_mode_active = 0
-    echo 'Syntastic: passive mode enabled'
-  else
-    let g:lightline.syntastic_mode_active = 1
-    echo 'Syntastic: active mode enabled'
-  endif
-  SyntasticReset
-endfunction
-command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
+if has_key(g:plugs, 'syntastic')
+  let g:lightline.syntastic_mode_active = 1
+  augroup LightLineSyntastic
+    autocmd!
+    autocmd BufWritePost * call s:LightLineSyntastic()
+  augroup END
+
+  function! s:LightLineSyntastic()
+    if g:lightline.syntastic_mode_active
+      SyntasticCheck
+      if exists('#lightline')
+        call lightline#update()
+      endif
+    endif
+  endfunction
+  command! LightLineSyntastic call s:LightLineSyntastic()
+
+  function! s:LightLineSyntasticToggleMode()
+    if g:lightline.syntastic_mode_active
+      let g:lightline.syntastic_mode_active = 0
+      echo 'Syntastic: passive mode enabled'
+    else
+      let g:lightline.syntastic_mode_active = 1
+      echo 'Syntastic: active mode enabled'
+    endif
+    SyntasticReset
+  endfunction
+  command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
+endif
 
 " rainbow_parentheses.vim
 autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
