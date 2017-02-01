@@ -228,7 +228,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Python
 " A nicer Python indentation style for vim
-Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 " Ruby
 " Rake
