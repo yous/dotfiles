@@ -22,7 +22,13 @@ AllCops:
     - 'vendor/**/*'
 
 Style/Encoding:
+  EnforcedStyle: when_needed
   Enabled: true
 
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - 'spec/**/*.rb'
