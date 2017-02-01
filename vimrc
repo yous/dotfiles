@@ -136,8 +136,13 @@ Plug 'justinmk/vim-gtfo'
 Plug 'tpope/vim-endwise'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
-" Syntax checking plugin
-Plug 'scrooloose/syntastic'
+if has('timers') && exists('*job_start') && exists('*ch_close_in')
+  " Asynchronous Lint Engine
+  Plug 'w0rp/ale'
+else
+  " Syntax checking plugin
+  Plug 'scrooloose/syntastic'
+endif
 " Automated tag file generation and syntax highlighting of tags
 if executable('ctags')
   Plug 'xolox/vim-misc' |
@@ -839,6 +844,9 @@ let g:syntastic_javascript_checkers = ['jshint', 'jslint', 'jscs']
 let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
       \ --bitwise --newcap --sloppy --vars --maxerr=1000'
 
+" ale
+let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
+
 " vim-shell
 let g:shell_hl_exclude = '^.*$'
 let g:shell_mappings_enabled = 0
@@ -899,7 +907,7 @@ let g:lightline = {
       \     ['mode', 'paste'],
       \     ['filename', 'readonly', 'eol', 'modified']],
       \   'right': [
-      \     ['syntastic', 'lineinfo'],
+      \     [has_key(g:plugs, 'ale') ? 'ale' : 'syntastic', 'lineinfo'],
       \     ['percent'],
       \     ['filetype', 'fileencoding', 'fileformat']] },
       \ 'tabline': { 'left': [['tabs']], 'right': [[]] },
@@ -911,10 +919,12 @@ let g:lightline = {
       \ 'component_expand': {
       \   'readonly': 'LightLineReadonly',
       \   'eol': 'LightLineEol',
+      \   'ale': 'ALEGetStatusLine',
       \   'syntastic': 'SyntasticStatuslineFlag' },
       \ 'component_type': {
       \   'readonly': 'warning',
       \   'eol': 'warning',
+      \   'ale': 'error',
       \   'syntastic': 'error' },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '|' } }
@@ -1024,6 +1034,17 @@ endfunction
 function! LightLineTabModified(n)
   let winnr = tabpagewinnr(a:n)
   return gettabwinvar(a:n, winnr, '&modified') ? '+' : ''
+endfunction
+
+augroup LightLineALE
+  autocmd!
+  autocmd User ALELint call s:LightLineALE()
+augroup END
+
+function! s:LightLineALE()
+  if exists('#lightline')
+    call lightline#update()
+  endif
 endfunction
 
 let g:lightline.syntastic_mode_active = 1
