@@ -1,0 +1,84 @@
+root: true
+parserOptions:
+  ecmaVersion: 5
+  sourceType: "script"
+
+env:
+  browser: true
+
+extends:
+  # https://github.com/google/eslint-config-google/blob/master/index.js
+  - "eslint:recommended"
+  - "google"
+rules:
+  # Possible Errors
+  no-unsafe-negation: "error"
+
+  # Best Practices
+  accessor-pairs: "error"
+  array-callback-return: "error"
+  complexity: "error"
+  consistent-return: "error"
+  curly: ["error", "all"]
+  dot-location: ["error", "property"]
+  dot-notation: "error"
+  eqeqeq: "error"
+  no-alert: "error"
+  no-div-regex: "error"
+  no-eq-null: "error"
+  no-eval: "error"
+  no-extra-label: "error"
+  no-floating-decimal: "error"
+  no-global-assign: "error"
+  no-implicit-coercion: "error"
+  no-implied-eval: "error"
+  no-iterator: "error"
+  no-labels: "error"
+  no-lone-blocks: "error"
+  no-new-func: "error"
+  no-new: "error"
+  no-octal-escape: "error"
+  no-param-reassign: "error"
+  no-proto: "error"
+  no-return-assign: "error"
+  no-return-await: "error"
+  no-script-url: "error"
+  no-self-compare: "error"
+  no-sequences: "error"
+  no-unmodified-loop-condition: "error"
+  no-unused-expressions: "error"
+  no-useless-call: "error"
+  no-useless-concat: "error"
+  no-useless-escape: "error"
+  no-useless-return: "error"
+  no-void: "error"
+  no-warning-comments: "warn"
+  prefer-promise-reject-errors: "error"
+  radix: "error"
+  require-await: "error"
+  wrap-iife: ["error", "inside"]
+
+  # Variables
+  no-catch-shadow: "error"
+  no-label-var: "error"
+  no-shadow-restricted-names: "error"
+  no-shadow: "error"
+  no-undef-init: "error"
+  no-undefined: "error"
+  no-use-before-define: ["error", { "functions": false }]
+
+  # Stylistic Issues
+  block-spacing: "error"
+  consistent-this: ["error", "self"]
+  indent: ["error", 2, { SwitchCase: 1 }]
+  keyword-spacing: "error"
+  new-parens: "error"
+  no-unneeded-ternary: "error"
+  no-whitespace-before-property: "error"
+  operator-linebreak: ["error", "after"]
+  space-in-parens: "error"
+  space-infix-ops: "error"
+  space-unary-ops: "error"
+
+  # ECMAScript 6
+  no-var: "off"
