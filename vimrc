@@ -1146,6 +1146,8 @@ let g:vim_markdown_frontmatter = 1
 
 " vim-polyglot
 let g:polyglot_disabled = ['json', 'latex', 'markdown', 'python']
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
 
 " vim-rake
 nmap <Leader>ra :Rake<CR>
