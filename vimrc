@@ -849,6 +849,8 @@ if has_key(g:plugs, 'syntastic')
   " Extend max error count for JSLint
   let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
         \ --bitwise --newcap --sloppy --vars --maxerr=1000'
+  " Enable Vint for Vim files
+  let g:syntastic_javascript_checkers = ['vimlint', 'vint']
 endif
 
 " vim-shell
