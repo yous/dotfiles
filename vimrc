@@ -130,6 +130,7 @@ if !has('win32')
   endif
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
   " A Vim plugin for looking up words in an online thesaurus
   Plug 'beloglazov/vim-online-thesaurus'
 endif
