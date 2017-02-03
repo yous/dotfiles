@@ -5,11 +5,11 @@
 " =============================================================================
 
 function! s:VersionRequirement(val, min)
-  for idx in range(0, len(a:min) - 1)
-    let v = get(a:val, idx, 0)
-    if v < a:min[idx]
+  for l:idx in range(0, len(a:min) - 1)
+    let l:v = get(a:val, l:idx, 0)
+    if l:v < a:min[l:idx]
       return 0
-    elseif v > a:min[idx]
+    elseif l:v > a:min[l:idx]
       return 1
     endif
   endfor
@@ -27,8 +27,8 @@ else
   let s:python26 = 0
 endif
 
-if !empty(&rtp)
-  let s:vimfiles = split(&rtp, ',')[0]
+if !empty(&runtimepath)
+  let s:vimfiles = split(&runtimepath, ',')[0]
 else
   echohl ErrorMsg
   echomsg 'Unable to determine runtime path for Vim.'
@@ -40,7 +40,14 @@ endif
 " Vim Plug: {{{
 " =============================================================================
 
-set nocompatible
+" Define the 'vimrc' autocmd group
+augroup vimrc
+  autocmd!
+augroup END
+
+if &compatible
+  set nocompatible
+endif
 filetype off
 
 " Install vim-plug if it isn't installed and call plug#begin() out of box
@@ -49,15 +56,15 @@ function! s:DownloadVimPlug()
     return
   endif
   if empty(glob(s:vimfiles . '/autoload/plug.vim'))
-    let plug_url = 'https://github.com/junegunn/vim-plug.git'
-    let tmp = tempname()
-    let new = tmp . '/plug.vim'
+    let l:plug_url = 'https://github.com/junegunn/vim-plug.git'
+    let l:tmp = tempname()
+    let l:new = l:tmp . '/plug.vim'
 
     try
-      let out = system(printf('git clone --depth 1 %s %s', plug_url, tmp))
+      let l:out = system(printf('git clone --depth 1 %s %s', l:plug_url, l:tmp))
       if v:shell_error
         echohl ErrorMsg
-        echomsg 'Error downloading vim-plug: ' . out
+        echomsg 'Error downloading vim-plug: ' . l:out
         echohl NONE
         return
       endif
@@ -65,14 +72,14 @@ function! s:DownloadVimPlug()
       if !isdirectory(s:vimfiles . '/autoload')
         call mkdir(s:vimfiles . '/autoload', 'p')
       endif
-      call rename(new, s:vimfiles . '/autoload/plug.vim')
+      call rename(l:new, s:vimfiles . '/autoload/plug.vim')
 
       " Install plugins at first
-      autocmd VimEnter * PlugInstall | quit
+      autocmd vimrc VimEnter * PlugInstall | quit
     finally
-      if isdirectory(tmp)
-        let dir = '"' . escape(tmp, '"') . '"'
-        silent call system((has('win32') ? 'rmdir /S /Q ' : 'rm -rf ') . dir)
+      if isdirectory(l:tmp)
+        let l:dir = '"' . escape(l:tmp, '"') . '"'
+        silent call system((has('win32') ? 'rmdir /S /Q ' : 'rm -rf ') . l:dir)
       endif
     endtry
   endif
@@ -100,24 +107,24 @@ if !has('win32')
       " - name: name of the plugin
       " - status: 'installed', 'updated', or 'unchanged'
       " - force: set on PlugInstall! or PlugUpdate!
-      if a:info.status == 'installed' || a:info.force
-        let options = []
-        let requirements = [['clang', '--clang-completer'],
+      if a:info.status ==# 'installed' || a:info.force
+        let l:options = []
+        let l:requirements = [['clang', '--clang-completer'],
               \ ['go', '--gocode-completer'],
               \ ['cargo', '--racer-completer']]
-        for r in requirements
-          if executable(r[0])
-            let options += [r[1]]
+        for l:r in l:requirements
+          if executable(l:r[0])
+            let l:options += [l:r[1]]
           endif
         endfor
-        execute '!./install.py ' . join(options, ' ')
+        execute '!./install.py ' . join(l:options, ' ')
       endif
     endfunction
 
     " A code-completion engine for Vim
-    let BuildYCMRef = function('s:BuildYCM')
-    Plug 'Valloric/YouCompleteMe', { 'do': BuildYCMRef }
-    unlet BuildYCMRef
+    let g:BuildYCMRef = function('s:BuildYCM')
+    Plug 'Valloric/YouCompleteMe', { 'do': g:BuildYCMRef }
+    unlet g:BuildYCMRef
     " Generates config files for YouCompleteMe
     Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
   endif
@@ -269,11 +276,6 @@ call plug#end()
 " General: {{{
 " =============================================================================
 
-" Define the 'vimrc' autocmd group
-augroup vimrc
-  autocmd!
-augroup END
-
 if &shell =~# 'fish$'
   set shell=sh
 endif
@@ -281,6 +283,7 @@ if has('gui_running')
   language messages en
   if has('multi_byte')
     set encoding=utf-8
+    scriptencoding utf-8
   endif
 endif
 set autoread
@@ -423,7 +426,7 @@ augroup ExtraWhitespace
   autocmd FileType * call s:MatchExtraWhitespace(1)
   autocmd InsertEnter * call s:MatchExtraWhitespace(0)
   autocmd InsertLeave * call s:MatchExtraWhitespace(1)
-  if version >= 702
+  if v:version >= 702
     autocmd BufWinLeave * call clearmatches()
   endif
 augroup END
@@ -462,15 +465,16 @@ if has('gui_running')
     " Restore window size (columns and lines) and position
     " from values stored in vimsize file.
     " Must set font first so columns and lines are based on font size.
-    let f = s:ScreenFilename()
-    if has('gui_running') && g:screen_size_restore_pos && filereadable(f)
-      let vim_instance =
+    let l:f = s:ScreenFilename()
+    if has('gui_running') && g:screen_size_restore_pos && filereadable(l:f)
+      let l:vim_instance =
             \ (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
-      for line in readfile(f)
-        let sizepos = split(line)
-        if len(sizepos) == 5 && sizepos[0] == vim_instance
-          silent! execute 'set columns=' . sizepos[1] . ' lines=' . sizepos[2]
-          silent! execute 'winpos ' . sizepos[3] . ' ' . sizepos[4]
+      for l:line in readfile(l:f)
+        let l:sizepos = split(l:line)
+        if len(l:sizepos) == 5 && l:sizepos[0] == l:vim_instance
+          silent! execute 'set columns=' . l:sizepos[1] .
+                \ ' lines=' . l:sizepos[2]
+          silent! execute 'winpos ' . l:sizepos[3] . ' ' . l:sizepos[4]
           return
         endif
       endfor
@@ -479,20 +483,20 @@ if has('gui_running')
   function! s:ScreenSave()
     " Save window size and position.
     if has('gui_running') && g:screen_size_restore_pos
-      let vim_instance =
+      let l:vim_instance =
             \ (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
-      let data = vim_instance . ' ' . &columns . ' ' . &lines . ' ' .
+      let l:data = l:vim_instance . ' ' . &columns . ' ' . &lines . ' ' .
             \ (getwinposx() < 0 ? 0: getwinposx()) . ' ' .
             \ (getwinposy() < 0 ? 0: getwinposy())
-      let f = s:ScreenFilename()
-      if filereadable(f)
-        let lines = readfile(f)
-        call filter(lines, "v:val !~ '^" . vim_instance . "\\>'")
-        call add(lines, data)
+      let l:f = s:ScreenFilename()
+      if filereadable(l:f)
+        let l:lines = readfile(l:f)
+        call filter(l:lines, "v:val !~ '^" . l:vim_instance . "\\>'")
+        call add(l:lines, l:data)
       else
-        let lines = [data]
+        let l:lines = [l:data]
       endif
-      call writefile(lines, f)
+      call writefile(l:lines, l:f)
     endif
   endfunction
   if !exists('g:screen_size_restore_pos')
@@ -708,17 +712,17 @@ endif
 " Auto quit Vim when actual files are closed
 function! s:CheckLeftBuffers()
   if tabpagenr('$') == 1
-    let i = 1
-    while i <= winnr('$')
+    let l:i = 1
+    while l:i <= winnr('$')
       let l:filetypes = ['help', 'quickfix', 'nerdtree', 'taglist']
-      if index(l:filetypes, getbufvar(winbufnr(i), '&filetype')) >= 0 ||
-            \ getwinvar(i, '&previewwindow')
-        let i += 1
+      if index(l:filetypes, getbufvar(winbufnr(l:i), '&filetype')) >= 0 ||
+            \ getwinvar(l:i, '&previewwindow')
+        let l:i += 1
       else
         break
       endif
     endwhile
-    if i == winnr('$') + 1
+    if l:i == winnr('$') + 1
       call feedkeys(":only\<CR>:q\<CR>", 'n')
     endif
   endif
@@ -777,12 +781,12 @@ augroup vimrc
 augroup END
 
 " Reload symlink of vimrc on the fly
-let resolved_vimrc = resolve(expand($MYVIMRC))
-if expand($MYVIMRC) !=# resolved_vimrc
-  execute 'autocmd vimrc BufWritePost ' . resolved_vimrc .
+let s:resolved_vimrc = resolve(expand($MYVIMRC))
+if expand($MYVIMRC) !=# s:resolved_vimrc
+  execute 'autocmd vimrc BufWritePost ' . s:resolved_vimrc .
         \ ' nested source $MYVIMRC'
 endif
-unlet resolved_vimrc
+unlet s:resolved_vimrc
 
 " }}}
 " =============================================================================
@@ -935,35 +939,36 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '|' } }
 
-for k in ['mode', 'filename', 'modified', 'filetype', 'fileencoding',
+for s:k in ['mode', 'filename', 'modified', 'filetype', 'fileencoding',
       \ 'fileformat', 'percent', 'lineinfo']
-  let g:lightline.component_function[k] = 'LightLine' . toupper(k[0]) . k[1:]
+  let g:lightline.component_function[s:k] =
+        \ 'LightLine' . toupper(s:k[0]) . s:k[1:]
 endfor
-for k in ['filename', 'modified']
-  let g:lightline.tab_component_function['tab' . k] =
-        \ 'LightLineTab' . toupper(k[0]) . k[1:]
+for s:k in ['filename', 'modified']
+  let g:lightline.tab_component_function['tab' . s:k] =
+        \ 'LightLineTab' . toupper(s:k[0]) . s:k[1:]
 endfor
 
 function! LightLineWide(component)
-  let component_visible_width = {
+  let l:component_visible_width = {
         \ 'mode': 60,
         \ 'fileencoding': 70,
         \ 'fileformat': 70,
         \ 'filetype': 70,
         \ 'percent': 50 }
-  return winwidth(0) >= get(component_visible_width, a:component, 0)
+  return winwidth(0) >= get(l:component_visible_width, a:component, 0)
 endfunction
 
 function! LightLineVisible(component)
-  let fname = expand('%:t')
-  return fname != '__Tag_List__' &&
-        \ fname != 'ControlP' &&
-        \ fname !~ 'NERD_tree' &&
+  let l:fname = expand('%:t')
+  return l:fname !=# '__Tag_List__' &&
+        \ l:fname !=# 'ControlP' &&
+        \ l:fname !~# 'NERD_tree' &&
         \ LightLineWide(a:component)
 endfunction
 
 function! LightLineMode()
-  let short_mode_map = {
+  let l:short_mode_map = {
         \ 'n': 'N',
         \ 'i': 'I',
         \ 'R': 'R',
@@ -976,22 +981,22 @@ function! LightLineMode()
         \ "\<C-s>": 'S',
         \ 't': 'T',
         \ '?': ' ' }
-  let fname = expand('%:t')
-  return fname == '__Tag_List__' ? 'TagList' :
-        \ fname == 'ControlP' ? 'CtrlP' :
-        \ fname =~ 'NERD_tree' ? '' :
+  let l:fname = expand('%:t')
+  return l:fname ==# '__Tag_List__' ? 'TagList' :
+        \ l:fname ==# 'ControlP' ? 'CtrlP' :
+        \ l:fname =~# 'NERD_tree' ? '' :
         \ LightLineWide('mode') ? lightline#mode() :
-        \ get(short_mode_map, mode(), short_mode_map['?'])
+        \ get(l:short_mode_map, mode(), l:short_mode_map['?'])
 endfunction
 
 function! LightLineFilename()
-  let fname = expand('%:t')
-  return fname == '__Tag_List__' ? '' :
-        \ fname == 'ControlP' ? '' :
-        \ fname =~ 'NERD_tree' ?
+  let l:fname = expand('%:t')
+  return l:fname ==# '__Tag_List__' ? '' :
+        \ l:fname ==# 'ControlP' ? '' :
+        \ l:fname =~# 'NERD_tree' ?
         \   (index(['" Press ? for help', '.. (up a dir)'], getline('.')) < 0 ?
         \     matchstr(getline('.'), '[0-9A-Za-z_/].*') : '') :
-        \ '' != fname ? fname : '[No Name]'
+        \ '' !=# l:fname ? l:fname : '[No Name]'
 endfunction
 
 function! LightLineReadonly()
@@ -999,7 +1004,7 @@ function! LightLineReadonly()
 endfunction
 
 function! LightLineEol()
-  return &eol ? '' : 'NOEOL'
+  return &endofline ? '' : 'NOEOL'
 endfunction
 
 function! LightLineModified()
@@ -1012,7 +1017,8 @@ function! LightLineFiletype()
 endfunction
 
 function! LightLineFileencoding()
-  return LightLineVisible('fileencoding') ? (strlen(&fenc) ? &fenc : &enc) : ''
+  return LightLineVisible('fileencoding') ?
+        \ (strlen(&fileencoding) ? &fileencoding : &encoding) : ''
 endfunction
 
 function! LightLineFileformat()
@@ -1025,21 +1031,21 @@ endfunction
 
 function! LightLineLineinfo()
   return LightLineVisible('lineinfo') ?
-        \ printf("%3d:%-2d", line('.'), col('.')) : ''
+        \ printf('%3d:%-2d', line('.'), col('.')) : ''
 endfunction
 
 function! LightLineTabFilename(n)
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  let fname = expand('#' . buflist[winnr - 1] . ':t')
-  let filetype = gettabwinvar(a:n, winnr, '&filetype')
-  return filetype == 'GV' ? 'GV' :
-        \ '' != fname ? fname : '[No Name]'
+  let l:buflist = tabpagebuflist(a:n)
+  let l:winnr = tabpagewinnr(a:n)
+  let l:fname = expand('#' . l:buflist[l:winnr - 1] . ':t')
+  let l:filetype = gettabwinvar(a:n, l:winnr, '&filetype')
+  return l:filetype ==# 'GV' ? 'GV' :
+        \ '' !=# l:fname ? l:fname : '[No Name]'
 endfunction
 
 function! LightLineTabModified(n)
-  let winnr = tabpagewinnr(a:n)
-  return gettabwinvar(a:n, winnr, '&modified') ? '+' : ''
+  let l:winnr = tabpagewinnr(a:n)
+  return gettabwinvar(a:n, l:winnr, '&modified') ? '+' : ''
 endfunction
 
 if has_key(g:plugs, 'ale')
