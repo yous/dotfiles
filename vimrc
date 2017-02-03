@@ -141,7 +141,7 @@ if has('timers') && exists('*job_start') && exists('*ch_close_in')
   Plug 'w0rp/ale'
 else
   " Syntax checking plugin
-  Plug 'scrooloose/syntastic'
+  Plug 'vim-syntastic/syntastic'
 endif
 " Automated tag file generation and syntax highlighting of tags
 if executable('ctags')
