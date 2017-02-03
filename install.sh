@@ -71,6 +71,7 @@ case "$1" in
       'profile' \
       'screenrc' \
       'tmux.conf' \
+      'vintrc.yaml' \
       'vimrc' \
       'weechat' \
       'zprofile' \
