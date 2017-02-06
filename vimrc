@@ -1159,12 +1159,12 @@ let g:polyglot_disabled = ['json', 'latex', 'markdown', 'python']
 let g:javascript_plugin_jsdoc = 1
 
 " vim-rake
-nmap <Leader>ra :Rake<CR>
+nnoremap <Leader>ra :Rake<CR>
 
 " vim-rubocop
 let g:vimrubocop_extra_args = '--display-cop-names'
 let g:vimrubocop_keymap = 0
-nmap <Leader>ru :RuboCop<CR>
+nnoremap <Leader>ru :RuboCop<CR>
 
 " AnsiEsc.vim
 autocmd vimrc FileType railslog :AnsiEsc
@@ -1174,7 +1174,7 @@ if has('mac') || has('macunix')
   " dash.vim
   let g:dash_map = {
         \ 'java' : 'android' }
-  nmap <Leader>d <Plug>DashSearch
+  nnoremap <Leader>d <Plug>DashSearch
 endif
 
 " }}}
