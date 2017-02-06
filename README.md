@@ -35,6 +35,7 @@ For available install options:
 Command option | Description
 ---------------|-----------------------------------------------
 `link`         | Install symbolic links
+`antibody`     | Install Antibody
 `brew`         | Install Homebrew
 `formulae`     | Install Homebrew formulae using Brewfile
 `npm`          | Install global Node.js packages
@@ -42,8 +43,7 @@ Command option | Description
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
 
-In Windows, use `install.bat`. It links `gitconfig`, `gitignore_global`, `vimrc`
-to the user's home directory.
+In Windows, use `install.bat`. It links files into the user's home directory.
 
 ### Git
 
@@ -222,6 +222,22 @@ To make RVM works with Vim on OS X Yosemite or earlier, move `/etc/zshenv` to
 
 ``` sh
 sudo mv /etc/zshenv /etc/zshrc
+```
+
+#### Antibody
+
+If you want to install [Antibody](https://getantibody.github.io), if you're on
+OS X,
+
+``` sh
+brew tap getantibody/homebrew-antibody
+brew install antibody
+```
+
+Otherwise,
+
+``` sh
+./install.sh antibody
 ```
 
 ### Vim

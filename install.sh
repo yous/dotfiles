@@ -89,6 +89,9 @@ case "$1" in
     done
     echo 'Done.'
     ;;
+  antibody)
+    curl -sL https://git.io/antibody | bash -s
+    ;;
   brew)
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ;;
@@ -134,6 +137,7 @@ case "$1" in
     echo ''
     echo 'Available commands:'
     echo '    link      Install symbolic links'
+    echo '    antibody  Install Antibody'
     echo '    brew      Install Homebrew'
     echo '    formulae  Install Homebrew formulae using Brewfile'
     echo '    npm       Install global Node.js packages'
