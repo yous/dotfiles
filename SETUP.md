@@ -5,7 +5,7 @@
 - [구름 입력기](http://gureum.io) ([Unofficial releases](https://github.com/soomtong/gureum/releases))
     - [신세벌식 P2](http://pat.im/1136)
 - [Workman Layout](http://www.workmanlayout.com/blog/)
-    - Remove U.S. from `AppleEnabledInputSources` in `~/Library/Preferences/com.apple.HIToolbox.plist`, and then re-login
+    - Remove U.S. from `AppleEnabledInputSources` in `~/Library/Preferences/com.apple.HIToolbox.plist`, and then reboot
 
       ``` plist
       <dict>
@@ -15,6 +15,19 @@
       	<integer>0</integer>
       	<key>KeyboardLayout Name</key>
       	<string>U.S.</string>
+      </dict>
+      ```
+
+      You may have ABC instead of U.S.
+
+      ``` plist
+      <dict>
+      	<key>InputSourceKind</key>
+      	<string>Keyboard Layout</string>
+      	<key>KeyboardLayout ID</key>
+      	<integer>252</integer>
+      	<key>KeyboardLayout Name</key>
+      	<string>ABC</string>
       </dict>
       ```
 
