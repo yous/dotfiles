@@ -71,6 +71,9 @@ EOF
   antibody bundle zsh-users/zsh-history-substring-search
 
   # zsh-users/zsh-completions
+  autoload -U compinit && compinit
+
+  # zsh-users/zsh-history-substring-search
   zmodload zsh/terminfo
   [ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
   [ -n "${terminfo[kcud1]}" ] && bindkey "${terminfo[kcud1]}" history-substring-search-down
