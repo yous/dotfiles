@@ -66,6 +66,10 @@
     defaults write com.apple.screencapture name -string 'Screenshot'
     ```
 
+## Fonts
+
+- [SF Mono](https://developer.apple.com/fonts/) (`/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SF-Mono-*`)
+
 ## Applications
 
 - [1Password](https://agilebits.com/downloads)
