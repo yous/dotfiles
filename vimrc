@@ -661,6 +661,45 @@ function! s:ZoomToggle()
 endfunction
 nnoremap <silent> <Leader>z :call <SID>ZoomToggle()<CR>
 
+" Cscope mappings
+if has('cscope')
+  function! s:FindCscopeDB()
+    let l:db = findfile('cscope.out', '.;')
+    if !empty(l:db)
+      silent cscope reset
+      silent! execute 'cscope add' l:db
+    elseif !empty($CSCOPE_DB)
+      silent cscope reset
+      silent! execute 'cscope add' $CSCOPE_DB
+    endif
+  endfunction
+
+  set cscopetag
+  set cscopetagorder=0
+  set cscopeverbose
+  call s:FindCscopeDB()
+
+  " 0 or s: Find this C symbol
+  " 1 or g: Find this definition
+  " 2 or d: Find functions called by this function
+  " 3 or c: Find functions calling this function
+  " 4 or t: Find this text string
+  " 6 or e: Find this egrep pattern
+  " 7 or f: Find this file
+  " 8 or i: Find files #including this file
+  " 9 or a: Find places where this symbol is assigned a value
+  nnoremap <C-\>s :cscope find s <C-R>=expand('<cword>')<CR><CR>
+  nnoremap <C-\>g :cscope find g <C-R>=expand('<cword>')<CR><CR>
+  nnoremap <C-\>d :cscope find d <C-R>=expand('<cword>')<CR><CR>
+  nnoremap <C-\>c :cscope find c <C-R>=expand('<cword>')<CR><CR>
+  nnoremap <C-\>t :cscope find t <C-R>=expand('<cword>')<CR><CR>
+  xnoremap <C-\>t y:cscope find t <C-R>"<CR>
+  nnoremap <C-\>e :cscope find e <C-R>=expand('<cword>')<CR><CR>
+  nnoremap <C-\>f :cscope find f <C-R>=expand('<cfile>')<CR><CR>
+  nnoremap <C-\>i :cscope find i ^<C-R>=expand('<cfile>')<CR>$<CR>
+  nnoremap <C-\>a :cscope find a <C-R>=expand('<cword>')<CR><CR>
+endif
+
 augroup vimrc
   " Quit help window
   autocmd FileType help nnoremap <buffer> q :q<CR>
