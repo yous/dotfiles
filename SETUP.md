@@ -69,15 +69,13 @@
     - Install FUSE for macOS package
     - Install NTFS-3G by running `brew install homebrew/fuse/ntfs-3g`
     - From OS X El Capitan, reboot in [recovery mode](https://support.apple.com/en-us/HT201314)
-        - Open Utilities > Terminal, run `csrutil disable`, and reboot again
+        - Open Utilities > Terminal
     - Run following commands:
 
       ``` sh
-      sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig
-      sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
+      sudo mv /Volumes/Macintosh\ HD/sbin/mount_ntfs /Volumes/Macintosh\ HD/sbin/mount_ntfs.orig
+      sudo ln -s /Volumes/Macintosh\ HD/usr/local/sbin/mount_ntfs /Volumes/Macintosh\ HD/sbin/mount_ntfs
       ```
-    - From OS X El Capitan, reboot in recovery mode again
-        - Open Utilities > Terminal, run `csrutil enable`, and reboot again
 
 ## Fonts
 
