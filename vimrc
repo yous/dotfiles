@@ -1180,7 +1180,6 @@ let g:vimtex_syntax_minted = [
       \ }]
 
 " vim-markdown
-let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_fenced_languages = [
       \ 'bat=dosbatch', 'batch=dosbatch',
       \ 'coffeescript=coffee',
@@ -1194,6 +1193,8 @@ let g:vim_markdown_fenced_languages = [
       \ 'bash=sh',
       \ 'viml=vim']
 let g:vim_markdown_frontmatter = 1
+nnoremap <Plug> <Plug>Markdown_EditUrlUnderCursor
+vnoremap <Plug> <Plug>Markdown_EditUrlUnderCursor
 
 " vim-polyglot
 let g:polyglot_disabled = ['json', 'latex', 'markdown', 'python']
