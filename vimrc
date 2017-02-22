@@ -215,6 +215,8 @@ Plug 'yous/adblock-filter.vim', {
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
 " CUP
 Plug 'gcollura/cup.vim', { 'for': 'cup' }
+" GNU As
+Plug 'Shirk/vim-gas', { 'for': 'gas' }
 " Jade
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " JSON
