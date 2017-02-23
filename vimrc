@@ -791,6 +791,9 @@ augroup vimrc
   " Exit Paste mode when leaving Insert mode
   autocmd InsertLeave * set nopaste
 
+  " Check if any buffers were changed outside of Vim
+  autocmd FocusGained,BufEnter * checktime
+
   " Keyword lookup program
   autocmd FileType c,cpp setlocal keywordprg=man
   autocmd FileType gitconfig
