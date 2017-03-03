@@ -84,6 +84,8 @@
 ## Applications
 
 - [1Password](https://agilebits.com/downloads)
+- [AppCleaner](http://freemacsoft.net/appcleaner/)
+    - Turn on SmartDelete
 - [Chrome](https://www.google.com/chrome/)
 - [Dropbox](https://www.dropbox.com/install)
 - [Fantastical](https://flexibits.com/fantastical)
