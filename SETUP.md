@@ -108,6 +108,7 @@
     - [QLStephen](https://whomwah.github.io/qlstephen/)
     - [QuickLookCSV](https://github.com/p2/quicklook-csv)
     - [qlImageSize](https://github.com/Nyx0uf/qlImageSize)
+- [WinArchiver Lite](https://itunes.apple.com/kr/app/winarchiver-lite/id414855915?mt=12)
 
 # Windows
 
