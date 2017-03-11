@@ -21,6 +21,10 @@
 #
 #
 # History:
+# 2017-03-01, arza <arza@arza.us>
+#   version 23: don't colorize nicklist group names
+# 2016-05-01, Simmo Saan <simmo.saan@gmail.com>
+#   version 22: invalidate cached colors on hash algorithm change
 # 2015-07-28, xt
 #   version 21: fix problems with nicks with commas in them
 # 2015-04-19, xt
@@ -75,7 +79,7 @@ w = weechat
 
 SCRIPT_NAME    = "colorize_nicks"
 SCRIPT_AUTHOR  = "xt <xt@bash.no>"
-SCRIPT_VERSION = "21"
+SCRIPT_VERSION = "23"
 SCRIPT_LICENSE = "GPL"
 SCRIPT_DESC    = "Use the weechat nick colors in the chat area"
 
@@ -274,6 +278,9 @@ def populate_nicks(*args):
             if buffer_ptr not in colored_nicks:
                 colored_nicks[buffer_ptr] = {}
 
+            if w.infolist_string(nicklist, 'type') != 'nick':
+                continue
+
             nick = w.infolist_string(nicklist, 'name')
             nick_color = colorize_nick_color(nick, my_nick)
 
@@ -339,6 +346,7 @@ if __name__ == "__main__":
         w.hook_modifier('weechat_print', 'colorize_cb', '')
         # Hook config for changing colors
         w.hook_config('weechat.color.chat_nick_colors', 'populate_nicks', '')
+        w.hook_config('weechat.look.nick_color_hash', 'populate_nicks', '')
         # Hook for working togheter with other scripts (like colorize_lines)
         w.hook_modifier('colorize_nicks', 'colorize_cb', '')
         # Hook for modifying input
