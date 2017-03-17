@@ -21,7 +21,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd vimrc BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd vimrc InsertEnter * match ExtraWhitespace //
 autocmd vimrc InsertLeave * match ExtraWhitespace /\s\+$/
-if version >= 702
+if v:version >= 702
   autocmd vimrc BufWinLeave * call clearmatches()
 endif
 

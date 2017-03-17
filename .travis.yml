@@ -12,6 +12,6 @@ install:
   - pip install vim-vint
 script:
   - bash -c 'shellcheck colors.sh install.sh'
-  - vint vimrc
+  - vint ideavimrc vimrc
 matrix:
   fast_finish: true
