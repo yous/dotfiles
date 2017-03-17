@@ -13,5 +13,3 @@ install:
 script:
   - bash -c 'shellcheck colors.sh install.sh'
   - vint ideavimrc vimrc
-matrix:
-  fast_finish: true
