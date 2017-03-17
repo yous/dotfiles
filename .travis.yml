@@ -1,0 +1,12 @@
+language: bash
+sudo: false
+addons:
+  apt:
+    sources:
+      - debian-sid
+    packages:
+      - shellcheck
+script:
+  - bash -c 'shellcheck colors.sh install.sh'
+matrix:
+  fast_finish: true
