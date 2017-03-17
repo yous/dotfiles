@@ -16,6 +16,7 @@ function git_clone() {
     echo "Cloning '$1'..."
     git clone "$1" "$HOME/$2"
   else
+    # shellcheck disable=SC2088
     echoerr "~/$2 already exists."
   fi
 }
@@ -96,10 +97,11 @@ case "$1" in
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ;;
   formulae)
-    while read COMMAND; do
+    while read -r COMMAND; do
       trap 'break' INT
       [[ -z "$COMMAND" || ${COMMAND:0:1} == '#' ]] && continue
-      brew $COMMAND
+      IFS=' ' read -ra BREW_ARGS <<< "$COMMAND"
+      brew "${BREW_ARGS[@]}"
     done < "$DIR/Brewfile" && echo 'Done.'
     ;;
   npm)
@@ -130,7 +132,7 @@ case "$1" in
     echo 'Done.'
     ;;
   rvm)
-    \curl -sSL https://get.rvm.io | bash -s stable
+    command curl -sSL https://get.rvm.io | bash -s stable
     ;;
   *)
     echo "usage: $(basename "$0") <command>"
