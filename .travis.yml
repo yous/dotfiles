@@ -1,12 +1,17 @@
-language: bash
+language: python
 sudo: false
+python:
+  - 3.6
 addons:
   apt:
     sources:
       - debian-sid
     packages:
       - shellcheck
+install:
+  - pip install vim-vint
 script:
   - bash -c 'shellcheck colors.sh install.sh'
+  - vint vimrc
 matrix:
   fast_finish: true
