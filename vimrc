@@ -46,7 +46,9 @@ augroup vimrc
 augroup END
 
 if &compatible
+  " vint: -ProhibitSetNoCompatible
   set nocompatible
+  " vint: +ProhibitSetNoCompatible
 endif
 filetype off
 
