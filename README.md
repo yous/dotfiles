@@ -1,5 +1,7 @@
 # dotfiles
 
+[![Build Status](https://travis-ci.org/yous/dotfiles.svg?branch=master)](https://travis-ci.org/yous/dotfiles)
+
 [@yous](https://github.com/yous)' dotfiles.
 
 - [Requirements](#requirements)
