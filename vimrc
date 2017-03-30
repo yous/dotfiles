@@ -1202,6 +1202,8 @@ let g:vim_markdown_fenced_languages = [
 let g:vim_markdown_frontmatter = 1
 nnoremap <Plug> <Plug>Markdown_EditUrlUnderCursor
 vnoremap <Plug> <Plug>Markdown_EditUrlUnderCursor
+nnoremap <Plug> <Plug>Markdown_MoveToCurHeader
+vnoremap <Plug> <Plug>Markdown_MoveToCurHeader
 
 " vim-polyglot
 let g:polyglot_disabled = ['json', 'latex', 'markdown', 'python']
