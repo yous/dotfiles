@@ -17,6 +17,8 @@ install keychain
 
 # Python
 install python
+install pyenv
+install pyenv-virtualenv
 
 # Ruby
 install ruby-install
