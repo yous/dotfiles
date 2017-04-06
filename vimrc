@@ -130,9 +130,11 @@ if !has('win32')
     " Generates config files for YouCompleteMe
     Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
   endif
-  " A command-line fuzzy finder written in Go
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
+  if $MSYSTEM !=# 'MSYS' || executable('go')
+    " A command-line fuzzy finder written in Go
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+  endif
   " A Vim plugin for looking up words in an online thesaurus
   Plug 'beloglazov/vim-online-thesaurus'
 endif
