@@ -138,8 +138,6 @@ if !has('win32')
   " A Vim plugin for looking up words in an online thesaurus
   Plug 'beloglazov/vim-online-thesaurus'
 endif
-" Enhancing in-buffer search experience
-Plug 'junegunn/vim-slash'
 " Directory viewer for Vim
 Plug 'justinmk/vim-dirvish'
 " Go to Terminal or File manager
@@ -379,6 +377,9 @@ endif
 set display+=lastline
 " Show unprintable characters as a hex number
 set display+=uhex
+if has('extra_search')
+  set hlsearch
+endif
 " Always show a status line
 set laststatus=2
 set number
@@ -649,6 +650,28 @@ vnoremap / /\v
 cnoremap %s/ %smagic/
 cnoremap \>s/ \>smagic/
 
+" Search for visually selected text
+function! s:VSearch(cmd)
+  let l:old_reg = getreg('"')
+  let l:old_regtype = getregtype('"')
+  normal! gvy
+  let l:pat = escape(@", a:cmd . '\')
+  let l:pat = substitute(l:pat, '\n', '\\n', 'g')
+  let @/ = '\V' . l:pat
+  normal! gV
+  call setreg('"', l:old_reg, l:old_regtype)
+endfunction
+vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>
+vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>
+
+" Center display after searching
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
 " Execute @q which is recorded by qq
 nnoremap Q @q
 
@@ -871,10 +894,6 @@ if exists('s:vimfiles')
         \ '/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 endif
 let g:ycm_confirm_extra_conf = 0
-
-" vim-slash
-" Center display after searching
-noremap <Plug>(slash-after) zz
 
 " ale
 if has_key(g:plugs, 'ale')
