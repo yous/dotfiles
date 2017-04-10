@@ -606,7 +606,7 @@ cnoremap <C-E> <End>
 
 " Leave insert mode
 function! s:CtrlL()
-  " Keep the original feature of Ctrl-l. See :help i_CTRL-L.
+  " Keep the original feature of CTRL-L. See :help i_CTRL-L.
   if exists('&insertmode') && &insertmode
     call feedkeys("\<C-L>", 'n')
   else
@@ -621,7 +621,7 @@ nnoremap Y y$
 " Delete without copying
 vnoremap <BS> "_d
 
-" Break the undo block when Ctrl-u
+" Break the undo block when CTRL-U
 inoremap <C-U> <C-G>u<C-U>
 
 if has('wildmenu')
@@ -649,6 +649,9 @@ nnoremap / /\v
 vnoremap / /\v
 cnoremap %s/ %smagic/
 cnoremap \>s/ \>smagic/
+
+" Use CTRL-N to clear the highlighting and screen
+nnoremap <silent> <C-N> :nohlsearch<C-R>=has('diff') ? '<Bar>diffupdate' : ''<CR><CR><C-L>
 
 " Search for visually selected text
 function! s:VSearch(cmd)
