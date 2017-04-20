@@ -94,7 +94,7 @@ case "$1" in
     curl -sL https://git.io/antibody | bash -s
     ;;
   brew)
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ;;
   formulae)
     while read -r COMMAND; do
@@ -124,11 +124,11 @@ case "$1" in
     fi
     ;;
   pyenv)
-    curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+    curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
     ;;
   rbenv)
-    git_clone https://github.com/sstephenson/rbenv.git .rbenv
-    git_clone https://github.com/sstephenson/ruby-build.git .rbenv/plugins/ruby-build
+    git_clone https://github.com/rbenv/rbenv.git .rbenv
+    git_clone https://github.com/rbenv/ruby-build.git .rbenv/plugins/ruby-build
     echo 'Done.'
     ;;
   rvm)
