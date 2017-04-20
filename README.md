@@ -121,9 +121,9 @@ yaourt -S ruby-install
 Otherwise,
 
 ``` sh
-wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
-tar -xzvf ruby-install-0.6.0.tar.gz
-cd ruby-install-0.6.0/
+wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
+tar -xzvf ruby-install-0.6.1.tar.gz
+cd ruby-install-0.6.1/
 sudo make install
 ```
 
@@ -251,7 +251,8 @@ To install [Vim](http://www.vim.org) plugins,
 ```
 
 You should install [Exuberant Ctags](http://ctags.sourceforge.net/) to use
-[taglist.vim](http://www.vim.org/script.php?script_id=273).
+[vim-easytags](https://github.com/xolox/vim-easytags). You should install CMake
+to use [YouCompleteMe](https://github.com/Valloric/YouCompleteMe).
 
 To update Vim plugins:
 
