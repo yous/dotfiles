@@ -171,6 +171,8 @@ Plug 'yous/conque', { 'on': [
       \ 'ConqueTermSplit',
       \ 'ConqueTermVSplit',
       \ 'ConqueTermTab'] }
+" Highlight insecure SSL configuration in Vim
+Plug 'chr4/sslsecure.vim'
 
 " Motions and text changing
 " Provide CamelCase motion through words
