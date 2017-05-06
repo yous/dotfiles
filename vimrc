@@ -177,18 +177,20 @@ Plug 'yous/conque', { 'on': [
 Plug 'bkad/CamelCaseMotion'
 " Vim motions on speed!
 Plug 'easymotion/vim-easymotion'
-" Extended % matching
-Plug 'matchit.zip'
+" Extended % matching for HTML, LaTeX, and many other languages
+Plug 'tmhedberg/matchit'
 " Simplify the transition between multiline and single-line code
 Plug 'AndrewRadev/splitjoin.vim'
 " Easily delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
-" Produce increasing/decreasing columns of numbers, dates, or daynames
-Plug 'visincr'
+if v:version >= 700
+  " Produce increasing/decreasing columns of numbers, dates, or daynames
+  Plug 'vim-scripts/VisIncr'
+endif
 " Switch between source files and header files
-Plug 'a.vim'
+Plug 'vim-scripts/a.vim'
 " Enable repeating supported plugin maps with "."
 Plug 'tpope/vim-repeat'
 
@@ -229,7 +231,7 @@ Plug 'lervag/vimtex', { 'for': ['bib', 'tex'] }
 Plug 'godlygeek/tabular', { 'for': 'markdown' } |
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " PHP
-Plug 'php.vim-html-enhanced', { 'for': ['html', 'php'] }
+Plug 'vim-scripts/php.vim-html-enhanced', { 'for': ['html', 'php'] }
 " Racket
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 " smali
@@ -254,8 +256,10 @@ Plug 'tpope/vim-rake'
 Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 " Rails
 Plug 'tpope/vim-rails'
-" ANSI escape
-Plug 'AnsiEsc.vim', { 'for': 'railslog' }
+if v:version >= 700
+  " ANSI escape sequences concealed, but highlighted as specified (conceal)
+  Plug 'powerman/vim-plugin-AnsiEsc', { 'for': 'railslog' }
+endif
 " TomDoc
 Plug 'wellbredgrapefruit/tomdoc.vim', { 'for': 'ruby' }
 
