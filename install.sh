@@ -81,6 +81,7 @@ case "$1" in
       replace_file "$FILENAME"
     done
     replace_file 'Gdbinit/gdbinit' '.gdbinit'
+    replace_file 'pip.conf' '.pip/pip.conf'
     replace_file 'tpm' '.tmux/plugins/tpm'
     for FILENAME in \
       'diff-highlight' \
