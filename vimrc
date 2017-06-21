@@ -102,7 +102,7 @@ if executable('editorconfig') == 1 || has('python3') || s:python26
 endif
 if !has('win32')
   if !has('win32unix') &&
-        \ (v:version >= 704 || v:version == 703 && has('patch598')) &&
+        \ (v:version >= 705 || v:version == 704 && has('patch1578')) &&
         \ executable('cmake') && (has('python3') || s:python26)
     function! s:BuildYCM(info)
       " info is a dictionary with 3 fields
