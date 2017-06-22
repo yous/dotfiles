@@ -12,7 +12,6 @@ install tmux
 install cmake
 install ctags
 install cscope
-install editorconfig
 install keychain
 
 # Python

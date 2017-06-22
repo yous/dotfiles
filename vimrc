@@ -96,10 +96,8 @@ Plug 'yous/vim-open-color'
 " General
 " Preserve missing EOL at the end of text files
 Plug 'yous/PreserveNoEOL'
-" EditorConfig
-if executable('editorconfig') == 1 || has('python3') || s:python26
-  Plug 'editorconfig/editorconfig-vim'
-endif
+" Yet another EditorConfig plugin for vim written in vimscript only
+Plug 'sgur/vim-editorconfig'
 if !has('win32')
   if !has('win32unix') &&
         \ (v:version >= 705 || v:version == 704 && has('patch1578')) &&
@@ -874,11 +872,6 @@ unlet s:resolved_vimrc
 
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
-
-" EditorConfig
-if executable('editorconfig')
-  let g:EditorConfig_core_mode = 'external_command'
-endif
 
 " YouCompleteMe
 let g:ycm_filetype_blacklist = {
