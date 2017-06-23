@@ -4,6 +4,7 @@ install reattach-to-user-namespace
 # Tools
 install git
 install grep --with-default-names
+install ripgrep
 install openssh
 install wget
 install autojump
