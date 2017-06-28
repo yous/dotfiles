@@ -820,6 +820,9 @@ augroup vimrc
   " Reload vimrc on the fly
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 
+  " Automatically update the diff after writing changes
+  autocmd BufWritePost * if &diff | diffupdate | endif
+
   " Exit Paste mode when leaving Insert mode
   autocmd InsertLeave * set nopaste
 
