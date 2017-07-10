@@ -552,7 +552,7 @@ set tabstop=8
 set textwidth=80
 autocmd vimrc FileType c,cpp,java,json,markdown,perl,python
       \ setlocal softtabstop=4 shiftwidth=4
-autocmd vimrc FileType gitconfig
+autocmd vimrc FileType asm,gitconfig,kconfig
       \ setlocal noexpandtab softtabstop=8 shiftwidth=8
 autocmd vimrc FileType go
       \ setlocal noexpandtab softtabstop=4 shiftwidth=4 tabstop=4
