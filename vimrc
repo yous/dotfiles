@@ -140,6 +140,8 @@ endif
 Plug 'justinmk/vim-dirvish'
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
+" obsession.vim: continuously updated session files
+Plug 'tpope/vim-obsession'
 " Autocomplete if end
 Plug 'tpope/vim-endwise'
 " Vim sugar for the UNIX shell commands
