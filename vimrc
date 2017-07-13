@@ -879,6 +879,7 @@ unlet s:resolved_vimrc
 let g:PreserveNoEOL = 1
 
 " YouCompleteMe
+let g:ycm_min_num_of_chars_for_completion = 4
 let g:ycm_filetype_blacklist = {
       \ 'diff': 1,
       \ 'infolog': 1,
