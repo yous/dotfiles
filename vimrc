@@ -845,11 +845,17 @@ augroup vimrc
   " Ruby configuration files view
   autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
 
+  " ASM view
+  autocmd BufNewFile,BufRead *.S setlocal filetype=gas
+
   " Gradle view
   autocmd BufNewFile,BufRead *.gradle setlocal filetype=groovy
 
   " Json view
   autocmd BufNewFile,BufRead *.json setlocal filetype=json
+
+  " LD script view
+  autocmd BufNewFile,BufRead *.lds setlocal filetype=ld
 
   " Markdown view
   autocmd BufNewFile,BufRead *.md setfiletype markdown
