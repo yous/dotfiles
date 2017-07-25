@@ -170,8 +170,12 @@ if command -v autojump &> /dev/null; then
     source /etc/profile.d/autojump.bash
   elif [ -f /usr/share/autojump/autojump.bash ]; then
     source /usr/share/autojump/autojump.bash
-  elif command -v brew &> /dev/null && [ -f `brew --prefix`/etc/autojump.sh ]; then
-    source `brew --prefix`/etc/autojump.sh
+  elif command -v brew &> /dev/null; then
+    BREW_PREFIX="$(brew --prefix)"
+    if [ -f "$BREW_PREFIX/etc/autojump.sh" ]; then
+      source "$BREW_PREFIX/etc/autojump.sh"
+    fi
+    unset BREW_PREFIX
   fi
 elif [ -f "$HOME/.autojump/etc/profile.d/autojump.sh" ]; then
   source "$HOME/.autojump/etc/profile.d/autojump.sh"
