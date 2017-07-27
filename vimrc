@@ -915,9 +915,7 @@ if has_key(g:plugs, 'ale')
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
   let g:ale_linters = {
-        \ 'csh': 'all',
-        \ 'rust': 'all',
-        \ 'zsh': 'all' }
+        \ 'rust': 'all' }
   let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
   let g:ale_ruby_rubocop_options = '--display-cop-names'
 endif
