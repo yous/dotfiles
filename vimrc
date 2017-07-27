@@ -165,12 +165,6 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 " A git commit browser, requires tpope/vim-fugitive
 Plug 'junegunn/gv.vim'
-" Run interactive commands inside a Vim buffer
-Plug 'yous/conque', { 'on': [
-      \ 'ConqueTerm',
-      \ 'ConqueTermSplit',
-      \ 'ConqueTermVSplit',
-      \ 'ConqueTermTab'] }
 
 " Motions and text changing
 " Provide CamelCase motion through words
@@ -425,7 +419,7 @@ augroup END
 
 " Highlight trailing whitespace
 function! s:MatchExtraWhitespace(enabled)
-  if a:enabled && index(['GV', 'conque_term', 'vim-plug'], &filetype) < 0
+  if a:enabled && index(['GV', 'vim-plug'], &filetype) < 0
     match ExtraWhitespace /\s\+$/
   else
     match ExtraWhitespace //
@@ -839,7 +833,7 @@ augroup vimrc
   autocmd FileType ruby setlocal keywordprg=ri
 
   " Plain view for plugins
-  autocmd FileType GV,conque_term,vim-plug
+  autocmd FileType GV,vim-plug
         \ setlocal colorcolumn= nolist textwidth=0
 
   " Ruby configuration files view
@@ -967,15 +961,6 @@ augroup Fugitive
         \   startinsert |
         \ endif
 augroup END
-
-" ConqueTerm
-let g:ConqueTerm_InsertOnEnter = 1
-let g:ConqueTerm_CWInsert = 1
-let g:ConqueTerm_ReadUnfocused = 1
-command! -nargs=* Sh ConqueTerm <args>
-command! -nargs=* Shsp ConqueTermSplit <args>
-command! -nargs=* Shtab ConqueTermTab <args>
-command! -nargs=* Shvs ConqueTermVSplit <args>
 
 " CamelCaseMotion
 function! s:CreateCamelCaseMotionMappings()
