@@ -153,11 +153,9 @@ else
   " Syntax checking plugin
   Plug 'vim-syntastic/syntastic'
 endif
-" Automated tag file generation and syntax highlighting of tags
-if executable('ctags')
-  Plug 'xolox/vim-misc' |
-  Plug 'xolox/vim-shell' |
-  Plug 'xolox/vim-easytags'
+" A Vim plugin that manages your tag files
+if v:version >= 704 && (executable('ctags') || executable('cscope'))
+  Plug 'yous/vim-gutentags', { 'branch': 'fix-cscope' }
 endif
 " Vim Git runtime files
 Plug 'tpope/vim-git'
@@ -939,14 +937,19 @@ if has_key(g:plugs, 'syntastic')
   let g:syntastic_javascript_checkers = ['vimlint', 'vint']
 endif
 
-" vim-shell
-let g:shell_hl_exclude = '^.*$'
-let g:shell_mappings_enabled = 0
-
-" vim-easytags
-let g:easytags_auto_highlight = 0
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 1
+" vim-gutentags
+let g:gutentags_modules = []
+if executable('ctags')
+  call add(g:gutentags_modules, 'ctags')
+endif
+if executable('cscope')
+  call add(g:gutentags_modules, 'cscope')
+endif
+let g:gutentags_file_list_command = {
+      \ 'markers': {
+      \   '.git': 'git ls-files',
+      \   '.hg': 'hg files'
+      \ } }
 
 " Fugitive
 let s:fugitive_insert = 0
