@@ -83,7 +83,11 @@ esac
 
 # Set LS_COLORS
 if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  if [ -r ~/.dircolors ]; then
+    eval "$(dircolors -b ~/.dircolors)"
+  else
+    eval "$(dircolors -b)"
+  fi
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -134,10 +138,11 @@ function bundle_install() {
     fi
   done
   if [ $jobs_available -eq 1 ]; then
+    local cores_num
     if [[ "$(uname)" == 'Darwin' ]]; then
-      local cores_num="$(sysctl -n hw.ncpu)"
+      cores_num="$(sysctl -n hw.ncpu)"
     else
-      local cores_num="$(nproc)"
+      cores_num="$(nproc)"
     fi
     bundle install --jobs=$cores_num $@
   else
@@ -234,7 +239,8 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
     # Use right RVM gemset when using tmux
     if [[ "$TMUX" != "" ]]; then
       rvm use default
-      cd ..;cd -
+      pushd -n ..
+      popd -n
     fi
   fi
 fi
@@ -267,7 +273,11 @@ unset -f add_to_path_once
 
 # Define aliases
 # Enable color support
-ls --color -d . &> /dev/null && alias ls='ls --color=auto' || alias ls='ls -G'
+if ls --color -d . &> /dev/null; then
+  alias ls='ls --color=auto'
+else
+  alias ls='ls -G'
+fi
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
