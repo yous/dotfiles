@@ -161,7 +161,8 @@ endif
 Plug 'tpope/vim-git'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
-" A git commit browser, requires tpope/vim-fugitive
+" A git commit browser
+" Plug 'tpope/vim-fugitive' |
 Plug 'junegunn/gv.vim'
 
 " Motions and text changing
@@ -951,7 +952,7 @@ let g:gutentags_file_list_command = {
       \   '.hg': 'hg files'
       \ } }
 
-" Fugitive
+" vim-fugitive
 let s:fugitive_insert = 0
 augroup Fugitive
   autocmd!
@@ -977,10 +978,10 @@ function! s:CreateCamelCaseMotionMappings()
 endfunction
 call s:CreateCamelCaseMotionMappings()
 
-" EasyMotion
+" vim-easymotion
 map <Leader> <Plug>(easymotion-prefix)
 
-" unimpaired.vim
+" vim-unimpaired
 " Center display on move between SCM conflicts
 nnoremap [n [nzz
 nnoremap ]n ]nzz
@@ -1173,7 +1174,7 @@ autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
 
-" Adblock
+" adblock-filter.vim
 let g:adblock_filter_auto_checksum = 1
 
 " vim-json
@@ -1244,14 +1245,14 @@ let g:vimrubocop_extra_args = '--display-cop-names'
 let g:vimrubocop_keymap = 0
 nnoremap <Leader>ru :RuboCop<CR>
 
-" AnsiEsc.vim
+" vim-plugin-AnsiEsc
 autocmd vimrc FileType railslog :AnsiEsc
 
 " Mac OS
 if has('mac') || has('macunix')
   " dash.vim
   let g:dash_map = {
-        \ 'java' : 'android' }
+        \ 'java': 'android' }
   nnoremap <Leader>d <Plug>DashSearch
 endif
 
