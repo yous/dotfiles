@@ -155,7 +155,7 @@ else
 endif
 " A Vim plugin that manages your tag files
 if v:version >= 704 && (executable('ctags') || executable('cscope'))
-  Plug 'yous/vim-gutentags', { 'branch': 'fix-cscope' }
+  Plug 'ludovicchabant/vim-gutentags'
 endif
 " Vim Git runtime files
 Plug 'tpope/vim-git'
