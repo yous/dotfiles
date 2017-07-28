@@ -92,7 +92,11 @@ case "$1" in
     echo 'Done.'
     ;;
   antibody)
-    curl -sL https://git.io/antibody | bash -s
+    if [ "$(uname)" = 'Darwin' ]; then
+      brew install getantibody/tap/antibody
+    else
+      curl -sL https://git.io/antibody | bash -s
+    fi
     ;;
   brew)
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -125,11 +129,20 @@ case "$1" in
     fi
     ;;
   pyenv)
-    curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+    if [ "$(uname)" = 'Darwin' ]; then
+      brew install pyenv
+      brew install pyenv-virtualenv
+    else
+      curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+    fi
     ;;
   rbenv)
-    git_clone https://github.com/rbenv/rbenv.git .rbenv
-    git_clone https://github.com/rbenv/ruby-build.git .rbenv/plugins/ruby-build
+    if [ "$(uname)" = 'Darwin' ]; then
+      brew install rbenv
+    else
+      git_clone https://github.com/rbenv/rbenv.git .rbenv
+      git_clone https://github.com/rbenv/ruby-build.git .rbenv/plugins/ruby-build
+    fi
     echo 'Done.'
     ;;
   rvm)
