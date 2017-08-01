@@ -67,7 +67,7 @@
     ```
 - [FUSE for macOS](https://osxfuse.github.io)
     - Install FUSE for macOS package
-    - Install NTFS-3G by running `brew install homebrew/fuse/ntfs-3g`
+    - Install NTFS-3G by running `brew install ntfs-3g`
     - From OS X El Capitan, reboot in [recovery mode](https://support.apple.com/en-us/HT201314)
         - Open Utilities > Terminal
     - Run following commands:
