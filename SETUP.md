@@ -114,7 +114,6 @@
 
 ## Tweak
 
-- [Greenshot](http://getgreenshot.org)
 - [날개셋](http://moogi.new21.org/prg4.html)
     - [신세벌식 P2](http://pat.im/1136)
 - Turn on Remote Desktop
@@ -231,4 +230,5 @@
 - [Chrome](https://www.google.com/chrome/)
 - [Daum PotPlayer](http://tvpot.daum.net/application/PotPlayer.do)
 - [Dropbox](https://www.dropbox.com/install)
+- [ShareX](https://getsharex.com)
 - [VNC Viewer](https://www.realvnc.com/download/viewer/)
