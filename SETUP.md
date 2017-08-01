@@ -79,6 +79,7 @@
 
 ## Fonts
 
+- [Hack](http://sourcefoundry.org/hack/)
 - [SF Mono](https://developer.apple.com/fonts/) (`/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SF-Mono-*`)
 
 ## Applications
