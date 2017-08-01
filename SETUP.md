@@ -170,8 +170,9 @@
 - [Git](http://git-scm.com)
     - [dotfiles](https://github.com/yous/dotfiles)
 - [gVim](http://www.vim.org/download.php#pc) and [Yongwei's gvim80.zip](http://wyw.dcweb.cn/#download)
-    - [Python 2.7](https://www.python.org/downloads/)
-    - [Ruby 2.2.5 (x86)](http://rubyinstaller.org/downloads/)
+    - [Python 2.7.10](https://www.python.org/downloads/release/python-2710/)
+    - [Python 3.5.2](https://www.python.org/downloads/release/python-352/)
+    - [Ruby 2.2.5 (x86)](https://rubyinstaller.org/downloads/archives/)
         - Add `bin` to `%PATH%`
     - [Ctags](http://ctags.sourceforge.net)
         - Put into `%USERPROFILE%\bin`
