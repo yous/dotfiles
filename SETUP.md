@@ -176,7 +176,7 @@
         - Add `bin` to `%PATH%`
     - [Ctags](http://ctags.sourceforge.net)
         - Put into `%USERPROFILE%\bin`
-- [iPuTTY](https://bitbucket.org/daybreaker/iputty)
+- [iPuTTY](https://github.com/iPuTTY/iPuTTY)
     - Put `putty.exe` into `%USERPROFILE%\bin`
     - Import [tomorrow-theme/PuTTY/Tomorrow Night.reg](https://github.com/yous/tomorrow-theme/blob/fix-putty-reg/PuTTY/Tomorrow%20Night.reg)
     - Default Settings
