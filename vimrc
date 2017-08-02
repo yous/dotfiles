@@ -784,7 +784,7 @@ function! s:CheckLeftBuffers()
   if tabpagenr('$') == 1
     let l:i = 1
     while l:i <= winnr('$')
-      let l:filetypes = ['help', 'quickfix', 'nerdtree', 'taglist']
+      let l:filetypes = ['help', 'qf', 'nerdtree', 'taglist']
       if index(l:filetypes, getbufvar(winbufnr(l:i), '&filetype')) >= 0 ||
             \ getwinvar(l:i, '&previewwindow')
         let l:i += 1
