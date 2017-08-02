@@ -780,10 +780,14 @@ endif
 " =============================================================================
 
 " Auto quit Vim when actual files are closed
-function! s:CheckLeftBuffers()
+function! s:CheckLeftBuffers(quitpre)
   if tabpagenr('$') == 1
     let l:i = 1
     while l:i <= winnr('$')
+      if a:quitpre && l:i == winnr()
+        let l:i += 1
+        continue
+      endif
       let l:filetypes = ['help', 'qf', 'nerdtree', 'taglist']
       if index(l:filetypes, getbufvar(winbufnr(l:i), '&filetype')) >= 0 ||
             \ getwinvar(l:i, '&previewwindow')
@@ -797,7 +801,11 @@ function! s:CheckLeftBuffers()
     endif
   endif
 endfunction
-autocmd vimrc BufEnter * call s:CheckLeftBuffers()
+if exists('##QuitPre')
+  autocmd vimrc QuitPre * call s:CheckLeftBuffers(1)
+else
+  autocmd vimrc BufEnter * call s:CheckLeftBuffers(0)
+endif
 
 if has('win32')
   command! Gdiffs cexpr system('git diff \| diff-hunk-list.bat') |
