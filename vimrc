@@ -1,5 +1,11 @@
 " vim: set foldmethod=marker:
 
+if &compatible
+  " vint: -ProhibitSetNoCompatible
+  set nocompatible
+  " vint: +ProhibitSetNoCompatible
+endif
+
 " =============================================================================
 " Requirement Checks: {{{
 " =============================================================================
@@ -45,11 +51,6 @@ augroup vimrc
   autocmd!
 augroup END
 
-if &compatible
-  " vint: -ProhibitSetNoCompatible
-  set nocompatible
-  " vint: +ProhibitSetNoCompatible
-endif
 filetype off
 
 " Install vim-plug if it isn't installed and call plug#begin() out of box
