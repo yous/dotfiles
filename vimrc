@@ -730,12 +730,22 @@ if has('cscope')
   nnoremap <C-\>a :cscope find a <C-R>=expand('<cword>')<CR><CR>
 endif
 
+function! s:RemapBufferQ()
+  nnoremap <buffer> q :q<CR>
+endfunction
+
 augroup vimrc
   " Quit help window
-  autocmd FileType help nnoremap <buffer> q :q<CR>
+  autocmd FileType help call s:RemapBufferQ()
 
   " Quit quickfix window
-  autocmd FileType qf nnoremap <buffer> q :q<CR>
+  autocmd FileType qf call s:RemapBufferQ()
+
+  " Quit preview window
+  autocmd BufEnter *
+        \ if &previewwindow |
+        \   call s:RemapBufferQ() |
+        \ endif
 
   " C, C++ compile
   autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:make %<CR>
