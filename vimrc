@@ -929,7 +929,6 @@ if has_key(g:plugs, 'ale')
   let g:ale_linters = {
         \ 'rust': 'all' }
   let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
-  let g:ale_ruby_rubocop_options = '--display-cop-names'
 endif
 
 " Syntastic
