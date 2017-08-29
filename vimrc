@@ -96,7 +96,9 @@ Plug 'yous/vim-open-color'
 
 " General
 " Preserve missing EOL at the end of text files
-Plug 'yous/PreserveNoEOL'
+Plug 'yous/PreserveNoEOL', {
+      \ 'commit': '9ef2f01',
+      \ 'frozen': 1 }
 " Yet another EditorConfig plugin for vim written in vimscript only
 Plug 'sgur/vim-editorconfig'
 if !has('win32')
@@ -208,6 +210,8 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " AdBlock
 Plug 'yous/adblock-filter.vim', {
       \ 'branch': 'nocindent',
+      \ 'commit': 'd6edd85',
+      \ 'frozen': 1,
       \ 'for': 'adblockfilter' }
 " Aheui
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
