@@ -53,7 +53,7 @@ augroup END
 
 filetype off
 
-" Install vim-plug if it isn't installed and call plug#begin() out of box
+" Install vim-plug if it isn't installed
 function! s:DownloadVimPlug()
   if !exists('s:vimfiles')
     return
@@ -86,10 +86,10 @@ function! s:DownloadVimPlug()
       endif
     endtry
   endif
-  call plug#begin(s:vimfiles . '/plugged')
 endfunction
 
 call s:DownloadVimPlug()
+call plug#begin(s:vimfiles . '/plugged')
 
 " Colorscheme
 Plug 'yous/vim-open-color'
