@@ -923,6 +923,9 @@ if exists('s:vimfiles')
 endif
 let g:ycm_confirm_extra_conf = 0
 
+" fzf
+nnoremap <C-P> :Files<CR>
+
 " ale
 if has_key(g:plugs, 'ale')
   let g:ale_echo_msg_error_str = 'E'
