@@ -925,6 +925,22 @@ let g:ycm_confirm_extra_conf = 0
 
 " fzf
 nnoremap <C-P> :Files<CR>
+if executable('rg')
+  command! -bang -nargs=* Rg
+        \ call fzf#vim#grep('rg ' .
+        \   '--color=always ' .
+        \   '--glob "!.git/*" ' .
+        \   '--ignore-case ' .
+        \   '--line-number ' .
+        \   '--column ' .
+        \   '--no-heading ' .
+        \   '--hidden ' .
+        \   '--ignore-file=~/.gitignore_global ' .
+        \   '--follow ' .
+        \   <q-args>, 1,
+        \   fzf#vim#with_preview('right:50%'),
+        \   <bang>0)
+endif
 
 " ale
 if has_key(g:plugs, 'ale')
