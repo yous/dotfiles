@@ -162,7 +162,7 @@
 ## Fonts
 
 - [나눔글꼴](http://hangeul.naver.com/font) (나눔바른고딕, 나눔명조)
-- [D2 Coding](http://dev.naver.com/projects/d2coding)
+- [D2 Coding](https://github.com/naver/d2codingfont)
 - [KoPub 서체](http://www.kopus.org/biz/electronic/font.aspx)
 - [Noto Sans CJK](https://www.google.com/get/noto/help/cjk/)
 
@@ -175,7 +175,7 @@
     - [Python 3.5.2](https://www.python.org/downloads/release/python-352/)
     - [Ruby 2.2.5 (x86)](https://rubyinstaller.org/downloads/archives/)
         - Add `bin` to `%PATH%`
-    - [Ctags](http://ctags.sourceforge.net)
+    - [Ctags](https://github.com/universal-ctags/ctags-win32)
         - Put into `%USERPROFILE%\bin`
 - [iPuTTY](https://github.com/iPuTTY/iPuTTY)
     - Put `putty.exe` into `%USERPROFILE%\bin`
