@@ -131,7 +131,7 @@ if !has('win32')
     " Generates config files for YouCompleteMe
     Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
   endif
-  if $MSYSTEM !=# 'MSYS' || executable('go')
+  if !has('win32unix') || executable('go')
     " A command-line fuzzy finder written in Go
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
@@ -149,7 +149,8 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-endwise'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
-if has('timers') && exists('*job_start') && exists('*ch_close_in')
+if has('nvim') && has('timers') ||
+      \ has('timers') && exists('*job_start') && exists('*ch_close_in')
   " Asynchronous Lint Engine
   Plug 'w0rp/ale'
 else
