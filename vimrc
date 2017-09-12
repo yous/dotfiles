@@ -78,7 +78,7 @@ function! s:DownloadVimPlug()
       call rename(l:new, s:vimfiles . '/autoload/plug.vim')
 
       " Install plugins at first
-      autocmd vimrc VimEnter * PlugInstall | quit
+      autocmd vimrc VimEnter * PlugInstall --sync
     finally
       if isdirectory(l:tmp)
         let l:dir = '"' . escape(l:tmp, '"') . '"'
