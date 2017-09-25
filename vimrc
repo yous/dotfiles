@@ -553,6 +553,8 @@ autocmd vimrc FileType c,cpp,java,json,markdown,perl,python
       \ setlocal softtabstop=4 shiftwidth=4
 autocmd vimrc FileType asm,gitconfig,kconfig
       \ setlocal noexpandtab softtabstop=8 shiftwidth=8
+autocmd vimrc FileType make
+      \ let &l:shiftwidth = &l:tabstop
 autocmd vimrc FileType go
       \ setlocal noexpandtab softtabstop=4 shiftwidth=4 tabstop=4
 " t: Auto-wrap text using textwidth
