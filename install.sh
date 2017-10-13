@@ -69,6 +69,7 @@ case "$1" in
       'ideavimrc' \
       'inputrc' \
       'irbrc' \
+      'npmrc' \
       'profile' \
       'screenrc' \
       'tmux.conf' \
