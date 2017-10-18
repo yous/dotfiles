@@ -104,7 +104,7 @@ rvm use system # To compile Vim with Ruby support
 #### chruby
 
 If you want to install [chruby](https://github.com/postmodern/chruby), if you're
-on OS X,
+on macOS,
 
 ``` sh
 brew install ruby-install
@@ -153,7 +153,7 @@ rvm get stable
 #### rbenv
 
 If you want to install [rbenv](https://github.com/sstephenson/rbenv), if you're
-on OS X,
+on macOS,
 
 ``` sh
 brew install rbenv
@@ -185,7 +185,8 @@ gem install bundler rubocop ruby-lint wirble
 ### Python
 
 If you want to install [pyenv](https://github.com/yyuu/pyenv) and
-[pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv), if you're on OS X,
+[pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv), if you're on
+macOS,
 
 ``` sh
 brew install pyenv
@@ -229,7 +230,7 @@ sudo mv /etc/zshenv /etc/zshrc
 #### Antibody
 
 If you want to install [Antibody](https://getantibody.github.io), if you're on
-OS X,
+macOS,
 
 ``` sh
 brew tap getantibody/homebrew-antibody
