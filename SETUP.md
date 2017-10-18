@@ -73,8 +73,8 @@
     - Run following commands:
 
       ``` sh
-      sudo mv /Volumes/Macintosh\ HD/sbin/mount_ntfs /Volumes/Macintosh\ HD/sbin/mount_ntfs.orig
-      sudo ln -s /Volumes/Macintosh\ HD/usr/local/sbin/mount_ntfs /Volumes/Macintosh\ HD/sbin/mount_ntfs
+      mv /Volumes/Macintosh\ HD/sbin/mount_ntfs /Volumes/Macintosh\ HD/sbin/mount_ntfs.orig
+      ln -s /Volumes/Macintosh\ HD/usr/local/sbin/mount_ntfs /Volumes/Macintosh\ HD/sbin/mount_ntfs
       ```
 
 ## Fonts
