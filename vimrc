@@ -141,6 +141,10 @@ if !has('win32')
 endif
 " Directory viewer for Vim
 Plug 'justinmk/vim-dirvish'
+" Vim plugin for the Perl module / CLI script 'ack'
+if executable('rg') || executable('ag') || executable('ack')
+  Plug 'mileszs/ack.vim'
+endif
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
 " obsession.vim: continuously updated session files
@@ -943,6 +947,17 @@ if executable('rg')
         \   <q-args>, 1,
         \   fzf#vim#with_preview('right:50%'),
         \   <bang>0)
+endif
+
+" ack.vim
+if has_key(g:plugs, 'ack.vim')
+  if executable('rg')
+    let g:ackprg = 'rg --vimgrep'
+  elseif executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+  endif
+  cnoreabbrev Ack Ack!
+  nnoremap <Leader>a :Ack!<Space><C-R>=expand('<cword>')<CR><CR>
 endif
 
 " ale
