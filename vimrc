@@ -947,6 +947,7 @@ if executable('rg')
         \   <q-args>, 1,
         \   fzf#vim#with_preview('right:50%'),
         \   <bang>0)
+  nnoremap <Leader>* :Rg<Space><C-R>=expand('<cword>')<CR><CR>
 endif
 
 " ack.vim
