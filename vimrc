@@ -652,13 +652,6 @@ nnoremap <C-L> <C-W>l
 vnoremap < <gv
 vnoremap > >gv
 
-" Search regex
-" All ASCII characters except 0-9, a-z, A-Z and '_' have a special meaning
-nnoremap / /\v
-vnoremap / /\v
-cnoremap %s/ %smagic/
-cnoremap \>s/ \>smagic/
-
 " Use CTRL-N to clear the highlighting and screen
 nnoremap <silent> <C-N> :nohlsearch<C-R>=has('diff') ? '<Bar>diffupdate' : ''<CR><CR><C-L>
 
