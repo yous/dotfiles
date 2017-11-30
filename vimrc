@@ -1236,12 +1236,13 @@ let g:vim_json_syntax_conceal = 0
 
 " vimtex
 if has('win32unix')
+  let g:vimtex_compiler_enabled = 0
   let g:vimtex_complete_enabled = 0
-  let g:vimtex_latexmk_enabled = 0
   let g:vimtex_view_enabled = 0
 endif
-if !has('clientserver')
-  let g:vimtex_latexmk_callback = 0
+if !has('clientserver') && !has('nvim')
+  let g:vimtex_compiler_latexmk = {
+        \ 'callback': 0 }
 endif
 if !empty(glob('/Applications/Skim.app'))
   let g:vimtex_view_general_viewer =
