@@ -83,7 +83,6 @@ case "$1" in
     do
       replace_file "$FILENAME"
     done
-    replace_file 'Gdbinit/gdbinit' '.gdbinit'
     replace_file 'pip.conf' '.pip/pip.conf'
     replace_file 'tpm' '.tmux/plugins/tpm'
     for FILENAME in \
@@ -131,6 +130,11 @@ case "$1" in
       done
     fi
     ;;
+  pwndbg)
+    init_submodules
+    cd "${DIR}/pwndbg"
+    ./setup.sh
+    ;;
   pyenv)
     if [ "$(uname)" = 'Darwin' ]; then
       brew install pyenv
@@ -160,6 +164,7 @@ case "$1" in
     echo '    brew      Install Homebrew'
     echo '    formulae  Install Homebrew formulae using Brewfile'
     echo '    npm       Install global Node.js packages'
+    echo '    pwndbg    Install pwndbg'
     echo '    pyenv     Install pyenv with pyenv-virtualenv'
     echo '    rbenv     Install rbenv'
     echo '    rvm       Install RVM'

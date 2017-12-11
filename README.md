@@ -41,6 +41,7 @@ Command option | Description
 `brew`         | Install Homebrew
 `formulae`     | Install Homebrew formulae using Brewfile
 `npm`          | Install global Node.js packages
+`pwndbg`       | Install pwndbg
 `pyenv`        | Install pyenv with pyenv-virtualenv
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
