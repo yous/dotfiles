@@ -95,7 +95,6 @@ If you want to install [Homebrew](http://brew.sh),
 Then install Homebrew formulae with:
 
 ``` sh
-rvm use system # To compile Vim with Ruby support
 ./install.sh formulae
 ```
 
@@ -233,8 +232,7 @@ If you want to install [Antibody](https://getantibody.github.io), if you're on
 macOS,
 
 ``` sh
-brew tap getantibody/homebrew-antibody
-brew install antibody
+brew install getantibody/tap/antibody
 ```
 
 Otherwise,
@@ -269,14 +267,14 @@ To update [vim-plug](https://github.com/junegunn/vim-plug):
 
 For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syntastic):
 
-- CSS (CSSLint): `./install npm`
-- HTML (JSHint): `./install npm`
-- JavaScript (JSHint, JSLint): `./install npm`
-- JSON (JSONLint): `./install npm`
+- CSS (CSSLint): `./install npm` (`npm install -g csslint`)
+- HTML (JSHint): `./install npm` (`npm install -g jshint`)
+- JavaScript (JSHint, JSLint): `./install npm` (`npm install -g jshint jslint`)
+- JSON (JSONLint): `./install npm` (`npm install -g jsonlint`)
 - Ruby (RuboCop, ruby-lint): `gem install rubocop ruby-lint`
 - SASS: `gem install sass`
 - SCSS: `gem install sass scss-lint`
-- xHTML (JSHint): `./install npm`
+- xHTML (JSHint): `./install npm` (`npm install -g jshint`)
 
 ### IntelliJ, Android Studio
 
