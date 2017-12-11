@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 DIRNAME="$(dirname "$0")"
 DIR="$(cd "$DIRNAME" && pwd)"
 
