@@ -32,6 +32,8 @@
 	show = diff-highlight | $(git config core.pager)
 [push]
 	default = simple
+[rerere]
+	enabled = true
 [submodule]
 	fetchJobs = 0
 [user]
