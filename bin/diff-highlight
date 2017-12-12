@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+package DiffHighlight;
 
 use 5.008;
 use warnings FATAL => 'all';
@@ -21,23 +22,28 @@ my $RESET = "\x1b[m";
 my $COLOR = qr/\x1b\[[0-9;]*m/;
 my $BORING = qr/$COLOR|\s/;
 
+# The patch portion of git log -p --graph should only ever have preceding | and
+# not / or \ as merge history only shows up on the commit line.
+my $GRAPH = qr/$COLOR?\|$COLOR?\s+/;
+
 my @removed;
 my @added;
 my $in_hunk;
 
-# Some scripts may not realize that SIGPIPE is being ignored when launching the
-# pager--for instance scripts written in Python.
-$SIG{PIPE} = 'DEFAULT';
+our $line_cb = sub { print @_ };
+our $flush_cb = sub { local $| = 1 };
 
-while (<>) {
+sub handle_line {
+	local $_ = shift;
+
 	if (!$in_hunk) {
-		print;
-		$in_hunk = /^$COLOR*\@/;
+		$line_cb->($_);
+		$in_hunk = /^$GRAPH*$COLOR*\@\@ /;
 	}
-	elsif (/^$COLOR*-/) {
+	elsif (/^$GRAPH*$COLOR*-/) {
 		push @removed, $_;
 	}
-	elsif (/^$COLOR*\+/) {
+	elsif (/^$GRAPH*$COLOR*\+/) {
 		push @added, $_;
 	}
 	else {
@@ -45,8 +51,8 @@ while (<>) {
 		@removed = ();
 		@added = ();
 
-		print;
-		$in_hunk = /^$COLOR*[\@ ]/;
+		$line_cb->($_);
+		$in_hunk = /^$GRAPH*$COLOR*[\@ ]/;
 	}
 
 	# Most of the time there is enough output to keep things streaming,
@@ -58,15 +64,22 @@ while (<>) {
 	# place to flush. Flushing on a blank line is a heuristic that
 	# happens to match git-log output.
 	if (!length) {
-		local $| = 1;
+		$flush_cb->();
 	}
 }
 
-# Flush any queued hunk (this can happen when there is no trailing context in
-# the final diff of the input).
-show_hunk(\@removed, \@added);
+sub flush {
+	# Flush any queued hunk (this can happen when there is no trailing
+	# context in the final diff of the input).
+	show_hunk(\@removed, \@added);
+}
 
-exit 0;
+sub highlight_stdin {
+	while (<STDIN>) {
+		handle_line($_);
+	}
+	flush();
+}
 
 # Ideally we would feed the default as a human-readable color to
 # git-config as the fallback value. But diff-highlight does
@@ -84,7 +97,7 @@ sub show_hunk {
 
 	# If one side is empty, then there is nothing to compare or highlight.
 	if (!@$a || !@$b) {
-		print @$a, @$b;
+		$line_cb->(@$a, @$b);
 		return;
 	}
 
@@ -93,17 +106,17 @@ sub show_hunk {
 	# stupid, and only handle multi-line hunks that remove and add the same
 	# number of lines.
 	if (@$a != @$b) {
-		print @$a, @$b;
+		$line_cb->(@$a, @$b);
 		return;
 	}
 
 	my @queue;
 	for (my $i = 0; $i < @$a; $i++) {
 		my ($rm, $add) = highlight_pair($a->[$i], $b->[$i]);
-		print $rm;
+		$line_cb->($rm);
 		push @queue, $add;
 	}
-	print @queue;
+	$line_cb->(@queue);
 }
 
 sub highlight_pair {
@@ -163,6 +176,9 @@ sub highlight_pair {
 	}
 }
 
+# we split either by $COLOR or by character. This has the side effect of
+# leaving in graph cruft. It works because the graph cruft does not contain "-"
+# or "+"
 sub split_line {
 	local $_ = shift;
 	return utf8::decode($_) ?
@@ -211,8 +227,16 @@ sub is_pair_interesting {
 	my $suffix_a = join('', @$a[($sa+1)..$#$a]);
 	my $suffix_b = join('', @$b[($sb+1)..$#$b]);
 
-	return $prefix_a !~ /^$COLOR*-$BORING*$/ ||
-	       $prefix_b !~ /^$COLOR*\+$BORING*$/ ||
+	return $prefix_a !~ /^$GRAPH*$COLOR*-$BORING*$/ ||
+	       $prefix_b !~ /^$GRAPH*$COLOR*\+$BORING*$/ ||
 	       $suffix_a !~ /^$BORING*$/ ||
 	       $suffix_b !~ /^$BORING*$/;
 }
+package main;
+
+# Some scripts may not realize that SIGPIPE is being ignored when launching the
+# pager--for instance scripts written in Python.
+$SIG{PIPE} = 'DEFAULT';
+
+DiffHighlight::highlight_stdin();
+exit 0;
