@@ -333,21 +333,18 @@ catch /^Vim\%((\a\+)\)\=:E474/
 endtry
 " The key sequence that toggles the 'paste' option
 set pastetoggle=<F2>
+" Files with these suffixes get a lower priority when multiple files match a
+" wildcard
+set suffixes+=.git,.hg,.svn
+set suffixes+=.bmp,.gif,.jpeg,.jpg,.png
+set suffixes+=.dll,.exe
+set suffixes+=.swo
+set suffixes+=.DS_Store
+set suffixes+=.pyc
 " Maximum number of changes that can be undone
 set undolevels=1000
 " Update swap file and trigger CursorHold after 1 second
 set updatetime=1000
-if has('wildignore')
-  " List of file patterns to ignore when expanding wildcards, completing file or
-  " directory names, and influences the result of expand(), glob() and
-  " globpath()
-  set wildignore+=.git,.hg,.svn
-  set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.png
-  set wildignore+=*.dll,*.exe,*.o,*.obj
-  set wildignore+=*.sw?
-  set wildignore+=*.DS_Store
-  set wildignore+=*.pyc
-endif
 if exists('+wildignorecase')
   " Ignore case when completing file names and directories
   set wildignorecase
