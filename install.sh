@@ -87,7 +87,8 @@ case "$1" in
     replace_file 'tpm' '.tmux/plugins/tpm'
     for FILENAME in \
       'diff-highlight' \
-      'diff-hunk-list'
+      'diff-hunk-list' \
+      'server'
     do
       replace_file "bin/$FILENAME" "bin/$FILENAME"
     done

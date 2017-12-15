@@ -22,7 +22,11 @@ diff-highlight.bat^
 
 diff-hunk-list^
 
-diff-hunk-list.bat
+diff-hunk-list.bat^
+
+server^
+
+server.bat
 
 :: Main
 for %%a in (%files%) do (
