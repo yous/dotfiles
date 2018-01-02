@@ -248,10 +248,6 @@ Plug 'othree/xml.vim', { 'for': 'xml' }
 " A solid language pack for Vim
 Plug 'sheerun/vim-polyglot'
 
-" Python
-" A nicer Python indentation style for vim
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
-
 " Ruby
 " Rake
 Plug 'tpope/vim-rake'
@@ -1289,7 +1285,7 @@ nnoremap <Plug> <Plug>Markdown_MoveToCurHeader
 vnoremap <Plug> <Plug>Markdown_MoveToCurHeader
 
 " vim-polyglot
-let g:polyglot_disabled = ['json', 'latex', 'markdown', 'python']
+let g:polyglot_disabled = ['json', 'latex', 'markdown']
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
