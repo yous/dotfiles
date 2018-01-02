@@ -233,8 +233,6 @@ Plug 'godlygeek/tabular', { 'for': 'markdown' } |
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " PHP
 Plug 'vim-scripts/php.vim-html-enhanced', { 'for': ['html', 'php'] }
-" Racket
-Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 " smali
 Plug 'kelwin/vim-smali', { 'for': 'smali' }
 " SMT-LIB
