@@ -1119,7 +1119,11 @@ endfunction
 
 function! LightLineFilename()
   let l:fname = expand('%:t')
-  return l:fname ==# '__Tag_List__' ? '' :
+  let l:fpath = expand('%')
+  return &filetype ==# 'dirvish' ?
+        \   (l:fpath ==# getcwd() . '/' ? fnamemodify(l:fpath, ':~') :
+        \   fnamemodify(l:fpath, ':~:.')) :
+        \ l:fname ==# '__Tag_List__' ? '' :
         \ l:fname ==# 'ControlP' ? '' :
         \ l:fname =~# 'NERD_tree' ?
         \   (index(['" Press ? for help', '.. (up a dir)'], getline('.')) < 0 ?
