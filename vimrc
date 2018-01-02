@@ -860,11 +860,11 @@ augroup vimrc
   autocmd BufNewFile,BufRead *.lds setlocal filetype=ld
 
   " Markdown view
-  autocmd BufNewFile,BufRead *.md setfiletype markdown
+  autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
   " mobile.erb view
   autocmd BufNewFile,BufRead *.mobile.erb let b:eruby_subtype = 'html'
-  autocmd BufNewFile,BufRead *.mobile.erb setfiletype eruby
+  autocmd BufNewFile,BufRead *.mobile.erb setlocal filetype=eruby
 
   " zsh-theme view
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
