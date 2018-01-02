@@ -88,6 +88,7 @@ case "$1" in
     for FILENAME in \
       'diff-highlight' \
       'diff-hunk-list' \
+      'pyg' \
       'server'
     do
       replace_file "bin/$FILENAME" "bin/$FILENAME"
