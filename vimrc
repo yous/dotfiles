@@ -226,8 +226,6 @@ Plug 'gcollura/cup.vim', { 'for': 'cup' }
 Plug 'Shirk/vim-gas', { 'for': 'gas' }
 " Jade
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
-" JSON
-Plug 'elzr/vim-json', { 'for': ['json', 'markdown'] }
 " LaTeX
 Plug 'lervag/vimtex', { 'for': ['bib', 'tex'] }
 " Markdown
@@ -860,9 +858,6 @@ augroup vimrc
   " Gradle view
   autocmd BufNewFile,BufRead *.gradle setlocal filetype=groovy
 
-  " Json view
-  autocmd BufNewFile,BufRead *.json setlocal filetype=json
-
   " LD script view
   autocmd BufNewFile,BufRead *.lds setlocal filetype=ld
 
@@ -1228,9 +1223,6 @@ nnoremap <Leader>G :Goyo<CR>
 " adblock-filter.vim
 let g:adblock_filter_auto_checksum = 1
 
-" vim-json
-let g:vim_json_syntax_conceal = 0
-
 " vimtex
 if has('win32unix')
   let g:vimtex_compiler_enabled = 0
@@ -1285,7 +1277,7 @@ nnoremap <Plug> <Plug>Markdown_MoveToCurHeader
 vnoremap <Plug> <Plug>Markdown_MoveToCurHeader
 
 " vim-polyglot
-let g:polyglot_disabled = ['json', 'latex', 'markdown']
+let g:polyglot_disabled = ['latex', 'markdown']
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
