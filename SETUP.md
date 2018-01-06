@@ -204,7 +204,7 @@
       start /b putty -load Loco
       ```
 - [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-- [MSYS2](https://msys2.github.io)
+- [MSYS2](http://www.msys2.org)
     - Option
         - Transparency: Med.
         - Cursor: Block
@@ -215,8 +215,6 @@
         - Character set: UTF-8
         - Terminal Type: xterm-256color
     - Setup
-        - `pacman -Sy pacman`
-        - Run MSYS2 again if needed.
         - `pacman -Syu`
         - Run MSYS2 again if needed.
         - `pacman -Su`
