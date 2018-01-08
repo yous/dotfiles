@@ -929,6 +929,13 @@ if executable('rg')
   nnoremap <Leader>* :Rg<Space><C-R>=expand('<cword>')<CR><CR>
 endif
 
+" vim-dirvish
+augroup dirvish_config
+  autocmd!
+  autocmd FileType dirvish silent! unmap <buffer> <C-N>
+  autocmd FileType dirvish silent! unmap <buffer> <C-P>
+augroup END
+
 " ack.vim
 if has_key(g:plugs, 'ack.vim')
   if executable('rg')
