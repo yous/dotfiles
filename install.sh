@@ -157,6 +157,9 @@ case "$1" in
   rvm)
     command curl -sSL https://get.rvm.io | bash -s stable
     ;;
+  z)
+    init_submodules
+    replace_file 'z/z.sh' '.z.sh'
   *)
     echo "usage: $(basename "$0") <command>"
     echo ''
@@ -170,5 +173,6 @@ case "$1" in
     echo '    pyenv     Install pyenv with pyenv-virtualenv'
     echo '    rbenv     Install rbenv'
     echo '    rvm       Install RVM'
+    echo '    z         Install z'
     ;;
 esac

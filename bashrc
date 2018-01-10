@@ -162,9 +162,22 @@ if [[ -d "$HOME/.linuxbrew" ]]; then
   export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
+if command -v brew &> /dev/null; then
+  BREW_PREFIX="$(brew --prefix)"
+fi
+
 # Set PATH to include user's bin if it exists
 if [ -d "$HOME/bin" ]; then
   add_to_path_once "$HOME/bin"
+fi
+
+# Load z
+if [ -f "$HOME/.z.sh" ]; then
+  source "$HOME/.z.sh"
+elif [ -n "$BREW_PREFIX" ]; then
+  if [ -f "$BREW_PREFIX/etc/profile.d/z.sh" ]; then
+    source "$BREW_PREFIX/etc/profile.d/z.sh"
+  fi
 fi
 
 # Load autojump
@@ -175,12 +188,10 @@ if command -v autojump &> /dev/null; then
     source /etc/profile.d/autojump.bash
   elif [ -f /usr/share/autojump/autojump.bash ]; then
     source /usr/share/autojump/autojump.bash
-  elif command -v brew &> /dev/null; then
-    BREW_PREFIX="$(brew --prefix)"
+  elif [ -n "$BREW_PREFIX" ]; then
     if [ -f "$BREW_PREFIX/etc/autojump.sh" ]; then
       source "$BREW_PREFIX/etc/autojump.sh"
     fi
-    unset BREW_PREFIX
   fi
 elif [ -f "$HOME/.autojump/etc/profile.d/autojump.sh" ]; then
   source "$HOME/.autojump/etc/profile.d/autojump.sh"
@@ -268,7 +279,8 @@ if command -v keychain &> /dev/null; then
   fi
 fi
 
-# Unset local functions
+# Unset local functions and variables
+unset BREW_PREFIX
 unset -f add_to_path_once
 
 # Define aliases

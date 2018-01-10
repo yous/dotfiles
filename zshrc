@@ -47,6 +47,10 @@ if [[ -d "$HOME/.linuxbrew" ]]; then
   export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
+if command -v brew &> /dev/null; then
+  BREW_PREFIX="$(brew --prefix)"
+fi
+
 # Use Antibody
 if [[ "$(uname)" == 'Linux' ]] || [[ "$(uname)" == 'Darwin' ]]; then
   # Check if Antibody is installed
@@ -89,6 +93,15 @@ if [ -d "$HOME/bin" ]; then
   add_to_path_once "$HOME/bin"
 fi
 
+# Load z
+if [ -f "$HOME/.z.sh" ]; then
+  source "$HOME/.z.sh"
+elif [ -n "$BREW_PREFIX" ]; then
+  if [ -f "$BREW_PREFIX/etc/profile.d/z.sh" ]; then
+    source "$BREW_PREFIX/etc/profile.d/z.sh"
+  fi
+fi
+
 # Load autojump
 if command -v autojump &> /dev/null; then
   if [ -f "$HOME/.autojump/etc/profile.d/autojump.sh" ]; then
@@ -97,12 +110,10 @@ if command -v autojump &> /dev/null; then
     source /etc/profile.d/autojump.zsh
   elif [ -f /usr/share/autojump/autojump.zsh ]; then
     source /usr/share/autojump/autojump.zsh
-  elif command -v brew &> /dev/null; then
-    BREW_PREFIX="$(brew --prefix)"
+  elif [ -n "$BREW_PREFIX" ]; then
     if [ -f "$BREW_PREFIX/etc/autojump.sh" ]; then
       source "$BREW_PREFIX/etc/autojump.sh"
     fi
-    unset BREW_PREFIX
   fi
 elif [ -f "$HOME/.autojump/etc/profile.d/autojump.sh" ]; then
   source "$HOME/.autojump/etc/profile.d/autojump.sh"
@@ -194,7 +205,8 @@ if command -v keychain &> /dev/null; then
   fi
 fi
 
-# Unset local functions
+# Unset local functions and variables
+unset BREW_PREFIX
 unset -f add_to_path_once
 
 # Define aliases
