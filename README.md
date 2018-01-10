@@ -4,22 +4,26 @@
 
 [@yous](https://github.com/yous)' dotfiles.
 
+## Table of Contents
+
 - [Requirements](#requirements)
-- [Install](#install)
+- [Installation](#installation)
     - [Git](#git)
     - [Homebrew](#homebrew)
     - [Ruby](#ruby)
     - [Python](#python)
     - [Zsh](#zsh)
     - [Vim](#vim)
+    - [Tools](#tools)
     - [IntelliJ, Android Studio](#intellij-android-studio)
     - [iTerm2](#iterm2)
+- [License](#license)
 
 ## Requirements
 
 - [Git](http://git-scm.com)
 
-## Install
+## Installation
 
 Clone this repository:
 
@@ -277,6 +281,16 @@ For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syn
 - SCSS: `gem install sass scss-lint`
 - xHTML (JSHint): `./install npm` (`npm install -g jshint`)
 
+### Tools
+
+#### pwndbg
+
+If you want to install [pwndbg](https://github.com/pwndbg/pwndbg),
+
+``` sh
+./install.sh pwndbg
+```
+
 ### IntelliJ, Android Studio
 
 To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
@@ -295,3 +309,7 @@ To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 2. Click 'Load Presets…' and select 'Import…'.
 3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2/`.
 4. Click 'Load Presets…' again and select one of Tomorrow Theme.
+
+## License
+
+Copyright © Chayoung You. See [LICENSE.txt](LICENSE.txt) for details.
