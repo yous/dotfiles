@@ -7,7 +7,7 @@ install grep --with-default-names
 install ripgrep
 install openssh
 install wget
-install autojump
+install z
 install zsh
 install tmux
 install cmake
