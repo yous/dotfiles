@@ -160,6 +160,7 @@ case "$1" in
   z)
     init_submodules
     replace_file 'z/z.sh' '.z.sh'
+    ;;
   *)
     echo "usage: $(basename "$0") <command>"
     echo ''
