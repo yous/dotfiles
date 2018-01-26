@@ -112,9 +112,11 @@ if !has('win32')
       " - force: set on PlugInstall! or PlugUpdate!
       if a:info.status ==# 'installed' || a:info.force
         let l:options = []
-        let l:requirements = [['clang', '--clang-completer'],
-              \ ['go', '--gocode-completer'],
-              \ ['cargo', '--racer-completer']]
+        let l:requirements = [
+              \ ['clang', '--clang-completer'],
+              \ ['mono', '--cs-completer'],
+              \ ['go', '--go-completer'],
+              \ ['cargo', '--rust-completer']]
         for l:r in l:requirements
           if executable(l:r[0])
             let l:options += [l:r[1]]
