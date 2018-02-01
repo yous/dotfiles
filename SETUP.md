@@ -99,7 +99,7 @@
 - [Palua](https://itunes.apple.com/kr/app/palua/id431494195?mt=12)
 - [Safari Extensions](https://safari-extensions.apple.com)
     - [1Password](https://safari-extensions.apple.com/details/?id=com.agilebits.onepassword4-safari-2BUA8C4S2C)
-    - [uBlock](https://www.ublock.org)
+    - [uBlock Origin for Safari](https://github.com/el1t/uBlock-Safari)
 - [The Unarchiver](https://itunes.apple.com/kr/app/the-unarchiver/id425424353?mt=12)
 - Quick Look
     - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
