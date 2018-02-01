@@ -401,7 +401,7 @@ if has('vertsplit')
 endif
 if empty($TMUX) && empty($STY) && has('termguicolors') &&
       \ exists('g:colors_name') && g:colors_name !=# 'default'
-  if !has('mac') || $TERM_PROGRAM ==# 'iTerm.app'
+  if $COLORTERM ==# 'truecolor'
     set termguicolors
   endif
 endif
