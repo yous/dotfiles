@@ -951,9 +951,7 @@ endif
 
 " ale
 if has_key(g:plugs, 'ale')
-  let g:ale_echo_msg_error_str = 'E'
-  let g:ale_echo_msg_warning_str = 'W'
-  let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
+  let g:ale_echo_msg_format = '[%linter%] %code: %%s'
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
   let g:ale_linters = {
@@ -1055,7 +1053,7 @@ let g:lightline = {
       \ 'component_expand': {
       \   'readonly': 'LightLineReadonly',
       \   'eol': 'LightLineEol',
-      \   'ale': 'ALEGetStatusLine',
+      \   'ale': 'LightLineALEStatusline',
       \   'syntastic': 'SyntasticStatuslineFlag' },
       \ 'component_type': {
       \   'readonly': 'warning',
@@ -1187,6 +1185,20 @@ if has_key(g:plugs, 'ale')
   function! s:LightLineALE()
     if exists('#lightline')
       call lightline#update()
+    endif
+  endfunction
+
+  function! s:LightLineALEStatusline()
+    let l:counts = ale#statusline#Count(bufnr('%'))
+    let l:errors = l:counts.error + l:counts.style_error
+    let l:warnings = l:counts.total - l:errors
+    let l:error_msg = l:errors ? printf('%d error(s)', l:errors) : ''
+    let l:warning_msg = l:warnings ? printf('%d warning(s)', l:warnings) : ''
+
+    if l:errors && l:warnings
+      return printf('%s %s', l:error_msg, l:warning_msg)
+    else
+      return l:errors ? l:error_msg : (l:warnings ? l:warning_msg : '')
     endif
   endfunction
 endif
