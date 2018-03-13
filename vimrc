@@ -1236,6 +1236,16 @@ endif
 " rainbow_parentheses.vim
 autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
 
+" vim-gitgutter
+function! s:RedefineGitGutterAutocmd()
+  if g:gitgutter_async && gitgutter#async#available()
+    autocmd! gitgutter CursorHold,CursorHoldI
+    autocmd gitgutter CursorHold,CursorHoldI *
+          \ call gitgutter#process_buffer(bufnr(''), 1)
+  endif
+endfunction
+autocmd vimrc VimEnter * call s:RedefineGitGutterAutocmd()
+
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
 
