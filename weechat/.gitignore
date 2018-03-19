@@ -1,4 +1,6 @@
 /logs/
+/perl/
+/python/
 /script/plugins.xml.gz
 /sec.conf
 *.log
