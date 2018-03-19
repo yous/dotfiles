@@ -14,6 +14,7 @@
     - [Python](#python)
     - [Zsh](#zsh)
     - [Vim](#vim)
+    - [WeeChat](#weechat)
     - [Tools](#tools)
     - [IntelliJ, Android Studio](#intellij-android-studio)
     - [iTerm2](#iterm2)
@@ -49,6 +50,7 @@ Command option | Description
 `pyenv`        | Install pyenv with pyenv-virtualenv
 `rbenv`        | Install rbenv
 `rvm`          | Install RVM
+`weechat`      | Install WeeChat configuration
 `z`            | Install z
 
 In Windows, use `install.bat`. It links files into the user's home directory.
@@ -281,6 +283,27 @@ For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syn
 - SASS: `gem install sass`
 - SCSS: `gem install sass scss-lint`
 - xHTML (JSHint): `./install npm` (`npm install -g jshint`)
+
+### WeeChat
+
+To install [WeeChat](https://weechat.org) configuration,
+
+``` sh
+./install.sh weechat
+```
+
+Then install scripts:
+
+```
+/script install autosort.py buffers.pl colorize_nicks.py iset.pl
+```
+
+To update WeeChat scripts:
+
+```
+/script update
+/script upgrade
+```
 
 ### Tools
 

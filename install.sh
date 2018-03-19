@@ -77,7 +77,6 @@ case "$1" in
       'tmux.conf' \
       'vintrc.yaml' \
       'vimrc' \
-      'weechat' \
       'zprofile' \
       'zshrc'
     do
@@ -157,6 +156,9 @@ case "$1" in
   rvm)
     command curl -sSL https://get.rvm.io | bash -s stable
     ;;
+  weechat)
+    replace_file 'weechat'
+    ;;
   z)
     init_submodules
     replace_file 'z/z.sh' '.z.sh'
@@ -174,6 +176,7 @@ case "$1" in
     echo '    pyenv     Install pyenv with pyenv-virtualenv'
     echo '    rbenv     Install rbenv'
     echo '    rvm       Install RVM'
+    echo '    weechat   Install WeeChat configuration'
     echo '    z         Install z'
     ;;
 esac
