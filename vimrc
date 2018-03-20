@@ -1188,7 +1188,7 @@ if has_key(g:plugs, 'ale')
     endif
   endfunction
 
-  function! s:LightLineALEStatusline()
+  function! LightLineALEStatusline()
     let l:counts = ale#statusline#Count(bufnr('%'))
     let l:errors = l:counts.error + l:counts.style_error
     let l:warnings = l:counts.total - l:errors
