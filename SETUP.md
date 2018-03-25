@@ -90,13 +90,13 @@
 - [Chrome](https://www.google.com/chrome/)
 - [Dropbox](https://www.dropbox.com/install)
 - [Fantastical](https://flexibits.com/fantastical)
+- [Fluor](https://github.com/Pyroh/Fluor)
 - [GPG Suite](https://gpgtools.org)
     - Customize > Uncheck GPGMail
 - [HyperSwitch](https://bahoom.com/hyperswitch)
     - App Switcher
         - Check "When activating an app without windows, try to open the default window"
 - [MacTeX](https://www.tug.org/mactex/)
-- [Palua](https://itunes.apple.com/kr/app/palua/id431494195?mt=12)
 - [Safari Extensions](https://safari-extensions.apple.com)
     - [1Password](https://safari-extensions.apple.com/details/?id=com.agilebits.onepassword4-safari-2BUA8C4S2C)
     - [Translate](https://safari-extensions.apple.com/details/?id=com.sidetree.Translate-S64NDGV2C5)
