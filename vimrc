@@ -149,6 +149,8 @@ if executable('rg') || executable('ag') || executable('ack')
 endif
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
+" A Plugin to show a diff, whenever recovering a buffer
+Plug 'chrisbra/Recover.vim'
 " obsession.vim: continuously updated session files
 Plug 'tpope/vim-obsession'
 " Autocomplete if end
