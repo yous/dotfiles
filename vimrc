@@ -166,8 +166,12 @@ else
   Plug 'vim-syntastic/syntastic'
 endif
 " A Vim plugin that manages your tag files
-if v:version >= 704 && (executable('ctags') || executable('cscope'))
-  Plug 'ludovicchabant/vim-gutentags'
+if executable('ctags') || executable('cscope')
+  if v:version >= 800
+    Plug 'ludovicchabant/vim-gutentags'
+  elseif v:version >= 704
+    Plug 'ludovicchabant/vim-gutentags', { 'commit': '3314afd', 'frozen': 1 }
+  endif
 endif
 " Vim Git runtime files
 Plug 'tpope/vim-git'
