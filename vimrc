@@ -76,9 +76,6 @@ function! s:DownloadVimPlug()
         call mkdir(s:vimfiles . '/autoload', 'p')
       endif
       call rename(l:new, s:vimfiles . '/autoload/plug.vim')
-
-      " Install plugins at first
-      autocmd vimrc VimEnter * PlugInstall --sync
     finally
       if isdirectory(l:tmp)
         let l:dir = '"' . escape(l:tmp, '"') . '"'
@@ -282,6 +279,12 @@ call plug#end()
 " Followings are done by `plug#end()`:
 " filetype plugin indent on
 " syntax on
+
+" Automatically install missing plugins on startup
+autocmd vimrc VimEnter *
+      \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
+      \   PlugInstall --sync |
+      \ endif
 
 " }}}
 " =============================================================================
