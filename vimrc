@@ -881,6 +881,20 @@ augroup vimrc
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
 augroup END
 
+" Auto insert for git commit
+let s:gitcommit_insert = 0
+augroup gitcommit_insert
+  autocmd!
+  autocmd FileType gitcommit
+        \ if byte2line(2) == 2 |
+        \   let s:gitcommit_insert = 1 |
+        \ endif
+  autocmd VimEnter *
+        \ if (s:gitcommit_insert) |
+        \   startinsert |
+        \ endif
+augroup END
+
 " Reload symlink of vimrc on the fly
 let s:resolved_vimrc = resolve(expand($MYVIMRC))
 if expand($MYVIMRC) !=# s:resolved_vimrc
@@ -1007,20 +1021,6 @@ let g:gutentags_file_list_command = {
       \   '.git': 'git ls-files',
       \   '.hg': 'hg files'
       \ } }
-
-" vim-fugitive
-let s:fugitive_insert = 0
-augroup Fugitive
-  autocmd!
-  autocmd FileType gitcommit
-        \ if byte2line(2) == 2 |
-        \   let s:fugitive_insert = 1 |
-        \ endif
-  autocmd VimEnter *
-        \ if (s:fugitive_insert) |
-        \   startinsert |
-        \ endif
-augroup END
 
 " CamelCaseMotion
 function! s:CreateCamelCaseMotionMappings()
