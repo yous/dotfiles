@@ -26,13 +26,19 @@ function git_clone() {
 function replace_file() {
   DEST=${2:-.$1}
 
+  if [ -e "$DIR/$1" ]; then
+    SRC="$DIR/$1"
+  else
+    SRC="$HOME/$1"
+  fi
+
   # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
   # File exists and is a directory.
   [ ! -d "$(dirname "$HOME/$DEST")" ] && mkdir -p "$(dirname "$HOME/$DEST")"
 
   # FILE exists and is a symbolic link.
   if [ -h "$HOME/$DEST" ]; then
-    if rm "$HOME/$DEST" && ln -s "$DIR/$1" "$HOME/$DEST"; then
+    if rm "$HOME/$DEST" && ln -s "$SRC" "$HOME/$DEST"; then
       echo "Updated ~/$DEST"
     else
       echoerr "Failed to update ~/$DEST"
@@ -41,7 +47,7 @@ function replace_file() {
   elif [ -e "$HOME/$DEST" ]; then
     if mv --backup=number "$HOME/$DEST" "$HOME/$DEST.old"; then
       echo "Renamed ~/$DEST to ~/$DEST.old"
-      if ln -s "$DIR/$1" "$HOME/$DEST"; then
+      if ln -s "$SRC" "$HOME/$DEST"; then
         echo "Created ~/$DEST"
       else
         echoerr "Failed to create ~/$DEST"
@@ -50,7 +56,7 @@ function replace_file() {
       echoerr "Failed to rename ~/$DEST to ~/$DEST.old"
     fi
   else
-    if ln -s "$DIR/$1" "$HOME/$DEST"; then
+    if ln -s "$SRC" "$HOME/$DEST"; then
       echo "Created ~/$DEST"
     else
       echoerr "Failed to create ~/$DEST"
@@ -85,6 +91,8 @@ case "$1" in
     done
     replace_file 'pip.conf' '.pip/pip.conf'
     replace_file 'tpm' '.tmux/plugins/tpm'
+    replace_file '.vim' '.config/nvim'
+    replace_file 'vimrc' '.config/nvim/init.vim'
     for FILENAME in \
       'diff-highlight' \
       'diff-hunk-list' \
