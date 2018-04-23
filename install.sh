@@ -77,6 +77,7 @@ case "$1" in
       'tmux.conf' \
       'vintrc.yaml' \
       'vimrc' \
+      'ycm_extra_conf.py' \
       'zprofile' \
       'zshrc'
     do
