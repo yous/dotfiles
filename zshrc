@@ -150,11 +150,13 @@ fi
 
 # Load pyenv
 if command -v pyenv &> /dev/null; then
+  export PYENV_ROOT="$HOME/.pyenv"
   eval "$(pyenv init - zsh)"
   if command -v pyenv-virtualenv-init &> /dev/null; then
     eval "$(pyenv virtualenv-init - zsh)"
   fi
 elif [ -e "$HOME/.pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$HOME/.pyenv/bin:$PATH"
   eval "$(pyenv init - zsh)"
   eval "$(pyenv virtualenv-init - zsh)"
