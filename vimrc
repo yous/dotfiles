@@ -147,6 +147,10 @@ if !has('win32')
   " A Vim plugin for looking up words in an online thesaurus
   Plug 'beloglazov/vim-online-thesaurus'
 endif
+" Print documents in echo area
+if exists('v:completed_item')
+  Plug 'Shougo/echodoc.vim'
+endif
 " Directory viewer for Vim
 Plug 'justinmk/vim-dirvish'
 " Vim plugin for the Perl module / CLI script 'ack'
@@ -961,6 +965,14 @@ if executable('rg')
         \   fzf#vim#with_preview('right:50%'),
         \   <bang>0)
   nnoremap <Leader>* :Rg<Space><C-R>=expand('<cword>')<CR><CR>
+endif
+
+" echodoc.vim
+if has_key(g:plugs, 'echodoc.vim')
+  set noshowmode
+  set completeopt-=preview
+
+  let g:echodoc#enable_at_startup = 1
 endif
 
 " vim-dirvish
