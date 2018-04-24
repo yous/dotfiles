@@ -355,6 +355,7 @@ alias gstp='git stash pop'
 # Vim
 alias v='vim'
 alias vi='vim'
+alias nv='nvim'
 
 # http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
 function man() {
