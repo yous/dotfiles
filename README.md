@@ -14,6 +14,7 @@
     - [Python](#python)
     - [Zsh](#zsh)
     - [Vim](#vim)
+    - [Neovim](#neovim)
     - [WeeChat](#weechat)
     - [Tools](#tools)
     - [IntelliJ, Android Studio](#intellij-android-studio)
@@ -283,6 +284,34 @@ For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syn
 - SASS: `gem install sass`
 - SCSS: `gem install sass scss-lint`
 - xHTML (JSHint): `./install npm` (`npm install -g jshint`)
+
+### Neovim
+
+To use Python 2 or 3 via pyenv in [Neovim](https://neovim.io),
+
+``` sh
+pyenv install 2.7.14
+pyenv virtualenv 2.7.14 neovim2
+pyenv activate neovim2
+pip install neovim
+
+pyenv install 3.6.5
+pyenv virtualenv 3.6.5 neovim3
+pyenv activate neovim3
+pip install neovim
+```
+
+To use Ruby in Neovim,
+
+``` sh
+gem install neovim
+```
+
+To use Node.js in Neovim,
+
+``` sh
+npm install -g neovim
+```
 
 ### WeeChat
 

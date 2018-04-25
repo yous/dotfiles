@@ -26,6 +26,7 @@ install chruby
 
 # Vim
 install vim
+install neovim
 
 # Antibody
 tap getantibody/homebrew-antibody
