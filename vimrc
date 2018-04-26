@@ -665,8 +665,11 @@ nnoremap <C-L> <C-W>l
 vnoremap < <gv
 vnoremap > >gv
 
-" Use CTRL-N to clear the highlighting and screen
-nnoremap <silent> <C-N> :nohlsearch<C-R>=has('diff') ? '<Bar>diffupdate' : ''<CR><CR><C-L>
+" Use CTRL-N to clear the highlighting
+nnoremap <silent> <C-N> :nohlsearch<C-R>=has('diff') ? '<Bar>diffupdate' : ''<CR><CR>
+
+" Clear screen
+nnoremap <Leader><C-L> <C-L>
 
 " Search for visually selected text
 function! s:VSearch(cmd)
