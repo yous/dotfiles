@@ -157,6 +157,10 @@ Plug 'justinmk/vim-dirvish'
 if executable('rg') || executable('ag') || executable('ack')
   Plug 'mileszs/ack.vim'
 endif
+if !has('nvim')
+  " Tab-specific directories
+  Plug 'vim-scripts/tcd.vim'
+endif
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
 " A Plugin to show a diff, whenever recovering a buffer
