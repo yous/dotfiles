@@ -165,7 +165,7 @@
 - [나눔글꼴](http://hangeul.naver.com/font) (나눔바른고딕, 나눔명조)
 - [D2 Coding](https://github.com/naver/d2codingfont)
 - [KoPub 서체](http://www.kopus.org/biz/electronic/font.aspx)
-- [Noto Sans CJK](https://www.google.com/get/noto/help/cjk/)
+- [Noto CJK](https://www.google.com/get/noto/help/cjk/)
 
 ## Tools
 
