@@ -171,11 +171,12 @@
 
 - [Git](http://git-scm.com)
     - [dotfiles](https://github.com/yous/dotfiles)
-- [gVim](http://www.vim.org/download.php#pc) and [Yongwei's gvim80.zip](http://wyw.dcweb.cn/#download)
-    - [Python 2.7.10](https://www.python.org/downloads/release/python-2710/)
-    - [Python 3.5.2](https://www.python.org/downloads/release/python-352/)
-    - [Ruby 2.2.5 (x86)](https://rubyinstaller.org/downloads/archives/)
-        - Add `bin` to `%PATH%`
+- [gVim](http://www.vim.org/download.php#pc) 8.1
+    - [Perl 5.24.4.1 (32bit)](http://strawberryperl.com/releases.html)
+    - [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)
+    - [Python 3.6.5](https://www.python.org/downloads/release/python-365/)
+    - [Ruby 2.4.4 (x86)](https://rubyinstaller.org/downloads/archives/)
+        - Add `bin` and `bin/ruby_builtin_dlls` to `%PATH%`
     - [Ctags](https://github.com/universal-ctags/ctags-win32)
         - Put into `%USERPROFILE%\bin`
 - [iPuTTY](https://github.com/iPuTTY/iPuTTY)
