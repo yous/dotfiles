@@ -61,16 +61,47 @@ if [ -n "$force_color_prompt" ]; then
   fi
 fi
 
+# Load git-prompt.sh
+git_prompt_loaded=yes
+if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
+elif [ -f /usr/share/git/completion/git-prompt.sh ]; then
+  source /usr/share/git/completion/git-prompt.sh
+elif [ -f /etc/bash_completion.d/git-prompt ]; then
+  source /etc/bash_completion.d/git-prompt
+elif [ -f /etc/bash_completion.d/git ]; then
+  source /etc/bash_completion.d/git
+else
+  git_prompt_loaded=
+fi
+
+if [ "$git_prompt_loaded" = "yes" ]; then
+  GIT_PS1_SHOWDIRTYSTATE=true
+  GIT_PS1_STATESEPARATOR=""
+fi
+
 if [ "$color_prompt" = yes ]; then
   if [[ "$TERM" = *"256color" ]]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;109m\]\u\[\033[00m\] \[\033[38;5;143m\]\w\[\033[00m\] \$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;109m\]\u\[\033[00m\] \[\033[38;5;143m\]\w\[\033[00m\]'
+    if [ "$git_prompt_loaded" = "yes" ]; then
+      PS1="$PS1"'\[\033[38;5;109m\]$(__git_ps1 " %s")\[\033[00m\]'
+    fi
+    PS1="$PS1 \$ "
   else
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[00m\] \[\033[01;32m\]\w\[\033[00m\] \$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[00m\] \[\033[01;32m\]\w\[\033[00m\]'
+    if [ "$git_prompt_loaded" = "yes" ]; then
+      PS1="$PS1"'\[\033[01;36m\]$(__git_ps1 " %s")\[\033[00m\]'
+    fi
+    PS1="$PS1 \$ "
   fi
 else
-  PS1='${debian_chroot:+($debian_chroot)}\u \w \$ '
+  PS1='${debian_chroot:+($debian_chroot)}\u \w'
+  if [ "$git_prompt_loaded" = "yes" ]; then
+    PS1="$PS1"'$(__git_ps1 " %s")'
+  fi
+  PS1="$PS1 \$ "
 fi
-unset color_prompt force_color_prompt
+unset color_prompt force_color_prompt git_prompt_loaded
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
