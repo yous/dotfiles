@@ -184,7 +184,7 @@ if executable('ctags') || executable('cscope')
   if v:version >= 800
     Plug 'ludovicchabant/vim-gutentags'
   elseif v:version >= 704
-    Plug 'ludovicchabant/vim-gutentags', { 'commit': '3314afd', 'frozen': 1 }
+    Plug 'ludovicchabant/vim-gutentags', { 'branch': 'vim7' }
   endif
 endif
 " Vim Git runtime files
