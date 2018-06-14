@@ -386,9 +386,15 @@ alias gstd='git stash drop'
 alias gstp='git stash pop'
 
 # Vim
-alias v='vim'
-alias vi='vim'
-alias nv='nvim'
+if command -v vim &> /dev/null; then
+  alias v='vim'
+  alias vi='vim'
+elif command -v vi &> /dev/null; then
+  alias v='vi'
+fi
+if command -v nvim &> /dev/null; then
+  alias nv='nvim'
+fi
 
 # http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
 function man() {
