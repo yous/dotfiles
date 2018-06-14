@@ -76,8 +76,10 @@ else
 fi
 
 if [ "$git_prompt_loaded" = "yes" ]; then
-  GIT_PS1_SHOWDIRTYSTATE=true
-  GIT_PS1_STATESEPARATOR=""
+  if [[ "$(uname)" == 'Linux' ]] || [[ "$(uname)" == 'Darwin' ]]; then
+    GIT_PS1_SHOWDIRTYSTATE=true
+    GIT_PS1_STATESEPARATOR=""
+  fi
 fi
 
 if [ "$color_prompt" = yes ]; then
