@@ -91,6 +91,7 @@ case "$1" in
     done
     replace_file 'pip.conf' '.pip/pip.conf'
     replace_file 'tpm' '.tmux/plugins/tpm'
+    [ ! -d "$HOME/.vim" ] && mkdir "$HOME/.vim"
     replace_file '.vim' '.config/nvim'
     replace_file 'vimrc' '.config/nvim/init.vim'
     for FILENAME in \
