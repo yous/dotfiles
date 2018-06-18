@@ -982,11 +982,16 @@ if has_key(g:plugs, 'echodoc.vim')
 endif
 
 " vim-dirvish
+function! s:ResetDirvishCursor()
+  let l:curline = getline('.')
+  keepjumps call search('\V\^' . escape(l:curline, '\') . '\$', 'cw')
+endfunction
 augroup dirvish_config
   autocmd!
   autocmd FileType dirvish
         \ silent! unmap <buffer> <C-N> |
         \ silent! unmap <buffer> <C-P>
+  autocmd FileType dirvish call <SID>ResetDirvishCursor()
 augroup END
 
 " ack.vim
