@@ -759,11 +759,8 @@ function! s:RemapBufferQ()
 endfunction
 
 augroup vimrc
-  " Quit help window
-  autocmd FileType help call s:RemapBufferQ()
-
-  " Quit quickfix window
-  autocmd FileType qf call s:RemapBufferQ()
+  " Quit help, quickfix window
+  autocmd FileType help,qf call s:RemapBufferQ()
 
   " Quit preview window
   autocmd BufEnter *
@@ -894,8 +891,9 @@ augroup vimrc
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
   " mobile.erb view
-  autocmd BufNewFile,BufRead *.mobile.erb let b:eruby_subtype = 'html'
-  autocmd BufNewFile,BufRead *.mobile.erb setlocal filetype=eruby
+  autocmd BufNewFile,BufRead *.mobile.erb
+        \ let b:eruby_subtype = 'html' |
+        \ setlocal filetype=eruby
 
   " zsh-theme view
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
@@ -986,8 +984,9 @@ endif
 " vim-dirvish
 augroup dirvish_config
   autocmd!
-  autocmd FileType dirvish silent! unmap <buffer> <C-N>
-  autocmd FileType dirvish silent! unmap <buffer> <C-P>
+  autocmd FileType dirvish
+        \ silent! unmap <buffer> <C-N> |
+        \ silent! unmap <buffer> <C-P>
 augroup END
 
 " ack.vim
