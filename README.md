@@ -273,24 +273,38 @@ To update [vim-plug](https://github.com/junegunn/vim-plug):
 :PlugUpgrade
 ```
 
-For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syntastic):
+For additional syntax checkers for [ale](https://github.com/w0rp/ale) or
+[Syntastic](https://github.com/scrooloose/syntastic):
 
-- CSS (CSSLint): `npm install -g csslint`
-- HTML (JSHint): `npm install -g jshint`
-- JavaScript (JSHint, JSLint): `npm install -g jshint jslint`
-- JSON (JSONLint): `npm install -g jsonlint`
-- Ruby (RuboCop, ruby-lint): `gem install rubocop ruby-lint`
+- C, C++
+    - cppcheck: `brew install cppcheck`
+- CSS
+    - CSSLint: `npm install -g csslint`
+- HTML
+    - JSHint: `npm install -g jshint`
+- JavaScript
+    - ESLint: `npm install -g eslint`
+    - JSHint: `npm install -g jshint`
+    - JSLint: `npm install -g jslint`
+- JSON
+    - JSONLint: `npm install -g jsonlint`
+- Python
+    - flake8: `pip install flake8`
+- Ruby
+    - RuboCop: `gem install rubocop`
+    - ruby-lint: `gem install ruby-lint`
 - SASS: `gem install sass`
 - SCSS: `gem install sass scss-lint`
-- xHTML (JSHint): `npm install -g jshint`
+- xHTML
+    - JSHint: `npm install -g jshint`
 
 ### Neovim
 
 To use Python 2 or 3 via pyenv in [Neovim](https://neovim.io),
 
 ``` sh
-pyenv install 2.7.14
-pyenv virtualenv 2.7.14 neovim2
+pyenv install 2.7.15
+pyenv virtualenv 2.7.15 neovim2
 pyenv activate neovim2
 pip install neovim
 
