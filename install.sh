@@ -80,6 +80,7 @@ case "$1" in
       'npmrc' \
       'profile' \
       'screenrc' \
+      'tern-config' \
       'tmux.conf' \
       'vintrc.yaml' \
       'vimrc' \
