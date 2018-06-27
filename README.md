@@ -277,6 +277,7 @@ For additional syntax checkers for [ale](https://github.com/w0rp/ale) or
 [Syntastic](https://github.com/scrooloose/syntastic):
 
 - C, C++
+    - clang-tidy: `brew install llvm`
     - cppcheck: `brew install cppcheck`
 - CSS
     - CSSLint: `npm install -g csslint`

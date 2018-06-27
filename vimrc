@@ -1014,6 +1014,13 @@ if has_key(g:plugs, 'ale')
         \ 'rust': 'all' }
   let g:ale_set_highlights = 0
   let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
+
+  " ale-c-clangtidy, ale-cpp-clangtidy
+  if !executable('clang-tidy') &&
+        \ executable('/usr/local/opt/llvm/bin/clang-tidy')
+    let g:ale_c_clangtidy_executable = '/usr/local/opt/llvm/bin/clang-tidy'
+    let g:ale_cpp_clangtidy_executable = '/usr/local/opt/llvm/bin/clang-tidy'
+  endif
 endif
 
 " Syntastic
