@@ -258,8 +258,8 @@ To install [Vim](http://www.vim.org) plugins,
 ```
 
 You should install [Exuberant Ctags](http://ctags.sourceforge.net/) to use
-[vim-easytags](https://github.com/xolox/vim-easytags). You should install CMake
-to use [YouCompleteMe](https://github.com/Valloric/YouCompleteMe).
+[vim-gutentags](https://github.com/ludovicchabant/vim-gutentags). You should
+install CMake to use [YouCompleteMe](https://github.com/Valloric/YouCompleteMe).
 
 To update Vim plugins:
 
