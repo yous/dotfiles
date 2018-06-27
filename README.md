@@ -46,7 +46,6 @@ Command option | Description
 `antibody`     | Install Antibody
 `brew`         | Install Homebrew
 `formulae`     | Install Homebrew formulae using Brewfile
-`npm`          | Install global Node.js packages
 `pwndbg`       | Install pwndbg
 `pyenv`        | Install pyenv with pyenv-virtualenv
 `rbenv`        | Install rbenv
@@ -276,14 +275,14 @@ To update [vim-plug](https://github.com/junegunn/vim-plug):
 
 For additional syntax checkers for [Syntastic](https://github.com/scrooloose/syntastic):
 
-- CSS (CSSLint): `./install npm` (`npm install -g csslint`)
-- HTML (JSHint): `./install npm` (`npm install -g jshint`)
-- JavaScript (JSHint, JSLint): `./install npm` (`npm install -g jshint jslint`)
-- JSON (JSONLint): `./install npm` (`npm install -g jsonlint`)
+- CSS (CSSLint): `npm install -g csslint`
+- HTML (JSHint): `npm install -g jshint`
+- JavaScript (JSHint, JSLint): `npm install -g jshint jslint`
+- JSON (JSONLint): `npm install -g jsonlint`
 - Ruby (RuboCop, ruby-lint): `gem install rubocop ruby-lint`
 - SASS: `gem install sass`
 - SCSS: `gem install sass scss-lint`
-- xHTML (JSHint): `./install npm` (`npm install -g jshint`)
+- xHTML (JSHint): `npm install -g jshint`
 
 ### Neovim
 

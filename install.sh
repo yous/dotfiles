@@ -123,25 +123,6 @@ case "$1" in
       brew "${BREW_ARGS[@]}"
     done < "$DIR/Brewfile" && echo 'Done.'
     ;;
-  npm)
-    if ! which npm &> /dev/null; then
-      echoerr 'command not found: npm'
-    else
-      for PACKAGE in \
-        'csslint' \
-        'jshint' \
-        'jslint' \
-        'jsonlint'
-      do
-        if which $PACKAGE &> /dev/null; then
-          echoerr "$PACKAGE is already installed."
-        else
-          echo "npm install -g $PACKAGE"
-          npm install -g "$PACKAGE"
-        fi
-      done
-    fi
-    ;;
   pwndbg)
     init_submodules
     cd "${DIR}/pwndbg"
@@ -182,7 +163,6 @@ case "$1" in
     echo '    antibody  Install Antibody'
     echo '    brew      Install Homebrew'
     echo '    formulae  Install Homebrew formulae using Brewfile'
-    echo '    npm       Install global Node.js packages'
     echo '    pwndbg    Install pwndbg'
     echo '    pyenv     Install pyenv with pyenv-virtualenv'
     echo '    rbenv     Install rbenv'
