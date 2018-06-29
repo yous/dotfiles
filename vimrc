@@ -1016,23 +1016,19 @@ if has_key(g:plugs, 'ale')
   let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
 
   " ale-cpp-clangcheck
-  if !executable('clang-check') &&
-        \ executable('/usr/local/opt/llvm/bin/clang-check')
-    let g:ale_cpp_clangcheck_executable = '/usr/local/opt/llvm/bin/clang-check'
-  endif
-
   " ale-c-clangformat, ale-cpp-clangformat
-  if !executable('clang-format') &&
-        \ executable('/usr/local/opt/llvm/bin/clang-format')
-    let g:ale_c_clangformat_executable = '/usr/local/opt/llvm/bin/clang-format'
-  endif
-
   " ale-c-clangtidy, ale-cpp-clangtidy
-  if !executable('clang-tidy') &&
-        \ executable('/usr/local/opt/llvm/bin/clang-tidy')
-    let g:ale_c_clangtidy_executable = '/usr/local/opt/llvm/bin/clang-tidy'
-    let g:ale_cpp_clangtidy_executable = '/usr/local/opt/llvm/bin/clang-tidy'
-  endif
+  for [s:prog, s:slug, s:langs] in [
+        \ ['clang-check', 'clangcheck', ['cpp']],
+        \ ['clang-format', 'clangformat', ['c']],
+        \ ['clang-tidy', 'clangtidy', ['c', 'cpp']]]
+    let s:llvm_prog = '/usr/local/opt/llvm/bin/' . s:prog
+    if !executable(s:prog) && executable(s:llvm_prog)
+      for s:lang in s:langs
+        let g:[printf('ale_%s_%s_executable', s:lang, s:slug)] = s:llvm_prog
+      endfor
+    endif
+  endfor
 endif
 
 " Syntastic
