@@ -1015,6 +1015,12 @@ if has_key(g:plugs, 'ale')
   let g:ale_set_highlights = 0
   let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
 
+  " ale-cpp-clangcheck
+  if !executable('clang-check') &&
+        \ executable('/usr/local/opt/llvm/bin/clang-check')
+    let g:ale_cpp_clangcheck_executable = '/usr/local/opt/llvm/bin/clang-check'
+  endif
+
   " ale-c-clangtidy, ale-cpp-clangtidy
   if !executable('clang-tidy') &&
         \ executable('/usr/local/opt/llvm/bin/clang-tidy')
