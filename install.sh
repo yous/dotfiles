@@ -23,6 +23,25 @@ function git_clone() {
   fi
 }
 
+function rename_with_backup() {
+  if [ ! -e "$2" ]; then
+    if mv "$1" "$2"; then
+      return 0
+    fi
+  else
+    local num
+    num=1
+    while [ -e "$2.~$num~" ]; do
+      (( num++ ))
+    done
+
+    if mv "$2" "$2.~$num~" && mv "$1" "$2"; then
+      return 0
+    fi
+  fi
+  return 1
+}
+
 function replace_file() {
   DEST=${2:-.$1}
 
@@ -45,7 +64,7 @@ function replace_file() {
     fi
   # FILE exists.
   elif [ -e "$HOME/$DEST" ]; then
-    if mv --backup=number "$HOME/$DEST" "$HOME/$DEST.old"; then
+    if rename_with_backup "$HOME/$DEST" "$HOME/$DEST.old"; then
       echo "Renamed ~/$DEST to ~/$DEST.old"
       if ln -s "$SRC" "$HOME/$DEST"; then
         echo "Created ~/$DEST"
