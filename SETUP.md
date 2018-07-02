@@ -80,7 +80,9 @@
 ## Fonts
 
 - [Hack](http://sourcefoundry.org/hack/)
-- [SF Mono](https://developer.apple.com/fonts/) (`/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SF-Mono-*`)
+- [SF Mono](https://developer.apple.com/fonts/)
+    - macOS Sierra: `/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SF-Mono-*`
+    - macOS High Sierra: `/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*`
 
 ## Applications
 
@@ -93,8 +95,6 @@
 - [GPG Suite](https://gpgtools.org)
     - Customize > Uncheck GPGMail
 - [HyperSwitch](https://bahoom.com/hyperswitch)
-    - App Switcher
-        - Check "When activating an app without windows, try to open the default window"
 - [Itsycal](https://www.mowglii.com/itsycal/)
 - [MacTeX](https://www.tug.org/mactex/)
 - [Safari Extensions](https://safari-extensions.apple.com)
