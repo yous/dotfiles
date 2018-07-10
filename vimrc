@@ -42,6 +42,10 @@ else
   let s:python26 = 0
 endif
 
+if has('python3')
+  silent! python3 1
+endif
+
 if !empty(&runtimepath)
   let s:vimfiles = split(&runtimepath, ',')[0]
 else
