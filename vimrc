@@ -1090,9 +1090,19 @@ call s:CreateCamelCaseMotionMappings()
 map <Leader> <Plug>(easymotion-prefix)
 
 " vim-unimpaired
-" Center display on move between SCM conflicts
-nnoremap [n [nzz
-nnoremap ]n ]nzz
+" Center display on move
+function! s:RemapUnimpairedToCenter()
+  for [l:key, l:cmd] in [
+        \ ['l', 'L'],
+        \ ['q', 'Q'],
+        \ ['t', 'T'],
+        \ ['n', 'Context']]
+    let l:plug_map = '<Plug>unimpaired' . l:cmd
+    execute 'nmap [' . l:key . ' ' . l:plug_map . 'Previous' . 'zz'
+    execute 'nmap ]' . l:key . ' ' . l:plug_map . 'Next' . 'zz'
+  endfor
+endfunction
+call s:RemapUnimpairedToCenter()
 
 " lightline.vim
 let g:lightline = {
