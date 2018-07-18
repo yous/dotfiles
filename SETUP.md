@@ -3,8 +3,8 @@
 ## Tweak
 
 - [구름 입력기](http://gureum.io) ([Unofficial releases](https://github.com/soomtong/gureum/releases))
-    - [신세벌식 P2](http://pat.im/1136)
-- [Workman Layout](http://www.workmanlayout.com/blog/)
+    - [신세벌식 P2](https://pat.im/1136)
+- [Workman Layout](http://workmanlayout.org)
     - Remove U.S. from `AppleEnabledInputSources` in `~/Library/Preferences/com.apple.HIToolbox.plist`, and then reboot
 
       ``` plist
@@ -79,7 +79,7 @@
 
 ## Fonts
 
-- [Hack](http://sourcefoundry.org/hack/)
+- [Hack](https://sourcefoundry.org/hack/)
 - [SF Mono](https://developer.apple.com/fonts/)
     - macOS Sierra: `/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SF-Mono-*`
     - macOS High Sierra: `/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*`
@@ -87,7 +87,7 @@
 ## Applications
 
 - [1Password](https://agilebits.com/downloads)
-- [AppCleaner](http://freemacsoft.net/appcleaner/)
+- [AppCleaner](https://freemacsoft.net/appcleaner/)
     - Turn on SmartDelete
 - [Chrome](https://www.google.com/chrome/)
 - [Dropbox](https://www.dropbox.com/install)
@@ -104,7 +104,7 @@
     - [uBlock Origin](https://safari-extensions.apple.com/details/?id=com.el1t.uBlock-3NU33NW2M3)
 - Quick Look
     - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
-    - [Suspicious Package](http://www.mothersruin.com/software/SuspiciousPackage/)
+    - [Suspicious Package](https://www.mothersruin.com/software/SuspiciousPackage/)
     - [QLColorCode](https://github.com/anthonygelibert/QLColorCode)
     - [QLMarkdown](https://github.com/toland/qlmarkdown)
     - [QLStephen](https://whomwah.github.io/qlstephen/)
@@ -117,7 +117,7 @@
 ## Tweak
 
 - [날개셋](http://moogi.new21.org/prg4.html)
-    - [신세벌식 P2](http://pat.im/1136)
+    - [신세벌식 P2](https://pat.im/1136)
 - Turn on Remote Desktop
     - Set custom RDP port number via `regedit.exe`. Navigate to
       `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp`
@@ -162,14 +162,14 @@
 
 ## Fonts
 
-- [나눔글꼴](http://hangeul.naver.com/font) (나눔바른고딕, 나눔명조)
+- [나눔글꼴](https://hangeul.naver.com/font) (나눔바른고딕, 나눔명조)
 - [D2 Coding](https://github.com/naver/d2codingfont)
 - [KoPub 서체](http://www.kopus.org/biz/electronic/font.aspx)
 - [Noto CJK](https://www.google.com/get/noto/help/cjk/)
 
 ## Tools
 
-- [Git](http://git-scm.com)
+- [Git](https://git-scm.com)
     - [dotfiles](https://github.com/yous/dotfiles)
 - [gVim](https://github.com/vim/vim-win32-installer/releases)
     - [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)
@@ -205,7 +205,7 @@
       start /b putty -load Loco
       ```
 - [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-- [MSYS2](http://www.msys2.org)
+- [MSYS2](https://www.msys2.org)
     - Option
         - Transparency: Med.
         - Cursor: Block
@@ -226,10 +226,10 @@
 
 ## Applications
 
+- [팟플레이어](https://tv.kakao.com/guide/potplayer)
 - [1Password](https://agilebits.com/downloads)
-- [Bandizip](http://www.bandisoft.co.kr/bandizip/)
+- [Bandizip](https://www.bandisoft.com/bandizip/)
 - [Chrome](https://www.google.com/chrome/)
-- [Daum PotPlayer](http://tvpot.daum.net/application/PotPlayer.do)
 - [Dropbox](https://www.dropbox.com/install)
 - [ShareX](https://getsharex.com)
 - [VNC Viewer](https://www.realvnc.com/download/viewer/)
