@@ -118,6 +118,11 @@
 
 - [날개셋](http://moogi.new21.org/prg4.html)
     - [신세벌식 P2](https://pat.im/1136)
+- [Workman Layout](http://workmanlayout.org)
+    - 날개셋 제어판 > 시스템 계층 > 고급 시스템 옵션
+        - Set "한글 IME와 연결할 영문 키보드 드라이버" to "Workman (US) Keyboard Layout (wm-us.dll)", then reboot
+    - 날개셋 제어판 > 편집기 계층 > 단축글쇠
+        - Add "RAlt" for "1 글자판(입력 항목) 전환" with expression of "!A"
 - Turn on Remote Desktop
     - Set custom RDP port number via `regedit.exe`. Navigate to
       `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp`
