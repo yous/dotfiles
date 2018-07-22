@@ -42,7 +42,7 @@ else
   let s:python26 = 0
 endif
 
-if has('python3')
+if has('python3') && !(v:version >= 802 || v:version == 801 && has('patch201'))
   silent! python3 1
 endif
 
