@@ -42,7 +42,7 @@ else
   let s:python26 = 0
 endif
 
-if has('python3') && !(v:version >= 802 || v:version == 801 && has('patch201'))
+if has('python3') && !has('patch-8.1.201')
   silent! python3 1
 endif
 
@@ -113,7 +113,7 @@ Plug 'yous/PreserveNoEOL', {
 Plug 'sgur/vim-editorconfig'
 if !has('win32')
   if !has('win32unix') &&
-        \ (v:version >= 705 || v:version == 704 && has('patch1578')) &&
+        \ has('patch-7.4.1578') &&
         \ executable('cmake') && (has('python3') || s:python26)
     function! s:BuildYCM(info)
       " info is a dictionary with 3 fields
