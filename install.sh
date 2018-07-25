@@ -90,6 +90,7 @@ case "$1" in
       'bashrc' \
       'ctags' \
       'gemrc' \
+      'git-templates' \
       'gitattributes_global' \
       'gitconfig' \
       'gitignore_global' \

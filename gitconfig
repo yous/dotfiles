@@ -23,6 +23,8 @@
 	required = true
 [include]
 	path = ~/.gitconfig.local
+[init]
+	templateDir = ~/.git-templates
 [interactive]
 	diffFilter = diff-highlight
 [log]

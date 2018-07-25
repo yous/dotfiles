@@ -5,6 +5,8 @@ set files=ctags^
 
 gemrc^
 
+git-templates^
+
 gitattributes_global^
 
 gitconfig^
