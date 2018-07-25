@@ -14,6 +14,7 @@ install cmake
 install ctags
 install cscope
 install keychain
+install pre-commit
 
 # Python
 install python
