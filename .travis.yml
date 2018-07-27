@@ -5,5 +5,5 @@ python:
 install:
   - pip install vim-vint
 script:
-  - bash -c 'shellcheck colors.sh install.sh'
+  - shellcheck colors.sh install.sh
   - vint ideavimrc vimrc
