@@ -316,7 +316,7 @@ unset -f add_to_path_once
 
 # Define aliases
 # Enable color support
-if ls --color -d . &> /dev/null; then
+if ls --color -d . >/dev/null 2>&1; then
   alias ls='ls --color=auto'
 else
   alias ls='ls -G'
