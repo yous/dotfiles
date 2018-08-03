@@ -191,7 +191,7 @@ if [[ -d "$HOME/.linuxbrew" ]]; then
   export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
-if command -v brew &> /dev/null; then
+if command -v brew >/dev/null; then
   BREW_PREFIX="$(brew --prefix)"
 fi
 
@@ -210,7 +210,7 @@ elif [ -n "$BREW_PREFIX" ]; then
 fi
 
 # Load autojump
-if command -v autojump &> /dev/null; then
+if command -v autojump >/dev/null; then
   if [ -f "$HOME/.autojump/etc/profile.d/autojump.sh" ]; then
     source "$HOME/.autojump/etc/profile.d/autojump.sh"
   elif [ -f /etc/profile.d/autojump.bash ]; then
@@ -256,10 +256,10 @@ if [ -e "$HOME/.rbenv" ]; then
 fi
 
 # Load pyenv
-if command -v pyenv &> /dev/null; then
+if command -v pyenv >/dev/null; then
   export PYENV_ROOT="$HOME/.pyenv"
   eval "$(pyenv init - bash)"
-  if command -v pyenv-virtualenv-init &> /dev/null; then
+  if command -v pyenv-virtualenv-init >/dev/null; then
     eval "$(pyenv virtualenv-init - bash)"
   fi
 elif [ -e "$HOME/.pyenv" ]; then
@@ -288,7 +288,7 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
 fi
 
 # Set GOPATH for Go
-if command -v go &> /dev/null; then
+if command -v go >/dev/null; then
   [ -d "$HOME/.go" ] || mkdir "$HOME/.go"
   export GOPATH="$HOME/.go"
   export PATH="$PATH:$GOPATH/bin"
@@ -302,7 +302,7 @@ if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
 fi
 
 # Enable keychain
-if command -v keychain &> /dev/null; then
+if command -v keychain >/dev/null; then
   if [ -f "$HOME/.ssh/id_rsa" ]; then
     eval `keychain --eval --quiet --agents ssh id_rsa`
   elif [ -f "$HOME/.ssh/id_ed25519" ]; then
@@ -386,13 +386,13 @@ alias gstd='git stash drop'
 alias gstp='git stash pop'
 
 # Vim
-if command -v vim &> /dev/null; then
+if command -v vim >/dev/null; then
   alias v='vim'
   alias vi='vim'
-elif command -v vi &> /dev/null; then
+elif command -v vi >/dev/null; then
   alias v='vi'
 fi
-if command -v nvim &> /dev/null; then
+if command -v nvim >/dev/null; then
   alias nv='nvim'
 fi
 
