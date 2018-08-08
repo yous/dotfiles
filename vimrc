@@ -992,9 +992,8 @@ function! s:ResetDirvishCursor()
 endfunction
 augroup dirvish_config
   autocmd!
-  autocmd FileType dirvish
-        \ silent! unmap <buffer> <C-N> |
-        \ silent! unmap <buffer> <C-P>
+  autocmd FileType dirvish silent! unmap <buffer> <C-N>
+  autocmd FileType dirvish silent! unmap <buffer> <C-P>
   autocmd FileType dirvish call <SID>ResetDirvishCursor()
 augroup END
 
