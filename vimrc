@@ -1035,13 +1035,21 @@ if has_key(g:plugs, 'ale')
 
   " See http://clang.llvm.org/extra/clang-tidy/.
   let g:ale_c_clangtidy_checks = [
-        \ 'abseil-*', 'boost-*', 'bugprone-*', 'cert-*', 'cppcoreguidelines-*',
-        \ 'clang-analyzer-*', 'google-*', 'hicpp-*', 'misc-*', 'performance-*',
-        \ 'portability-*']
+        \ '*',
+        \ '-fuchsia-*',
+        \ '-google-readability-todo',
+        \ '-hicpp-braces-around-statements',
+        \ '-hicpp-signed-bitwise',
+        \ '-llvm-*',
+        \ '-readability-*']
   let g:ale_cpp_clangtidy_checks = [
-        \ 'abseil-*', 'boost-*', 'bugprone-*', 'cert-*', 'cppcoreguidelines-*',
-        \ 'clang-analyzer-*', 'google-*', 'hicpp-*', 'misc-*', 'performance-*',
-        \ 'portability-*']
+        \ '*',
+        \ '-fuchsia-*',
+        \ '-google-readability-todo',
+        \ '-hicpp-braces-around-statements',
+        \ '-hicpp-signed-bitwise',
+        \ '-llvm-*',
+        \ '-readability-*']
 endif
 
 " Syntastic
