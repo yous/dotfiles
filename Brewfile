@@ -1,20 +1,22 @@
 # Mac OS X
 install reattach-to-user-namespace
 
-# Tools
+# Basic tools
+install cmake
+install cscope
+install ctags
 install git
 install grep --with-default-names
-install ripgrep
 install openssh
-install wget
-install z
-install zsh
 install tmux
-install cmake
-install ctags
-install cscope
+install wget
+install zsh
+
+# Utilities
 install keychain
 install pre-commit
+install ripgrep
+install z
 
 # Python
 install python
