@@ -13,6 +13,7 @@ install wget
 install zsh
 
 # Utilities
+install bat
 install keychain
 install pre-commit
 install ripgrep
