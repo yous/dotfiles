@@ -954,8 +954,8 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_extra_conf_globlist = ['~/*']
 let g:ycm_semantic_triggers = {
-      \ 'c': ['re![_a-zA-Z]+\w{3}'],
-      \ 'cpp': ['re![_a-zA-Z]+\w{3}'] }
+      \ 'c': ['re![_a-zA-Z]\w{3,}'],
+      \ 'cpp': ['re![_a-zA-Z]\w{3,}'] }
 
 " fzf
 nnoremap <C-P> :Files<CR>
