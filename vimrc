@@ -239,11 +239,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Support file types
 " AdBlock
-Plug 'yous/adblock-filter.vim', {
-      \ 'branch': 'nocindent',
-      \ 'commit': 'd6edd85',
-      \ 'frozen': 1,
-      \ 'for': 'adblockfilter' }
+Plug 'yous/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
 " CUP
