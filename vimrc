@@ -1326,7 +1326,7 @@ autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
 
 " vim-gitgutter
 function! s:RedefineGitGutterAutocmd()
-  if g:gitgutter_async && gitgutter#async#available()
+  if get(g:, 'gitgutter_async', 0) && gitgutter#async#available()
     autocmd! gitgutter CursorHold,CursorHoldI
     autocmd gitgutter CursorHold,CursorHoldI *
           \ call gitgutter#process_buffer(bufnr(''), 1)
