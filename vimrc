@@ -206,6 +206,9 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'easymotion/vim-easymotion'
 " Extended % matching for HTML, LaTeX, and many other languages
 Plug 'tmhedberg/matchit'
+" Auto close (X)HTML tags
+Plug 'alvan/vim-closetag', {
+      \ 'for': ['html', 'javascript.jsx', 'php', 'xhtml', 'xml'] }
 " Simplify the transition between multiline and single-line code
 Plug 'AndrewRadev/splitjoin.vim'
 " Easily delete, change and add surroundings in pairs
@@ -261,8 +264,6 @@ Plug 'kelwin/vim-smali', { 'for': 'smali' }
 Plug 'raichoo/smt-vim', { 'for': 'smt' }
 " Vader
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
-" XML
-Plug 'othree/xml.vim', { 'for': 'xml' }
 " A solid language pack for Vim
 Plug 'sheerun/vim-polyglot'
 
@@ -1101,6 +1102,10 @@ call s:CreateCamelCaseMotionMappings()
 
 " vim-easymotion
 map <Leader> <Plug>(easymotion-prefix)
+
+" vim-closetag
+let g:closetag_filetypes = 'html,javascript.jsx,php,xhtml,xml'
+let g:closetag_xhtml_filetypes = 'javascript.jsx,xhtml,xml'
 
 " vim-unimpaired
 " Center display on move
