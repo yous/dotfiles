@@ -90,11 +90,11 @@
 - [AppCleaner](https://freemacsoft.net/appcleaner/)
     - Turn on SmartDelete
 - [Chrome](https://www.google.com/chrome/)
+- [Contexts](https://contexts.co)
 - [Dropbox](https://www.dropbox.com/install)
 - [Fluor](https://github.com/Pyroh/Fluor)
 - [GPG Suite](https://gpgtools.org)
     - Customize > Uncheck GPGMail
-- [HyperSwitch](https://bahoom.com/hyperswitch)
 - [Itsycal](https://www.mowglii.com/itsycal/)
 - [Keka](https://www.keka.io)
 - [MacTeX](https://www.tug.org/mactex/)
