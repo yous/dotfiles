@@ -37,6 +37,8 @@
 	default = simple
 [rerere]
 	enabled = true
+[stash]
+	showPatch = true
 [submodule]
 	fetchJobs = 0
 [user]
