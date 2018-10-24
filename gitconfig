@@ -39,6 +39,8 @@
 	enabled = true
 [stash]
 	showPatch = true
+[status]
+	showStash = true
 [submodule]
 	fetchJobs = 0
 [user]
