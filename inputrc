@@ -1,9 +1,11 @@
 # man bash
+set bind-tty-special-chars off
 set completion-ignore-case on
 set match-hidden-files off
 set menu-complete-display-prefix on
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
+"\C-w": backward-kill-word
 "\t": menu-complete
 "\e[Z": menu-complete-backward
