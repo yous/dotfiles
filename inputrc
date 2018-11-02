@@ -1,5 +1,6 @@
 # man bash
 set completion-ignore-case on
+set match-hidden-files off
 set menu-complete-display-prefix on
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
