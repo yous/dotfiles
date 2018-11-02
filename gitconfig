@@ -10,6 +10,7 @@
 [diff]
 	compactionHeuristic = true
 	renames = true
+	submodule = log
 [diff "utf-16"]
 	textconv = iconv -f utf-16 -t utf-8
 [difftool]
