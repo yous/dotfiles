@@ -249,8 +249,6 @@ Plug 'yous/aheui.vim', { 'for': 'aheui' }
 Plug 'gcollura/cup.vim', { 'for': 'cup' }
 " GNU As
 Plug 'Shirk/vim-gas', { 'for': 'gas' }
-" Jade
-Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 " LaTeX
 Plug 'lervag/vimtex', { 'for': ['bib', 'tex'] }
 " Markdown
@@ -278,10 +276,8 @@ if v:version >= 700
   " ANSI escape sequences concealed, but highlighted as specified (conceal)
   Plug 'powerman/vim-plugin-AnsiEsc', { 'for': 'railslog' }
 endif
-" TomDoc
-Plug 'wellbredgrapefruit/tomdoc.vim', { 'for': 'ruby' }
 
-" Mac OS
+" macOS
 if has('mac') || has('macunix')
   " Add plist editing support to Vim
   Plug 'darfink/vim-plist'
@@ -1396,7 +1392,7 @@ nnoremap <Leader>ru :RuboCop<CR>
 " vim-plugin-AnsiEsc
 autocmd vimrc FileType railslog :AnsiEsc
 
-" Mac OS
+" macOS
 if has('mac') || has('macunix')
   " dash.vim
   let g:dash_map = {
