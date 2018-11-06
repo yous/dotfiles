@@ -1415,6 +1415,10 @@ if has('mac') || has('macunix')
         \   call plist#Read(0) |
         \   call plist#SetFiletype() |
         \ endif
+  autocmd vimrc BufNewFile *.plist
+        \ if !get(b:, 'plist_original_format') |
+        \   let b:plist_original_format = 'xml' |
+        \ endif
 
   " dash.vim
   let g:dash_map = {
