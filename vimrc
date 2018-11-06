@@ -1394,6 +1394,28 @@ autocmd vimrc FileType railslog :AnsiEsc
 
 " macOS
 if has('mac') || has('macunix')
+  " vim-plist
+  function! s:DetectBinaryPlist()
+    let l:filename = expand('<afile>')
+    if filereadable(l:filename)
+      let l:content = readfile(l:filename, 1, 2)
+      if len(content) > 0 && content[0] =~# '^bplist'
+        return 1
+      endif
+    endif
+    return 0
+  endfunction
+  autocmd vimrc BufReadCmd *.strings
+        \ if s:DetectBinaryPlist() |
+        \   call plist#Read(1) |
+        \   call plist#ReadPost() |
+        \ endif
+  autocmd vimrc FileReadCmd *.strings
+        \ if s:DetectBinaryPlist() |
+        \   call plist#Read(0) |
+        \   call plist#SetFiletype() |
+        \ endif
+
   " dash.vim
   let g:dash_map = {
         \ 'java': 'android' }
