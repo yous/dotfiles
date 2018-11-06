@@ -86,6 +86,7 @@
 
 ## Applications
 
+- [반디집](https://www.bandisoft.com/bandizip.mac/)
 - [1Password](https://agilebits.com/downloads)
 - [AppCleaner](https://freemacsoft.net/appcleaner/)
     - Turn on SmartDelete
@@ -96,7 +97,6 @@
 - [GPG Suite](https://gpgtools.org)
     - Customize > Uncheck GPGMail
 - [Itsycal](https://www.mowglii.com/itsycal/)
-- [Keka](https://www.keka.io)
 - [MacTeX](https://www.tug.org/mactex/)
 - [Safari Extensions](https://safari-extensions.apple.com)
     - [1Password](https://safari-extensions.apple.com/details/?id=com.agilebits.onepassword4-safari-2BUA8C4S2C)
