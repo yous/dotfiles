@@ -51,9 +51,10 @@ GRTAGS
 GPATH
 GSYMS
 cscope.files
-cscope.out
+cscope.out*
 cscope.in.out
 cscope.po.out
+ncscope.out*
 
 # pre-commit
 .pre-commit-config.yaml
