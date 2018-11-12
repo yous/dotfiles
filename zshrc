@@ -128,6 +128,8 @@ if [ -f ~/.fzf.zsh ]; then
     git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(green)%cr%C(reset)" "$@" |
     fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                 xargs -I % sh -c 'git show --color=always %'" \
       --bind "ctrl-m:execute:
         (grep -o '[a-f0-9]\{7\}' | head -1 |
         xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
