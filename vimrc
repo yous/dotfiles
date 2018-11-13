@@ -560,7 +560,8 @@ set expandtab
 " Insert only one space after a '.', '?' and '!' with a join command
 set nojoinspaces
 " Number of spaces that a <Tab> counts for while editing
-set softtabstop=2
+" Use the value of 'shiftwidth'
+set softtabstop=-1
 " Number of spaces to use for each setp of (auto)indent
 set shiftwidth=2
 " Number of spaces that a <Tab> in the file counts for
@@ -568,13 +569,13 @@ set tabstop=8
 " Maximum width of text that is being inserted
 set textwidth=80
 autocmd vimrc FileType c,cpp,java,json,markdown,perl,python
-      \ setlocal softtabstop=4 shiftwidth=4
+      \ setlocal shiftwidth=4
 autocmd vimrc FileType asm,gitconfig,kconfig
-      \ setlocal noexpandtab softtabstop=8 shiftwidth=8
+      \ setlocal noexpandtab shiftwidth=8
 autocmd vimrc FileType make
       \ let &l:shiftwidth = &l:tabstop
 autocmd vimrc FileType go
-      \ setlocal noexpandtab softtabstop=4 shiftwidth=4 tabstop=4
+      \ setlocal noexpandtab shiftwidth=4 tabstop=4
 " t: Auto-wrap text using textwidth
 " c: Auto-wrap comments using textwidth
 " r: Automatically insert the current comment leader after hitting <Enter> in
