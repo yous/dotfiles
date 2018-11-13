@@ -111,6 +111,8 @@ Plug 'yous/PreserveNoEOL', {
       \ 'frozen': 1 }
 " Yet another EditorConfig plugin for vim written in vimscript only
 Plug 'sgur/vim-editorconfig'
+" sleuth.vim: Heuristically set buffer options
+Plug 'tpope/vim-sleuth'
 if !has('win32')
   if !has('win32unix') &&
         \ has('patch-7.4.1578') &&
@@ -926,6 +928,9 @@ unlet s:resolved_vimrc
 
 " PreserveNoEOL
 let g:PreserveNoEOL = 1
+
+" vim-sleuth
+let g:sleuth_automatic = 1
 
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion = 4
