@@ -215,7 +215,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-surround'
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
-if v:version >= 700
+if v:version == 704 && !has('patch754') || v:version < 704 && v:version >= 700
   " Produce increasing/decreasing columns of numbers, dates, or daynames
   Plug 'vim-scripts/VisIncr'
 endif
