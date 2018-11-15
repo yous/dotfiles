@@ -150,8 +150,6 @@ if !has('win32')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
   endif
-  " A Vim plugin for looking up words in an online thesaurus
-  Plug 'beloglazov/vim-online-thesaurus'
 endif
 " Print documents in echo area
 if exists('v:completed_item')
