@@ -625,8 +625,6 @@ noremap L $
 " Unix shell behavior
 inoremap <C-A> <Esc>I
 inoremap <C-E> <Esc>A
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
 
 " Leave insert mode
 function! s:CtrlL()
