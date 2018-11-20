@@ -8,17 +8,17 @@
 
 - [Requirements](#requirements)
 - [Installation](#installation)
-    - [Git](#git)
-    - [Homebrew](#homebrew)
-    - [Ruby](#ruby)
-    - [Python](#python)
-    - [Zsh](#zsh)
-    - [Vim](#vim)
-    - [Neovim](#neovim)
-    - [WeeChat](#weechat)
-    - [Tools](#tools)
-    - [IntelliJ, Android Studio](#intellij-android-studio)
-    - [iTerm2](#iterm2)
+  - [Git](#git)
+  - [Homebrew](#homebrew)
+  - [Ruby](#ruby)
+  - [Python](#python)
+  - [Zsh](#zsh)
+  - [Vim](#vim)
+  - [Neovim](#neovim)
+  - [WeeChat](#weechat)
+  - [Tools](#tools)
+  - [IntelliJ, Android Studio](#intellij-android-studio)
+  - [iTerm2](#iterm2)
 - [License](#license)
 
 ## Requirements
@@ -277,28 +277,28 @@ For additional syntax checkers for [ale](https://github.com/w0rp/ale) or
 [Syntastic](https://github.com/scrooloose/syntastic):
 
 - C, C++
-    - clang-check: `brew install llvm`
-    - clang-tidy: `brew install llvm`
-    - cppcheck: `brew install cppcheck`
+  - clang-check: `brew install llvm`
+  - clang-tidy: `brew install llvm`
+  - cppcheck: `brew install cppcheck`
 - CSS
-    - CSSLint: `npm install -g csslint`
+  - CSSLint: `npm install -g csslint`
 - HTML
-    - JSHint: `npm install -g jshint`
+  - JSHint: `npm install -g jshint`
 - JavaScript
-    - ESLint: `npm install -g eslint`
-    - JSHint: `npm install -g jshint`
-    - JSLint: `npm install -g jslint`
+  - ESLint: `npm install -g eslint`
+  - JSHint: `npm install -g jshint`
+  - JSLint: `npm install -g jslint`
 - JSON
-    - JSONLint: `npm install -g jsonlint`
+  - JSONLint: `npm install -g jsonlint`
 - Python
-    - flake8: `pip install flake8`
+  - flake8: `pip install flake8`
 - Ruby
-    - RuboCop: `gem install rubocop`
-    - ruby-lint: `gem install ruby-lint`
+  - RuboCop: `gem install rubocop`
+  - ruby-lint: `gem install ruby-lint`
 - SASS: `gem install sass`
 - SCSS: `gem install sass scss-lint`
 - xHTML
-    - JSHint: `npm install -g jshint`
+  - JSHint: `npm install -g jshint`
 
 ### Neovim
 
