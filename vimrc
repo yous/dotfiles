@@ -206,6 +206,8 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'easymotion/vim-easymotion'
 " Extended % matching for HTML, LaTeX, and many other languages
 Plug 'tmhedberg/matchit'
+" Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
+Plug 'dkarter/bullets.vim'
 " Auto close (X)HTML tags
 Plug 'alvan/vim-closetag', {
       \ 'for': ['html', 'javascript.jsx', 'php', 'xhtml', 'xml'] }
@@ -1092,6 +1094,12 @@ call s:CreateCamelCaseMotionMappings()
 
 " vim-easymotion
 map <Leader> <Plug>(easymotion-prefix)
+
+" bullets.vim
+let g:bullets_enabled_file_types = [
+      \ 'gitcommit',
+      \ 'markdown',
+      \ 'text']
 
 " vim-closetag
 let g:closetag_filetypes = 'html,javascript.jsx,php,xhtml,xml'
