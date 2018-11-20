@@ -568,7 +568,7 @@ set shiftwidth=2
 set tabstop=8
 " Maximum width of text that is being inserted
 set textwidth=80
-autocmd vimrc FileType c,cpp,java,json,markdown,perl,python
+autocmd vimrc FileType c,cpp,java,json,perl,python
       \ setlocal shiftwidth=4
 autocmd vimrc FileType asm,gitconfig,kconfig
       \ setlocal noexpandtab shiftwidth=8
