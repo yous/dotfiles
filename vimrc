@@ -956,8 +956,9 @@ let g:ycm_semantic_triggers = {
       \ 'c': ['re![_a-zA-Z]\w{3,}'],
       \ 'cpp': ['re![_a-zA-Z]\w{3,}'] }
 
-" fzf
+" fzf.vim
 nnoremap <C-P> :Files<CR>
+nnoremap g<C-P> :GFiles<CR>
 if executable('rg')
   command! -bang -nargs=* Rg
         \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
