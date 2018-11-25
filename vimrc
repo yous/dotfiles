@@ -229,6 +229,8 @@ Plug 'tpope/vim-repeat'
 " Vim UI
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
+" :substitute preview
+Plug 'osyo-manga/vim-over'
 " Simpler Rainbow Parentheses
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': [
       \ 'clojure',
