@@ -200,10 +200,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 
 " Motions and text changing
+" The missing motion for Vim
+Plug 'justinmk/vim-sneak'
 " Provide CamelCase motion through words
 Plug 'bkad/CamelCaseMotion'
-" Vim motions on speed!
-Plug 'easymotion/vim-easymotion'
 " Extended % matching for HTML, LaTeX, and many other languages
 Plug 'tmhedberg/matchit'
 " Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
@@ -1084,20 +1084,22 @@ let g:gutentags_file_list_command = {
       \   '.hg': 'hg files'
       \ } }
 
+" vim-sneak
+let g:sneak#s_next = 1
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+
 " CamelCaseMotion
 function! s:CreateCamelCaseMotionMappings()
   for l:mode in ['n', 'o', 'x']
     for l:motion in ['w', 'b', 'e']
       let l:target_mapping = '<Plug>CamelCaseMotion_' . l:motion
-      execute l:mode . 'map <silent> <Leader><Leader>' . l:motion . ' '
+      execute l:mode . 'map <silent> <Leader>' . l:motion . ' '
             \ . l:target_mapping
     endfor
   endfor
 endfunction
 call s:CreateCamelCaseMotionMappings()
-
-" vim-easymotion
-map <Leader> <Plug>(easymotion-prefix)
 
 " bullets.vim
 let g:bullets_enabled_file_types = [
