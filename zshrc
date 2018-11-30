@@ -288,6 +288,8 @@ alias gst='git status'
 alias gsta='git -c commit.gpgsign=false stash'
 alias gstd='git stash drop'
 alias gstp='git stash pop'
+alias gsu='git submodule update'
+alias gsur='git submodule update --remote'
 
 # Vim
 if command -v vim >/dev/null; then
