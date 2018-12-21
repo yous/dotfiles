@@ -1072,6 +1072,38 @@ if has_key(g:plugs, 'syntastic')
 endif
 
 " vim-gutentags
+function! s:BuildTagsFileListCmd(prog)
+  let l:filetypes = [
+        \ 'asm', 'c', 'h', 'S',
+        \ 'cpp', 'hpp',
+        \ 'cc',
+        \ 'go',
+        \ 'java',
+        \ 'js',
+        \ 'py',
+        \ 'rb']
+  if a:prog ==# 'git'
+    " git ls-files '*.c' '*.h'
+    let l:cmd = 'git ls-files ' .
+          \ join(map(l:filetypes, '"''*." . v:val . "''"'), ' ')
+  elseif a:prog ==# 'hg'
+    " hg files -I '**.c' -I '**.h'
+    let l:cmd = 'hg files ' .
+          \ join(map(l:filetypes, '"-I ''**." . v:val . "''"'), ' ')
+  elseif a:prog ==# 'find'
+    " find . -type f \( -name '*.c' -o -name '*.h' \)
+    let l:cmd = 'find . -type f ' .
+          \ '\( ' .
+          \ join(map(l:filetypes, '"-name ''*." . v:val . "''"'), ' -o ') .
+          \ ' \)'
+  elseif a:prog ==# 'dir'
+    " dir /S /B /A-D *.c *.h
+    let l:cmd = 'dir /S /B /A-D ' .
+          \ join(map(l:filetypes, '"*." . v:val'), ' ')
+  endif
+
+  return l:cmd
+endfunction
 let g:gutentags_modules = []
 if executable('ctags')
   call add(g:gutentags_modules, 'ctags')
@@ -1081,9 +1113,12 @@ if executable('cscope')
 endif
 let g:gutentags_file_list_command = {
       \ 'markers': {
-      \   '.git': 'git ls-files',
-      \   '.hg': 'hg files'
-      \ } }
+      \   '.git': s:BuildTagsFileListCmd('git'),
+      \   '.hg': s:BuildTagsFileListCmd('hg')
+      \ },
+      \ 'default': has('win32')
+      \   ? s:BuildTagsFileListCmd('dir')
+      \   : s:BuildTagsFileListCmd('find') }
 
 " vim-sneak
 let g:sneak#s_next = 1
