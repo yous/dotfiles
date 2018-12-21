@@ -718,7 +718,7 @@ endfunction
 nnoremap <silent> <Leader>z :call <SID>ZoomToggle()<CR>
 
 " Cscope mappings
-if has('cscope')
+if has('cscope') && executable('cscope')
   function! s:FindCscopeDB()
     let l:db = findfile('cscope.out', '.;')
     if !empty(l:db)
