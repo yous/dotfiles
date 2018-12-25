@@ -38,6 +38,9 @@
 	default = simple
 [rerere]
 	enabled = true
+[sendemail]
+	confirm = always
+	suppresscc = self
 [stash]
 	showPatch = true
 [status]
