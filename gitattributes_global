@@ -1,1 +1,2 @@
+*.klc diff=utf-16
 *.reg diff=utf-16
