@@ -22,8 +22,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[include]
-	path = ~/.gitconfig.local
 [init]
 	templateDir = ~/.git-templates
 [interactive]
@@ -50,3 +48,5 @@
 	recurse = true
 [user]
 	useConfigOnly = true
+[include]
+	path = ~/.gitconfig.local
