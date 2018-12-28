@@ -57,7 +57,7 @@ In Windows, use `install.bat`. It links files into the user's home directory.
 
 ### Git
 
-Set user-specific configurations on `~/.gitconfig.local`:
+Set user-specific configurations on `~/.gitconfig.user`:
 
 ``` gitconfig
 [user]
@@ -81,6 +81,29 @@ You can also sign your each commit automatically:
 
 For more information about signing commits, see
 [A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
+
+If you want to use Gmail for `git send-email`,
+
+``` gitconfig
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpServerPort = 587
+	smtpUser = you@gmail.com
+```
+
+For more information, see [the documentation](https://git-scm.com/docs/git-send-email)
+for git-send-email.
+
+Set local-specific configurations on `~/.gitconfig.local`:
+
+``` gitconfig
+[includeIf "gitdir:~/to/group/"]
+	path = /path/to/foo.inc
+```
+
+For more information, see [conditional includes](https://git-scm.com/docs/git-config#_conditional_includes)
+section in the git-config documentation.
 
 If you want to use latest release of Git for Ubuntu:
 
