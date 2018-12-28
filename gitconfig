@@ -49,4 +49,5 @@
 [user]
 	useConfigOnly = true
 [include]
+	path = ~/.gitconfig.user
 	path = ~/.gitconfig.local
