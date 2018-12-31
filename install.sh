@@ -97,6 +97,7 @@ case "$1" in
       'ideavimrc' \
       'inputrc' \
       'irbrc' \
+      'minttyrc' \
       'npmrc' \
       'profile' \
       'screenrc' \
