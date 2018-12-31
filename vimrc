@@ -599,7 +599,10 @@ autocmd vimrc FileType *
       \ else |
       \   setlocal formatoptions-=o |
       \ endif |
-      \ if index(['gitcommit', 'markdown', 'tex'], &filetype) < 0 |
+      \ if index(['gitcommit',
+      \           'gitsendemail',
+      \           'markdown',
+      \           'tex'], &filetype) < 0 |
       \   setlocal formatoptions-=t |
       \ endif |
       \ if v:version >= 704 || v:version == 703 && has('patch541') |
@@ -1140,6 +1143,7 @@ call s:CreateCamelCaseMotionMappings()
 " bullets.vim
 let g:bullets_enabled_file_types = [
       \ 'gitcommit',
+      \ 'gitsendemail',
       \ 'markdown',
       \ 'text']
 
