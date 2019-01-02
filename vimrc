@@ -113,6 +113,44 @@ Plug 'yous/PreserveNoEOL', {
 Plug 'sgur/vim-editorconfig'
 " sleuth.vim: Heuristically set buffer options
 Plug 'tpope/vim-sleuth'
+" A Plugin to show a diff, whenever recovering a buffer
+Plug 'chrisbra/Recover.vim'
+" obsession.vim: continuously updated session files
+Plug 'tpope/vim-obsession'
+" Vim sugar for the UNIX shell commands
+Plug 'tpope/vim-eunuch'
+" A Vim plugin that manages your tag files
+if executable('ctags') || executable('cscope')
+  if v:version >= 800
+    Plug 'ludovicchabant/vim-gutentags'
+  elseif v:version >= 704
+    Plug 'ludovicchabant/vim-gutentags', { 'branch': 'vim7' }
+  endif
+endif
+" Vim Git runtime files
+Plug 'tpope/vim-git'
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+" A git commit browser
+" Plug 'tpope/vim-fugitive' |
+Plug 'junegunn/gv.vim'
+
+" Browsing
+if !has('win32') && (!has('win32unix') || executable('go'))
+  " A command-line fuzzy finder written in Go
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+endif
+" Directory viewer for Vim
+Plug 'justinmk/vim-dirvish'
+if !has('nvim')
+  " Tab-specific directories
+  Plug 'vim-scripts/tcd.vim'
+endif
+" Go to Terminal or File manager
+Plug 'justinmk/vim-gtfo'
+
+" Completion and lint
 if !has('win32')
   if !has('win32unix') &&
         \ has('patch-7.4.1578') &&
@@ -145,32 +183,11 @@ if !has('win32')
     " Generates config files for YouCompleteMe
     Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
   endif
-  if !has('win32unix') || executable('go')
-    " A command-line fuzzy finder written in Go
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-  endif
 endif
 " Print documents in echo area
 if exists('v:completed_item')
   Plug 'Shougo/echodoc.vim'
 endif
-" Directory viewer for Vim
-Plug 'justinmk/vim-dirvish'
-if !has('nvim')
-  " Tab-specific directories
-  Plug 'vim-scripts/tcd.vim'
-endif
-" Go to Terminal or File manager
-Plug 'justinmk/vim-gtfo'
-" A Plugin to show a diff, whenever recovering a buffer
-Plug 'chrisbra/Recover.vim'
-" obsession.vim: continuously updated session files
-Plug 'tpope/vim-obsession'
-" Autocomplete if end
-Plug 'tpope/vim-endwise'
-" Vim sugar for the UNIX shell commands
-Plug 'tpope/vim-eunuch'
 if has('nvim') && has('timers') ||
       \ has('timers') && exists('*job_start') && exists('*ch_close_in')
   " Asynchronous Lint Engine
@@ -179,23 +196,10 @@ else
   " Syntax checking plugin
   Plug 'vim-syntastic/syntastic'
 endif
-" A Vim plugin that manages your tag files
-if executable('ctags') || executable('cscope')
-  if v:version >= 800
-    Plug 'ludovicchabant/vim-gutentags'
-  elseif v:version >= 704
-    Plug 'ludovicchabant/vim-gutentags', { 'branch': 'vim7' }
-  endif
-endif
-" Vim Git runtime files
-Plug 'tpope/vim-git'
-" Git wrapper
-Plug 'tpope/vim-fugitive'
-" A git commit browser
-" Plug 'tpope/vim-fugitive' |
-Plug 'junegunn/gv.vim'
 
 " Motions and text changing
+" Autocomplete if end
+Plug 'tpope/vim-endwise'
 " The missing motion for Vim
 Plug 'justinmk/vim-sneak'
 " Provide CamelCase motion through words
@@ -256,6 +260,16 @@ Plug 'godlygeek/tabular', { 'for': 'markdown' } |
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " PHP
 Plug 'vim-scripts/php.vim-html-enhanced', { 'for': ['html', 'php'] }
+" Rails
+Plug 'tpope/vim-rails'
+if v:version >= 700
+  " ANSI escape sequences concealed, but highlighted as specified (conceal)
+  Plug 'powerman/vim-plugin-AnsiEsc', { 'for': 'railslog' }
+endif
+" Rake
+Plug 'tpope/vim-rake'
+" RuboCop
+Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 " smali
 Plug 'kelwin/vim-smali', { 'for': 'smali' }
 " SMT-LIB
@@ -264,18 +278,6 @@ Plug 'raichoo/smt-vim', { 'for': 'smt' }
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
 " A solid language pack for Vim
 Plug 'sheerun/vim-polyglot'
-
-" Ruby
-" Rake
-Plug 'tpope/vim-rake'
-" RuboCop
-Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
-" Rails
-Plug 'tpope/vim-rails'
-if v:version >= 700
-  " ANSI escape sequences concealed, but highlighted as specified (conceal)
-  Plug 'powerman/vim-plugin-AnsiEsc', { 'for': 'railslog' }
-endif
 
 " macOS
 if has('mac') || has('macunix')
@@ -933,6 +935,80 @@ let g:PreserveNoEOL = 1
 " vim-sleuth
 let g:sleuth_automatic = 1
 
+" vim-gutentags
+function! s:BuildTagsFileListCmd(prog)
+  let l:filetypes = [
+        \ 'asm', 'c', 'h', 'S',
+        \ 'cpp', 'hpp',
+        \ 'cc',
+        \ 'go',
+        \ 'java',
+        \ 'js',
+        \ 'py',
+        \ 'rb']
+  if a:prog ==# 'git'
+    " git ls-files '*.c' '*.h'
+    let l:cmd = 'git ls-files ' .
+          \ join(map(l:filetypes, '"''*." . v:val . "''"'), ' ')
+  elseif a:prog ==# 'hg'
+    " hg files -I '**.c' -I '**.h'
+    let l:cmd = 'hg files ' .
+          \ join(map(l:filetypes, '"-I ''**." . v:val . "''"'), ' ')
+  elseif a:prog ==# 'find'
+    " find . -type f \( -name '*.c' -o -name '*.h' \)
+    let l:cmd = 'find . -type f ' .
+          \ '\( ' .
+          \ join(map(l:filetypes, '"-name ''*." . v:val . "''"'), ' -o ') .
+          \ ' \)'
+  elseif a:prog ==# 'dir'
+    " dir /S /B /A-D *.c *.h
+    let l:cmd = 'dir /S /B /A-D ' .
+          \ join(map(l:filetypes, '"*." . v:val'), ' ')
+  endif
+
+  return l:cmd
+endfunction
+let g:gutentags_modules = []
+if executable('ctags')
+  call add(g:gutentags_modules, 'ctags')
+endif
+if executable('cscope')
+  call add(g:gutentags_modules, 'cscope')
+endif
+let g:gutentags_file_list_command = {
+      \ 'markers': {
+      \   '.git': s:BuildTagsFileListCmd('git'),
+      \   '.hg': s:BuildTagsFileListCmd('hg')
+      \ },
+      \ 'default': has('win32')
+      \   ? s:BuildTagsFileListCmd('dir')
+      \   : s:BuildTagsFileListCmd('find') }
+
+" fzf.vim
+nnoremap <C-P> :Files<CR>
+nnoremap g<C-P> :GFiles<CR>
+nnoremap t<C-P> :Tags<CR>
+nnoremap c<C-P> :History :<CR>
+if executable('rg')
+  command! -bang -nargs=* Rg
+        \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
+        \   '--color=always --smart-case ' . shellescape(<q-args>),
+        \   1, fzf#vim#with_preview('right:50%'), <bang>0)
+  nnoremap <Leader>* :Rg<Space><C-R>=expand('<cword>')<CR><CR>
+endif
+
+" vim-dirvish
+function! s:ResetDirvishCursor()
+  let l:curline = getline('.')
+  keepjumps call search('\V\^' . escape(l:curline, '\') . '\$', 'cw')
+endfunction
+augroup dirvish_config
+  autocmd!
+  autocmd FileType dirvish silent! unmap <buffer> <C-N>
+  autocmd FileType dirvish silent! unmap <buffer> <C-P>
+  autocmd FileType dirvish call <SID>ResetDirvishCursor()
+augroup END
+
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion = 4
 let g:ycm_filetype_blacklist = {
@@ -957,19 +1033,6 @@ let g:ycm_semantic_triggers = {
       \ 'c': ['re![_a-zA-Z]\w{3,}'],
       \ 'cpp': ['re![_a-zA-Z]\w{3,}'] }
 
-" fzf.vim
-nnoremap <C-P> :Files<CR>
-nnoremap g<C-P> :GFiles<CR>
-nnoremap t<C-P> :Tags<CR>
-nnoremap c<C-P> :History :<CR>
-if executable('rg')
-  command! -bang -nargs=* Rg
-        \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
-        \   '--color=always --smart-case ' . shellescape(<q-args>),
-        \   1, fzf#vim#with_preview('right:50%'), <bang>0)
-  nnoremap <Leader>* :Rg<Space><C-R>=expand('<cword>')<CR><CR>
-endif
-
 " echodoc.vim
 if has_key(g:plugs, 'echodoc.vim')
   set noshowmode
@@ -977,18 +1040,6 @@ if has_key(g:plugs, 'echodoc.vim')
 
   let g:echodoc#enable_at_startup = 1
 endif
-
-" vim-dirvish
-function! s:ResetDirvishCursor()
-  let l:curline = getline('.')
-  keepjumps call search('\V\^' . escape(l:curline, '\') . '\$', 'cw')
-endfunction
-augroup dirvish_config
-  autocmd!
-  autocmd FileType dirvish silent! unmap <buffer> <C-N>
-  autocmd FileType dirvish silent! unmap <buffer> <C-P>
-  autocmd FileType dirvish call <SID>ResetDirvishCursor()
-augroup END
 
 " ale
 if has_key(g:plugs, 'ale')
@@ -1058,55 +1109,6 @@ if has_key(g:plugs, 'syntastic')
   " Enable Vint for Vim files
   let g:syntastic_javascript_checkers = ['vimlint', 'vint']
 endif
-
-" vim-gutentags
-function! s:BuildTagsFileListCmd(prog)
-  let l:filetypes = [
-        \ 'asm', 'c', 'h', 'S',
-        \ 'cpp', 'hpp',
-        \ 'cc',
-        \ 'go',
-        \ 'java',
-        \ 'js',
-        \ 'py',
-        \ 'rb']
-  if a:prog ==# 'git'
-    " git ls-files '*.c' '*.h'
-    let l:cmd = 'git ls-files ' .
-          \ join(map(l:filetypes, '"''*." . v:val . "''"'), ' ')
-  elseif a:prog ==# 'hg'
-    " hg files -I '**.c' -I '**.h'
-    let l:cmd = 'hg files ' .
-          \ join(map(l:filetypes, '"-I ''**." . v:val . "''"'), ' ')
-  elseif a:prog ==# 'find'
-    " find . -type f \( -name '*.c' -o -name '*.h' \)
-    let l:cmd = 'find . -type f ' .
-          \ '\( ' .
-          \ join(map(l:filetypes, '"-name ''*." . v:val . "''"'), ' -o ') .
-          \ ' \)'
-  elseif a:prog ==# 'dir'
-    " dir /S /B /A-D *.c *.h
-    let l:cmd = 'dir /S /B /A-D ' .
-          \ join(map(l:filetypes, '"*." . v:val'), ' ')
-  endif
-
-  return l:cmd
-endfunction
-let g:gutentags_modules = []
-if executable('ctags')
-  call add(g:gutentags_modules, 'ctags')
-endif
-if executable('cscope')
-  call add(g:gutentags_modules, 'cscope')
-endif
-let g:gutentags_file_list_command = {
-      \ 'markers': {
-      \   '.git': s:BuildTagsFileListCmd('git'),
-      \   '.hg': s:BuildTagsFileListCmd('hg')
-      \ },
-      \ 'default': has('win32')
-      \   ? s:BuildTagsFileListCmd('dir')
-      \   : s:BuildTagsFileListCmd('find') }
 
 " vim-sneak
 let g:sneak#s_next = 1
@@ -1423,10 +1425,8 @@ vnoremap <Plug> <Plug>Markdown_EditUrlUnderCursor
 nnoremap <Plug> <Plug>Markdown_MoveToCurHeader
 vnoremap <Plug> <Plug>Markdown_MoveToCurHeader
 
-" vim-polyglot
-let g:polyglot_disabled = ['latex', 'markdown']
-" vim-javascript
-let g:javascript_plugin_jsdoc = 1
+" vim-plugin-AnsiEsc
+autocmd vimrc FileType railslog :AnsiEsc
 
 " vim-rake
 nnoremap <Leader>ra :Rake<CR>
@@ -1436,8 +1436,10 @@ let g:vimrubocop_extra_args = '--display-cop-names'
 let g:vimrubocop_keymap = 0
 nnoremap <Leader>ru :RuboCop<CR>
 
-" vim-plugin-AnsiEsc
-autocmd vimrc FileType railslog :AnsiEsc
+" vim-polyglot
+let g:polyglot_disabled = ['latex', 'markdown']
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
 
 " macOS
 if has('mac') || has('macunix')
