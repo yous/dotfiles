@@ -157,10 +157,6 @@ if exists('v:completed_item')
 endif
 " Directory viewer for Vim
 Plug 'justinmk/vim-dirvish'
-" Vim plugin for the Perl module / CLI script 'ack'
-if executable('rg') || executable('ag') || executable('ack')
-  Plug 'mileszs/ack.vim'
-endif
 if !has('nvim')
   " Tab-specific directories
   Plug 'vim-scripts/tcd.vim'
@@ -993,17 +989,6 @@ augroup dirvish_config
   autocmd FileType dirvish silent! unmap <buffer> <C-P>
   autocmd FileType dirvish call <SID>ResetDirvishCursor()
 augroup END
-
-" ack.vim
-if has_key(g:plugs, 'ack.vim')
-  if executable('rg')
-    let g:ackprg = 'rg --vimgrep'
-  elseif executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-  endif
-  cnoreabbrev Ack Ack!
-  nnoremap <Leader>a :Ack!<Space><C-R>=expand('<cword>')<CR><CR>
-endif
 
 " ale
 if has_key(g:plugs, 'ale')
