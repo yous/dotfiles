@@ -331,12 +331,12 @@ To use Python 2 or 3 via pyenv in [Neovim](https://neovim.io),
 pyenv install 2.7.15
 pyenv virtualenv 2.7.15 neovim2
 pyenv activate neovim2
-pip install neovim
+pip install pynvim
 
 pyenv install 3.6.5
 pyenv virtualenv 3.6.5 neovim3
 pyenv activate neovim3
-pip install neovim
+pip install pynvim
 ```
 
 To use Ruby in Neovim,
