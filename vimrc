@@ -324,6 +324,9 @@ set background=dark
 set backspace=indent,eol,start
 " Use the clipboard register '*'
 set clipboard=unnamed
+if has('patch-8.1.0360')
+  set diffopt+=algorithm:patience
+endif
 if has('multi_byte')
   set fileencodings=ucs-bom,utf-8,cp949,latin1
 endif
