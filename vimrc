@@ -230,7 +230,9 @@ Plug 'tpope/vim-repeat'
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
 " :substitute preview
-Plug 'osyo-manga/vim-over'
+if v:version >= 703
+  Plug 'osyo-manga/vim-over'
+endif
 " Simpler Rainbow Parentheses
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': [
       \ 'clojure',
@@ -1352,6 +1354,11 @@ if has_key(g:plugs, 'syntastic')
   endfunction
   command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
 endif
+
+" vim-over
+let g:over#command_line#substitute#replace_pattern_visually = 1
+nnoremap :%s/ :OverCommandLine<CR>%s/
+vnoremap :s/ :OverCommandLine<CR>s/
 
 " rainbow_parentheses.vim
 autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
