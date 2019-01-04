@@ -33,5 +33,4 @@ install vim
 install neovim
 
 # Antibody
-tap getantibody/homebrew-antibody
-install antibody
+install getantibody/tap/antibody
