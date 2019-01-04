@@ -229,7 +229,10 @@ Plug 'tpope/vim-repeat'
 " Vim UI
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
-if v:version >= 703
+if has('patch-8.0.1206') || has('nvim-0.2.3')
+  " Range, pattern and substitute preview for Vim
+  Plug 'markonm/traces.vim'
+elseif v:version >= 703
   " :substitute preview
   Plug 'osyo-manga/vim-over'
 endif
