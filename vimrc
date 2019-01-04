@@ -229,8 +229,8 @@ Plug 'tpope/vim-repeat'
 " Vim UI
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
-" :substitute preview
 if v:version >= 703
+  " :substitute preview
   Plug 'osyo-manga/vim-over'
 endif
 " Simpler Rainbow Parentheses
@@ -990,16 +990,18 @@ let g:gutentags_file_list_command = {
       \   : s:BuildTagsFileListCmd('find') }
 
 " fzf.vim
-nnoremap <C-P> :Files<CR>
-nnoremap g<C-P> :GFiles<CR>
-nnoremap t<C-P> :Tags<CR>
-nnoremap c<C-P> :History :<CR>
-if executable('rg')
-  command! -bang -nargs=* Rg
-        \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
-        \   '--color=always --smart-case ' . shellescape(<q-args>),
-        \   1, fzf#vim#with_preview('right:50%'), <bang>0)
-  nnoremap <Leader>* :Rg<Space><C-R>=expand('<cword>')<CR><CR>
+if has_key(g:plugs, 'fzf.vim')
+  nnoremap <C-P> :Files<CR>
+  nnoremap g<C-P> :GFiles<CR>
+  nnoremap t<C-P> :Tags<CR>
+  nnoremap c<C-P> :History :<CR>
+  if executable('rg')
+    command! -bang -nargs=* Rg
+          \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
+          \   '--color=always --smart-case ' . shellescape(<q-args>),
+          \   1, fzf#vim#with_preview('right:50%'), <bang>0)
+    nnoremap <Leader>* :Rg<Space><C-R>=expand('<cword>')<CR><CR>
+  endif
 endif
 
 " vim-dirvish
@@ -1359,9 +1361,11 @@ if has_key(g:plugs, 'syntastic')
 endif
 
 " vim-over
-let g:over#command_line#substitute#replace_pattern_visually = 1
-nnoremap :%s/ :OverCommandLine<CR>%s/
-vnoremap :s/ :OverCommandLine<CR>s/
+if has_key(g:plugs, 'vim-over')
+  let g:over#command_line#substitute#replace_pattern_visually = 1
+  nnoremap :%s/ :OverCommandLine<CR>%s/
+  vnoremap :s/ :OverCommandLine<CR>s/
+endif
 
 " rainbow_parentheses.vim
 autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
