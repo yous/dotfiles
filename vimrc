@@ -1488,7 +1488,7 @@ if has('mac') || has('macunix')
   " dash.vim
   let g:dash_map = {
         \ 'java': 'android' }
-  nnoremap <Leader>d <Plug>DashSearch
+  nmap <Leader>d <Plug>DashSearch
 endif
 
 " }}}
