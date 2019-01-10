@@ -117,6 +117,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'chrisbra/Recover.vim'
 " obsession.vim: continuously updated session files
 Plug 'tpope/vim-obsession'
+" Vim plugin to edit binary files in a hex mode automatically
+Plug 'fidian/hexmode'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
 " A Vim plugin that manages your tag files
@@ -942,6 +944,9 @@ let g:PreserveNoEOL = 1
 
 " vim-sleuth
 let g:sleuth_automatic = 1
+
+" hexmode
+let g:hexmode_xxd_options = '-g 4'
 
 " vim-gutentags
 function! s:BuildTagsFileListCmd(prog)
