@@ -574,7 +574,7 @@ set nojoinspaces
 " Number of spaces that a <Tab> counts for while editing
 " Use the value of 'shiftwidth'
 set softtabstop=-1
-" Number of spaces to use for each setp of (auto)indent
+" Number of spaces to use for each step of (auto)indent
 set shiftwidth=2
 " Number of spaces that a <Tab> in the file counts for
 set tabstop=8
