@@ -584,7 +584,7 @@ augroup vimrc
   autocmd FileType asm,gitconfig,kconfig
         \ setlocal noexpandtab shiftwidth=8
 
-  autocmd FileType c,cpp,java,json,perl,python
+  autocmd FileType c,cpp,java,json,perl
         \ setlocal shiftwidth=4
 
   autocmd FileType go
@@ -592,6 +592,9 @@ augroup vimrc
 
   autocmd FileType make
         \ let &l:shiftwidth = &l:tabstop
+
+  autocmd FileType python
+        \ setlocal shiftwidth=4 textwidth=79
 
   " t: Auto-wrap text using textwidth
   " c: Auto-wrap comments using textwidth
