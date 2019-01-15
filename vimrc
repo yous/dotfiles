@@ -580,42 +580,48 @@ set shiftwidth=2
 set tabstop=8
 " Maximum width of text that is being inserted
 set textwidth=80
-autocmd vimrc FileType c,cpp,java,json,perl,python
-      \ setlocal shiftwidth=4
-autocmd vimrc FileType asm,gitconfig,kconfig
-      \ setlocal noexpandtab shiftwidth=8
-autocmd vimrc FileType make
-      \ let &l:shiftwidth = &l:tabstop
-autocmd vimrc FileType go
-      \ setlocal noexpandtab shiftwidth=4 tabstop=4
-" t: Auto-wrap text using textwidth
-" c: Auto-wrap comments using textwidth
-" r: Automatically insert the current comment leader after hitting <Enter> in
-"    Insert mode
-" o: Automatically insert the current comment leader after hitting 'o' or 'O' in
-"    Normal mode
-" q: Allow formatting of comments with "gq"
-" l: Long lines are not broken in insert mode
-" j: Remove a comment leader when joining lines
-autocmd vimrc FileType *
-      \ setlocal formatoptions+=c
-      \   formatoptions+=r
-      \   formatoptions+=q
-      \   formatoptions+=l |
-      \ if &filetype ==# 'markdown' |
-      \   setlocal formatoptions+=o |
-      \ else |
-      \   setlocal formatoptions-=o |
-      \ endif |
-      \ if index(['gitcommit',
-      \           'gitsendemail',
-      \           'markdown',
-      \           'tex'], &filetype) < 0 |
-      \   setlocal formatoptions-=t |
-      \ endif |
-      \ if v:version >= 704 || v:version == 703 && has('patch541') |
-      \   setlocal formatoptions+=j |
-      \ endif
+augroup vimrc
+  autocmd FileType asm,gitconfig,kconfig
+        \ setlocal noexpandtab shiftwidth=8
+
+  autocmd FileType c,cpp,java,json,perl,python
+        \ setlocal shiftwidth=4
+
+  autocmd FileType go
+        \ setlocal noexpandtab shiftwidth=4 tapstop=4
+
+  autocmd FileType make
+        \ let &l:shiftwidth = &l:tabstop
+
+  " t: Auto-wrap text using textwidth
+  " c: Auto-wrap comments using textwidth
+  " r: Automatically insert the current comment leader after hitting <Enter> in
+  "    Insert mode
+  " o: Automatically insert the current comment leader after hitting 'o' or 'O'
+  "    in Normal mode
+  " q: Allow formatting of comments with "gq"
+  " l: Long lines are not broken in insert mode
+  " j: Remove a comment leader when joining lines
+  autocmd FileType *
+        \ setlocal formatoptions+=c
+        \   formatoptions+=r
+        \   formatoptions+=q
+        \   formatoptions+=l |
+        \ if &filetype ==# 'markdown' |
+        \   setlocal formatoptions+=o |
+        \ else |
+        \   setlocal formatoptions-=o |
+        \ endif |
+        \ if index(['gitcommit',
+        \           'gitsendemail',
+        \           'markdown',
+        \           'tex'], &filetype) < 0 |
+        \   setlocal formatoptions-=t |
+        \ endif |
+        \ if v:version >= 704 || v:version == 703 && has('patch541') |
+        \   setlocal formatoptions+=j |
+        \ endif
+augroup END
 
 " }}}
 " =============================================================================
