@@ -58,8 +58,14 @@
 - Disable press-and-hold for keys in favor of key repeat:
 
   ``` sh
-  defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+  # For a specific application
+  defaults write com.googlecode.iterm2 ApplePressAndHoldEnabled -bool false
+  # Override global default
+  defaults write -g ApplePressAndHoldEnabled -bool false
+  # Reset global default
+  defaults delete -g ApplePressAndHoldEnabled
   ```
+
 - Set the prefix name of screen shots:
 
   ``` sh
