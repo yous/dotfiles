@@ -189,6 +189,11 @@ if command -v go >/dev/null; then
   export PATH="$PATH:$GOPATH/bin"
 fi
 
+# Set PATH for Rust
+if [ -d "$HOME/.cargo" ]; then
+  add_to_path_once "$HOME/.cargo/bin"
+fi
+
 # Oh My Zsh sets custom LSCOLORS from lib/theme-and-appearance.zsh
 # This is default LSCOLORS from the man page of ls
 [[ "$(uname)" == 'Darwin' ]] && export LSCOLORS=exfxcxdxbxegedabagacad

@@ -296,6 +296,11 @@ if command -v go >/dev/null; then
   export PATH="$PATH:$GOPATH/bin"
 fi
 
+# Set PATH for Rust
+if [ -d "$HOME/.cargo" ]; then
+  add_to_path_once "$HOME/.cargo/bin"
+fi
+
 # Check if reboot is required for Ubuntu
 if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
   function reboot-required() {
