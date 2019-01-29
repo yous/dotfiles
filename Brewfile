@@ -14,6 +14,7 @@ install zsh
 
 # Utilities
 install bat
+install htop
 install keychain
 install pre-commit
 install ripgrep
