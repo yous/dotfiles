@@ -215,8 +215,9 @@ Plug 'alvan/vim-closetag', {
       \ 'for': ['html', 'javascript.jsx', 'php', 'xhtml', 'xml'] }
 " Simplify the transition between multiline and single-line code
 Plug 'AndrewRadev/splitjoin.vim'
-" Easily delete, change and add surroundings in pairs
-Plug 'tpope/vim-surround'
+" The set of operator and textobject plugins to search/select/edit sandwiched
+" textobjects
+Plug 'machakann/vim-sandwich'
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
 if v:version == 704 && !has('patch754') || v:version < 704 && v:version >= 700
