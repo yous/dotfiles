@@ -363,6 +363,10 @@ catch /^Vim\%((\a\+)\)\=:E474/
 endtry
 " The key sequence that toggles the 'paste' option
 set pastetoggle=<F2>
+if has('mksession')
+  " Changes the effect of the :mksession command
+  set sessionoptions-=buffers " hidden and unloaded buffers
+endif
 " Files with these suffixes get a lower priority when multiple files match a
 " wildcard
 set suffixes+=.git,.hg,.svn
