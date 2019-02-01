@@ -959,6 +959,43 @@ let g:PreserveNoEOL = 1
 " vim-sleuth
 let g:sleuth_automatic = 1
 
+" vim-obsession
+if has_key(g:plugs, 'tcd.vim')
+  function! s:SaveTabInfo()
+    if !exists('g:this_session')
+      return
+    endif
+
+    let l:lines = []
+    for l:tabnr in range(1, tabpagenr('$'))
+      let l:tabvars = gettabvar(l:tabnr, '')
+      for l:var in [
+            \ 'tcd_ocwd', 'tcd_cwd'] " tcd.vim
+        if has_key(l:tabvars, l:var)
+          let l:val = l:tabvars[l:var]
+          let l:lines += ['call settabvar(' .
+                \ l:tabnr . ', ' .
+                \ "'" . l:var . "', " .
+                \ "'" . substitute(l:val, "'", "''", 'g') . "')"]
+        endif
+      endfor
+    endfor
+
+    if empty(l:lines)
+      return
+    endif
+
+    let l:body = readfile(g:this_session)
+    for l:line in l:lines
+      call insert(l:body, l:line, -3)
+    endfor
+    call writefile(l:body, g:this_session)
+  endfunction
+  augroup vimrc
+    autocmd User Obsession call s:SaveTabInfo()
+  augroup END
+endif
+
 " hexmode
 let g:hexmode_xxd_options = '-g 4'
 
