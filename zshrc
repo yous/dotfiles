@@ -71,9 +71,9 @@ if [[ "$(uname)" == 'Linux' ]] || [[ "$(uname)" == 'Darwin' ]]; then
   # A lightweight start point of shell configuration. This includes compinit.
   yous/vanilli.sh
 
-  # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
-  # excuting compinit command and sourcing other plugins.
-  zsh-users/zsh-syntax-highlighting
+  # Syntax-highlighting for Zshell – fine granularity, number of features, 40
+  # work hours themes (short name F-Sy-H)
+  zdharma/fast-syntax-highlighting
 
   # ZSH port of Fish shell's history search feature. zsh-syntax-highlighting
   # must be loaded before this.
