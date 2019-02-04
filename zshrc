@@ -62,21 +62,23 @@ if [[ "$(uname)" == 'Linux' ]] || [[ "$(uname)" == 'Darwin' ]]; then
   source <(antibody init)
 
   antibody bundle <<EOF
-  # Vanilla shell
-  yous/vanilli.sh
   # Additional completion definitions for Zsh
   zsh-users/zsh-completions
-  # Load the theme.
+
+  # Simple standalone Zsh theme
   yous/lime
-EOF
+
+  # A lightweight start point of shell configuration. This includes compinit.
+  yous/vanilli.sh
+
   # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
   # excuting compinit command and sourcing other plugins.
-  antibody bundle zsh-users/zsh-syntax-highlighting
-  # ZSH port of Fish shell's history search feature
-  antibody bundle zsh-users/zsh-history-substring-search
+  zsh-users/zsh-syntax-highlighting
 
-  # zsh-users/zsh-completions
-  autoload -U compinit && compinit
+  # ZSH port of Fish shell's history search feature. zsh-syntax-highlighting
+  # must be loaded before this.
+  zsh-users/zsh-history-substring-search
+EOF
 
   # zsh-users/zsh-history-substring-search
   zmodload zsh/terminfo
