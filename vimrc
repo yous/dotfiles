@@ -1205,6 +1205,7 @@ let g:closetag_filetypes = 'html,javascript.jsx,php,xhtml,xml'
 let g:closetag_xhtml_filetypes = 'javascript.jsx,xhtml,xml'
 
 " vim-unimpaired
+let g:nremap = {}
 " Center display on move
 function! s:RemapUnimpairedToCenter()
   for [l:key, l:cmd] in [
@@ -1215,6 +1216,8 @@ function! s:RemapUnimpairedToCenter()
     let l:plug_map = '<Plug>unimpaired' . l:cmd
     execute 'nmap [' . l:key . ' ' . l:plug_map . 'Previous' . 'zz'
     execute 'nmap ]' . l:key . ' ' . l:plug_map . 'Next' . 'zz'
+    let g:nremap['[' . l:key] = ''
+    let g:nremap[']' . l:key] = ''
   endfor
 endfunction
 call s:RemapUnimpairedToCenter()
