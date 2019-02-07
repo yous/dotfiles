@@ -1487,6 +1487,7 @@ let g:vimtex_syntax_minted = [
       \ }]
 
 " vim-markdown
+let g:vim_markdown_emphasis_multiline = 0
 let g:vim_markdown_fenced_languages = [
       \ 'bat=dosbatch', 'batch=dosbatch',
       \ 'coffeescript=coffee',
