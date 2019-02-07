@@ -1213,9 +1213,13 @@ function! s:RemapUnimpairedToCenter()
         \ ['q', 'Q'],
         \ ['t', 'T'],
         \ ['n', 'Context']]
-    let l:plug_map = '<Plug>unimpaired' . l:cmd
-    execute 'nmap [' . l:key . ' ' . l:plug_map . 'Previous' . 'zz'
-    execute 'nmap ]' . l:key . ' ' . l:plug_map . 'Next' . 'zz'
+    let l:plug_map = '\<Plug>unimpaired' . l:cmd
+    execute 'nnoremap <silent> [' . l:key .
+          \ ' :<C-U>execute "normal " . v:count1 . "' .
+          \ l:plug_map . 'Previous"<CR>zz'
+    execute 'nnoremap <silent> ]' . l:key .
+          \ ' :<C-U>execute "normal " . v:count1 . "' .
+          \ l:plug_map . 'Next"<CR>zz'
     let g:nremap['[' . l:key] = ''
     let g:nremap[']' . l:key] = ''
   endfor
