@@ -136,6 +136,16 @@ case "$1" in
   brew)
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ;;
+  chruby)
+    if [ "$(uname)" = 'Darwin' ]; then
+      brew install chruby
+    else
+      wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+      tar -xzvf chruby-0.3.9.tar.gz
+      cd chruby-0.3.9/
+      sudo make install
+    fi
+    ;;
   formulae)
     while read -r COMMAND; do
       trap 'break' INT
@@ -166,6 +176,16 @@ case "$1" in
     fi
     echo 'Done.'
     ;;
+  ruby-install)
+    if [ "$(uname)" = 'Darwin' ]; then
+      brew install ruby-install
+    else
+      wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz
+      tar -xzvf ruby-install-0.7.0.tar.gz
+      cd ruby-install-0.7.0/
+      sudo make install
+    fi
+    ;;
   rvm)
     command curl -sSL https://get.rvm.io | bash -s stable
     ;;
@@ -180,15 +200,17 @@ case "$1" in
     echo "usage: $(basename "$0") <command>"
     echo ''
     echo 'Available commands:'
-    echo '    link      Install symbolic links'
-    echo '    antibody  Install Antibody'
-    echo '    brew      Install Homebrew'
-    echo '    formulae  Install Homebrew formulae using Brewfile'
-    echo '    pwndbg    Install pwndbg'
-    echo '    pyenv     Install pyenv with pyenv-virtualenv'
-    echo '    rbenv     Install rbenv'
-    echo '    rvm       Install RVM'
-    echo '    weechat   Install WeeChat configuration'
-    echo '    z         Install z'
+    echo '    link         Install symbolic links'
+    echo '    antibody     Install Antibody'
+    echo '    brew         Install Homebrew'
+    echo '    chruby       Install chruby'
+    echo '    formulae     Install Homebrew formulae using Brewfile'
+    echo '    pwndbg       Install pwndbg'
+    echo '    pyenv        Install pyenv with pyenv-virtualenv'
+    echo '    rbenv        Install rbenv'
+    echo '    ruby-install Install ruby-install'
+    echo '    rvm          Install RVM'
+    echo '    weechat      Install WeeChat configuration'
+    echo '    z            Install z'
     ;;
 esac
