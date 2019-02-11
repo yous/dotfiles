@@ -174,7 +174,8 @@ if !has('win32')
             let l:options += [l:r[1]]
           endif
         endfor
-        execute '!./install.py ' . join(l:options, ' ')
+        execute '!python' . (has('python3') ? '3' : '2') .
+              \ ' install.py ' . join(l:options, ' ')
       endif
     endfunction
 
