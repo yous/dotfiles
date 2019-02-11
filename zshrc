@@ -94,6 +94,9 @@ fi
 if [ -d "$HOME/bin" ]; then
   add_to_path_once "$HOME/bin"
 fi
+if [ -d "$HOME/.local/bin" ]; then
+  add_to_path_once "$HOME/.local/bin"
+fi
 
 # Load z
 if [ -f "$HOME/.z.sh" ]; then
