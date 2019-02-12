@@ -398,7 +398,7 @@ Otherwise,
 
 ### IntelliJ, Android Studio
 
-To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
+To use [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme):
 
 1. Open File > Import Settings… in [IntelliJ](http://www.jetbrains.com/idea/) or
    [Android Studio](http://developer.android.com/sdk/installing/studio.html).
@@ -408,7 +408,7 @@ To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
 
 ### iTerm2
 
-To use [Tomorrow Theme](https://github.com/ChrisKempson/Tomorrow-Theme):
+To use [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme):
 
 1. Open Preferences… > Profiles > Colors.
 2. Click 'Load Presets…' and select 'Import…'.
