@@ -668,9 +668,6 @@ function! s:CtrlL()
 endfunction
 inoremap <silent> <C-L> <C-O>:call <SID>CtrlL()<CR>
 
-" Make Y behave like C and D
-nnoremap Y y$
-
 " Delete without copying
 vnoremap <BS> "_d
 
