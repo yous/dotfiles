@@ -35,18 +35,6 @@ function bundle_install() {
   fi
 }
 
-# Add /usr/local/bin to PATH for Mac OS X
-if [[ "$(uname)" == 'Darwin' ]]; then
-  add_to_path_once "/usr/local/bin:/usr/local/sbin"
-fi
-
-# Load Linuxbrew
-if [[ -d "$HOME/.linuxbrew" ]]; then
-  add_to_path_once "$HOME/.linuxbrew/bin"
-  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-fi
-
 if command -v brew >/dev/null; then
   BREW_PREFIX="$(brew --prefix)"
 fi
@@ -88,14 +76,6 @@ EOF
   bindkey -M emacs '^N' history-substring-search-down
   bindkey -M vicmd 'k' history-substring-search-up
   bindkey -M vicmd 'j' history-substring-search-down
-fi
-
-# Set PATH to include user's bin if it exists
-if [ -d "$HOME/bin" ]; then
-  add_to_path_once "$HOME/bin"
-fi
-if [ -d "$HOME/.local/bin" ]; then
-  add_to_path_once "$HOME/.local/bin"
 fi
 
 # Load z
@@ -151,7 +131,7 @@ fi
 
 # Load rbenv
 if [ -e "$HOME/.rbenv" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
+  add_to_path_once "$HOME/.rbenv/bin"
   eval "$(rbenv init - zsh)"
 fi
 
@@ -164,7 +144,7 @@ if command -v pyenv >/dev/null; then
   fi
 elif [ -e "$HOME/.pyenv" ]; then
   export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$HOME/.pyenv/bin:$PATH"
+  add_to_path_once "$HOME/.pyenv/bin"
   eval "$(pyenv init - zsh)"
   eval "$(pyenv virtualenv-init - zsh)"
 fi
@@ -175,33 +155,22 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
 
   if [[ "$(type rvm | head -n 1)" == "rvm is a shell function" ]]; then
     # Add RVM to PATH for scripting
-    PATH=$PATH:$HOME/.rvm/bin
+    case ":$PATH:" in
+      *":$HOME/.rvm/bin:"*)
+        ;;
+      *)
+        export PATH="$PATH:$HOME/.rvm/bin"
+    esac
     export rvmsudo_secure_path=1
 
     # Use right RVM gemset when using tmux
-    if [[ "$TMUX" != "" ]]; then
+    if [ -n "$TMUX" ]; then
       rvm use default
       pushd -q ..
       popd -q
     fi
   fi
 fi
-
-# Set GOPATH for Go
-if command -v go >/dev/null; then
-  [ -d "$HOME/.go" ] || mkdir "$HOME/.go"
-  export GOPATH="$HOME/.go"
-  export PATH="$PATH:$GOPATH/bin"
-fi
-
-# Set PATH for Rust
-if [ -d "$HOME/.cargo" ]; then
-  add_to_path_once "$HOME/.cargo/bin"
-fi
-
-# Oh My Zsh sets custom LSCOLORS from lib/theme-and-appearance.zsh
-# This is default LSCOLORS from the man page of ls
-[[ "$(uname)" == 'Darwin' ]] && export LSCOLORS=exfxcxdxbxegedabagacad
 
 # Check if reboot is required for Ubuntu
 if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
