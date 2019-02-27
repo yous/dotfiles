@@ -121,6 +121,8 @@ Plug 'tpope/vim-obsession'
 Plug 'fidian/hexmode'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
+" Vim plugin to diff two directories
+Plug 'will133/vim-dirdiff'
 " A Vim plugin that manages your tag files
 if executable('ctags') || executable('cscope')
   if v:version >= 800
