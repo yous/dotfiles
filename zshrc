@@ -214,6 +214,9 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
+# Homebrew
+alias brup='brew upgrade && brew cleanup'
+
 # Bundler
 alias be='bundle exec'
 alias bi='bundle_install'
