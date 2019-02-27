@@ -235,6 +235,8 @@ Plug 'tpope/vim-repeat'
 " Vim UI
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
+" Highlight the exact differences, based on characters and words
+Plug 'rickhowe/diffchar.vim'
 if has('patch-8.0.1206') || has('nvim-0.2.3')
   " Range, pattern and substitute preview for Vim
   Plug 'markonm/traces.vim'
