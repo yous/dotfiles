@@ -475,7 +475,7 @@ function! s:MatchExtraWhitespace(enabled)
     match ExtraWhitespace //
   endif
 endfunction
-highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=red guibg=#cc6666
 augroup ExtraWhitespace
   autocmd!
   autocmd BufWinEnter * call s:MatchExtraWhitespace(1)
