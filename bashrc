@@ -143,7 +143,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-function add_to_path_once() {
+add_to_path_once() {
   case ":$PATH:" in
     *":$1:"*)
       ;;
@@ -153,7 +153,7 @@ function add_to_path_once() {
   esac
 }
 
-function bundle_install() {
+bundle_install() {
   local bundler_version bundler_1_4_0
   bundler_version=($(bundle version))
   [ -z "${bundler_version}" ] && return
@@ -283,7 +283,7 @@ fi
 
 # Check if reboot is required for Ubuntu
 if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
-  function reboot-required() {
+  reboot-required() {
     /usr/lib/update-notifier/update-motd-reboot-required
   }
 fi

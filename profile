@@ -9,7 +9,7 @@ if [ -n "$ZSH_VERSION" ]; then
   [ "$UNAME" = 'Darwin' ] && export LSCOLORS=exfxcxdxbxegedabagacad
 fi
 
-function add_to_path_once() {
+add_to_path_once() {
   case ":$PATH:" in
     *":$1:"*)
       ;;
