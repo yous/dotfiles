@@ -87,6 +87,7 @@ case "$1" in
   link)
     init_submodules
     for FILENAME in \
+      'aliases' \
       'bashrc' \
       'ctags' \
       'gemrc' \
