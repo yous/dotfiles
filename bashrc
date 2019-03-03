@@ -321,10 +321,6 @@ alias la='ls -lAh'
 alias l='ls -lah'
 alias md='mkdir -p'
 alias rd='rmdir'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
 
 # Homebrew
 alias brup='brew upgrade && brew cleanup'
