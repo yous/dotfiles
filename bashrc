@@ -154,33 +154,13 @@ add_to_path_once() {
 }
 
 bundle_install() {
-  local bundler_version bundler_1_4_0
-  bundler_version=($(bundle version))
-  [ -z "${bundler_version}" ] && return
-  bundler_version=(${bundler_version[2]//./ })
-  bundler_1_4_0=(1 4 0)
-
-  local jobs_available=1
-  for i in {0..2}; do
-    if [ ${bundler_version[$i]} -gt ${bundler_1_4_0[$i]} ]; then
-      break
-    fi
-    if [ ${bundler_version[$i]} -lt ${bundler_1_4_0[$i]} ]; then
-      jobs_available=0
-      break
-    fi
-  done
-  if [ $jobs_available -eq 1 ]; then
-    local cores_num
-    if [[ "$(uname)" == 'Darwin' ]]; then
-      cores_num="$(sysctl -n hw.ncpu)"
-    else
-      cores_num="$(nproc)"
-    fi
-    bundle install --jobs=$cores_num $@
+  local cores_num
+  if [ "$(uname)" = 'Darwin' ]; then
+    cores_num="$(sysctl -n hw.ncpu)"
   else
-    bundle install $@
+    cores_num="$(nproc)"
   fi
+  bundle install --jobs="$cores_num" "$@"
 }
 
 if command -v brew >/dev/null; then
