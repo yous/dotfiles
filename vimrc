@@ -844,7 +844,21 @@ endif
 
 " }}}
 " =============================================================================
-" Functions And Commands: {{{
+" Commands: {{{
+" =============================================================================
+
+" :Gdiffs
+if has('win32')
+  command! Gdiffs cexpr system('git diff \| diff-hunk-list.bat') |
+        \ cwindow | wincmd p
+else
+  command! Gdiffs cexpr system('git diff \| diff-hunk-list') |
+        \ cwindow | wincmd p
+endif
+
+" }}}
+" =============================================================================
+" Autocmd: {{{
 " =============================================================================
 
 " Auto quit Vim when actual files are closed
@@ -874,19 +888,6 @@ if exists('##QuitPre')
 else
   autocmd vimrc BufEnter * call s:CheckLeftBuffers(0)
 endif
-
-if has('win32')
-  command! Gdiffs cexpr system('git diff \| diff-hunk-list.bat') |
-        \ cwindow | wincmd p
-else
-  command! Gdiffs cexpr system('git diff \| diff-hunk-list') |
-        \ cwindow | wincmd p
-endif
-
-" }}}
-" =============================================================================
-" Autocmd: {{{
-" =============================================================================
 
 augroup vimrc
   " Reload vimrc on the fly
