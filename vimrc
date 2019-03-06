@@ -606,7 +606,7 @@ augroup vimrc
         \ setlocal shiftwidth=4
 
   autocmd FileType go
-        \ setlocal noexpandtab shiftwidth=4 tapstop=4
+        \ setlocal noexpandtab shiftwidth=4 tabstop=4
 
   autocmd FileType make
         \ let &l:shiftwidth = &l:tabstop
