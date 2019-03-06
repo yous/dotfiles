@@ -59,11 +59,6 @@ endif
 " Vim Plug: {{{
 " =============================================================================
 
-" Define the 'vimrc' autocmd group
-augroup vimrc
-  autocmd!
-augroup END
-
 filetype off
 
 " Install vim-plug if it isn't installed
@@ -310,10 +305,13 @@ call plug#end()
 " syntax on
 
 " Automatically install missing plugins on startup
-autocmd vimrc VimEnter *
-      \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
-      \   PlugInstall --sync |
-      \ endif
+augroup VimPlug
+  autocmd!
+  autocmd VimEnter *
+        \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
+        \   PlugInstall --sync |
+        \ endif
+augroup END
 
 " }}}
 " =============================================================================
@@ -458,7 +456,7 @@ if empty($STY) && get(g:, 'colors_name', 'default') !=# 'default'
   endif
 endif
 
-augroup colorcolumn
+augroup ColorColumn
   autocmd!
   if exists('+colorcolumn')
     " Highlight column after 'textwidth'
@@ -598,7 +596,9 @@ set shiftwidth=2
 set tabstop=8
 " Maximum width of text that is being inserted
 set textwidth=80
-augroup vimrc
+augroup TextFormatting
+  autocmd!
+
   autocmd FileType asm,gitconfig,kconfig
         \ setlocal noexpandtab shiftwidth=8
 
@@ -795,7 +795,9 @@ function! s:RemapBufferQ()
   nnoremap <buffer> q :q<CR>
 endfunction
 
-augroup vimrc
+augroup FileTypeMappings
+  autocmd!
+
   " Quit help, quickfix window
   autocmd FileType help,qf call s:RemapBufferQ()
 
@@ -890,15 +892,17 @@ function! s:CheckLeftBuffers(quitpre)
     endif
   endif
 endfunction
-if exists('##QuitPre')
-  autocmd vimrc QuitPre * call s:CheckLeftBuffers(1)
-else
-  autocmd vimrc BufEnter * call s:CheckLeftBuffers(0)
-endif
+augroup AutoQuit
+  autocmd!
+  if exists('##QuitPre')
+    autocmd QuitPre * call s:CheckLeftBuffers(1)
+  else
+    autocmd BufEnter * call s:CheckLeftBuffers(0)
+  endif
+augroup END
 
-augroup vimrc
-  " Reload vimrc on the fly
-  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+augroup FileTypeAutocmds
+  autocmd!
 
   " Automatically update the diff after writing changes
   autocmd BufWritePost * if &diff | diffupdate | endif
@@ -946,7 +950,7 @@ augroup END
 
 " Auto insert for git commit
 let s:gitcommit_insert = 0
-augroup gitcommit_insert
+augroup GitcommitInsert
   autocmd!
   autocmd FileType gitcommit
         \ if byte2line(2) == 2 |
@@ -958,13 +962,18 @@ augroup gitcommit_insert
         \ endif
 augroup END
 
+augroup LoadVimrc
+  autocmd!
+  " Reload vimrc on the fly
+  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+augroup END
+
 " Reload symlink of vimrc on the fly
 let s:resolved_vimrc = resolve(expand($MYVIMRC))
 if expand($MYVIMRC) !=# s:resolved_vimrc
-  execute 'autocmd vimrc BufWritePost ' . s:resolved_vimrc .
+  execute 'autocmd LoadVimrc BufWritePost ' . s:resolved_vimrc .
         \ ' nested source $MYVIMRC'
 endif
-unlet s:resolved_vimrc
 
 " }}}
 " =============================================================================
@@ -1009,7 +1018,8 @@ if has_key(g:plugs, 'tcd.vim')
     endfor
     call writefile(l:body, g:this_session)
   endfunction
-  augroup vimrc
+  augroup ObsessionSaveTabInfo
+    autocmd!
     autocmd User Obsession call s:SaveTabInfo()
   augroup END
 endif
@@ -1086,7 +1096,7 @@ function! s:ResetDirvishCursor()
   let l:curline = getline('.')
   keepjumps call search('\V\^' . escape(l:curline, '\') . '\$', 'cw')
 endfunction
-augroup dirvish_config
+augroup DirvishConfig
   autocmd!
   autocmd FileType dirvish silent! unmap <buffer> <C-N>
   autocmd FileType dirvish silent! unmap <buffer> <C-P>
@@ -1452,17 +1462,25 @@ if has_key(g:plugs, 'vim-over')
 endif
 
 " rainbow_parentheses.vim
-autocmd vimrc FileType clojure,lisp,racket,scheme RainbowParentheses
+augroup RainbowParenthesesFileType
+  autocmd!
+  autocmd FileType clojure,lisp,racket,scheme RainbowParentheses
+augroup END
 
 " vim-gitgutter
 function! s:RedefineGitGutterAutocmd()
   if get(g:, 'gitgutter_async', 0) && gitgutter#async#available()
-    autocmd! gitgutter CursorHold,CursorHoldI
-    autocmd gitgutter CursorHold,CursorHoldI *
-          \ call gitgutter#process_buffer(bufnr(''), 1)
+    augroup gitgutter
+      autocmd! CursorHold,CursorHoldI
+      autocmd CursorHold,CursorHoldI *
+            \ call gitgutter#process_buffer(bufnr(''), 1)
+    augroup END
   endif
 endfunction
-autocmd vimrc VimEnter * call s:RedefineGitGutterAutocmd()
+augroup GitGutterConfig
+  autocmd!
+  autocmd VimEnter * call s:RedefineGitGutterAutocmd()
+augroup END
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
@@ -1525,7 +1543,10 @@ nnoremap <Plug> <Plug>Markdown_MoveToCurHeader
 vnoremap <Plug> <Plug>Markdown_MoveToCurHeader
 
 " vim-plugin-AnsiEsc
-autocmd vimrc FileType railslog :AnsiEsc
+augroup AnsiEscFileType
+  autocmd!
+  autocmd FileType railslog :AnsiEsc
+augroup END
 
 " vim-rake
 nnoremap <Leader>ra :Rake<CR>
@@ -1549,18 +1570,22 @@ if has('mac') || has('macunix')
     call plist#ReadPost()
     set fileencoding=utf-8
 
-    autocmd! vimrc BufWriteCmd,FileWriteCmd <buffer>
-    autocmd vimrc BufWriteCmd,FileWriteCmd <buffer>
-          \ call plist#Write()
+    augroup BinaryPlistWrite
+      autocmd! BufWriteCmd,FileWriteCmd <buffer>
+      autocmd BufWriteCmd,FileWriteCmd <buffer> call plist#Write()
+    augroup END
   endfunction
-  autocmd vimrc BufRead *
-        \ if getline(1) =~# '^bplist' |
-        \   call s:ConvertBinaryPlist() |
-        \ endif
-  autocmd vimrc BufNewFile *.plist
-        \ if !get(b:, 'plist_original_format') |
-        \   let b:plist_original_format = 'xml' |
-        \ endif
+  augroup BinaryPlistRead
+    autocmd!
+    autocmd BufRead *
+          \ if getline(1) =~# '^bplist' |
+          \   call s:ConvertBinaryPlist() |
+          \ endif
+    autocmd BufNewFile *.plist
+          \ if !get(b:, 'plist_original_format') |
+          \   let b:plist_original_format = 'xml' |
+          \ endif
+  augroup END
 
   " dash.vim
   let g:dash_map = {
