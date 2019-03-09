@@ -6,7 +6,6 @@ install cmake
 install cscope
 install ctags
 install git
-install grep --with-default-names
 install openssh
 install tmux
 install wget
