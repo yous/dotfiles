@@ -4,16 +4,16 @@ set -e
 DIRNAME="$(dirname "$0")"
 DIR="$(cd "$DIRNAME" && pwd)"
 
-function echoerr() {
+echoerr() {
   echo "$@" 1>&2
 }
 
-function init_submodules() {
+init_submodules() {
   (cd "$DIR" && git submodule init)
   (cd "$DIR" && git submodule update)
 }
 
-function git_clone() {
+git_clone() {
   if [ ! -e "$HOME/$2" ]; then
     echo "Cloning '$1'..."
     git clone "$1" "$HOME/$2"
@@ -23,7 +23,7 @@ function git_clone() {
   fi
 }
 
-function rename_with_backup() {
+rename_with_backup() {
   if [ ! -e "$2" ]; then
     if mv "$1" "$2"; then
       return 0
@@ -42,7 +42,7 @@ function rename_with_backup() {
   return 1
 }
 
-function replace_file() {
+replace_file() {
   DEST=${2:-.$1}
 
   if [ -e "$DIR/$1" ]; then
