@@ -83,49 +83,80 @@ replace_file() {
   fi
 }
 
+install_link() {
+  init_submodules
+  for FILENAME in \
+    'aliases' \
+    'bashrc' \
+    'ctags' \
+    'gemrc' \
+    'git-templates' \
+    'gitattributes_global' \
+    'gitconfig' \
+    'gitignore_global' \
+    'ideavimrc' \
+    'inputrc' \
+    'irbrc' \
+    'minttyrc' \
+    'npmrc' \
+    'profile' \
+    'screenrc' \
+    'tern-config' \
+    'tmux.conf' \
+    'vintrc.yaml' \
+    'vimrc' \
+    'ycm_extra_conf.py' \
+    'zprofile' \
+    'zshrc'
+  do
+    replace_file "$FILENAME"
+  done
+  replace_file 'pip.conf' '.pip/pip.conf'
+  replace_file 'tpm' '.tmux/plugins/tpm'
+  [ ! -d "$HOME/.vim" ] && mkdir "$HOME/.vim"
+  replace_file '.vim' '.config/nvim'
+  replace_file 'vimrc' '.config/nvim/init.vim'
+  for FILENAME in \
+    'diff-highlight' \
+    'diff-hunk-list' \
+    'pyg' \
+    'server'
+  do
+    replace_file "bin/$FILENAME" "bin/$FILENAME"
+  done
+  echo 'Done.'
+}
+
+install_formulae() {
+  local brew_list installed
+  brew_list=()
+  while IFS='' read -r line; do
+    brew_list+=("$line")
+  done < <(brew list --full-name)
+  while read -r cmd; do
+    trap 'break' INT
+    [[ -z "$cmd" || ${cmd:0:1} == '#' ]] && continue
+    IFS=' ' read -ra brew_args <<< "$cmd"
+    if [ "${brew_args[0]}" = 'install' ]; then
+      installed=0
+      for e in "${brew_list[@]}"; do
+        if [ "$e" = "${brew_args[1]}" ]; then
+          installed=1
+          break
+        fi
+      done
+      if [ "$installed" -eq 1 ]; then
+        echo "${brew_args[1]} is already installed"
+        continue
+      fi
+    fi
+    brew "${brew_args[@]}"
+  done < "$DIR/Brewfile" && echo 'Done.'
+}
+
 case "$1" in
   link)
-    init_submodules
-    for FILENAME in \
-      'aliases' \
-      'bashrc' \
-      'ctags' \
-      'gemrc' \
-      'git-templates' \
-      'gitattributes_global' \
-      'gitconfig' \
-      'gitignore_global' \
-      'ideavimrc' \
-      'inputrc' \
-      'irbrc' \
-      'minttyrc' \
-      'npmrc' \
-      'profile' \
-      'screenrc' \
-      'tern-config' \
-      'tmux.conf' \
-      'vintrc.yaml' \
-      'vimrc' \
-      'ycm_extra_conf.py' \
-      'zprofile' \
-      'zshrc'
-    do
-      replace_file "$FILENAME"
-    done
-    replace_file 'pip.conf' '.pip/pip.conf'
-    replace_file 'tpm' '.tmux/plugins/tpm'
-    [ ! -d "$HOME/.vim" ] && mkdir "$HOME/.vim"
-    replace_file '.vim' '.config/nvim'
-    replace_file 'vimrc' '.config/nvim/init.vim'
-    for FILENAME in \
-      'diff-highlight' \
-      'diff-hunk-list' \
-      'pyg' \
-      'server'
-    do
-      replace_file "bin/$FILENAME" "bin/$FILENAME"
-    done
-    echo 'Done.'
+    install_link
     ;;
   antibody)
     if [ "$(uname)" = 'Darwin' ]; then
@@ -148,29 +179,7 @@ case "$1" in
     fi
     ;;
   formulae)
-    brew_list=()
-    while IFS='' read -r line; do
-      brew_list+=("$line")
-    done < <(brew list --full-name)
-    while read -r COMMAND; do
-      trap 'break' INT
-      [[ -z "$COMMAND" || ${COMMAND:0:1} == '#' ]] && continue
-      IFS=' ' read -ra BREW_ARGS <<< "$COMMAND"
-      if [ "${BREW_ARGS[0]}" = 'install' ]; then
-        installed=0
-        for e in "${brew_list[@]}"; do
-          if [ "$e" = "${BREW_ARGS[1]}" ]; then
-            installed=1
-            break
-          fi
-        done
-        if [ "$installed" -eq 1 ]; then
-          echo "${BREW_ARGS[1]} is already installed"
-          continue
-        fi
-      fi
-      brew "${BREW_ARGS[@]}"
-    done < "$DIR/Brewfile" && echo 'Done.'
+    install_formulae
     ;;
   pwndbg)
     init_submodules
