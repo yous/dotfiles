@@ -148,10 +148,27 @@ case "$1" in
     fi
     ;;
   formulae)
+    brew_list=()
+    while IFS='' read -r line; do
+      brew_list+=("$line")
+    done < <(brew list --full-name)
     while read -r COMMAND; do
       trap 'break' INT
       [[ -z "$COMMAND" || ${COMMAND:0:1} == '#' ]] && continue
       IFS=' ' read -ra BREW_ARGS <<< "$COMMAND"
+      if [ "${BREW_ARGS[0]}" = 'install' ]; then
+        installed=0
+        for e in "${brew_list[@]}"; do
+          if [ "$e" = "${BREW_ARGS[1]}" ]; then
+            installed=1
+            break
+          fi
+        done
+        if [ "$installed" -eq 1 ]; then
+          echo "${BREW_ARGS[1]} is already installed"
+          continue
+        fi
+      fi
       brew "${BREW_ARGS[@]}"
     done < "$DIR/Brewfile" && echo 'Done.'
     ;;
