@@ -96,6 +96,7 @@
 - [1Password](https://agilebits.com/downloads)
 - [AppCleaner](https://freemacsoft.net/appcleaner/)
   - Turn on SmartDelete
+- [Bear](https://itunes.apple.com/kr/app//id1091189122?mt=12)
 - [Chrome](https://www.google.com/chrome/)
 - [Contexts](https://contexts.co)
 - [Dropbox](https://www.dropbox.com/install)
@@ -103,12 +104,17 @@
 - [GPG Suite](https://gpgtools.org)
   - Customize > Uncheck GPGMail
 - [Itsycal](https://www.mowglii.com/itsycal/)
+- [iTerm2](https://www.iterm2.com)
 - [MacTeX](https://www.tug.org/mactex/)
+- [Magnet](https://itunes.apple.com/kr/app//id441258766?mt=12)
 - [Mailplane](https://mailplaneapp.com)
+- [PDF Expert](https://pdfexpert.com)
 - [Safari Extensions](https://safari-extensions.apple.com)
   - [1Password](https://safari-extensions.apple.com/details/?id=com.agilebits.onepassword4-safari-2BUA8C4S2C)
   - [Translate](https://safari-extensions.apple.com/details/?id=com.sidetree.Translate-S64NDGV2C5)
   - [uBlock Origin](https://safari-extensions.apple.com/details/?id=com.el1t.uBlock-3NU33NW2M3)
+- [Slack](https://slack.com)
+- [Things 3](https://itunes.apple.com/kr/app/things-3/id904280696?mt=12)
 - Quick Look
   - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
   - [Suspicious Package](https://www.mothersruin.com/software/SuspiciousPackage/)
@@ -232,4 +238,5 @@
 - [Firefox](https://www.mozilla.org/ko/firefox/new/)
 - [Groupy](https://www.stardock.com/products/groupy/)
 - [ShareX](https://getsharex.com)
+- [Slack](https://slack.com)
 - [VNC Viewer](https://www.realvnc.com/download/viewer/)
