@@ -104,6 +104,7 @@
   - Customize > Uncheck GPGMail
 - [Itsycal](https://www.mowglii.com/itsycal/)
 - [MacTeX](https://www.tug.org/mactex/)
+- [Mailplane](https://mailplaneapp.com)
 - [Safari Extensions](https://safari-extensions.apple.com)
   - [1Password](https://safari-extensions.apple.com/details/?id=com.agilebits.onepassword4-safari-2BUA8C4S2C)
   - [Translate](https://safari-extensions.apple.com/details/?id=com.sidetree.Translate-S64NDGV2C5)
