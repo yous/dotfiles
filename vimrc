@@ -1075,6 +1075,7 @@ let g:gutentags_file_list_command = {
       \ 'default': has('win32')
       \   ? s:BuildTagsFileListCmd('dir')
       \   : s:BuildTagsFileListCmd('find') }
+let g:gutentags_cscope_build_inverted_index = 1
 
 " fzf.vim
 if has_key(g:plugs, 'fzf.vim')
