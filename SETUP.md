@@ -174,7 +174,7 @@
 
 - [나눔글꼴](https://hangeul.naver.com/font) (나눔바른고딕, 나눔명조)
 - [D2 Coding](https://github.com/naver/d2codingfont)
-- [KoPub 서체](http://www.kopus.org/biz/electronic/font.aspx)
+- [KoPubWorld 서체](http://www.kopus.org/Biz/electronic/Font.aspx)
 - [Noto CJK](https://www.google.com/get/noto/help/cjk/)
 
 ## Tools
@@ -202,7 +202,9 @@
     - Remote character set: UTF-8
     - Terminal-type string: xterm-256color
   - Loco
-    - Host Name: bbs@loco.kaist.ac.kr
+    - Host Name: loco.kaist.ac.kr
+    - Port 24
+    - Connection type: Telnet
     - Columns: 80, Rows: 62
     - Font: Fixedsys, 10-point (Script: Korean)
     - Use separated unicode font: Uncheck
@@ -215,23 +217,8 @@
     start /b putty -load Loco
     ```
 - [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-- [MSYS2](https://www.msys2.org)
-  - Option
-    - Transparency: Med.
-    - Cursor: Block
-    - Blinking: Uncheck
-    - Font: Consolas, 10-point
-    - Show bold as font: Check
-    - Locale: en\_US
-    - Character set: UTF-8
-    - Terminal Type: xterm-256color
-  - Setup
-    - `pacman -Syu`
-    - Run MSYS2 again if needed.
-    - `pacman -Su`
-    - `pacman -S vim wget curl openssh grep tar unzip`
-    - `ssh-keygen -t rsa -b 4096 -C "$(git config user.email)"`
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
+- [Windows Subsystem for Linux](https://docs.microsoft.com/ko-kr/windows/wsl/install-win10)
 - Add `%USERPROFILE%\bin` to `%PATH%`
 
 ## Applications
@@ -241,5 +228,7 @@
 - [Bandizip](https://www.bandisoft.com/bandizip/)
 - [Chrome](https://www.google.com/chrome/)
 - [Dropbox](https://www.dropbox.com/install)
+- [Firefox](https://www.mozilla.org/ko/firefox/new/)
+- [Groupy](https://www.stardock.com/products/groupy/)
 - [ShareX](https://getsharex.com)
 - [VNC Viewer](https://www.realvnc.com/download/viewer/)
