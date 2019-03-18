@@ -26,7 +26,11 @@ fi
 source "$HOME/.zplugin/bin/zplugin.zsh"
 
 # Additional completion definitions for Zsh
-is-at-least 5.3 && zplugin ice blockf
+if is-at-least 5.3; then
+  zplugin ice lucid wait'0' blockf
+else
+  zplugin ice blockf
+fi
 zplugin light zsh-users/zsh-completions
 # Simple standalone Zsh theme
 zplugin light yous/lime
