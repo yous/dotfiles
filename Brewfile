@@ -32,8 +32,5 @@ install chruby
 install vim
 install neovim
 
-# Antibody
-install getantibody/tap/antibody
-
 # Krypton
 install kryptco/tap/kr
