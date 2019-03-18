@@ -1401,7 +1401,7 @@ endfunction
 if has_key(g:plugs, 'ale')
   augroup LightLineALE
     autocmd!
-    autocmd User ALELint call s:LightLineALE()
+    autocmd User ALELintPost,ALEFixPost call s:LightLineALE()
   augroup END
 
   function! s:LightLineALE()
