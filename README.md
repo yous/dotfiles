@@ -45,10 +45,12 @@ Command option | Description
 `link`         | Install symbolic links
 `antibody`     | Install Antibody
 `brew`         | Install Homebrew
+`chruby`       | Install chruby
 `formulae`     | Install Homebrew formulae using Brewfile
 `pwndbg`       | Install pwndbg
 `pyenv`        | Install pyenv with pyenv-virtualenv
 `rbenv`        | Install rbenv
+`ruby-install` | Install ruby-install
 `rvm`          | Install RVM
 `weechat`      | Install WeeChat configuration
 `z`            | Install z
