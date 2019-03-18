@@ -43,7 +43,6 @@ For available install options:
 Command option | Description
 ---------------|-----------------------------------------------
 `link`         | Install symbolic links
-`antibody`     | Install Antibody
 `brew`         | Install Homebrew
 `chruby`       | Install chruby
 `formulae`     | Install Homebrew formulae using Brewfile
@@ -243,7 +242,13 @@ chsh -s /usr/local/bin/zsh
 To update Zsh plugins:
 
 ``` sh
-antibody update
+zplugin update --all
+```
+
+To update [Zplugin](https://github.com/zdharma/zplugin) itself:
+
+``` sh
+zplugin self-update
 ```
 
 To make RVM works with Vim on OS X Yosemite or earlier, move `/etc/zshenv` to
@@ -251,21 +256,6 @@ To make RVM works with Vim on OS X Yosemite or earlier, move `/etc/zshenv` to
 
 ``` sh
 sudo mv /etc/zshenv /etc/zshrc
-```
-
-#### Antibody
-
-If you want to install [Antibody](https://getantibody.github.io), if you're on
-macOS,
-
-``` sh
-brew install getantibody/tap/antibody
-```
-
-Otherwise,
-
-``` sh
-./install.sh antibody
 ```
 
 ### Vim

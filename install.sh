@@ -158,13 +158,6 @@ case "$1" in
   link)
     install_link
     ;;
-  antibody)
-    if [ "$(uname)" = 'Darwin' ]; then
-      brew install getantibody/tap/antibody
-    else
-      curl -sL https://git.io/antibody | bash -s
-    fi
-    ;;
   brew)
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ;;
@@ -228,7 +221,6 @@ case "$1" in
     echo ''
     echo 'Available commands:'
     echo '    link         Install symbolic links'
-    echo '    antibody     Install Antibody'
     echo '    brew         Install Homebrew'
     echo '    chruby       Install chruby'
     echo '    formulae     Install Homebrew formulae using Brewfile'

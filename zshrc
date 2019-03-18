@@ -19,44 +19,41 @@ if command -v brew >/dev/null; then
   BREW_PREFIX="$(brew --prefix)"
 fi
 
-# Use Antibody
-if [[ "$(uname)" == 'Linux' ]] || [[ "$(uname)" == 'Darwin' ]]; then
-  # Check if Antibody is installed
-  if [[ "$(uname)" == 'Linux' ]] && ! command -v antibody >/dev/null; then
-    curl -s https://raw.githubusercontent.com/getantibody/installer/master/install | bash -s
-  fi
-
-  # Load Antibody
-  source <(antibody init)
-
-  antibody bundle <<EOF
-  # Additional completion definitions for Zsh
-  zsh-users/zsh-completions
-
-  # Simple standalone Zsh theme
-  yous/lime
-
-  # A lightweight start point of shell configuration. This includes compinit.
-  yous/vanilli.sh
-
-  # Syntax-highlighting for Zshell – fine granularity, number of features, 40
-  # work hours themes (short name F-Sy-H)
-  zdharma/fast-syntax-highlighting
-
-  # ZSH port of Fish shell's history search feature. zsh-syntax-highlighting
-  # must be loaded before this.
-  zsh-users/zsh-history-substring-search
-EOF
-
-  # zsh-users/zsh-history-substring-search
-  zmodload zsh/terminfo
-  [ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
-  [ -n "${terminfo[kcud1]}" ] && bindkey "${terminfo[kcud1]}" history-substring-search-down
-  bindkey -M emacs '^P' history-substring-search-up
-  bindkey -M emacs '^N' history-substring-search-down
-  bindkey -M vicmd 'k' history-substring-search-up
-  bindkey -M vicmd 'j' history-substring-search-down
+# Use Zplugin
+if [ ! -e "$HOME/.zplugin/bin/zplugin.zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 fi
+source "$HOME/.zplugin/bin/zplugin.zsh"
+
+# Additional completion definitions for Zsh
+is-at-least 5.3 && zplugin ice blockf
+zplugin light zsh-users/zsh-completions
+# Simple standalone Zsh theme
+zplugin light yous/lime
+# A lightweight start point of shell configuration
+zplugin light yous/vanilli.sh
+# Syntax-highlighting for Zshell – fine granularity, number of features, 40 work
+# hours themes (short name F-Sy-H)
+is-at-least 5.3 && zplugin ice lucid wait'0' atinit'zpcompinit; zpcdreplay'
+zplugin light zdharma/fast-syntax-highlighting
+# ZSH port of Fish shell's history search feature. zsh-syntax-highlighting must
+# be loaded before this.
+zplugin light zsh-users/zsh-history-substring-search
+
+if ! is-at-least 5.3; then
+  autoload -Uz compinit
+  compinit
+  zplugin cdreplay -q
+fi
+
+# zsh-users/zsh-history-substring-search
+zmodload zsh/terminfo
+[ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
+[ -n "${terminfo[kcud1]}" ] && bindkey "${terminfo[kcud1]}" history-substring-search-down
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # Load z
 if [ -f "$HOME/.z.sh" ]; then
