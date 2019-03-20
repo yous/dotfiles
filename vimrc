@@ -1265,7 +1265,7 @@ let g:lightline = {
       \   'right': [
       \     [has_key(g:plugs, 'ale') ? 'ale' : 'syntastic', 'lineinfo'],
       \     ['percent'],
-      \     ['filetype', 'fileencoding', 'fileformat']] },
+      \     ['fugitive', 'filetype', 'fileencoding', 'fileformat']] },
       \ 'tabline': { 'left': [['tabs']], 'right': [[]] },
       \ 'tab': {
       \   'active': ['tabfilename', 'tabmodified'],
@@ -1275,6 +1275,7 @@ let g:lightline = {
       \ 'component_expand': {
       \   'readonly': 'LightLineReadonly',
       \   'eol': 'LightLineEol',
+      \   'fugitive': 'LightLineFugitiveStatusline',
       \   'ale': 'LightLineALEStatusline',
       \   'syntastic': 'SyntasticStatuslineFlag' },
       \ 'component_type': {
@@ -1396,6 +1397,22 @@ endfunction
 function! LightLineTabModified(n)
   let l:winnr = tabpagewinnr(a:n)
   return gettabwinvar(a:n, l:winnr, '&modified') ? '+' : ''
+endfunction
+
+function! LightLineFugitiveStatusline()
+  if @% !~# '^fugitive:'
+    return ''
+  endif
+  let l:head = FugitiveHead()
+  if !len(l:head)
+    return ''
+  endif
+  let l:commit = matchstr(FugitiveParse()[0], '^\x\+')
+  if len(l:commit)
+    return l:head . ':' . l:commit[0:6]
+  else
+    return l:head
+  endif
 endfunction
 
 if has_key(g:plugs, 'ale')
