@@ -665,8 +665,8 @@ noremap H ^
 noremap L $
 
 " Unix shell behavior
-inoremap <C-A> <Esc>I
-inoremap <C-E> <Esc>A
+inoremap <C-A> <C-C>I
+inoremap <expr> <C-E> pumvisible() ? "\<C-E>" : "\<End>"
 
 " Leave insert mode
 function! s:CtrlL()
