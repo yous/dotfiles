@@ -460,6 +460,26 @@ if empty($STY) && get(g:, 'colors_name', 'default') !=# 'default'
   endif
 endif
 
+" Tomorrow Night
+if has('nvim')
+  let g:terminal_color_0 = '#000000'
+  let g:terminal_color_1 = '#d77b79'
+  let g:terminal_color_2 = '#c1c67a'
+  let g:terminal_color_3 = '#f3cf86'
+  let g:terminal_color_4 = '#92b1c9'
+  let g:terminal_color_5 = '#c0a6c7'
+  let g:terminal_color_6 = '#9ac8c3'
+  let g:terminal_color_7 = '#fefefe'
+  let g:terminal_color_8 = '#000000'
+  let g:terminal_color_9 = '#d77b79'
+  let g:terminal_color_10 = '#c1c67a'
+  let g:terminal_color_11 = '#f3cf86'
+  let g:terminal_color_12 = '#92b1c9'
+  let g:terminal_color_13 = '#c0a6c7'
+  let g:terminal_color_14 = '#9ac8c3'
+  let g:terminal_color_15 = '#fefefe'
+endif
+
 augroup ColorColumn
   autocmd!
   if exists('+colorcolumn')
