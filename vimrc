@@ -608,6 +608,10 @@ augroup TextFormatting
   autocmd FileType go
         \ setlocal noexpandtab shiftwidth=4 tabstop=4
 
+  " Plain view for plugins
+  autocmd FileType GV,vim-plug
+        \ setlocal colorcolumn= nolist textwidth=0
+
   autocmd FileType make
         \ let &l:shiftwidth = &l:tabstop
 
@@ -919,10 +923,6 @@ augroup FileTypeAutocmds
         \ setlocal keywordprg=man\ git-config\ \|\ less\ -i\ -p
   autocmd FileType help,vim setlocal keywordprg=:help
   autocmd FileType ruby setlocal keywordprg=ri
-
-  " Plain view for plugins
-  autocmd FileType GV,vim-plug
-        \ setlocal colorcolumn= nolist textwidth=0
 
   " Ruby configuration files view
   autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
