@@ -478,6 +478,12 @@ if has('nvim')
   let g:terminal_color_13 = '#c0a6c7'
   let g:terminal_color_14 = '#9ac8c3'
   let g:terminal_color_15 = '#fefefe'
+else
+  let g:terminal_ansi_colors = [
+        \ '#000000', '#d77b79', '#c1c67a', '#f3cf86',
+        \ '#92b1c9', '#c0a6c7', '#9ac8c3', '#fefefe',
+        \ '#000000', '#d77b79', '#c1c67a', '#f3cf86',
+        \ '#92b1c9', '#c0a6c7', '#9ac8c3', '#fefefe']
 endif
 
 augroup ColorColumn
