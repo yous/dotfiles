@@ -912,7 +912,7 @@ augroup AutoUpdates
   autocmd BufWritePost * if &diff | diffupdate | endif
 
   " Exit Paste mode when leaving Insert mode
-  autocmd InsertLeave * set nopaste
+  autocmd InsertLeave * if &paste | set nopaste | endif
 
   " Check if any buffers were changed outside of Vim
   autocmd FocusGained,BufEnter * checktime
@@ -928,9 +928,6 @@ augroup FileTypeAutocmds
   autocmd FileType help,vim setlocal keywordprg=:help
   autocmd FileType ruby setlocal keywordprg=ri
 
-  " Ruby configuration files view
-  autocmd BufNewFile,BufRead Gemfile,Guardfile setlocal filetype=ruby
-
   " ASM view
   autocmd BufNewFile,BufRead *.S setlocal filetype=gas
 
@@ -939,9 +936,6 @@ augroup FileTypeAutocmds
 
   " LD script view
   autocmd BufNewFile,BufRead *.lds setlocal filetype=ld
-
-  " Markdown view
-  autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
   " mobile.erb view
   autocmd BufNewFile,BufRead *.mobile.erb
