@@ -1095,6 +1095,19 @@ if has_key(g:plugs, 'fzf.vim')
           \   1, fzf#vim#with_preview('right:50%'), <bang>0)
     nnoremap <Leader>* :Rg<Space><C-R>=expand('<cword>')<CR><CR>
   endif
+  if has('nvim')
+    augroup FZFStatusline
+      autocmd!
+      autocmd FileType fzf
+            \ let s:laststatus = &laststatus | set laststatus=0 |
+            \ let s:showmode = &showmode | set noshowmode |
+            \ let s:ruler = &ruler | set noruler |
+            \ autocmd BufLeave <buffer>
+            \   let &laststatus = s:laststatus | unlet s:laststatus |
+            \   let &showmode = s:showmode | unlet s:showmode |
+            \   let &ruler = s:ruler | unlet s:ruler
+    augroup END
+  endif
 endif
 
 " vim-dirvish
@@ -1347,6 +1360,7 @@ function! LightLineFilename()
   return &filetype ==# 'dirvish' ?
         \   (l:fpath ==# getcwd() . '/' ? fnamemodify(l:fpath, ':~') :
         \   fnamemodify(l:fpath, ':~:.')) :
+        \ &filetype ==# 'fzf' ? 'fzf' :
         \ l:fname ==# '__Tag_List__' ? '' :
         \ l:fname ==# 'ControlP' ? '' :
         \ l:fname =~# 'NERD_tree' ?
