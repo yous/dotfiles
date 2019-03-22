@@ -905,7 +905,7 @@ augroup AutoQuit
   endif
 augroup END
 
-augroup FileTypeAutocmds
+augroup AutoUpdates
   autocmd!
 
   " Automatically update the diff after writing changes
@@ -916,6 +916,10 @@ augroup FileTypeAutocmds
 
   " Check if any buffers were changed outside of Vim
   autocmd FocusGained,BufEnter * checktime
+augroup END
+
+augroup FileTypeAutocmds
+  autocmd!
 
   " Keyword lookup program
   autocmd FileType c,cpp setlocal keywordprg=man
