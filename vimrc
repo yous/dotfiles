@@ -398,6 +398,10 @@ if has('win32')
   set shellslash
 endif
 
+" TeX
+let g:tex_conceal = 'abdmg'
+let g:tex_flavor = 'latex'
+
 " }}}
 " =============================================================================
 " Vim UI: {{{
@@ -601,6 +605,9 @@ augroup TextFormatting
 
   autocmd FileType asm,gitconfig,kconfig
         \ setlocal noexpandtab shiftwidth=8
+
+  " Show utf-8 glyphs for TeX
+  autocmd FileType bib,tex setlocal conceallevel=1
 
   autocmd FileType c,cpp,java,json,perl
         \ setlocal shiftwidth=4
