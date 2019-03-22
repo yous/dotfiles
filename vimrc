@@ -935,6 +935,11 @@ augroup FileTypeAutocmds
   autocmd FileType help,vim setlocal keywordprg=:help
   autocmd FileType ruby setlocal keywordprg=ri
 
+  " Terminal
+  if has('nvim')
+    autocmd TermOpen * setlocal nonumber | startinsert
+  endif
+
   " ASM view
   autocmd BufNewFile,BufRead *.S setlocal filetype=gas
 
