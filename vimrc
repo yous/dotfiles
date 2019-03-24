@@ -398,6 +398,9 @@ if has('win32')
   set shellslash
 endif
 
+" Rust
+let g:rustfmt_autosave = 1
+
 " TeX
 let g:tex_conceal = 'abdmg'
 let g:tex_flavor = 'latex'
