@@ -1397,7 +1397,7 @@ function! LightLineFilename()
         \ l:fname =~# 'NERD_tree' ?
         \   (index(['" Press ? for help', '.. (up a dir)'], getline('.')) < 0 ?
         \     matchstr(getline('.'), '[0-9A-Za-z_/].*') : '') :
-        \ '' !=# l:fname ? l:fname : '[No Name]'
+        \ '' !=# l:fname ? fnamemodify(l:fpath, ':~:.') : '[No Name]'
 endfunction
 
 function! LightLineReadonly()
