@@ -399,7 +399,9 @@ if has('win32')
 endif
 
 " Rust
-let g:rustfmt_autosave = 1
+if executable('rustfmt')
+  let g:rustfmt_autosave = 1
+endif
 
 " TeX
 let g:tex_conceal = 'abdmg'
