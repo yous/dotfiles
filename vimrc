@@ -370,6 +370,8 @@ if has('mksession')
   " Changes the effect of the :mksession command
   set sessionoptions-=buffers " hidden and unloaded buffers
 endif
+" Exclude East Asian characters from spell checking
+set spelllang+=cjk
 " Files with these suffixes get a lower priority when multiple files match a
 " wildcard
 set suffixes+=.git,.hg,.svn
