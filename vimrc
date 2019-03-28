@@ -1242,6 +1242,13 @@ if has_key(g:plugs, 'ale')
         \ '-hicpp-signed-bitwise',
         \ '-llvm-*',
         \ '-readability-*']
+
+  " ale-python-mypy
+  if has('win32')
+    let g:ale_python_mypy_options = '--cache-dir=nul'
+  else
+    let g:ale_python_mypy_options = '--cache-dir=/dev/null'
+  endif
 endif
 
 " Syntastic
