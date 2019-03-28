@@ -370,6 +370,14 @@ if has('mksession')
   " Changes the effect of the :mksession command
   set sessionoptions-=buffers " hidden and unloaded buffers
 endif
+" Help to avoid all the hit-enter prompts caused by file messages and to avoid
+" some other messages
+" m: use "[+]" instead of "[Modified]"
+" r: use "[RO]" instead of "[readonly]"
+" c: don't give ins-completion-menu messages
+set shortmess+=m
+set shortmess+=r
+set shortmess+=c
 " Exclude East Asian characters from spell checking
 set spelllang+=cjk
 " Files with these suffixes get a lower priority when multiple files match a
