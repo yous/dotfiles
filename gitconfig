@@ -1,5 +1,6 @@
 [core]
 	attributesFile = ~/.gitattributes_global
+	autocrlf = false
 	excludesFile = ~/.gitignore_global
 	editor = vim
 	pager = less -F -R -X
