@@ -720,6 +720,9 @@ noremap L $
 inoremap <C-A> <C-C>I
 inoremap <expr> <C-E> pumvisible() ? "\<C-E>" : "\<End>"
 
+" Close braces
+inoremap {<CR> {<CR>}<C-O>O
+
 " Leave insert mode
 function! s:CtrlL()
   " Keep the original feature of CTRL-L. See :help i_CTRL-L.
