@@ -1135,11 +1135,24 @@ if has_key(g:plugs, 'fzf.vim')
   nnoremap t<C-P> :Tags<CR>
   nnoremap c<C-P> :History :<CR>
   if executable('rg')
+    function! s:GetVisualSelection()
+      let [l:line_start, l:column_start] = getpos("'<")[1:2]
+      let [l:line_end, l:column_end] = getpos("'>")[1:2]
+      let l:lines = getline(l:line_start, l:line_end)
+      if len(l:lines) == 0
+        return ''
+      endif
+      let l:offset = &selection ==# 'exclusive' ? 2 : 1
+      let l:lines[-1] = l:lines[-1][:l:column_end - l:offset]
+      let l:lines[0] = l:lines[0][l:column_start - 1:]
+      return join(l:lines, "\n")
+    endfunction
     command! -bang -nargs=* Rg
           \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
           \   '--color=always --smart-case ' . shellescape(<q-args>),
           \   1, fzf#vim#with_preview('right:50%'), <bang>0)
     nnoremap <Leader>* :<C-U>Rg<Space><C-R>=expand('<cword>')<CR><CR>
+    vnoremap <Leader>* :<C-U>Rg<Space><C-R>=<SID>GetVisualSelection()<CR><CR>
   endif
   if has('nvim')
     augroup FZFStatusline
