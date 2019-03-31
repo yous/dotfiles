@@ -200,8 +200,6 @@ endif
 " Motions and text changing
 " Autocomplete if end
 Plug 'tpope/vim-endwise'
-" Closes brackets
-Plug 'rstacruz/vim-closer'
 " The missing motion for Vim
 Plug 'justinmk/vim-sneak'
 " Provide CamelCase motion through words
