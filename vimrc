@@ -757,7 +757,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Use CTRL-N to clear the highlighting
-nnoremap <silent> <C-N> :nohlsearch<C-R>=has('diff') ? '<Bar>diffupdate' : ''<CR><CR>
+nnoremap <silent> <C-N> :<C-U>nohlsearch<C-R>=has('diff') ? '<Bar>diffupdate' : ''<CR><CR>
 
 " Clear screen
 nnoremap <Leader><C-L> <C-L>
@@ -802,7 +802,7 @@ function! s:ZoomToggle()
     vertical resize
   endif
 endfunction
-nnoremap <silent> <Leader>z :call <SID>ZoomToggle()<CR>
+nnoremap <silent> <Leader>z :<C-U>call <SID>ZoomToggle()<CR>
 
 " Cscope mappings
 if has('cscope') && executable('cscope')
@@ -860,7 +860,7 @@ augroup FileTypeMappings
         \ endif
 
   " C, C++ compile
-  autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:make %<CR>
+  autocmd FileType c,cpp nnoremap <buffer> <F5> :<C-U>w<CR>:make %<CR>
   autocmd FileType c,cpp inoremap <buffer> <F5> <Esc>:w<CR>:make %<CR>
   autocmd FileType c
         \ if !filereadable('Makefile') && !filereadable('makefile') |
@@ -875,24 +875,24 @@ augroup FileTypeMappings
   autocmd FileType markdown inoremap <buffer> <LocalLeader>` ```
 
   " Go
-  autocmd FileType go nnoremap <buffer> <F5> :w<CR>:!go run %<CR>
+  autocmd FileType go nnoremap <buffer> <F5> :<C-U>w<CR>:!go run %<CR>
   autocmd FileType go inoremap <buffer> <F5> <Esc>:w<CR>:!go run %<CR>
 
   " Python
-  autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!python %<CR>
+  autocmd FileType python nnoremap <buffer> <F5> :<C-U>w<CR>:!python %<CR>
   autocmd FileType python inoremap <buffer> <F5> <Esc>:w<CR>:!python %<CR>
 
   " Ruby
-  autocmd FileType ruby nnoremap <buffer> <F5> :w<CR>:!ruby %<CR>
+  autocmd FileType ruby nnoremap <buffer> <F5> :<C-U>w<CR>:!ruby %<CR>
   autocmd FileType ruby inoremap <buffer> <F5> <Esc>:w<CR>:!ruby %<CR>
 augroup END
 
 " File execution
 if has('win32')
-  nnoremap <F6> :!%<.exe<CR>
+  nnoremap <F6> :<C-U>!%<.exe<CR>
   inoremap <F6> <Esc>:!%<.exe<CR>
 elseif has('unix')
-  nnoremap <F6> :!./%<<CR>
+  nnoremap <F6> :<C-U>!./%<<CR>
   inoremap <F6> <Esc>:!./%<<CR>
 endif
 
@@ -1139,7 +1139,7 @@ if has_key(g:plugs, 'fzf.vim')
           \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
           \   '--color=always --smart-case ' . shellescape(<q-args>),
           \   1, fzf#vim#with_preview('right:50%'), <bang>0)
-    nnoremap <Leader>* :Rg<Space><C-R>=expand('<cword>')<CR><CR>
+    nnoremap <Leader>* :<C-U>Rg<Space><C-R>=expand('<cword>')<CR><CR>
   endif
   if has('nvim')
     augroup FZFStatusline
