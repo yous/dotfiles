@@ -776,8 +776,8 @@ function! s:VSearch(cmd)
   normal! gV
   call setreg('"', l:old_reg, l:old_regtype)
 endfunction
-vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>
-vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>
+vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>zz
+vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>zz
 
 " Center display after searching
 nnoremap n nzz
