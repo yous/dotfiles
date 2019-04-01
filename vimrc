@@ -721,7 +721,18 @@ inoremap <C-A> <C-C>I
 inoremap <expr> <C-E> pumvisible() ? "\<C-E>" : "\<End>"
 
 " Close braces
-inoremap {<CR> {<CR>}<C-O>O
+function! s:CloseBrace()
+  let l:line_num = line('.')
+  let l:next_line = getline(l:line_num + 1)
+  if !empty(l:next_line) &&
+        \ indent(l:line_num + 1) == indent(l:line_num) &&
+        \ l:next_line =~# '^\s*}'
+    return "{\<CR>"
+  else
+    return "{\<CR>}\<C-C>O"
+  endif
+endfunction
+inoremap <expr> {<CR> <SID>CloseBrace()
 
 " Leave insert mode
 function! s:CtrlL()
