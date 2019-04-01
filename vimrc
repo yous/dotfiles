@@ -728,6 +728,9 @@ function! s:CloseBrace()
         \ indent(l:line_num + 1) == indent(l:line_num) &&
         \ l:next_line =~# '^\s*}'
     return "{\<CR>"
+  elseif (&filetype ==# 'c' || &filetype ==# 'cpp') &&
+        \ getline(l:line_num) =~# '^\s*\%(typedef\s*\)\?\%(struct\|enum\)\s\+'
+    return "{\<CR>};\<C-C>O"
   else
     return "{\<CR>}\<C-C>O"
   endif
