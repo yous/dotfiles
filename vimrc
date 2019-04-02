@@ -31,19 +31,29 @@ if has('nvim') && executable('pyenv')
   endif
 endif
 
-if has('python')
-  redir => s:pyv
-  silent python import platform; print(platform.python_version())
-  redir END
+if !has('nvim')
+  let s:python3_neovim = 0
+  let s:python2_neovim = 0
 
-  let s:python26 = s:VersionRequirement(
-        \ map(split(split(s:pyv)[0], '\.'), 'str2nr(v:val)'), [2, 6])
-else
-  let s:python26 = 0
-endif
+  if has('python3')
+    if !has('patch-8.1.201')
+      silent! python3 1
+    endif
 
-if has('python3') && !has('patch-8.1.201')
-  silent! python3 1
+    try
+      python3 import pynvim
+      let s:python3_neovim = 1
+    catch /^Vim(python3):/
+    endtry
+  endif
+
+  if has('python')
+    try
+      python import pynvim
+      let s:python2_neovim = 1
+    catch /^Vim(python):/
+    endtry
+  endif
 endif
 
 if !empty(&runtimepath)
@@ -150,39 +160,19 @@ endif
 Plug 'justinmk/vim-gtfo'
 
 " Completion and lint
-if !has('win32')
-  if !has('win32unix') &&
-        \ has('patch-7.4.1578') &&
-        \ executable('cmake') && (has('python3') || s:python26)
-    function! s:BuildYCM(info)
-      " info is a dictionary with 3 fields
-      " - name: name of the plugin
-      " - status: 'installed', 'updated', or 'unchanged'
-      " - force: set on PlugInstall! or PlugUpdate!
-      if a:info.status ==# 'installed' || a:info.force
-        let l:options = []
-        let l:requirements = [
-              \ ['clang', '--clang-completer'],
-              \ ['mono', '--cs-completer'],
-              \ ['go', '--go-completer'],
-              \ ['cargo', '--rust-completer']]
-        for l:r in l:requirements
-          if executable(l:r[0])
-            let l:options += [l:r[1]]
-          endif
-        endfor
-        execute '!python' . (has('python3') ? '3' : '2') .
-              \ ' install.py ' . join(l:options, ' ')
-      endif
-    endfunction
-
-    " A code-completion engine for Vim
-    let g:BuildYCMRef = function('s:BuildYCM')
-    Plug 'Valloric/YouCompleteMe', { 'do': g:BuildYCMRef }
-    unlet g:BuildYCMRef
-    " Generates config files for YouCompleteMe
-    Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-  endif
+" Dark powered asynchronous completion framework for neovim/Vim8
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+elseif (s:python3_neovim || s:python2_neovim) && has('timers') && has('channel')
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+if has_key(g:plugs, 'deoplete.nvim')
+  " X version of clang source for deoplete
+  Plug 'Shougo/deoplete-clangx', { 'for': ['c', 'cpp'] }
+  " deoplete.nvim source for Python
+  Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 endif
 " Print documents in echo area
 if exists('v:completed_item') && exists('v:event')
@@ -737,6 +727,10 @@ function! s:CloseBrace()
 endfunction
 inoremap <expr> {<CR> <SID>CloseBrace()
 
+" Navigate completions
+inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
+
 " Leave insert mode
 function! s:CtrlL()
   " Keep the original feature of CTRL-L. See :help i_CTRL-L.
@@ -1198,29 +1192,17 @@ augroup DirvishConfig
   autocmd FileType dirvish call <SID>ResetDirvishCursor()
 augroup END
 
-" YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion = 4
-let g:ycm_filetype_blacklist = {
-      \ 'diff': 1,
-      \ 'infolog': 1,
-      \ 'mail': 1,
-      \ 'markdown': 1,
-      \ 'netrw': 1,
-      \ 'notes': 1,
-      \ 'pandoc': 1,
-      \ 'qf': 1,
-      \ 'tagbar': 1,
-      \ 'text': 1,
-      \ 'unite': 1,
-      \ 'vimwiki': 1 }
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_extra_conf_globlist = ['~/*']
-let g:ycm_semantic_triggers = {
-      \ 'c': ['re![_a-zA-Z]\w{3,}'],
-      \ 'cpp': ['re![_a-zA-Z]\w{3,}'] }
+" deoplete.nvim
+if has_key(g:plugs, 'deoplete.nvim')
+  call deoplete#custom#option('max_list', 50)
+  call deoplete#custom#option('min_pattern_length', 4)
+  let g:deoplete#enable_at_startup = 1
+
+  augroup DeopleteFileType
+    autocmd FileType diff,mail,markdown,netrw,qf,tagbar,text
+          \ call deoplete#custom#buffer_option('auto_complete', v:false)
+  augroup END
+endif
 
 " echodoc.vim
 if has_key(g:plugs, 'echodoc.vim')
