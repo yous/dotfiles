@@ -162,7 +162,9 @@ Plug 'justinmk/vim-gtfo'
 " Completion and lint
 " Dark powered asynchronous completion framework for neovim/Vim8
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  if has('nvim-0.3.0')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  endif
 elseif (s:python3_neovim || s:python2_neovim) && has('timers') && has('channel')
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
