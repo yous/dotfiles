@@ -185,7 +185,7 @@ if !has('win32')
   endif
 endif
 " Print documents in echo area
-if exists('v:completed_item')
+if exists('v:completed_item') && exists('v:event')
   Plug 'Shougo/echodoc.vim'
 endif
 if has('nvim') && has('timers') ||
