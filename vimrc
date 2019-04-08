@@ -1385,7 +1385,7 @@ endfor
 
 function! LightLineWide(component)
   let l:component_visible_width = {
-        \ 'mode': 60,
+        \ 'mode': 70,
         \ 'fileencoding': 70,
         \ 'fileformat': 70,
         \ 'filetype': 70,
