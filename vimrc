@@ -1355,6 +1355,8 @@ let g:lightline = {
       \ 'tab': {
       \   'active': ['tabfilename', 'tabmodified'],
       \   'inactive': ['tabfilename', 'tabmodified'] },
+      \ 'component': {
+      \   'filename': '%<%{LightLineFilename()}' },
       \ 'component_function': {},
       \ 'tab_component_function': {},
       \ 'component_expand': {
@@ -1371,7 +1373,7 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '|' } }
 
-for s:k in ['mode', 'filename', 'modified', 'filetype', 'fileencoding',
+for s:k in ['mode', 'modified', 'filetype', 'fileencoding',
       \ 'fileformat', 'percent', 'lineinfo']
   let g:lightline.component_function[s:k] =
         \ 'LightLine' . toupper(s:k[0]) . s:k[1:]
