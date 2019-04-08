@@ -1278,6 +1278,7 @@ if has_key(g:plugs, 'syntastic')
   " Always stick any detected errors into the location-list
   let g:syntastic_always_populate_loc_list = 1
   let g:syntastic_mode_map = { 'mode': 'passive' }
+  let g:syntastic_stl_format = '%E{E(%e)}%B{ }%W{W(%w)}'
   " Check header files
   let g:syntastic_c_check_header = 1
   let g:syntastic_cpp_check_header = 1
@@ -1519,8 +1520,8 @@ if has_key(g:plugs, 'ale')
     let l:counts = ale#statusline#Count(bufnr('%'))
     let l:errors = l:counts.error + l:counts.style_error
     let l:warnings = l:counts.total - l:errors
-    let l:error_msg = l:errors ? printf('%d error(s)', l:errors) : ''
-    let l:warning_msg = l:warnings ? printf('%d warning(s)', l:warnings) : ''
+    let l:error_msg = l:errors ? printf('E(%d)', l:errors) : ''
+    let l:warning_msg = l:warnings ? printf('W(%d)', l:warnings) : ''
 
     if l:errors && l:warnings
       return printf('%s %s', l:error_msg, l:warning_msg)
