@@ -40,19 +40,19 @@ For available install options:
 ./install.sh
 ```
 
-Command option | Description
----------------|-----------------------------------------------
-`link`         | Install symbolic links
-`brew`         | Install Homebrew
-`chruby`       | Install chruby
-`formulae`     | Install Homebrew formulae using Brewfile
-`pwndbg`       | Install pwndbg
-`pyenv`        | Install pyenv with pyenv-virtualenv
-`rbenv`        | Install rbenv
-`ruby-install` | Install ruby-install
-`rvm`          | Install RVM
-`weechat`      | Install WeeChat configuration
-`z`            | Install z
+| Command option | Description                              |
+|----------------|------------------------------------------|
+| `link`         | Install symbolic links                   |
+| `brew`         | Install Homebrew                         |
+| `chruby`       | Install chruby                           |
+| `formulae`     | Install Homebrew formulae using Brewfile |
+| `pwndbg`       | Install pwndbg                           |
+| `pyenv`        | Install pyenv with pyenv-virtualenv      |
+| `rbenv`        | Install rbenv                            |
+| `ruby-install` | Install ruby-install                     |
+| `rvm`          | Install RVM                              |
+| `weechat`      | Install WeeChat configuration            |
+| `z`            | Install z                                |
 
 In Windows, use `install.bat`. It links files into the user's home directory.
 
