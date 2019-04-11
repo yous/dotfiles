@@ -1630,6 +1630,7 @@ let g:vimtex_syntax_minted = [
       \ }]
 
 " vim-markdown
+let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_emphasis_multiline = 0
 let g:vim_markdown_fenced_languages = [
       \ 'bat=dosbatch', 'batch=dosbatch',
@@ -1644,6 +1645,8 @@ let g:vim_markdown_fenced_languages = [
       \ 'bash=sh',
       \ 'viml=vim']
 let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_auto_insert_bullets = 0
 nnoremap <Plug> <Plug>Markdown_EditUrlUnderCursor
 vnoremap <Plug> <Plug>Markdown_EditUrlUnderCursor
 nnoremap <Plug> <Plug>Markdown_MoveToCurHeader
