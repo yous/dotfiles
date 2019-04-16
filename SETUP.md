@@ -2,7 +2,7 @@
 
 ## Tweak
 
-- [구름 입력기](http://gureum.io) ([Unofficial releases](https://github.com/soomtong/gureum/releases))
+- [구름 입력기](http://gureum.io) ([Unofficial releases](https://github.com/yous/gureum/releases))
   - [신세벌식 P2](https://pat.im/1136)
 - [Workman Layout](http://workmanlayout.org)
   - Remove U.S. from `AppleEnabledInputSources` in `~/Library/Preferences/com.apple.HIToolbox.plist`, and then reboot
