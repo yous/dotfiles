@@ -114,8 +114,8 @@ Plug 'yous/vim-open-color'
 Plug 'yous/PreserveNoEOL', {
       \ 'commit': '9ef2f01',
       \ 'frozen': 1 }
-" Yet another EditorConfig plugin for vim written in vimscript only
-Plug 'sgur/vim-editorconfig'
+" EditorConfig plugin for Vim
+Plug 'cxw42/editorconfig-vim'
 " sleuth.vim: Heuristically set buffer options
 Plug 'tpope/vim-sleuth'
 " A Plugin to show a diff, whenever recovering a buffer
