@@ -19,7 +19,26 @@ alias md='mkdir -p'
 alias rd='rmdir'
 
 # APT
-alias aptup='sudo apt update && sudo apt upgrade'
+aptup() {
+  sudo apt update
+  for lock in '/var/lib/dpkg/lock-frontend' '/var/lib/dpkg/lock'; do
+    if [ -e "$lock" ]; then
+      ch='-'
+      while sudo fuser "$lock" >/dev/null 2>&1; do
+        case "$ch" in
+          -) ch=\\ ;;
+          \\) ch='|' ;;
+          \|) ch='/' ;;
+          /) ch='-' ;;
+        esac
+        printf "%b" "\r[$ch] Waiting for $lock..."
+        sleep 0.5
+      done
+      unset ch
+    fi
+  done
+  sudo apt upgrade
+}
 
 # Homebrew
 alias brup='brew upgrade && brew cleanup'
