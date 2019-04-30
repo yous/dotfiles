@@ -1229,6 +1229,9 @@ if has_key(g:plugs, 'ale')
   let g:ale_set_highlights = 0
   let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
 
+  " ale-c-options, ale-cpp-options
+  let g:ale_c_parse_compile_commands = 1
+
   " ale-cpp-clangcheck
   " ale-c-clangformat, ale-cpp-clangformat
   " ale-c-clangtidy, ale-cpp-clangtidy
