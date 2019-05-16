@@ -986,6 +986,15 @@ augroup FileTypeAutocmds
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
 augroup END
 
+" Disable swapfile for Dropbox
+augroup DisableSwap
+  autocmd!
+  autocmd BufNewFile,BufRead *
+        \ if expand('%:p:~') =~# '/Dropbox/' |
+        \   setlocal noswapfile |
+        \ endif
+augroup END
+
 " Auto insert for git commit
 let s:gitcommit_insert = 0
 augroup GitcommitInsert
