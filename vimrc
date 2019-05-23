@@ -115,7 +115,7 @@ Plug 'yous/PreserveNoEOL', {
       \ 'commit': '9ef2f01',
       \ 'frozen': 1 }
 " EditorConfig plugin for Vim
-Plug 'cxw42/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 " sleuth.vim: Heuristically set buffer options
 Plug 'tpope/vim-sleuth'
 " A Plugin to show a diff, whenever recovering a buffer
