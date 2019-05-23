@@ -243,6 +243,8 @@ if has('signs')
 endif
 " Distraction-free writing in Vim
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+" color hex codes and color names
+Plug 'chrisbra/Colorizer'
 
 " Support file types
 " AdBlock
@@ -1582,6 +1584,10 @@ augroup END
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
+
+" Colorizer
+let g:colorizer_colornames = 0
+let g:colorizer_disable_bufleave = 1
 
 " adblock-filter.vim
 let g:adblock_filter_auto_checksum = 1
