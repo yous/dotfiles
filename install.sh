@@ -105,7 +105,6 @@ install_link() {
     'tmux.conf' \
     'vintrc.yaml' \
     'vimrc' \
-    'ycm_extra_conf.py' \
     'zprofile' \
     'zshrc'
   do
