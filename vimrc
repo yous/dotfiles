@@ -327,6 +327,9 @@ set background=dark
 set backspace=indent,eol,start
 " Use the clipboard register '*'
 set clipboard=unnamed
+" How keyword completion works when CTRL-P and CTRL-N are used
+" i: scan current and included files
+set complete-=i
 if has('patch-8.1.0360')
   set diffopt+=algorithm:patience
 endif
