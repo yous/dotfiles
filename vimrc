@@ -382,6 +382,12 @@ set suffixes+=.dll,.exe
 set suffixes+=.swo
 set suffixes+=.DS_Store
 set suffixes+=.pyc
+" Filenames for the tag command, separated by spaces or commas
+if has('path_extra')
+  set tags-=./tags
+  set tags-=./tags;
+  set tags^=./tags;
+endif
 " Maximum number of changes that can be undone
 set undolevels=1000
 " Update swap file and trigger CursorHold after 1 second
