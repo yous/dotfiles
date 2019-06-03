@@ -605,6 +605,8 @@ set nojoinspaces
 set softtabstop=-1
 " Number of spaces to use for each step of (auto)indent
 set shiftwidth=2
+" <Tab> in front of a line inserts blanks according to 'shiftwidth'
+set smarttab
 " Number of spaces that a <Tab> in the file counts for
 set tabstop=8
 " Maximum width of text that is being inserted
