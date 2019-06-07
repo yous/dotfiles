@@ -27,7 +27,7 @@ source "$HOME/.zplugin/bin/zplugin.zsh"
 
 # Additional completion definitions for Zsh
 if is-at-least 5.3; then
-  zplugin ice lucid wait'0' blockf
+  zplugin ice lucid wait'0a' blockf
 else
   zplugin ice blockf
 fi
@@ -38,26 +38,35 @@ zplugin light yous/lime
 zplugin light yous/vanilli.sh
 # Syntax-highlighting for Zshell – fine granularity, number of features, 40 work
 # hours themes (short name F-Sy-H)
-is-at-least 5.3 && zplugin ice lucid wait'0' atinit'zpcompinit; zpcdreplay'
-zplugin light zdharma/fast-syntax-highlighting
-# ZSH port of Fish shell's history search feature. zsh-syntax-highlighting must
-# be loaded before this.
-zplugin light zsh-users/zsh-history-substring-search
-
-if ! is-at-least 5.3; then
+if is-at-least 5.3; then
+  zplugin ice lucid wait'0b' atinit'zpcompinit; zpcdreplay'
+else
   autoload -Uz compinit
   compinit
   zplugin cdreplay -q
 fi
-
-# zsh-users/zsh-history-substring-search
-zmodload zsh/terminfo
-[ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
-[ -n "${terminfo[kcud1]}" ] && bindkey "${terminfo[kcud1]}" history-substring-search-down
-bindkey -M emacs '^P' history-substring-search-up
-bindkey -M emacs '^N' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+zplugin light zdharma/fast-syntax-highlighting
+# ZSH port of Fish shell's history search feature. zsh-syntax-highlighting must
+# be loaded before this.
+is-at-least 5.3 && zplugin ice lucid wait'[[ $+functions[_zsh_highlight] -ne 0 ]]' atload' \
+  zmodload zsh/terminfo; \
+  [ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up; \
+  [ -n "${terminfo[kcud1]}" ] && bindkey "${terminfo[kcud1]}" history-substring-search-down; \
+  bindkey -M emacs "^P" history-substring-search-up; \
+  bindkey -M emacs "^N" history-substring-search-down; \
+  bindkey -M vicmd "k" history-substring-search-up; \
+  bindkey -M vicmd "j" history-substring-search-down; \
+'
+zplugin light zsh-users/zsh-history-substring-search
+if ! is-at-least 5.3; then
+  zmodload zsh/terminfo
+  [ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
+  [ -n "${terminfo[kcud1]}" ] && bindkey "${terminfo[kcud1]}" history-substring-search-down
+  bindkey -M emacs '^P' history-substring-search-up
+  bindkey -M emacs '^N' history-substring-search-down
+  bindkey -M vicmd 'k' history-substring-search-up
+  bindkey -M vicmd 'j' history-substring-search-down
+fi
 
 # Load z
 if [ -f "$HOME/.z.sh" ]; then
