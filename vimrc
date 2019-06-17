@@ -1704,6 +1704,11 @@ if has('mac') || has('macunix')
           \   let b:plist_original_format = 'xml' |
           \ endif
   augroup END
+  " Disable default autocmds
+  let g:loaded_plist = 1
+  let g:plist_display_format = 'xml'
+  let g:plist_save_format = ''
+  let g:plist_json_filetype = 'json'
 
   " dash.vim
   let g:dash_map = {
