@@ -26,9 +26,9 @@ fi
 
 # Load Linuxbrew
 if [ -d "$HOME/.linuxbrew" ]; then
-  add_to_path_once "$HOME/.linuxbrew/bin"
-  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+  eval $("$HOME/.linuxbrew/bin/brew" shellenv)
+elif [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  eval $("/home/linuxbrew/.linuxbrew/bin/brew" shellenv)
 fi
 
 # Set PATH to include user's bin if it exists
