@@ -46,6 +46,7 @@ For available install options:
 | `brew`         | Install Homebrew                         |
 | `chruby`       | Install chruby                           |
 | `formulae`     | Install Homebrew formulae using Brewfile |
+| `linuxbrew`    | Install Homebrew on Linux                |
 | `pwndbg`       | Install pwndbg                           |
 | `pyenv`        | Install pyenv with pyenv-virtualenv      |
 | `rbenv`        | Install rbenv                            |
@@ -128,6 +129,12 @@ Then install Homebrew formulae with:
 
 ``` sh
 ./install.sh formulae
+```
+
+If you want to install [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux),
+
+``` sh
+./install.sh linuxbrew
 ```
 
 ### Ruby

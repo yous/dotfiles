@@ -173,6 +173,9 @@ case "$1" in
   formulae)
     install_formulae
     ;;
+  linuxbrew)
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    ;;
   pwndbg)
     init_submodules
     cd "${DIR}/pwndbg"
@@ -223,6 +226,7 @@ case "$1" in
     echo '    brew         Install Homebrew'
     echo '    chruby       Install chruby'
     echo '    formulae     Install Homebrew formulae using Brewfile'
+    echo '    linuxbrew    Install Homebrew on Linux'
     echo '    pwndbg       Install pwndbg'
     echo '    pyenv        Install pyenv with pyenv-virtualenv'
     echo '    rbenv        Install rbenv'
