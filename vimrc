@@ -889,6 +889,10 @@ augroup FileTypeMappings
   " Ruby
   autocmd FileType ruby nnoremap <buffer> <F5> :<C-U>w<CR>:!ruby %<CR>
   autocmd FileType ruby inoremap <buffer> <F5> <Esc>:w<CR>:!ruby %<CR>
+
+  " Rust
+  autocmd FileType rust nnoremap <buffer> <F5> :<C-U>w<CR>:!rustc %<CR>
+  autocmd FileType rust inoremap <buffer> <F5> <Esc>:w<CR>:!rustc %<CR>
 augroup END
 
 " File execution
