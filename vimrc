@@ -851,17 +851,28 @@ function! s:RemapBufferQ()
   nnoremap <buffer> q :q<CR>
 endfunction
 
+function! s:MapSaveAndRun(key, cmd)
+  if a:cmd =~# '^make'
+    let l:pre_make = 'let &l:cmdheight += 1<Bar>'
+    let l:post_make = '<Bar>let &l:cmdheight -= 1'
+  else
+    let l:pre_make = ''
+    let l:post_make = ''
+  endif
+  execute 'nnoremap <buffer> ' . a:key .
+        \ ' :<C-U>w<CR>:' . l:pre_make . a:cmd . l:post_make . '<CR>'
+  execute 'inoremap <buffer> ' . a:key .
+        \ ' <Esc>:w<CR>:' . l:pre_make . a:cmd . l:post_make . '<CR>'
+endfunction
+
 function! s:MapCompilingRust()
   if strlen(findfile('Cargo.toml', '.;')) > 0
     " CompilerSet makeprg=cargo\ $*
-    nnoremap <buffer> <F5> :<C-U>w<CR>:make build<CR>
-    inoremap <buffer> <F5> <Esc>:w<CR>:make build<CR>
-    nnoremap <buffer> <F6> :<C-U>make run<CR>
-    inoremap <buffer> <F6> <Esc>:make run<CR>
+    call s:MapSaveAndRun('<F5>', 'make build')
+    call s:MapSaveAndRun('<F6>', 'make run')
   else
     " CompilerSet makeprg=rustc\ \%
-    nnoremap <buffer> <F5> :<C-U>w<CR>:make -o %<<CR>
-    inoremap <buffer> <F5> <Esc>:w<CR>:make -o %<<CR>
+    call s:MapSaveAndRun('<F5>', 'make -o %<')
   endif
 endfunction
 
@@ -878,8 +889,7 @@ augroup FileTypeMappings
         \ endif
 
   " C, C++ compile
-  autocmd FileType c,cpp nnoremap <buffer> <F5> :<C-U>w<CR>:make<CR>
-  autocmd FileType c,cpp inoremap <buffer> <F5> <Esc>:w<CR>:make<CR>
+  autocmd FileType c,cpp call s:MapSaveAndRun('<F5>', 'make')
   autocmd FileType c
         \ if !filereadable('Makefile') && !filereadable('makefile') |
         \   setlocal makeprg=gcc\ -o\ %<\ % |
@@ -893,16 +903,13 @@ augroup FileTypeMappings
   autocmd FileType markdown inoremap <buffer> <LocalLeader>` ```
 
   " Go
-  autocmd FileType go nnoremap <buffer> <F5> :<C-U>w<CR>:!go run %<CR>
-  autocmd FileType go inoremap <buffer> <F5> <Esc>:w<CR>:!go run %<CR>
+  autocmd FileType go call s:MapSaveAndRun('<F5>', '!go run %')
 
   " Python
-  autocmd FileType python nnoremap <buffer> <F5> :<C-U>w<CR>:!python %<CR>
-  autocmd FileType python inoremap <buffer> <F5> <Esc>:w<CR>:!python %<CR>
+  autocmd FileType python call s:MapSaveAndRun('<F5>', '!python %')
 
   " Ruby
-  autocmd FileType ruby nnoremap <buffer> <F5> :<C-U>w<CR>:!ruby %<CR>
-  autocmd FileType ruby inoremap <buffer> <F5> <Esc>:w<CR>:!ruby %<CR>
+  autocmd FileType ruby call s:MapSaveAndRun('<F5>', '!ruby %')
 
   " Rust
   autocmd FileType rust call s:MapCompilingRust()
