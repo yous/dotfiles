@@ -878,15 +878,15 @@ augroup FileTypeMappings
         \ endif
 
   " C, C++ compile
-  autocmd FileType c,cpp nnoremap <buffer> <F5> :<C-U>w<CR>:make %<CR>
-  autocmd FileType c,cpp inoremap <buffer> <F5> <Esc>:w<CR>:make %<CR>
+  autocmd FileType c,cpp nnoremap <buffer> <F5> :<C-U>w<CR>:make<CR>
+  autocmd FileType c,cpp inoremap <buffer> <F5> <Esc>:w<CR>:make<CR>
   autocmd FileType c
         \ if !filereadable('Makefile') && !filereadable('makefile') |
-        \   setlocal makeprg=gcc\ -o\ %< |
+        \   setlocal makeprg=gcc\ -o\ %<\ % |
         \ endif
   autocmd FileType cpp
         \ if !filereadable('Makefile') && !filereadable('makefile') |
-        \   setlocal makeprg=g++\ -o\ %< |
+        \   setlocal makeprg=g++\ -o\ %<\ % |
         \ endif
 
   " Markdown code snippets
