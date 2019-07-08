@@ -851,6 +851,20 @@ function! s:RemapBufferQ()
   nnoremap <buffer> q :q<CR>
 endfunction
 
+function! s:MapCompilingRust()
+  if strlen(findfile('Cargo.toml', '.;')) > 0
+    " CompilerSet makeprg=cargo\ $*
+    nnoremap <buffer> <F5> :<C-U>w<CR>:make build<CR>
+    inoremap <buffer> <F5> <Esc>:w<CR>:make build<CR>
+    nnoremap <buffer> <F6> :<C-U>make run<CR>
+    inoremap <buffer> <F6> <Esc>:make run<CR>
+  else
+    " CompilerSet makeprg=rustc\ \%
+    nnoremap <buffer> <F5> :<C-U>w<CR>:make -o %<<CR>
+    inoremap <buffer> <F5> <Esc>:w<CR>:make -o %<<CR>
+  endif
+endfunction
+
 augroup FileTypeMappings
   autocmd!
 
@@ -891,8 +905,7 @@ augroup FileTypeMappings
   autocmd FileType ruby inoremap <buffer> <F5> <Esc>:w<CR>:!ruby %<CR>
 
   " Rust
-  autocmd FileType rust nnoremap <buffer> <F5> :<C-U>w<CR>:!rustc %<CR>
-  autocmd FileType rust inoremap <buffer> <F5> <Esc>:w<CR>:!rustc %<CR>
+  autocmd FileType rust call s:MapCompilingRust()
 augroup END
 
 " File execution
