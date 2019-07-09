@@ -128,6 +128,8 @@ Plug 'fidian/hexmode'
 Plug 'tpope/vim-eunuch'
 " Vim plugin to diff two directories
 Plug 'will133/vim-dirdiff'
+" Vim: file and hunk folding support for diff/patch files.
+Plug 'sgeb/vim-diff-fold'
 " A Vim plugin that manages your tag files
 if executable('ctags') || executable('cscope')
   if v:version >= 800
