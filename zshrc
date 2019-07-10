@@ -117,6 +117,11 @@ fi
 if [ -e /usr/local/share/chruby/chruby.sh ]; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
+elif [ -n "$BREW_PREFIX" ]; then
+  if [ -e "$BREW_PREFIX/opt/chruby/share/chruby/chruby.sh" ]; then
+    source "$BREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
+    source "$BREW_PREFIX/opt/chruby/share/chruby/auto.sh"
+  fi
 fi
 
 # Load rbenv
