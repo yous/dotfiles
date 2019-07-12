@@ -4,3 +4,7 @@ cmdargs:
 
   # Enable coloring
   color: true
+
+  # Enable Neovim syntax
+  env:
+    neovim: true
