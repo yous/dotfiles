@@ -1253,7 +1253,9 @@ if has_key(g:plugs, 'coc.nvim')
         \ 'coc-python',
         \ 'coc-tag',
         \ 'coc-tsserver']
-  call coc#config('languageserver', { 'ccls': s:GenerateCclsConfig() })
+  if executable('ccls')
+    call coc#config('languageserver', { 'ccls': s:GenerateCclsConfig() })
+  endif
 
   augroup CocFileType
     autocmd!
