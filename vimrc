@@ -163,20 +163,8 @@ Plug 'justinmk/vim-gtfo'
 
 " Completion and lint
 " Dark powered asynchronous completion framework for neovim/Vim8
-if has('nvim')
-  if has('nvim-0.3.0')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  endif
-elseif (s:python3_neovim || s:python2_neovim) && has('timers') && has('channel')
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-if has_key(g:plugs, 'deoplete.nvim')
-  " X version of clang source for deoplete
-  Plug 'Shougo/deoplete-clangx', { 'for': ['c', 'cpp'] }
-  " deoplete.nvim source for Python
-  Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
+if has('nvim-0.3.1') || v:version >= 800
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 endif
 " Print documents in echo area
 if exists('v:completed_item') && exists('v:event')
@@ -1225,15 +1213,52 @@ augroup DirvishConfig
   autocmd FileType dirvish call <SID>ResetDirvishCursor()
 augroup END
 
-" deoplete.nvim
-if has_key(g:plugs, 'deoplete.nvim')
-  call deoplete#custom#option('max_list', 50)
-  call deoplete#custom#option('min_pattern_length', 4)
-  let g:deoplete#enable_at_startup = 1
+" coc.nvim
+if has_key(g:plugs, 'coc.nvim')
+  function! s:GenerateCclsConfig()
+    let l:ccls_config = {
+          \ 'command': 'ccls',
+          \ 'filetypes': ['c', 'cpp', 'cuda', 'objc', 'objcpp'],
+          \ 'rootPatterns': [
+          \   '.ccls', 'compile_commands.json', '.vim/', '.git/', '.hg/'],
+          \ 'initializationOptions': {
+          \   'cache': {
+          \     'directory': $HOME . '/.ccls-cache'
+          \   }
+          \ } }
+    if has('mac') || has('macunix')
+      let l:ccls_config['initializationOptions']['clang'] = {
+            \ 'extraArgs': [
+            \   '-isystem',
+            \   '/Applications/Xcode.app/Contents/Developer/Toolchains/' .
+            \     'XcodeDefault.xctoolchain/usr/include/c++/v1',
+            \   '-I',
+            \   '/Applications/Xcode.app/Contents/Developer/Platforms/' .
+            \     'MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/'] }
+      let l:clang_dirs = systemlist(
+            \ 'find /Library/Developer/CommandLineTools/usr/lib/clang ' .
+            \   '-depth 1 2>/dev/null')
+      if !empty(l:clang_dirs) && !empty(l:clang_dirs[0])
+        let l:ccls_config['initializationOptions']['clang']['resourceDir'] =
+              \ l:clang_dirs[0]
+      endif
+    endif
+    return l:ccls_config
+  endfunction
 
-  augroup DeopleteFileType
+  let g:coc_global_extensions = [
+        \ 'coc-css',
+        \ 'coc-emoji',
+        \ 'coc-json',
+        \ 'coc-python',
+        \ 'coc-tag',
+        \ 'coc-tsserver']
+  call coc#config('languageserver', { 'ccls': s:GenerateCclsConfig() })
+
+  augroup CocFileType
+    autocmd!
     autocmd FileType diff,mail,markdown,netrw,qf,tagbar,text
-          \ call deoplete#custom#buffer_option('auto_complete', v:false)
+          \ let b:coc_enabled = 0
   augroup END
 endif
 
