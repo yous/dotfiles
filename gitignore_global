@@ -60,4 +60,5 @@ ncscope.out*
 .pre-commit-config.yaml
 
 # ccls
+.ccls
 .ccls-cache/
