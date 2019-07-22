@@ -1318,6 +1318,12 @@ if has_key(g:plugs, 'ale')
         \ '-llvm-*',
         \ '-readability-*']
 
+  " ale-cpp-ccls
+  let g:ale_cpp_ccls_init_options = {
+        \ 'cache': {
+        \   'directory': $HOME . '/.ccls-cache'
+        \ } }
+
   " ale-python-mypy
   if has('win32')
     let g:ale_python_mypy_options = '--cache-dir=nul'
