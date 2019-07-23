@@ -1318,7 +1318,11 @@ if has_key(g:plugs, 'ale')
         \ '-llvm-*',
         \ '-readability-*']
 
-  " ale-cpp-ccls
+  " ale-c-ccls, ale-cpp-ccls
+  let g:ale_c_ccls_init_options = {
+        \ 'cache': {
+        \   'directory': $HOME . '/.ccls-cache'
+        \ } }
   let g:ale_cpp_ccls_init_options = {
         \ 'cache': {
         \   'directory': $HOME . '/.ccls-cache'
