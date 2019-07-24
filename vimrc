@@ -1246,6 +1246,9 @@ if has_key(g:plugs, 'coc.nvim')
     return l:ccls_config
   endfunction
 
+  if has_key(g:plugs, 'ale')
+    call coc#config('diagnostic.displayByAle', v:true)
+  endif
   if executable('ccls')
     call coc#config('languageserver', { 'ccls': s:GenerateCclsConfig() })
   endif
@@ -1278,6 +1281,9 @@ if has_key(g:plugs, 'ale')
   let g:ale_echo_msg_format = '[%linter%] %code: %%s'
   let g:ale_linters = {
         \ 'rust': 'all' }
+  let g:ale_linters_ignore = {
+        \ 'c': 'ccls',
+        \ 'cpp': 'ccls' }
   let g:ale_set_highlights = 0
 
   " ale-c-options, ale-cpp-options
@@ -1315,16 +1321,6 @@ if has_key(g:plugs, 'ale')
         \ '-hicpp-signed-bitwise',
         \ '-llvm-*',
         \ '-readability-*']
-
-  " ale-c-ccls, ale-cpp-ccls
-  let g:ale_c_ccls_init_options = {
-        \ 'cache': {
-        \   'directory': $HOME . '/.ccls-cache'
-        \ } }
-  let g:ale_cpp_ccls_init_options = {
-        \ 'cache': {
-        \   'directory': $HOME . '/.ccls-cache'
-        \ } }
 
   " ale-python-mypy
   if has('win32')
