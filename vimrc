@@ -1275,12 +1275,9 @@ endif
 " ale
 if has_key(g:plugs, 'ale')
   let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-  let g:ale_lint_on_save = 1
-  let g:ale_lint_on_text_changed = 0
   let g:ale_linters = {
         \ 'rust': 'all' }
   let g:ale_set_highlights = 0
-  let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
 
   " ale-c-options, ale-cpp-options
   let g:ale_c_parse_compile_commands = 1
