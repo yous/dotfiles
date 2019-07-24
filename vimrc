@@ -1246,6 +1246,9 @@ if has_key(g:plugs, 'coc.nvim')
     return l:ccls_config
   endfunction
 
+  if has_key(g:plugs, 'echodoc.vim')
+    call coc#config('suggest.echodocSupport', v:true)
+  endif
   if has_key(g:plugs, 'ale')
     call coc#config('diagnostic.displayByAle', v:true)
   endif
