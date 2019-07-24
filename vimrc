@@ -1246,12 +1246,14 @@ if has_key(g:plugs, 'coc.nvim')
     return l:ccls_config
   endfunction
 
+  call coc#config('suggest.minTriggerInputLength', 4)
   if has_key(g:plugs, 'echodoc.vim')
     call coc#config('suggest.echodocSupport', v:true)
   endif
   if has_key(g:plugs, 'ale')
     call coc#config('diagnostic.displayByAle', v:true)
   endif
+  call coc#config('coc.preferences.bracketEnterImprove', v:false)
   if executable('ccls')
     call coc#config('languageserver', { 'ccls': s:GenerateCclsConfig() })
   endif
