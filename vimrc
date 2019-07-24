@@ -1287,8 +1287,8 @@ if has_key(g:plugs, 'ale')
   let g:ale_linters = {
         \ 'rust': 'all' }
   let g:ale_linters_ignore = {
-        \ 'c': 'ccls',
-        \ 'cpp': 'ccls' }
+        \ 'c': ['ccls'],
+        \ 'cpp': ['ccls'] }
   let g:ale_set_highlights = 0
 
   " ale-c-options, ale-cpp-options
