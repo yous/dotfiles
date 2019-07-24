@@ -1246,13 +1246,6 @@ if has_key(g:plugs, 'coc.nvim')
     return l:ccls_config
   endfunction
 
-  let g:coc_global_extensions = [
-        \ 'coc-css',
-        \ 'coc-emoji',
-        \ 'coc-json',
-        \ 'coc-python',
-        \ 'coc-tag',
-        \ 'coc-tsserver']
   if executable('ccls')
     call coc#config('languageserver', { 'ccls': s:GenerateCclsConfig() })
   endif
@@ -1262,6 +1255,14 @@ if has_key(g:plugs, 'coc.nvim')
     autocmd FileType diff,mail,markdown,netrw,qf,tagbar,text
           \ let b:coc_enabled = 0
   augroup END
+
+  let g:coc_global_extensions = [
+        \ 'coc-css',
+        \ 'coc-emoji',
+        \ 'coc-json',
+        \ 'coc-python',
+        \ 'coc-tag',
+        \ 'coc-tsserver']
 endif
 
 " echodoc.vim
