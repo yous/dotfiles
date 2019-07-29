@@ -1,10 +1,6 @@
 # Make the $path array have unique values.
 typeset -U path
 
-add_to_path_once() {
-  path=("$1" $path)
-}
-
 bundle_install() {
   local cores_num
   if [ "$(uname)" = 'Darwin' ]; then
@@ -126,20 +122,16 @@ fi
 
 # Load rbenv
 if [ -e "$HOME/.rbenv" ]; then
-  add_to_path_once "$HOME/.rbenv/bin"
   eval "$(rbenv init - zsh)"
 fi
 
 # Load pyenv
 if command -v pyenv >/dev/null; then
-  export PYENV_ROOT="$HOME/.pyenv"
   eval "$(pyenv init - zsh)"
   if command -v pyenv-virtualenv-init >/dev/null; then
     eval "$(pyenv virtualenv-init - zsh)"
   fi
 elif [ -e "$HOME/.pyenv" ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  add_to_path_once "$HOME/.pyenv/bin"
   eval "$(pyenv init - zsh)"
   eval "$(pyenv virtualenv-init - zsh)"
 fi
@@ -185,7 +177,6 @@ fi
 
 # Unset local functions and variables
 unset BREW_PREFIX
-unset -f add_to_path_once
 
 # Define aliases
 if [ -f "$HOME/.aliases" ]; then

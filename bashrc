@@ -143,16 +143,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-add_to_path_once() {
-  case ":$PATH:" in
-    *":$1:"*)
-      ;;
-    *)
-      export PATH="$1:$PATH"
-      ;;
-  esac
-}
-
 bundle_install() {
   local cores_num
   if [ "$(uname)" = 'Darwin' ]; then
@@ -225,20 +215,16 @@ fi
 
 # Load rbenv
 if [ -e "$HOME/.rbenv" ]; then
-  add_to_path_once "$HOME/.rbenv/bin"
   eval "$(rbenv init - bash)"
 fi
 
 # Load pyenv
 if command -v pyenv >/dev/null; then
-  export PYENV_ROOT="$HOME/.pyenv"
   eval "$(pyenv init - bash)"
   if command -v pyenv-virtualenv-init >/dev/null; then
     eval "$(pyenv virtualenv-init - bash)"
   fi
 elif [ -e "$HOME/.pyenv" ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  add_to_path_once "$HOME/.pyenv/bin"
   eval "$(pyenv init - bash)"
   eval "$(pyenv virtualenv-init - bash)"
 fi
@@ -284,7 +270,6 @@ fi
 
 # Unset local functions and variables
 unset BREW_PREFIX
-unset -f add_to_path_once
 
 # Define aliases
 if [ -f "$HOME/.aliases" ]; then

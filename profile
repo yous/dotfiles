@@ -65,6 +65,19 @@ if [ -d "$HOME/.cargo" ]; then
   add_to_path_once "$HOME/.cargo/bin"
 fi
 
+# Load rbenv
+if [ -e "$HOME/.rbenv" ]; then
+  add_to_path_once "$HOME/.rbenv/bin"
+fi
+
+# Load pyenv
+if command -v pyenv >/dev/null; then
+  export PYENV_ROOT="$HOME/.pyenv"
+elif [ -e "$HOME/.pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  add_to_path_once "$HOME/.pyenv/bin"
+fi
+
 # Unset local functions and variables
 unset -f add_to_path_once
 unset UNAME
