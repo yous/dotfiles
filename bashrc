@@ -214,7 +214,7 @@ elif [ -n "$BREW_PREFIX" ]; then
 fi
 
 # Load rbenv
-if [ -e "$HOME/.rbenv" ]; then
+if command -v rbenv >/dev/null || [ -e "$HOME/.rbenv" ]; then
   eval "$(rbenv init - bash)"
 fi
 
