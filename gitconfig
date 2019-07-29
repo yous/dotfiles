@@ -33,6 +33,8 @@
 	diff = diff-highlight | $(git config core.pager)
 	log = diff-highlight | $(git config core.pager)
 	show = diff-highlight | $(git config core.pager)
+[pull]
+	ff = only
 [push]
 	default = simple
 [rerere]
