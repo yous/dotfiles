@@ -11,11 +11,11 @@ endif
 " =============================================================================
 
 function! s:VersionRequirement(val, min)
-  for l:idx in range(0, len(a:min) - 1)
-    let l:v = get(a:val, l:idx, 0)
-    if l:v < a:min[l:idx]
+  for idx in range(0, len(a:min) - 1)
+    let v = get(a:val, idx, 0)
+    if v < a:min[idx]
       return 0
-    elseif l:v > a:min[l:idx]
+    elseif v > a:min[idx]
       return 1
     endif
   endfor
@@ -77,15 +77,15 @@ function! s:DownloadVimPlug()
     return
   endif
   if empty(glob(s:vimfiles . '/autoload/plug.vim'))
-    let l:plug_url = 'https://github.com/junegunn/vim-plug.git'
-    let l:tmp = tempname()
-    let l:new = l:tmp . '/plug.vim'
+    let plug_url = 'https://github.com/junegunn/vim-plug.git'
+    let tmp = tempname()
+    let new = tmp . '/plug.vim'
 
     try
-      let l:out = system(printf('git clone --depth 1 %s %s', l:plug_url, l:tmp))
+      let out = system(printf('git clone --depth 1 %s %s', plug_url, tmp))
       if v:shell_error
         echohl ErrorMsg
-        echomsg 'Error downloading vim-plug: ' . l:out
+        echomsg 'Error downloading vim-plug: ' . out
         echohl NONE
         return
       endif
@@ -93,11 +93,11 @@ function! s:DownloadVimPlug()
       if !isdirectory(s:vimfiles . '/autoload')
         call mkdir(s:vimfiles . '/autoload', 'p')
       endif
-      call rename(l:new, s:vimfiles . '/autoload/plug.vim')
+      call rename(new, s:vimfiles . '/autoload/plug.vim')
     finally
-      if isdirectory(l:tmp)
-        let l:dir = '"' . escape(l:tmp, '"') . '"'
-        silent call system((has('win32') ? 'rmdir /S /Q ' : 'rm -rf ') . l:dir)
+      if isdirectory(tmp)
+        let dir = '"' . escape(tmp, '"') . '"'
+        silent call system((has('win32') ? 'rmdir /S /Q ' : 'rm -rf ') . dir)
       endif
     endtry
   endif
@@ -534,16 +534,15 @@ if has('gui_running')
     " Restore window size (columns and lines) and position
     " from values stored in vimsize file.
     " Must set font first so columns and lines are based on font size.
-    let l:f = s:ScreenFilename()
-    if has('gui_running') && g:screen_size_restore_pos && filereadable(l:f)
-      let l:vim_instance =
+    let f = s:ScreenFilename()
+    if has('gui_running') && g:screen_size_restore_pos && filereadable(f)
+      let vim_instance =
             \ (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
-      for l:line in readfile(l:f)
-        let l:sizepos = split(l:line)
-        if len(l:sizepos) == 5 && l:sizepos[0] == l:vim_instance
-          silent! execute 'set columns=' . l:sizepos[1] .
-                \ ' lines=' . l:sizepos[2]
-          silent! execute 'winpos ' . l:sizepos[3] . ' ' . l:sizepos[4]
+      for line in readfile(f)
+        let sizepos = split(line)
+        if len(sizepos) == 5 && sizepos[0] == vim_instance
+          silent! execute 'set columns=' . sizepos[1] . ' lines=' . sizepos[2]
+          silent! execute 'winpos ' . sizepos[3] . ' ' . sizepos[4]
           return
         endif
       endfor
@@ -552,20 +551,20 @@ if has('gui_running')
   function! s:ScreenSave()
     " Save window size and position.
     if has('gui_running') && g:screen_size_restore_pos
-      let l:vim_instance =
+      let vim_instance =
             \ (g:screen_size_by_vim_instance == 1 ? (v:servername) : 'GVIM')
-      let l:data = l:vim_instance . ' ' . &columns . ' ' . &lines . ' ' .
+      let data = vim_instance . ' ' . &columns . ' ' . &lines . ' ' .
             \ (getwinposx() < 0 ? 0: getwinposx()) . ' ' .
             \ (getwinposy() < 0 ? 0: getwinposy())
-      let l:f = s:ScreenFilename()
-      if filereadable(l:f)
-        let l:lines = readfile(l:f)
-        call filter(l:lines, "v:val !~ '^" . l:vim_instance . "\\>'")
-        call add(l:lines, l:data)
+      let f = s:ScreenFilename()
+      if filereadable(f)
+        let lines = readfile(f)
+        call filter(lines, "v:val !~ '^" . vim_instance . "\\>'")
+        call add(lines, data)
       else
-        let l:lines = [l:data]
+        let lines = [data]
       endif
-      call writefile(l:lines, l:f)
+      call writefile(lines, f)
     endif
   endfunction
   if !exists('g:screen_size_restore_pos')
@@ -695,14 +694,14 @@ inoremap <expr> <C-E> pumvisible() ? "\<C-E>" : "\<End>"
 
 " Close braces
 function! s:CloseBrace()
-  let l:line_num = line('.')
-  let l:next_line = getline(l:line_num + 1)
-  if !empty(l:next_line) &&
-        \ indent(l:line_num + 1) == indent(l:line_num) &&
-        \ l:next_line =~# '^\s*}'
+  let line_num = line('.')
+  let next_line = getline(line_num + 1)
+  if !empty(next_line) &&
+        \ indent(line_num + 1) == indent(line_num) &&
+        \ next_line =~# '^\s*}'
     return "{\<CR>"
   elseif (&filetype ==# 'c' || &filetype ==# 'cpp') &&
-        \ getline(l:line_num) =~# '^\s*\%(typedef\s*\)\?\%(struct\|enum\)\s\+'
+        \ getline(line_num) =~# '^\s*\%(typedef\s*\)\?\%(struct\|enum\)\s\+'
     return "{\<CR>};\<C-C>O"
   else
     return "{\<CR>}\<C-C>O"
@@ -758,14 +757,14 @@ nnoremap <Leader><C-L> <C-L>
 
 " Search for visually selected text
 function! s:VSearch(cmd)
-  let l:old_reg = getreg('"')
-  let l:old_regtype = getregtype('"')
+  let old_reg = getreg('"')
+  let old_regtype = getregtype('"')
   normal! gvy
-  let l:pat = escape(@", a:cmd . '\')
-  let l:pat = substitute(l:pat, '\n', '\\n', 'g')
-  let @/ = '\V' . l:pat
+  let pat = escape(@", a:cmd . '\')
+  let pat = substitute(pat, '\n', '\\n', 'g')
+  let @/ = '\V' . pat
   normal! gV
-  call setreg('"', l:old_reg, l:old_regtype)
+  call setreg('"', old_reg, old_regtype)
 endfunction
 vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>zz
 vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>zz
@@ -801,10 +800,10 @@ nnoremap <silent> <Leader>z :<C-U>call <SID>ZoomToggle()<CR>
 " Cscope mappings
 if has('cscope') && executable('cscope')
   function! s:FindCscopeDB()
-    let l:db = findfile('cscope.out', '.;')
-    if !empty(l:db)
+    let db = findfile('cscope.out', '.;')
+    if !empty(db)
       silent cscope reset
-      silent! execute 'cscope add' l:db
+      silent! execute 'cscope add' db
     elseif !empty($CSCOPE_DB)
       silent cscope reset
       silent! execute 'cscope add' $CSCOPE_DB
@@ -843,16 +842,16 @@ endfunction
 
 function! s:MapSaveAndRun(key, cmd)
   if a:cmd =~# '^make'
-    let l:pre_make = 'let &l:cmdheight += 1<Bar>'
-    let l:post_make = '<Bar>let &l:cmdheight -= 1'
+    let pre_make = 'let &l:cmdheight += 1<Bar>'
+    let post_make = '<Bar>let &l:cmdheight -= 1'
   else
-    let l:pre_make = ''
-    let l:post_make = ''
+    let pre_make = ''
+    let post_make = ''
   endif
   execute 'nnoremap <buffer> ' . a:key .
-        \ ' :<C-U>w<CR>:' . l:pre_make . a:cmd . l:post_make . '<CR>'
+        \ ' :<C-U>w<CR>:' . pre_make . a:cmd . post_make . '<CR>'
   execute 'inoremap <buffer> ' . a:key .
-        \ ' <Esc>:w<CR>:' . l:pre_make . a:cmd . l:post_make . '<CR>'
+        \ ' <Esc>:w<CR>:' . pre_make . a:cmd . post_make . '<CR>'
 endfunction
 
 function! s:MapCompilingRust()
@@ -943,21 +942,21 @@ command! Syn :echo 'hi<' . synIDattr(synID(line('.'), col('.'), 1), 'name') .
 " Auto quit Vim when actual files are closed
 function! s:CheckLeftBuffers(quitpre)
   if tabpagenr('$') == 1
-    let l:i = 1
-    while l:i <= winnr('$')
-      if a:quitpre && l:i == winnr()
-        let l:i += 1
+    let i = 1
+    while i <= winnr('$')
+      if a:quitpre && i == winnr()
+        let i += 1
         continue
       endif
-      let l:filetypes = ['help', 'qf', 'nerdtree', 'taglist']
-      if index(l:filetypes, getbufvar(winbufnr(l:i), '&filetype')) >= 0 ||
-            \ getwinvar(l:i, '&previewwindow')
-        let l:i += 1
+      let filetypes = ['help', 'qf', 'nerdtree', 'taglist']
+      if index(filetypes, getbufvar(winbufnr(i), '&filetype')) >= 0 ||
+            \ getwinvar(i, '&previewwindow')
+        let i += 1
       else
         break
       endif
     endwhile
-    if l:i == winnr('$') + 1
+    if i == winnr('$') + 1
       call feedkeys(":only\<CR>:q\<CR>", 'n')
     endif
   endif
@@ -1071,30 +1070,30 @@ if has_key(g:plugs, 'tcd.vim')
       return
     endif
 
-    let l:lines = []
-    for l:tabnr in range(1, tabpagenr('$'))
-      let l:tabvars = gettabvar(l:tabnr, '')
-      for l:var in [
+    let lines = []
+    for tabnr in range(1, tabpagenr('$'))
+      let tabvars = gettabvar(tabnr, '')
+      for var in [
             \ 'tcd_ocwd', 'tcd_cwd'] " tcd.vim
-        if has_key(l:tabvars, l:var)
-          let l:val = l:tabvars[l:var]
-          let l:lines += ['call settabvar(' .
-                \ l:tabnr . ', ' .
-                \ "'" . l:var . "', " .
-                \ "'" . substitute(l:val, "'", "''", 'g') . "')"]
+        if has_key(tabvars, var)
+          let val = tabvars[var]
+          let lines += ['call settabvar(' .
+                \ tabnr . ', ' .
+                \ "'" . var . "', " .
+                \ "'" . substitute(val, "'", "''", 'g') . "')"]
         endif
       endfor
     endfor
 
-    if empty(l:lines)
+    if empty(lines)
       return
     endif
 
-    let l:body = readfile(g:this_session)
-    for l:line in l:lines
-      call insert(l:body, l:line, -3)
+    let body = readfile(g:this_session)
+    for line in lines
+      call insert(body, line, -3)
     endfor
-    call writefile(l:body, g:this_session)
+    call writefile(body, g:this_session)
   endfunction
   augroup ObsessionSaveTabInfo
     autocmd!
@@ -1107,7 +1106,7 @@ let g:hexmode_xxd_options = '-g 4'
 
 " vim-gutentags
 function! s:BuildTagsFileListCmd(prog)
-  let l:filetypes = [
+  let filetypes = [
         \ 'asm', 'c', 'h', 'S',
         \ 'cpp', 'hpp',
         \ 'cc',
@@ -1118,25 +1117,25 @@ function! s:BuildTagsFileListCmd(prog)
         \ 'rb']
   if a:prog ==# 'git'
     " git ls-files '*.c' '*.h'
-    let l:cmd = 'git ls-files ' .
-          \ join(map(l:filetypes, '"''*." . v:val . "''"'), ' ')
+    let cmd = 'git ls-files ' .
+          \ join(map(filetypes, '"''*." . v:val . "''"'), ' ')
   elseif a:prog ==# 'hg'
     " hg files -I '**.c' -I '**.h'
-    let l:cmd = 'hg files ' .
-          \ join(map(l:filetypes, '"-I ''**." . v:val . "''"'), ' ')
+    let cmd = 'hg files ' .
+          \ join(map(filetypes, '"-I ''**." . v:val . "''"'), ' ')
   elseif a:prog ==# 'find'
     " find . -type f \( -name '*.c' -o -name '*.h' \)
-    let l:cmd = 'find . -type f ' .
+    let cmd = 'find . -type f ' .
           \ '\( ' .
-          \ join(map(l:filetypes, '"-name ''*." . v:val . "''"'), ' -o ') .
+          \ join(map(filetypes, '"-name ''*." . v:val . "''"'), ' -o ') .
           \ ' \)'
   elseif a:prog ==# 'dir'
     " dir /S /B /A-D *.c *.h
-    let l:cmd = 'dir /S /B /A-D ' .
-          \ join(map(l:filetypes, '"*." . v:val'), ' ')
+    let cmd = 'dir /S /B /A-D ' .
+          \ join(map(filetypes, '"*." . v:val'), ' ')
   endif
 
-  return l:cmd
+  return cmd
 endfunction
 let g:gutentags_modules = []
 if executable('ctags')
@@ -1163,16 +1162,16 @@ if has_key(g:plugs, 'fzf.vim')
   nnoremap c<C-P> :History :<CR>
   if executable('rg')
     function! s:GetVisualSelection()
-      let [l:line_start, l:column_start] = getpos("'<")[1:2]
-      let [l:line_end, l:column_end] = getpos("'>")[1:2]
-      let l:lines = getline(l:line_start, l:line_end)
-      if len(l:lines) == 0
+      let [line_start, column_start] = getpos("'<")[1:2]
+      let [line_end, column_end] = getpos("'>")[1:2]
+      let lines = getline(line_start, line_end)
+      if len(lines) == 0
         return ''
       endif
-      let l:offset = &selection ==# 'exclusive' ? 2 : 1
-      let l:lines[-1] = l:lines[-1][:l:column_end - l:offset]
-      let l:lines[0] = l:lines[0][l:column_start - 1:]
-      return join(l:lines, "\n")
+      let offset = &selection ==# 'exclusive' ? 2 : 1
+      let lines[-1] = lines[-1][:column_end - offset]
+      let lines[0] = lines[0][column_start - 1:]
+      return join(lines, "\n")
     endfunction
     command! -bang -nargs=* Rg
           \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
@@ -1203,8 +1202,8 @@ endif
 
 " vim-dirvish
 function! s:ResetDirvishCursor()
-  let l:curline = getline('.')
-  keepjumps call search('\V\^' . escape(l:curline, '\') . '\$', 'cw')
+  let curline = getline('.')
+  keepjumps call search('\V\^' . escape(curline, '\') . '\$', 'cw')
 endfunction
 augroup DirvishConfig
   autocmd!
@@ -1216,7 +1215,7 @@ augroup END
 " coc.nvim
 if has_key(g:plugs, 'coc.nvim')
   function! s:GenerateCclsConfig()
-    let l:ccls_config = {
+    let ccls_config = {
           \ 'command': 'ccls',
           \ 'filetypes': ['c', 'cpp', 'cuda', 'objc', 'objcpp'],
           \ 'rootPatterns': [
@@ -1227,7 +1226,7 @@ if has_key(g:plugs, 'coc.nvim')
           \   }
           \ } }
     if has('mac') || has('macunix')
-      let l:ccls_config['initializationOptions']['clang'] = {
+      let ccls_config['initializationOptions']['clang'] = {
             \ 'extraArgs': [
             \   '-isystem',
             \   '/Applications/Xcode.app/Contents/Developer/Toolchains/' .
@@ -1235,15 +1234,15 @@ if has_key(g:plugs, 'coc.nvim')
             \   '-I',
             \   '/Applications/Xcode.app/Contents/Developer/Platforms/' .
             \     'MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/'] }
-      let l:clang_dirs = systemlist(
+      let clang_dirs = systemlist(
             \ 'find /Library/Developer/CommandLineTools/usr/lib/clang ' .
             \   '-depth 1 2>/dev/null')
-      if !empty(l:clang_dirs) && !empty(l:clang_dirs[0])
-        let l:ccls_config['initializationOptions']['clang']['resourceDir'] =
-              \ l:clang_dirs[0]
+      if !empty(clang_dirs) && !empty(clang_dirs[0])
+        let ccls_config['initializationOptions']['clang']['resourceDir'] =
+              \ clang_dirs[0]
       endif
     endif
-    return l:ccls_config
+    return ccls_config
   endfunction
 
   call coc#config('suggest.minTriggerInputLength', 4)
@@ -1368,11 +1367,10 @@ map F <Plug>Sneak_S
 
 " CamelCaseMotion
 function! s:CreateCamelCaseMotionMappings()
-  for l:mode in ['n', 'o', 'x']
-    for l:motion in ['w', 'b', 'e']
-      let l:target_mapping = '<Plug>CamelCaseMotion_' . l:motion
-      execute l:mode . 'map <silent> <Leader>' . l:motion . ' '
-            \ . l:target_mapping
+  for mode in ['n', 'o', 'x']
+    for motion in ['w', 'b', 'e']
+      let target_mapping = '<Plug>CamelCaseMotion_' . motion
+      execute mode . 'map <silent> <Leader>' . motion . ' ' . target_mapping
     endfor
   endfor
 endfunction
@@ -1393,20 +1391,20 @@ let g:closetag_xhtml_filetypes = 'javascript.jsx,xhtml,xml'
 let g:nremap = {}
 " Center display on move
 function! s:RemapUnimpairedToCenter()
-  for [l:key, l:cmd] in [
+  for [key, cmd] in [
         \ ['l', 'L'],
         \ ['q', 'Q'],
         \ ['t', 'T'],
         \ ['n', 'Context']]
-    let l:plug_map = '\<Plug>unimpaired' . l:cmd
-    execute 'nnoremap <silent> [' . l:key .
+    let plug_map = '\<Plug>unimpaired' . cmd
+    execute 'nnoremap <silent> [' . key .
           \ ' :<C-U>execute "normal " . v:count1 . "' .
-          \ l:plug_map . 'Previous"<CR>zz'
-    execute 'nnoremap <silent> ]' . l:key .
+          \ plug_map . 'Previous"<CR>zz'
+    execute 'nnoremap <silent> ]' . key .
           \ ' :<C-U>execute "normal " . v:count1 . "' .
-          \ l:plug_map . 'Next"<CR>zz'
-    let g:nremap['[' . l:key] = ''
-    let g:nremap[']' . l:key] = ''
+          \ plug_map . 'Next"<CR>zz'
+    let g:nremap['[' . key] = ''
+    let g:nremap[']' . key] = ''
   endfor
 endfunction
 call s:RemapUnimpairedToCenter()
@@ -1455,25 +1453,25 @@ for s:k in ['filename', 'modified']
 endfor
 
 function! LightLineWide(component)
-  let l:component_visible_width = {
+  let component_visible_width = {
         \ 'mode': 70,
         \ 'fileencoding': 70,
         \ 'fileformat': 70,
         \ 'filetype': 70,
         \ 'percent': 50 }
-  return winwidth(0) >= get(l:component_visible_width, a:component, 0)
+  return winwidth(0) >= get(component_visible_width, a:component, 0)
 endfunction
 
 function! LightLineVisible(component)
-  let l:fname = expand('%:t')
-  return l:fname !=# '__Tag_List__' &&
-        \ l:fname !=# 'ControlP' &&
-        \ l:fname !~# 'NERD_tree' &&
+  let fname = expand('%:t')
+  return fname !=# '__Tag_List__' &&
+        \ fname !=# 'ControlP' &&
+        \ fname !~# 'NERD_tree' &&
         \ LightLineWide(a:component)
 endfunction
 
 function! LightLineMode()
-  let l:short_mode_map = {
+  let short_mode_map = {
         \ 'n': 'N',
         \ 'i': 'I',
         \ 'R': 'R',
@@ -1486,27 +1484,27 @@ function! LightLineMode()
         \ "\<C-s>": 'S',
         \ 't': 'T',
         \ '?': ' ' }
-  let l:fname = expand('%:t')
-  return l:fname ==# '__Tag_List__' ? 'TagList' :
-        \ l:fname ==# 'ControlP' ? 'CtrlP' :
-        \ l:fname =~# 'NERD_tree' ? '' :
+  let fname = expand('%:t')
+  return fname ==# '__Tag_List__' ? 'TagList' :
+        \ fname ==# 'ControlP' ? 'CtrlP' :
+        \ fname =~# 'NERD_tree' ? '' :
         \ LightLineWide('mode') ? lightline#mode() :
-        \ get(l:short_mode_map, mode(), l:short_mode_map['?'])
+        \ get(short_mode_map, mode(), short_mode_map['?'])
 endfunction
 
 function! LightLineFilename()
-  let l:fname = expand('%:t')
-  let l:fpath = expand('%')
+  let fname = expand('%:t')
+  let fpath = expand('%')
   return &filetype ==# 'dirvish' ?
-        \   (l:fpath ==# getcwd() . '/' ? fnamemodify(l:fpath, ':~') :
-        \   fnamemodify(l:fpath, ':~:.')) :
+        \   (fpath ==# getcwd() . '/' ? fnamemodify(fpath, ':~') :
+        \   fnamemodify(fpath, ':~:.')) :
         \ &filetype ==# 'fzf' ? 'fzf' :
-        \ l:fname ==# '__Tag_List__' ? '' :
-        \ l:fname ==# 'ControlP' ? '' :
-        \ l:fname =~# 'NERD_tree' ?
+        \ fname ==# '__Tag_List__' ? '' :
+        \ fname ==# 'ControlP' ? '' :
+        \ fname =~# 'NERD_tree' ?
         \   (index(['" Press ? for help', '.. (up a dir)'], getline('.')) < 0 ?
         \     matchstr(getline('.'), '[0-9A-Za-z_/].*') : '') :
-        \ '' !=# l:fname ? fnamemodify(l:fpath, ':~:.') : '[No Name]'
+        \ '' !=# fname ? fnamemodify(fpath, ':~:.') : '[No Name]'
 endfunction
 
 function! LightLineReadonly()
@@ -1545,32 +1543,32 @@ function! LightLineLineinfo()
 endfunction
 
 function! LightLineTabFilename(n)
-  let l:buflist = tabpagebuflist(a:n)
-  let l:winnr = tabpagewinnr(a:n)
-  let l:fname = expand('#' . l:buflist[l:winnr - 1] . ':t')
-  let l:filetype = gettabwinvar(a:n, l:winnr, '&filetype')
-  return l:filetype ==# 'GV' ? 'GV' :
-        \ '' !=# l:fname ? l:fname : '[No Name]'
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let fname = expand('#' . buflist[winnr - 1] . ':t')
+  let filetype = gettabwinvar(a:n, winnr, '&filetype')
+  return filetype ==# 'GV' ? 'GV' :
+        \ '' !=# fname ? fname : '[No Name]'
 endfunction
 
 function! LightLineTabModified(n)
-  let l:winnr = tabpagewinnr(a:n)
-  return gettabwinvar(a:n, l:winnr, '&modified') ? '+' : ''
+  let winnr = tabpagewinnr(a:n)
+  return gettabwinvar(a:n, winnr, '&modified') ? '+' : ''
 endfunction
 
 function! LightLineFugitiveStatusline()
   if @% !~# '^fugitive:'
     return ''
   endif
-  let l:head = FugitiveHead()
-  if !len(l:head)
+  let head = FugitiveHead()
+  if !len(head)
     return ''
   endif
-  let l:commit = matchstr(FugitiveParse()[0], '^\x\+')
-  if len(l:commit)
-    return l:head . ':' . l:commit[0:6]
+  let commit = matchstr(FugitiveParse()[0], '^\x\+')
+  if len(commit)
+    return head . ':' . commit[0:6]
   else
-    return l:head
+    return head
   endif
 endfunction
 
@@ -1587,16 +1585,16 @@ if has_key(g:plugs, 'ale')
   endfunction
 
   function! LightLineALEStatusline()
-    let l:counts = ale#statusline#Count(bufnr('%'))
-    let l:errors = l:counts.error + l:counts.style_error
-    let l:warnings = l:counts.total - l:errors
-    let l:error_msg = l:errors ? printf('E(%d)', l:errors) : ''
-    let l:warning_msg = l:warnings ? printf('W(%d)', l:warnings) : ''
+    let counts = ale#statusline#Count(bufnr('%'))
+    let errors = counts.error + counts.style_error
+    let warnings = counts.total - errors
+    let error_msg = errors ? printf('E(%d)', errors) : ''
+    let warning_msg = warnings ? printf('W(%d)', warnings) : ''
 
-    if l:errors && l:warnings
-      return printf('%s %s', l:error_msg, l:warning_msg)
+    if errors && warnings
+      return printf('%s %s', error_msg, warning_msg)
     else
-      return l:errors ? l:error_msg : (l:warnings ? l:warning_msg : '')
+      return errors ? error_msg : (warnings ? warning_msg : '')
     endif
   endfunction
 endif
