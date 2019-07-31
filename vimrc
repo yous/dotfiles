@@ -1357,7 +1357,7 @@ if has_key(g:plugs, 'syntastic')
   let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus
         \ --bitwise --newcap --sloppy --vars --maxerr=1000'
   " Enable Vint for Vim files
-  let g:syntastic_javascript_checkers = ['vimlint', 'vint']
+  let g:syntastic_vim_checkers = ['vimlint', 'vint']
 endif
 
 " vim-sneak
