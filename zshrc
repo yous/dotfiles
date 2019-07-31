@@ -23,7 +23,7 @@ source "$HOME/.zplugin/bin/zplugin.zsh"
 
 # Additional completion definitions for Zsh
 if is-at-least 5.3; then
-  zplugin ice lucid wait'0a' blockf
+  zplugin ice lucid wait'0' blockf
 else
   zplugin ice blockf
 fi
@@ -35,7 +35,7 @@ zplugin light yous/vanilli.sh
 # Syntax-highlighting for Zshell – fine granularity, number of features, 40 work
 # hours themes (short name F-Sy-H)
 if is-at-least 5.3; then
-  zplugin ice lucid wait'0b' atinit'zpcompinit; zpcdreplay'
+  zplugin ice lucid wait'0' atinit'zpcompinit; zpcdreplay'
 else
   autoload -Uz compinit
   compinit
