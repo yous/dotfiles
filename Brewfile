@@ -1,4 +1,4 @@
-# Mac OS X
+# macOS
 install reattach-to-user-namespace
 
 # Basic tools
