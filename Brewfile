@@ -25,7 +25,7 @@ install pyenv
 install pyenv-virtualenv
 
 # Ruby
-install ruby-install
+install ruby
 install chruby
 
 # Vim
