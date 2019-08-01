@@ -28,6 +28,9 @@ install pyenv-virtualenv
 install ruby
 install chruby
 
+# Node.js
+install nodejs
+
 # Vim
 install vim
 install neovim
