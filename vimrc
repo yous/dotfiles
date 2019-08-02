@@ -1020,7 +1020,7 @@ augroup END
 augroup DisableSwap
   autocmd!
   autocmd BufNewFile,BufRead *
-        \ if expand('%:p:~') =~# '/Dropbox/' |
+        \ if resolve(expand('%:p')) =~# '/Dropbox/' |
         \   setlocal noswapfile |
         \ endif
 augroup END
