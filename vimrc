@@ -1422,8 +1422,8 @@ let g:lightline = {
       \     ['fugitive', 'filetype', 'fileencoding', 'fileformat']] },
       \ 'tabline': { 'left': [['tabs']], 'right': [[]] },
       \ 'tab': {
-      \   'active': ['tabfilename', 'tabmodified'],
-      \   'inactive': ['tabfilename', 'tabmodified'] },
+      \   'active': ['tabname', 'tabmodified'],
+      \   'inactive': ['tabname', 'tabmodified'] },
       \ 'component': {
       \   'filename': '%<%{LightLineFilename()}' },
       \ 'component_function': {},
@@ -1447,7 +1447,7 @@ for s:k in ['mode', 'modified', 'filetype', 'fileencoding',
   let g:lightline.component_function[s:k] =
         \ 'LightLine' . toupper(s:k[0]) . s:k[1:]
 endfor
-for s:k in ['filename', 'modified']
+for s:k in ['name', 'modified']
   let g:lightline.tab_component_function['tab' . s:k] =
         \ 'LightLineTab' . toupper(s:k[0]) . s:k[1:]
 endfor
@@ -1542,18 +1542,30 @@ function! LightLineLineinfo()
         \ printf('%3d:%-2d', line('.'), col('.')) : ''
 endfunction
 
-function! LightLineTabFilename(n)
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  let fname = expand('#' . buflist[winnr - 1] . ':t')
-  let filetype = gettabwinvar(a:n, winnr, '&filetype')
-  return filetype ==# 'GV' ? 'GV' :
-        \ '' !=# fname ? fname : '[No Name]'
+function! LightLineTabName(n)
+  " tcd.vim
+  let tabcwd = gettabvar(a:n, 'tcd_cwd')
+  if !empty(tabcwd)
+    return fnamemodify(tabcwd, ':p:~')
+  else
+    let buflist = tabpagebuflist(a:n)
+    let winnr = tabpagewinnr(a:n)
+    let fname = expand('#' . buflist[winnr - 1] . ':t')
+    let filetype = gettabwinvar(a:n, winnr, '&filetype')
+    return filetype ==# 'GV' ? 'GV' :
+          \ '' !=# fname ? fname : '[No Name]'
+  endif
 endfunction
 
 function! LightLineTabModified(n)
-  let winnr = tabpagewinnr(a:n)
-  return gettabwinvar(a:n, winnr, '&modified') ? '+' : ''
+  " tcd.vim
+  let tabcwd = gettabvar(a:n, 'tcd_cwd')
+  if !empty(tabcwd)
+    return ''
+  else
+    let winnr = tabpagewinnr(a:n)
+    return gettabwinvar(a:n, winnr, '&modified') ? '+' : ''
+  endif
 endfunction
 
 function! LightLineFugitiveStatusline()
