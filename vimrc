@@ -401,6 +401,9 @@ if has('win32')
   set shellslash
 endif
 
+" C
+let g:c_comment_strings = 1
+
 " Rust
 if executable('rustfmt')
   let g:rustfmt_autosave = 1
