@@ -289,8 +289,8 @@ To update [vim-plug](https://github.com/junegunn/vim-plug):
 :PlugUpgrade
 ```
 
-For additional syntax checkers for [ale](https://github.com/w0rp/ale) or
-[Syntastic](https://github.com/scrooloose/syntastic):
+For additional syntax checkers for [ALE](https://github.com/w0rp/ale) or
+[Syntastic](https://github.com/vim-syntastic/syntastic):
 
 - C, C++
   - clang-check: `brew install llvm`
@@ -303,16 +303,17 @@ For additional syntax checkers for [ale](https://github.com/w0rp/ale) or
 - JavaScript
   - ESLint: `npm install -g eslint`
   - JSHint: `npm install -g jshint`
-  - JSLint: `npm install -g jslint`
 - JSON
   - JSONLint: `npm install -g jsonlint`
 - Python
   - flake8: `pip install flake8`
+  - mypy: `pip install mypy`
+  - pylint: `pip install pylint`
 - Ruby
   - RuboCop: `gem install rubocop`
   - ruby-lint: `gem install ruby-lint`
-- SASS: `gem install sass`
-- SCSS: `gem install sass scss-lint`
+- SASS: `npm install -g sass-lint`
+- SCSS: `npm install -g sass-lint`
 - xHTML
   - JSHint: `npm install -g jshint`
 
