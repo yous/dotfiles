@@ -103,6 +103,13 @@ function! s:DownloadVimPlug()
   endif
 endfunction
 
+" Install missing plugins
+function! s:InstallMissingPlugins()
+  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
+    PlugInstall --sync
+  endif
+endfunction
+
 call s:DownloadVimPlug()
 call plug#begin(s:vimfiles . '/plugged')
 
@@ -287,15 +294,6 @@ call plug#end()
 " Followings are done by `plug#end()`:
 " filetype plugin indent on
 " syntax on
-
-" Automatically install missing plugins on startup
-augroup VimPlug
-  autocmd!
-  autocmd VimEnter *
-        \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
-        \   PlugInstall --sync |
-        \ endif
-augroup END
 
 " }}}
 " =============================================================================
@@ -1042,17 +1040,25 @@ augroup GitcommitInsert
         \ endif
 augroup END
 
+" Automatically install missing plugins on startup
+augroup VimPlug
+  autocmd!
+  autocmd VimEnter * call s:InstallMissingPlugins()
+augroup END
+
 augroup LoadVimrc
   autocmd!
   " Reload vimrc on the fly
-  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+  autocmd BufWritePost $MYVIMRC nested
+        \ source $MYVIMRC |
+        \ call s:InstallMissingPlugins()
 augroup END
 
 " Reload symlink of vimrc on the fly
 let s:resolved_vimrc = resolve(expand($MYVIMRC))
 if expand($MYVIMRC) !=# s:resolved_vimrc
   execute 'autocmd LoadVimrc BufWritePost ' . s:resolved_vimrc .
-        \ ' nested source $MYVIMRC'
+        \ ' nested source $MYVIMRC | call s:InstallMissingPlugins()'
 endif
 
 " }}}
