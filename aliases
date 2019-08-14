@@ -123,3 +123,8 @@ fi
 if command -v nvim >/dev/null; then
   alias nv='nvim'
 fi
+
+# Zplugin
+if [ -n "$ZSH_VERSION" ]; then
+  alias zplup='zpl self-update && zpl update --all'
+fi
