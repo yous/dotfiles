@@ -704,7 +704,7 @@ function! s:CloseBrace()
   elseif (&filetype ==# 'c' || &filetype ==# 'cpp') &&
         \ getline(line_num) =~# '\%(' .
         \   '^\s*\%(typedef\s*\)\?\%(struct\|enum\)\s\+' . '\|' .
-        \   '\<\h\w*\s*=\s*' . '\)'
+        \   '\<\h\w*\s*=\s*$' . '\)'
     return "{\<CR>};\<C-C>O"
   else
     return "{\<CR>}\<C-C>O"
