@@ -8,6 +8,8 @@
 	quotePath = false
 [color]
 	ui = auto
+[commit]
+	verbose = true
 [diff]
 	compactionHeuristic = true
 	renames = true
