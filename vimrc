@@ -315,6 +315,10 @@ set background=dark
 set backspace=indent,eol,start
 " Use the clipboard register '*'
 set clipboard=unnamed
+if has('unnamedplus')
+  " Use X11 CLIPBOARD selection
+  set clipboard=unnamedplus
+endif
 " How keyword completion works when CTRL-P and CTRL-N are used
 " i: scan current and included files
 set complete-=i
