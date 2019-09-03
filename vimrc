@@ -1685,6 +1685,8 @@ augroup GitGutterConfig
   autocmd!
   autocmd VimEnter * call s:RedefineGitGutterAutocmd()
 augroup END
+nnoremap <silent> [c :<C-U>execute 'normal ' . v:count1 . "\<Plug>GitGutterPrevHunk"<CR>zz
+nnoremap <silent> ]c :<C-U>execute 'normal ' . v:count1 . "\<Plug>GitGutterNextHunk"<CR>zz
 nmap <Leader>ha <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterUndoHunk
 nmap <Leader>hv <Plug>GitGutterPreviewHunk
