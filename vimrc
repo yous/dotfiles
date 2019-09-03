@@ -133,6 +133,8 @@ Plug 'tpope/vim-obsession'
 Plug 'fidian/hexmode'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
+" the missing window movement
+Plug 'andymass/vim-tradewinds'
 " Vim plugin to diff two directories
 Plug 'will133/vim-dirdiff'
 " Vim: file and hunk folding support for diff/patch files.
