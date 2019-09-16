@@ -995,6 +995,9 @@ augroup END
 augroup FileTypeAutocmds
   autocmd!
 
+  " Doxygen support
+  autocmd FileType c,cpp setlocal syntax+=.doxygen
+
   " Keyword lookup program
   autocmd FileType c,cpp setlocal keywordprg=man
   autocmd FileType gitconfig
