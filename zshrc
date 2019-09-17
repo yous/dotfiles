@@ -35,13 +35,23 @@ zplugin light yous/vanilli.sh
 # Syntax-highlighting for Zshell – fine granularity, number of features, 40 work
 # hours themes (short name F-Sy-H)
 if is-at-least 5.3; then
-  zplugin ice lucid wait'0' atinit'zpcompinit; zpcdreplay'
+  if [ "$(uname)" = 'Linux' ] && [ -e /proc/version ] && grep -q Microsoft /proc/version; then
+    zplugin ice lucid wait'0' atinit'zpcompinit; zpcdreplay' \
+      atload'FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"'
+  else
+    zplugin ice lucid wait'0' atinit'zpcompinit; zpcdreplay'
+  fi
 else
   autoload -Uz compinit
   compinit
   zplugin cdreplay -q
 fi
 zplugin light zdharma/fast-syntax-highlighting
+if ! is-at-least 5.3; then
+  if [ "$(uname)" = 'Linux' ] && [ -e /proc/version ] && grep -q Microsoft /proc/version; then
+    FAST_HIGHLIGHT[chroma-git]='chroma/-ogit.ch'
+  fi
+fi
 # ZSH port of Fish shell's history search feature. zsh-syntax-highlighting must
 # be loaded before this.
 is-at-least 5.3 && zplugin ice lucid wait'[[ $+functions[_zsh_highlight] -ne 0 ]]' atload' \
