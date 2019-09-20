@@ -754,6 +754,12 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
 
+" Go to tab page by number
+for s:i in range(1, 9)
+  execute 'nnoremap <Leader>' . s:i . ' ' . s:i . 'gt'
+endfor
+nnoremap <Leader>0 :tablast<CR>
+
 " Reselect visual block after shifting
 vnoremap < <gv
 vnoremap > >gv
