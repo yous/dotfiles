@@ -134,7 +134,9 @@ Plug 'fidian/hexmode'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
 " the missing window movement
-Plug 'andymass/vim-tradewinds'
+if exists('*win_screenpos') || exists('nvim_win_get_position')
+  Plug 'andymass/vim-tradewinds'
+endif
 " Vim plugin to diff two directories
 Plug 'will133/vim-dirdiff'
 " Vim: file and hunk folding support for diff/patch files.
