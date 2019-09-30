@@ -95,6 +95,10 @@ alias glr='git pull --rebase'
 alias gma='git merge --abort'
 alias gp='git push'
 alias gpf='git push --force-with-lease'
+gpr() {
+  git fetch "${2:-$(git remote | grep ^upstream || echo origin)}" "refs/pull/$1/head:pr/$1"
+  git checkout "pr/$1"
+}
 alias gr='git remote'
 alias gra='git remote add'
 alias grb='git rebase'
