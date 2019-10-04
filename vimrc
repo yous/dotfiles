@@ -391,6 +391,8 @@ endif
 set undolevels=1000
 " Update swap file and trigger CursorHold after 1 second
 set updatetime=100
+" Allow virtual editing in Visual block mode
+set virtualedit=block
 if exists('+wildignorecase')
   " Ignore case when completing file names and directories
   set wildignorecase
