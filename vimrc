@@ -349,6 +349,9 @@ endif
 set nobackup
 " Override the 'ignorecase' if the search pattern contains upper case
 set smartcase
+" Don't redraw the screen while executing macros, registers and other commands
+" that have not been typed
+set lazyredraw
 " Enable list mode
 set list
 " Strings to use in 'list' mode and for the :list command
