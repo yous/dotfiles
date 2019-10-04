@@ -31,29 +31,8 @@ if has('nvim') && executable('pyenv')
   endif
 endif
 
-if !has('nvim')
-  let s:python3_neovim = 0
-  let s:python2_neovim = 0
-
-  if has('python3')
-    if !has('patch-8.1.201')
-      silent! python3 1
-    endif
-
-    try
-      python3 import pynvim
-      let s:python3_neovim = 1
-    catch /^Vim(python3):/
-    endtry
-  endif
-
-  if has('python')
-    try
-      python import pynvim
-      let s:python2_neovim = 1
-    catch /^Vim(python):/
-    endtry
-  endif
+if has('python3') && !has('patch-8.1.201')
+  silent! python3 1
 endif
 
 if !empty(&runtimepath)
