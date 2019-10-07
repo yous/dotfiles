@@ -919,12 +919,12 @@ endif
 " Commands: {{{
 " =============================================================================
 
-" :Gdiffs
+" :GDiff
 if has('win32')
-  command! Gdiffs cexpr system('git diff \| diff-hunk-list.bat') |
+  command! GDiff cexpr system('git diff \| diff-hunk-list.bat') |
         \ cwindow | wincmd p
 else
-  command! Gdiffs cexpr system('git diff \| diff-hunk-list') |
+  command! GDiff cexpr system('git diff \| diff-hunk-list') |
         \ cwindow | wincmd p
 endif
 
