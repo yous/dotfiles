@@ -1268,6 +1268,24 @@ if has_key(g:plugs, 'coc.nvim')
     call coc#config('languageserver', { 'ccls': s:GenerateCclsConfig() })
   endif
 
+  " coc-python
+  for s:linter in [
+        \ 'flake8',
+        \ 'bandit',
+        \ 'mypy',
+        \ 'pep8',
+        \ 'prospector',
+        \ 'pydocstyle',
+        \ 'pylama']
+    if executable(s:linter)
+      call coc#config('python.linting.' . s:linter . 'Enabled', v:true)
+    endif
+  endfor
+  if !executable('pylint')
+    call coc#config('python.linting.pylintEnabled', v:false)
+  endif
+  unlet s:linter
+
   call coc#add_extension(
         \ 'coc-css',
         \ 'coc-emoji',
@@ -1298,7 +1316,15 @@ if has_key(g:plugs, 'ale')
         \ 'rust': 'all' }
   let g:ale_linters_ignore = {
         \ 'c': ['ccls'],
-        \ 'cpp': ['ccls'] }
+        \ 'cpp': ['ccls'],
+        \ 'python': [
+        \   'bandit',
+        \   'flake8',
+        \   'mypy',
+        \   'prospector',
+        \   'pydocstyle',
+        \   'pylama',
+        \   'pylint'] }
   let g:ale_set_highlights = 0
 
   " ale-c-options, ale-cpp-options
