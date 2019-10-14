@@ -824,16 +824,16 @@ if has('cscope') && executable('cscope')
   " 7 or f: Find this file
   " 8 or i: Find files #including this file
   " 9 or a: Find places where this symbol is assigned a value
-  nnoremap <C-\>s :cscope find s <C-R>=expand('<cword>')<CR><CR>
-  nnoremap <C-\>g :cscope find g <C-R>=expand('<cword>')<CR><CR>
-  nnoremap <C-\>d :cscope find d <C-R>=expand('<cword>')<CR><CR>
-  nnoremap <C-\>c :cscope find c <C-R>=expand('<cword>')<CR><CR>
-  nnoremap <C-\>t :cscope find t <C-R>=expand('<cword>')<CR><CR>
+  nnoremap <C-\>s :cscope find s <C-R><C-W><CR>
+  nnoremap <C-\>g :cscope find g <C-R><C-W><CR>
+  nnoremap <C-\>d :cscope find d <C-R><C-W><CR>
+  nnoremap <C-\>c :cscope find c <C-R><C-W><CR>
+  nnoremap <C-\>t :cscope find t <C-R><C-W><CR>
   xnoremap <C-\>t y:cscope find t <C-R>"<CR>
-  nnoremap <C-\>e :cscope find e <C-R>=expand('<cword>')<CR><CR>
-  nnoremap <C-\>f :cscope find f <C-R>=expand('<cfile>')<CR><CR>
-  nnoremap <C-\>i :cscope find i ^<C-R>=expand('<cfile>')<CR>$<CR>
-  nnoremap <C-\>a :cscope find a <C-R>=expand('<cword>')<CR><CR>
+  nnoremap <C-\>e :cscope find e <C-R><C-W><CR>
+  nnoremap <C-\>f :cscope find f <C-R><C-F><CR>
+  nnoremap <C-\>i :cscope find i ^<C-R><C-F>$<CR>
+  nnoremap <C-\>a :cscope find a <C-R><C-W><CR>
 endif
 
 function! s:RemapBufferQ()
@@ -1193,7 +1193,7 @@ if has_key(g:plugs, 'fzf.vim')
           \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
           \   '--color=always --smart-case ' . shellescape(<q-args>),
           \   1, fzf#vim#with_preview('right:50%'), <bang>0)
-    nnoremap <Leader>* :<C-U>Rg<Space><C-R>=expand('<cword>')<CR><CR>
+    nnoremap <Leader>* :<C-U>Rg<Space><C-R><C-W><CR>
     vnoremap <Leader>* :<C-U>Rg<Space><C-R>=<SID>GetVisualSelection()<CR><CR>
   endif
   if has('nvim')
