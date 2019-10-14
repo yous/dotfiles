@@ -1189,6 +1189,13 @@ if has_key(g:plugs, 'fzf.vim')
           \   '--color=always --smart-case --fixed-strings ' .
           \   shellescape(<q-args>),
           \   1, fzf#vim#with_preview('right:50%'), <bang>0)
+    command! -bang -nargs=* -complete=dir Rgd
+          \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
+          \   '--color=always --smart-case --fixed-strings ' . shellescape(''),
+          \   1,
+          \   fzf#vim#with_preview(
+          \     { 'dir': fnamemodify(expand(<q-args>), ':p:h') }, 'right:50%'),
+          \   <bang>0)
     command! -bang -nargs=* Rgr
           \ call fzf#vim#grep('rg --column --line-number --no-heading ' .
           \   '--color=always --smart-case ' . shellescape(<q-args>),
