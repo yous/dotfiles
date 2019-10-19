@@ -665,16 +665,12 @@ augroup END
 nnoremap ; :
 
 " We do line wrap
-for s:mode in ['n', 'o']
-  for s:key in ['j', 'k']
-    execute s:mode . 'noremap ' . s:key . ' g' . s:key
-    execute s:mode . 'noremap g' . s:key . ' ' . s:key
-  endfor
-endfor
-nnoremap <Down> gj
-nnoremap <Up> gk
-onoremap <Down> gj
-onoremap <Up> gk
+noremap j gj
+noremap k gk
+noremap <Down> gj
+noremap <Up> gk
+noremap gj j
+noremap gk k
 
 " Easy navigation on a line
 noremap H ^
