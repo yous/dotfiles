@@ -1297,6 +1297,11 @@ if has_key(g:plugs, 'coc.nvim')
     call coc#config('python.linting.pylintEnabled', v:false)
   endif
   unlet s:linter
+  if has('python3')
+    call coc#config('python.pythonPath', exepath('python3'))
+  elseif has('python')
+    call coc#config('python.pythonPath', exepath('python'))
+  endif
 
   call coc#add_extension(
         \ 'coc-css',
