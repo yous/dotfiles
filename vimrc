@@ -163,7 +163,7 @@ endif
 if has('nvim') && has('timers') ||
       \ has('timers') && exists('*job_start') && exists('*ch_close_in')
   " Asynchronous Lint Engine
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
 else
   " Syntax checking plugin
   Plug 'vim-syntastic/syntastic'
