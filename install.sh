@@ -126,33 +126,6 @@ install_link() {
   echo 'Done.'
 }
 
-install_formulae() {
-  local brew_list installed
-  brew_list=()
-  while IFS='' read -r line; do
-    brew_list+=("$line")
-  done < <(brew list --full-name)
-  while read -r cmd; do
-    trap 'break' INT
-    [[ -z "$cmd" || ${cmd:0:1} == '#' ]] && continue
-    IFS=' ' read -ra brew_args <<< "$cmd"
-    if [ "${brew_args[0]}" = 'install' ]; then
-      installed=0
-      for e in "${brew_list[@]}"; do
-        if [ "$e" = "${brew_args[1]}" ]; then
-          installed=1
-          break
-        fi
-      done
-      if [ "$installed" -eq 1 ]; then
-        echo "${brew_args[1]} is already installed"
-        continue
-      fi
-    fi
-    brew "${brew_args[@]}"
-  done < "$DIR/Brewfile" && echo 'Done.'
-}
-
 case "$1" in
   link)
     install_link
@@ -171,7 +144,7 @@ case "$1" in
     fi
     ;;
   formulae)
-    install_formulae
+    brew bundle --file="${DIR}/Brewfile"
     ;;
   linuxbrew)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"

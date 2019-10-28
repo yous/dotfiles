@@ -1,39 +1,39 @@
 # macOS
-install reattach-to-user-namespace
+brew "reattach-to-user-namespace"
 
 # Basic tools
-install cmake
-install cscope
-install ctags
-install git
-install openssh
-install tmux
-install wget
-install zsh
+brew "cmake"
+brew "cscope"
+brew "ctags"
+brew "git"
+brew "openssh"
+brew "tmux"
+brew "wget"
+brew "zsh"
 
 # Utilities
-install bat
-install htop
-install keychain
-install pre-commit
-install ripgrep
-install z
+brew "bat"
+brew "htop"
+brew "keychain"
+brew "pre-commit"
+brew "ripgrep"
+brew "z"
 
 # Python
-install python
-install pyenv
-install pyenv-virtualenv
+brew "python"
+brew "pyenv"
+brew "pyenv-virtualenv"
 
 # Ruby
-install ruby
-install chruby
+brew "ruby"
+brew "chruby"
 
 # Node.js
-install nodejs
+brew "nodejs"
 
 # Vim
-install vim
-install neovim
+brew "vim"
+brew "neovim"
 
 # Krypton
-install kryptco/tap/kr
+brew "kryptco/tap/kr"
