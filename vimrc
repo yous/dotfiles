@@ -204,6 +204,8 @@ Plug 'tpope/vim-repeat'
 Plug 'itchyny/lightline.vim'
 " Highlight the exact differences, based on characters and words
 Plug 'rickhowe/diffchar.vim'
+" vim-searchindex: display number of search matches & index of a current match
+Plug 'google/vim-searchindex'
 if has('patch-8.0.1206') || has('nvim-0.2.3')
   " Range, pattern and substitute preview for Vim
   Plug 'markonm/traces.vim'
@@ -766,16 +768,30 @@ function! s:VSearch(cmd)
   normal! gV
   call setreg('"', old_reg, old_regtype)
 endfunction
-vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>zz
-vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>zz
+if has_key(g:plugs, 'vim-searchindex')
+  vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>zz<Plug>SearchIndex
+  vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>zz<Plug>SearchIndex
+else
+  vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>zz
+  vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>zz
+endif
 
 " Center display after searching
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
+if has_key(g:plugs, 'vim-searchindex')
+  nmap <silent> n nzz<Plug>SearchIndex
+  nmap <silent> N Nzz<Plug>SearchIndex
+  nmap <silent> * *zz<Plug>SearchIndex
+  nmap <silent> # #zz<Plug>SearchIndex
+  nmap <silent> g* g*zz<Plug>SearchIndex
+  nmap <silent> g# g#zz<Plug>SearchIndex
+else
+  nnoremap n nzz
+  nnoremap N Nzz
+  nnoremap * *zz
+  nnoremap # #zz
+  nnoremap g* g*zz
+  nnoremap g# g#zz
+endif
 
 " Execute @q which is recorded by qq
 nnoremap Q @q
