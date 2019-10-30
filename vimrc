@@ -350,9 +350,13 @@ endif
 " m: use "[+]" instead of "[Modified]"
 " r: use "[RO]" instead of "[readonly]"
 " c: don't give ins-completion-menu messages
+" S: do not show search count message when searching, e.g. "[1/5]"
 set shortmess+=m
 set shortmess+=r
 set shortmess+=c
+if has('patch-8.1.1270')
+  set shortmess-=S
+endif
 " Exclude East Asian characters from spell checking
 set spelllang+=cjk
 " Files with these suffixes get a lower priority when multiple files match a
