@@ -1715,6 +1715,9 @@ if has_key(g:plugs, 'syntastic')
   command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
 endif
 
+" vim-searchindex
+cnoremap <CR> <CR>
+
 " vim-over
 if has_key(g:plugs, 'vim-over')
   let g:over#command_line#substitute#replace_pattern_visually = 1
