@@ -212,11 +212,11 @@
     - Remote character set: UTF-8
     - Terminal-type string: xterm-256color
   - Loco
-    - Host Name: loco.kaist.ac.kr
-    - Port 24
+    - Host Name: bbs@loco.gon.io
+    - Port: 443
     - Connection type: Telnet
-    - Columns: 80, Rows: 62
-    - Font: Fixedsys, 10-point (Script: Korean)
+    - Columns: 80, Rows: 66
+    - Font: D2Coding, 9-point (Script: Korean)
     - Use separated unicode font: Uncheck
     - Remote character set: Use font encoding
     - Treat CJK ambiguous characters as wide: Check
