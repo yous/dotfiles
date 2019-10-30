@@ -996,7 +996,11 @@ augroup AutoUpdates
   autocmd InsertLeave * if &paste | set nopaste | endif
 
   " Check if any buffers were changed outside of Vim
-  autocmd FocusGained,BufEnter * checktime
+  if exists('*getcmdwintype')
+    autocmd FocusGained,BufEnter * if getcmdwintype() ==# '' | checktime | endif
+  else
+    autocmd FocusGained,BufEnter * checktime
+  endif
 augroup END
 
 augroup FileTypeAutocmds
