@@ -111,9 +111,11 @@
 - [NightOwl](https://nightowl.kramser.xyz)
 - [PDF Expert](https://pdfexpert.com)
 - [Safari Extensions](https://safari-extensions.apple.com)
-  - [1Password](https://safari-extensions.apple.com/details/?id=com.agilebits.onepassword4-safari-2BUA8C4S2C)
-  - [Translate](https://safari-extensions.apple.com/details/?id=com.sidetree.Translate-S64NDGV2C5)
-  - [uBlock Origin](https://safari-extensions.apple.com/details/?id=com.el1t.uBlock-3NU33NW2M3)
+  - macOS 10.15 and above
+    - [1Blocker](https://apps.apple.com/kr/app/1blocker-faster-safer-web/id1107421413?mt=12)
+  - macOS 10.14 and below
+    - [Translate](https://safari-extensions.apple.com/details/?id=com.sidetree.Translate-S64NDGV2C5)
+    - [uBlock Origin](https://safari-extensions.apple.com/details/?id=com.el1t.uBlock-3NU33NW2M3)
 - [Slack](https://slack.com)
 - [Things 3](https://itunes.apple.com/kr/app/things-3/id904280696?mt=12)
 - Quick Look
