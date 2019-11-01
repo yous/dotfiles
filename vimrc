@@ -795,10 +795,22 @@ else
     endfor
     let pos = searchpos(@/, flags . 'n')
     if pos != [0, 0] && pos[0] != line('.')
-      if backward && !(pos[0] == line('$') && pos[1] >= col('$')) ||
-            \ !backward && pos != [1, 1]
-        keepjumps call cursor(pos[0], backward ? col([pos[0], '$']) - 1 : 1)
-        normal! zz
+      if backward
+        if !(pos[0] == line('$') && pos[1] >= col([line('$'), '$']) - 1)
+          keepjumps call cursor(pos[0], col([pos[0], '$']) - 1)
+          normal! zz
+          if pos[1] >= col([pos[0], '$']) - 1
+            keepjumps call cursor(pos[0] + 1, 1)
+          endif
+        endif
+      else
+        if pos != [1, 1]
+          keepjumps call cursor(pos[0], 1)
+          normal! zz
+          if pos[1] == 1
+            keepjumps call cursor(pos[0] - 1, col([pos[0] - 1, '$']) - 1)
+          endif
+        endif
       endif
     endif
   endfunction
