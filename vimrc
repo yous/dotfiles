@@ -204,8 +204,10 @@ Plug 'tpope/vim-repeat'
 Plug 'itchyny/lightline.vim'
 " Highlight the exact differences, based on characters and words
 Plug 'rickhowe/diffchar.vim'
-" vim-searchindex: display number of search matches & index of a current match
-Plug 'google/vim-searchindex'
+if !has('patch-8.1.1270')
+  " vim-searchindex: display number of search matches & index of a current match
+  Plug 'google/vim-searchindex'
+endif
 if has('patch-8.0.1206') || has('nvim-0.2.3')
   " Range, pattern and substitute preview for Vim
   Plug 'markonm/traces.vim'
@@ -785,8 +787,23 @@ if has_key(g:plugs, 'vim-searchindex')
   nmap <silent> g* g*zz<Plug>SearchIndex
   nmap <silent> g# g#zz<Plug>SearchIndex
 else
-  nnoremap n nzz
-  nnoremap N Nzz
+  function! s:CenterBeforeSearch(opposite)
+    let backward = v:searchforward == a:opposite
+    let flags = backward ? 'b' : ''
+    for i in range(v:count1 - 1)
+      call search(@/, flags)
+    endfor
+    let pos = searchpos(@/, flags . 'n')
+    if pos != [0, 0] && pos[0] != line('.')
+      if backward && !(pos[0] == line('$') && pos[1] >= col('$')) ||
+            \ !backward && pos != [1, 1]
+        keepjumps call cursor(pos[0], backward ? col([pos[0], '$']) - 1 : 1)
+        normal! zz
+      endif
+    endif
+  endfunction
+  nnoremap n :<C-U>call <SID>CenterBeforeSearch(0)<CR>n
+  nnoremap N :<C-U>call <SID>CenterBeforeSearch(1)<CR>N
   nnoremap * *zz
   nnoremap # #zz
   nnoremap g* g*zz
