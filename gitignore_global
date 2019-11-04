@@ -31,6 +31,7 @@ node_modules/
 .python-version
 
 # Ruby
+.bundle/
 .rvmrc
 .ruby-version
 .ruby-gemset
