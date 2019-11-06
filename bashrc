@@ -8,6 +8,17 @@ case $- in
   *) return;;
 esac
 
+if [ -e /proc/version ] && grep -q Microsoft /proc/version; then
+  # See https://github.com/microsoft/WSL/issues/352
+  if [ "$(umask)" = '000' ]; then
+    if [ -e /etc/login.defs ] && grep -q '^[[:space:]]*USERGROUPS_ENAB[[:space:]]\{1,\}yes' /etc/login.defs; then
+      umask 002
+    else
+      umask 022
+    fi
+  fi
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
