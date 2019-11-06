@@ -788,6 +788,9 @@ if has_key(g:plugs, 'vim-searchindex')
   nmap <silent> g# g#zz<Plug>SearchIndex
 else
   function! s:CenterBeforeSearch(opposite)
+    if @/ ==# ''
+      return
+    endif
     let backward = v:searchforward == a:opposite
     let flags = backward ? 'b' : ''
     for i in range(v:count1 - 1)
