@@ -33,7 +33,6 @@ brew "nodejs"
 
 # Vim
 brew "vim"
-brew "neovim"
 
 # Krypton
 brew "kryptco/tap/kr"
