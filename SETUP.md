@@ -113,6 +113,7 @@
 - [Safari Extensions](https://safari-extensions.apple.com)
   - macOS 10.15 and above
     - [1Blocker](https://apps.apple.com/kr/app/1blocker-faster-safer-web/id1107421413?mt=12)
+    - [TranslateMe for Safari](https://apps.apple.com/kr/app/translateme-for-safari/id1448316680?mt=12)
   - macOS 10.14 and below
     - [Translate](https://safari-extensions.apple.com/details/?id=com.sidetree.Translate-S64NDGV2C5)
     - [uBlock Origin](https://safari-extensions.apple.com/details/?id=com.el1t.uBlock-3NU33NW2M3)
