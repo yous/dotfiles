@@ -31,6 +31,36 @@ bundle_install() {
   bundle install --jobs="$cores_num" "$@"
 }
 
+# Number conversion
+hex() {
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: hex <num>"
+  fi
+
+  local num
+  case "$1" in
+    0x*)
+      num="$((16#${1#0x}))"
+      ;;
+    0*)
+      num="$((8#${1#0}))"
+      ;;
+    b*)
+      num="$((2#${1#b}))"
+      ;;
+    *)
+      num="$1"
+      ;;
+  esac
+  echo "Hex: $(echo "obase=16; $num" | bc)"
+  echo "Dec: $(echo "obase=10; $num" | bc)"
+  echo "Bin: $(echo "obase=2; $num" | bc)"
+  # [:print:]
+  if [ "$num" -ge "32" ] && [ "$num" -le "126" ]; then
+    echo "Chr: $(printf "\x$(printf '%x' "$num")")"
+  fi
+}
+
 # http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
 man() {
   env \
