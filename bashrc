@@ -154,16 +154,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-bundle_install() {
-  local cores_num
-  if [ "$(uname)" = 'Darwin' ]; then
-    cores_num="$(sysctl -n hw.ncpu)"
-  else
-    cores_num="$(nproc)"
-  fi
-  bundle install --jobs="$cores_num" "$@"
-}
-
 if command -v brew >/dev/null; then
   BREW_PREFIX="$(brew --prefix)"
 fi
@@ -263,13 +253,6 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
       popd -n
     fi
   fi
-fi
-
-# Check if reboot is required for Ubuntu
-if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
-  reboot-required() {
-    /usr/lib/update-notifier/update-motd-reboot-required
-  }
 fi
 
 # Enable keychain

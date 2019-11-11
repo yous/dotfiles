@@ -1,16 +1,6 @@
 # Make the $path array have unique values.
 typeset -U path
 
-bundle_install() {
-  local cores_num
-  if [ "$(uname)" = 'Darwin' ]; then
-    cores_num="$(sysctl -n hw.ncpu)"
-  else
-    cores_num="$(nproc)"
-  fi
-  bundle install --jobs="$cores_num" "$@"
-}
-
 if [ -e /proc/version ] && grep -q Microsoft /proc/version; then
   # See https://github.com/microsoft/WSL/issues/352
   if [ "$(umask)" = '000' ]; then
@@ -170,13 +160,6 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
       popd -q
     fi
   fi
-fi
-
-# Check if reboot is required for Ubuntu
-if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
-  reboot-required() {
-    /usr/lib/update-notifier/update-motd-reboot-required
-  }
 fi
 
 # Enable keychain
