@@ -1421,20 +1421,15 @@ if has_key(g:plugs, 'ale')
   " See http://clang.llvm.org/extra/clang-tidy/.
   let g:ale_c_clangtidy_checks = [
         \ '*',
+        \ '-cppcoreguidelines-avoid-magic-numbers',
         \ '-fuchsia-*',
         \ '-google-readability-todo',
-        \ '-hicpp-braces-around-statements',
-        \ '-hicpp-signed-bitwise',
+        \ '-hicpp-uppercase-literal-suffix',
         \ '-llvm-*',
-        \ '-readability-*']
-  let g:ale_cpp_clangtidy_checks = [
-        \ '*',
-        \ '-fuchsia-*',
-        \ '-google-readability-todo',
-        \ '-hicpp-braces-around-statements',
-        \ '-hicpp-signed-bitwise',
-        \ '-llvm-*',
-        \ '-readability-*']
+        \ '-readability-else-after-return',
+        \ '-readability-magic-numbers',
+        \ '-readability-uppercase-literal-suffix']
+  let g:ale_cpp_clangtidy_checks = g:ale_c_clangtidy_checks
 
   " ale-python-mypy
   if has('win32')
