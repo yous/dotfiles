@@ -13,10 +13,12 @@ brew "zsh"
 
 # Utilities
 brew "bat"
+brew "fd"
 brew "htop"
 brew "keychain"
 brew "pre-commit"
 brew "ripgrep"
+brew "tig"
 brew "z"
 
 # Python
