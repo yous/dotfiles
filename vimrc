@@ -1426,6 +1426,7 @@ if has_key(g:plugs, 'ale')
         \ '-google-readability-todo',
         \ '-hicpp-uppercase-literal-suffix',
         \ '-llvm-*',
+        \ '-modernize-use-trailing-return-type',
         \ '-readability-else-after-return',
         \ '-readability-magic-numbers',
         \ '-readability-uppercase-literal-suffix']
