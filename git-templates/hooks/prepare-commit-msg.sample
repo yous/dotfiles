@@ -24,11 +24,11 @@ COMMIT_MSG_FILE=$1
 COMMIT_SOURCE=$2
 SHA1=$3
 
-@PERL_PATH@ -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
+perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
 
 # case "$COMMIT_SOURCE,$SHA1" in
 #  ,|template,)
-#    @PERL_PATH@ -i.bak -pe '
+#    perl -i.bak -pe '
 #       print "\n" . `git diff --cached --name-status -r`
 # 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
 #  *) ;;
@@ -38,5 +38,5 @@ SHA1=$3
 # git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
 # if test -z "$COMMIT_SOURCE"
 # then
-#   @PERL_PATH@ -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
+#   perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
 # fi
