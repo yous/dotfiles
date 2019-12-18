@@ -966,6 +966,16 @@ endif
 " Commands: {{{
 " =============================================================================
 
+" :CR
+command! CR
+      \ try |
+      \   execute '%s/' . nr2char(13) . '\+$//g' |
+      \ catch /^Vim\%((\a\+)\)\=:E486/ |
+      \ finally |
+      \   set fileformat=dos |
+      \   write |
+      \ endtry
+
 " :GDiff
 if has('win32')
   command! GDiff cexpr system('git diff \| diff-hunk-list.bat') |
