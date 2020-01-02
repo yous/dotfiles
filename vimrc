@@ -153,7 +153,7 @@ Plug 'justinmk/vim-gtfo'
 
 " Completion and lint
 " Dark powered asynchronous completion framework for neovim/Vim8
-if has('nvim-0.3.1') || v:version >= 800
+if (has('nvim-0.3.1') || v:version >= 800) && executable('node')
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 endif
 " Print documents in echo area
