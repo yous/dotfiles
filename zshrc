@@ -33,6 +33,9 @@ zplugin light zsh-users/zsh-completions
 zplugin light yous/lime
 # A lightweight start point of shell configuration
 zplugin light yous/vanilli.sh
+# Jump quickly to directories that you have visited "frecently." A native ZSH
+# port of z.sh.
+zplugin light agkozak/zsh-z
 # Syntax-highlighting for Zshell – fine granularity, number of features, 40 work
 # hours themes (short name F-Sy-H)
 if is-at-least 5.3; then
@@ -63,15 +66,6 @@ if ! is-at-least 5.3; then
   bindkey -M emacs '^N' history-substring-search-down
   bindkey -M vicmd 'k' history-substring-search-up
   bindkey -M vicmd 'j' history-substring-search-down
-fi
-
-# Load z
-if [ -f "$HOME/.z.sh" ]; then
-  source "$HOME/.z.sh"
-elif [ -n "$BREW_PREFIX" ]; then
-  if [ -f "$BREW_PREFIX/etc/profile.d/z.sh" ]; then
-    source "$BREW_PREFIX/etc/profile.d/z.sh"
-  fi
 fi
 
 # Load autojump
