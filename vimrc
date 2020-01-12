@@ -392,8 +392,6 @@ if has('wildmenu')
 endif
 
 if has('win32')
-  " Directory names for the swap file
-  set directory=.,$TEMP
   " Use a forward slash when expanding file names
   set shellslash
 endif
