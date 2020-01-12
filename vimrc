@@ -392,8 +392,13 @@ if has('wildmenu')
 endif
 
 if has('win32')
-  " Use a forward slash when expanding file names
-  set shellslash
+  if exists('+completeslash')
+    " A forward slash is used for path completion in insert mode
+    set completeslash=slash
+  else
+    " Use a forward slash when expanding file names
+    set shellslash
+  endif
 endif
 
 " C
