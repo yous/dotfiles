@@ -249,13 +249,13 @@ chsh -s /usr/local/bin/zsh
 To update Zsh plugins:
 
 ``` sh
-zplugin update --all
+zinit update --all
 ```
 
-To update [Zplugin](https://github.com/zdharma/zplugin) itself:
+To update [Zinit](https://github.com/zdharma/zinit) itself:
 
 ``` sh
-zplugin self-update
+zinit self-update
 ```
 
 To make RVM works with Vim on OS X Yosemite or earlier, move `/etc/zshenv` to

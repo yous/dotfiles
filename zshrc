@@ -16,39 +16,39 @@ if command -v brew >/dev/null; then
   BREW_PREFIX="$(brew --prefix)"
 fi
 
-# Use Zplugin
-if [ ! -e "$HOME/.zplugin/bin/zplugin.zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+# Use Zinit
+if [ ! -e "$HOME/.zinit/bin/zinit.zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 fi
-source "$HOME/.zplugin/bin/zplugin.zsh"
+source "$HOME/.zinit/bin/zinit.zsh"
 
 # Additional completion definitions for Zsh
 if is-at-least 5.3; then
-  zplugin ice lucid wait'0' blockf
+  zinit ice lucid wait'0' blockf
 else
-  zplugin ice blockf
+  zinit ice blockf
 fi
-zplugin light zsh-users/zsh-completions
+zinit light zsh-users/zsh-completions
 # Simple standalone Zsh theme
-zplugin light yous/lime
+zinit light yous/lime
 # A lightweight start point of shell configuration
-zplugin light yous/vanilli.sh
+zinit light yous/vanilli.sh
 # Jump quickly to directories that you have visited "frecently." A native ZSH
 # port of z.sh.
-zplugin light agkozak/zsh-z
+zinit light agkozak/zsh-z
 # Syntax-highlighting for Zshell – fine granularity, number of features, 40 work
 # hours themes (short name F-Sy-H)
 if is-at-least 5.3; then
-  zplugin ice lucid wait'0' atinit'zpcompinit; zpcdreplay'
+  zinit ice lucid wait'0' atinit'zpcompinit; zpcdreplay'
 else
   autoload -Uz compinit
   compinit
-  zplugin cdreplay -q
+  zinit cdreplay -q
 fi
-zplugin light zdharma/fast-syntax-highlighting
+zinit light zdharma/fast-syntax-highlighting
 # ZSH port of Fish shell's history search feature. zsh-syntax-highlighting must
 # be loaded before this.
-is-at-least 5.3 && zplugin ice lucid wait'[[ $+functions[_zsh_highlight] -ne 0 ]]' atload' \
+is-at-least 5.3 && zinit ice lucid wait'[[ $+functions[_zsh_highlight] -ne 0 ]]' atload' \
   zmodload zsh/terminfo; \
   [ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up; \
   [ -n "${terminfo[kcud1]}" ] && bindkey "${terminfo[kcud1]}" history-substring-search-down; \
@@ -57,7 +57,7 @@ is-at-least 5.3 && zplugin ice lucid wait'[[ $+functions[_zsh_highlight] -ne 0 ]
   bindkey -M vicmd "k" history-substring-search-up; \
   bindkey -M vicmd "j" history-substring-search-down; \
 '
-zplugin light zsh-users/zsh-history-substring-search
+zinit light zsh-users/zsh-history-substring-search
 if ! is-at-least 5.3; then
   zmodload zsh/terminfo
   [ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
