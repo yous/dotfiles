@@ -3,7 +3,7 @@ typeset -U path
 
 if [ -e /proc/version ] && grep -q Microsoft /proc/version; then
   # See https://github.com/microsoft/WSL/issues/352
-  if [ "$(umask)" = '000' ]; then
+  if [[ "$(umask)" = *'000' ]]; then
     if [ -e /etc/login.defs ] && grep -q '^[[:space:]]*USERGROUPS_ENAB[[:space:]]\{1,\}yes' /etc/login.defs; then
       umask 002
     else
