@@ -18,7 +18,13 @@ IRB.conf[:SAVE_HISTORY] = 10_000
 
 require 'rubygems'
 require 'irb/completion'
-require 'wirble'
 
-Wirble.init
-Wirble.colorize
+if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.7.0')
+  begin
+    require 'wirble'
+
+    Wirble.init
+    Wirble.colorize
+  rescue LoadError # rubocop:disable Lint/SuppressedException
+  end
+end
