@@ -144,7 +144,7 @@ case "$1" in
     fi
     ;;
   formulae)
-    brew bundle --file="${DIR}/Brewfile"
+    brew bundle --file="${DIR}/Brewfile" --no-lock
     ;;
   linuxbrew)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
