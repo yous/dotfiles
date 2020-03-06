@@ -36,5 +36,8 @@ brew "nodejs"
 # Vim
 brew "vim"
 
+# QLColorCode
+brew "highlight"
+
 # Krypton
 brew "kryptco/tap/kr"
