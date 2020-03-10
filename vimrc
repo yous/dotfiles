@@ -1479,6 +1479,17 @@ if has_key(g:plugs, 'syntastic')
   let g:syntastic_vim_checkers = ['vimlint', 'vint']
 endif
 
+" vim-endwise
+augroup EndwiseCMake
+  autocmd FileType cmake
+        \ let b:endwise_addition = '\=submatch(0)==#toupper(submatch(0)) ? ' .
+        \   '"END".submatch(0)."()" : "end".submatch(0)."()"' |
+        \ let b:endwise_words = 'foreach,function,if,macro,while' |
+        \ let b:endwise_pattern = '\%(\<end\>.*\)\@<!\<&\>' |
+        \ let b:endwise_syngroups = 'cmakeStatement,cmakeCommandConditional,' .
+        \   'cmakeCommandRepeat,cmakeCommand'
+augroup END
+
 " vim-sneak
 let g:sneak#s_next = 1
 map f <Plug>Sneak_s
