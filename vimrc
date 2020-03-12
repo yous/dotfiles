@@ -144,7 +144,7 @@ if !has('win32') && (!has('win32unix') || executable('go'))
 endif
 " Directory viewer for Vim
 Plug 'justinmk/vim-dirvish'
-if !has('nvim')
+if !has('nvim') && !has('patch-8.1.1218')
   " Tab-specific directories
   Plug 'vim-scripts/tcd.vim'
 endif
