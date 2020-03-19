@@ -322,13 +322,13 @@ or [Syntastic](https://github.com/vim-syntastic/syntastic):
 To use Python 2 or 3 via pyenv in [Neovim](https://neovim.io),
 
 ``` sh
-pyenv install 2.7.16
-pyenv virtualenv 2.7.16 neovim2
+pyenv install 2.7.17
+pyenv virtualenv 2.7.17 neovim2
 pyenv activate neovim2
 pip install pynvim
 
-pyenv install 3.7.4
-pyenv virtualenv 3.7.4 neovim3
+pyenv install 3.8.2
+pyenv virtualenv 3.8.2 neovim3
 pyenv activate neovim3
 pip install pynvim
 ```
