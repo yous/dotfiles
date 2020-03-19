@@ -216,8 +216,8 @@ gem install bundler rubocop ruby-lint wirble
 
 ### Python
 
-If you want to install [pyenv](https://github.com/yyuu/pyenv) and
-[pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv), if you're on
+If you want to install [pyenv](https://github.com/pyenv/pyenv) and
+[pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv), if you're on
 macOS,
 
 ``` sh
@@ -289,8 +289,8 @@ To update [vim-plug](https://github.com/junegunn/vim-plug):
 :PlugUpgrade
 ```
 
-For additional syntax checkers for [ALE](https://github.com/w0rp/ale) or
-[Syntastic](https://github.com/vim-syntastic/syntastic):
+For additional syntax checkers for [ALE](https://github.com/dense-analysis/ale)
+or [Syntastic](https://github.com/vim-syntastic/syntastic):
 
 - C, C++
   - clang-check: `brew install llvm`
