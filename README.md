@@ -275,7 +275,7 @@ To install [Vim](http://www.vim.org) plugins,
 
 You should install [Exuberant Ctags](http://ctags.sourceforge.net/) to use
 [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags). You should
-install CMake to use [YouCompleteMe](https://github.com/Valloric/YouCompleteMe).
+install Node.js to use [coc.nvim](https://github.com/neoclide/coc.nvim).
 
 To update Vim plugins:
 
@@ -289,7 +289,7 @@ To update [vim-plug](https://github.com/junegunn/vim-plug):
 :PlugUpgrade
 ```
 
-For additional syntax checkers for [ALE](https://github.com/dense-analysis/ale)
+For additional syntax checkers for coc.nvim, [ALE](https://github.com/dense-analysis/ale),
 or [Syntastic](https://github.com/vim-syntastic/syntastic):
 
 - C, C++
