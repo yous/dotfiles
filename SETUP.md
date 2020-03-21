@@ -100,6 +100,14 @@
 - [Chrome](https://www.google.com/chrome/)
 - [Contexts](https://contexts.co)
 - [Dropbox](https://www.dropbox.com/install)
+- [Firefox](https://www.mozilla.org/ko/firefox/new/)
+  - 환경 설정
+    - 글꼴과 색상 > 고급... > 고정폭: Courier
+  - 사용자 지정...
+    - 밀도: 조밀함
+  - `about:config`
+    - `mousewheel.with_control.action`: 1
+    - `mousewheel.with_meta.action`: 1
 - [Fluor](https://github.com/Pyroh/Fluor)
 - [GPG Suite](https://gpgtools.org)
   - Customize > Uncheck GPGMail
@@ -246,6 +254,12 @@
 - [Chrome](https://www.google.com/chrome/)
 - [Dropbox](https://www.dropbox.com/install)
 - [Firefox](https://www.mozilla.org/ko/firefox/new/)
+  - 설정
+    - 글꼴과 색상 > 고급... > 고정폭: D2Coding
+  - 사용자 지정...
+    - 밀도: 조밀함
+  - `about:config`
+    - `mousewheel.with_control.action`: 1
 - [Groupy](https://www.stardock.com/products/groupy/)
 - [ShareX](https://getsharex.com)
 - [Slack](https://slack.com)
