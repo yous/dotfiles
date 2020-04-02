@@ -250,6 +250,11 @@
 
 - [팟플레이어](https://tv.kakao.com/guide/potplayer)
 - [1Password](https://agilebits.com/downloads)
+- [Auto Dark Mode](https://github.com/Armin2208/Windows-Auto-Night-Mode)
+  - Enable automatic theme switching: Check
+  - Apps: Adjust to theme
+  - System: Always dark
+  - Use Location Service: Check
 - [Bandizip](https://www.bandisoft.com/bandizip/)
 - [Chrome](https://www.google.com/chrome/)
 - [Dropbox](https://www.dropbox.com/install)
