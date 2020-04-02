@@ -1629,6 +1629,7 @@ function! LightLineFilename()
         \   (fpath ==# getcwd() . '/' ? fnamemodify(fpath, ':~') :
         \   fnamemodify(fpath, ':~:.')) :
         \ &filetype ==# 'fzf' ? 'fzf' :
+        \ &filetype ==# 'vim-plug' ? fpath :
         \ fname ==# '__Tag_List__' ? '' :
         \ fname ==# 'ControlP' ? '' :
         \ fname =~# 'NERD_tree' ?
