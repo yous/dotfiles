@@ -131,7 +131,7 @@ case "$1" in
     install_link
     ;;
   brew)
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ;;
   chruby)
     if [ "$(uname)" = 'Darwin' ]; then
@@ -145,9 +145,6 @@ case "$1" in
     ;;
   formulae)
     brew bundle --file="${DIR}/Brewfile" --no-lock
-    ;;
-  linuxbrew)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     ;;
   pwndbg)
     init_submodules
@@ -199,10 +196,9 @@ case "$1" in
     echo ''
     echo 'Available commands:'
     echo '    link         Install symbolic links'
-    echo '    brew         Install Homebrew'
+    echo '    brew         Install Homebrew on macOS (or Linux)'
     echo '    chruby       Install chruby'
     echo '    formulae     Install Homebrew formulae using Brewfile'
-    echo '    linuxbrew    Install Homebrew on Linux'
     echo '    pwndbg       Install pwndbg'
     echo '    pyenv        Install pyenv with pyenv-virtualenv'
     echo '    rbenv        Install rbenv'

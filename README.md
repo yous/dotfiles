@@ -43,10 +43,9 @@ For available install options:
 | Command option | Description                              |
 |----------------|------------------------------------------|
 | `link`         | Install symbolic links                   |
-| `brew`         | Install Homebrew                         |
+| `brew`         | Install Homebrew on macOS (or Linux)     |
 | `chruby`       | Install chruby                           |
 | `formulae`     | Install Homebrew formulae using Brewfile |
-| `linuxbrew`    | Install Homebrew on Linux                |
 | `pwndbg`       | Install pwndbg                           |
 | `pyenv`        | Install pyenv with pyenv-virtualenv      |
 | `rbenv`        | Install rbenv                            |
@@ -120,7 +119,7 @@ for more information.
 
 ### Homebrew
 
-If you want to install [Homebrew](http://brew.sh),
+If you want to install [Homebrew](http://brew.sh) or [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux),
 
 ``` sh
 ./install.sh brew
@@ -130,12 +129,6 @@ Then install Homebrew formulae with:
 
 ``` sh
 ./install.sh formulae
-```
-
-If you want to install [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux),
-
-``` sh
-./install.sh linuxbrew
 ```
 
 ### Ruby
