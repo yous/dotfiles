@@ -182,7 +182,7 @@ case "$1" in
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     ;;
   rvm)
-    command curl -sSL https://get.rvm.io | bash -s stable
+    \curl -sSL https://get.rvm.io | bash -s stable
     ;;
   weechat)
     replace_file 'weechat'
