@@ -181,6 +181,9 @@ case "$1" in
       sudo make install
     fi
     ;;
+  rustup)
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    ;;
   rvm)
     command curl -sSL https://get.rvm.io | bash -s stable
     ;;
@@ -204,6 +207,7 @@ case "$1" in
     echo '    pyenv        Install pyenv with pyenv-virtualenv'
     echo '    rbenv        Install rbenv'
     echo '    ruby-install Install ruby-install'
+    echo '    rustup       Install rustup'
     echo '    rvm          Install RVM'
     echo '    weechat      Install WeeChat configuration'
     echo '    z            Install z'

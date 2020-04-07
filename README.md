@@ -51,6 +51,7 @@ For available install options:
 | `pyenv`        | Install pyenv with pyenv-virtualenv      |
 | `rbenv`        | Install rbenv                            |
 | `ruby-install` | Install ruby-install                     |
+| `rustup`       | Install rustup                           |
 | `rvm`          | Install RVM                              |
 | `weechat`      | Install WeeChat configuration            |
 | `z`            | Install z                                |
@@ -212,6 +213,14 @@ Otherwise just install gems:
 ``` sh
 gem update --system
 gem install bundler rubocop ruby-lint wirble
+```
+
+### Rust
+
+If you want to install [rustup](https://rustup.rs),
+
+``` sh
+./install.sh rustup
 ```
 
 ### Python
