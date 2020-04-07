@@ -178,14 +178,7 @@ rvm get stable
 
 #### rbenv
 
-If you want to install [rbenv](https://github.com/sstephenson/rbenv), if you're
-on macOS,
-
-``` sh
-brew install rbenv
-```
-
-Otherwise,
+If you want to install [rbenv](https://github.com/sstephenson/rbenv),
 
 ``` sh
 ./install.sh rbenv
@@ -219,15 +212,7 @@ If you want to install [rustup](https://rustup.rs),
 ### Python
 
 If you want to install [pyenv](https://github.com/pyenv/pyenv) and
-[pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv), if you're on
-macOS,
-
-``` sh
-brew install pyenv
-brew install pyenv-virtualenv
-```
-
-Otherwise,
+[pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv),
 
 ``` sh
 ./install.sh pyenv
