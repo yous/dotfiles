@@ -11,6 +11,7 @@
   - [Git](#git)
   - [Homebrew](#homebrew)
   - [Ruby](#ruby)
+  - [Rust](#rust)
   - [Python](#python)
   - [Zsh](#zsh)
   - [Vim](#vim)
