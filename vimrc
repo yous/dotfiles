@@ -96,10 +96,12 @@ call plug#begin(s:vimfiles . '/plugged')
 Plug 'yous/vim-open-color'
 
 " General
-" Preserve missing EOL at the end of text files
-Plug 'yous/PreserveNoEOL', {
-      \ 'commit': '9ef2f01',
-      \ 'frozen': 1 }
+if !exists('+fixendofline')
+  " Preserve missing EOL at the end of text files
+  Plug 'yous/PreserveNoEOL', {
+        \ 'commit': '9ef2f01',
+        \ 'frozen': 1 }
+endif
 " EditorConfig plugin for Vim
 Plug 'editorconfig/editorconfig-vim'
 " sleuth.vim: Heuristically set buffer options
@@ -330,6 +332,11 @@ if has('extra_search')
 endif
 " Don't make a backup before overwriting a file
 set nobackup
+if exists('+fixendofline')
+  " When writing a file and this option is on, <EOL> at the end of file will be
+  " restored if missing
+  set nofixendofline
+endif
 " Override the 'ignorecase' if the search pattern contains upper case
 set smartcase
 " Don't redraw the screen while executing macros, registers and other commands
