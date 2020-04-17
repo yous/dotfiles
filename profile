@@ -24,11 +24,6 @@ if [ "$UNAME" = 'Darwin' ]; then
   add_to_path_once "/usr/local/bin:/usr/local/sbin"
 fi
 
-# Set VISUAL
-if command -v vim >/dev/null; then
-  export VISUAL="vim"
-fi
-
 # Load Linuxbrew
 if [ -d "$HOME/.linuxbrew" ]; then
   eval $("$HOME/.linuxbrew/bin/brew" shellenv)
@@ -86,6 +81,11 @@ fi
 # Unset local functions and variables
 unset -f add_to_path_once
 unset UNAME
+
+# Set VISUAL
+if command -v vim >/dev/null; then
+  export VISUAL="$(command -v vim)"
+fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
