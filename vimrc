@@ -1635,6 +1635,7 @@ function! LightLineFilename()
   return &filetype ==# 'dirvish' ?
         \   (fpath ==# getcwd() . '/' ? fnamemodify(fpath, ':~') :
         \   fnamemodify(fpath, ':~:.')) :
+        \ &buftype ==# 'terminal' ? fpath :
         \ &filetype ==# 'fzf' ? 'fzf' :
         \ &filetype ==# 'vim-plug' ? fpath :
         \ fname ==# '__Tag_List__' ? '' :
