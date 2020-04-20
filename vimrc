@@ -918,7 +918,7 @@ function! s:MapCompilingRust()
     call s:MapSaveAndRun('<F5>', 'make build')
     call s:MapSaveAndRun('<F6>', 'make run')
   else
-    " CompilerSet makeprg=rustc\ \%
+    " CompilerSet makeprg=rustc\ \%:S
     call s:MapSaveAndRun('<F5>', 'make -o %<')
   endif
 endfunction
@@ -939,10 +939,12 @@ augroup FileTypeMappings
   autocmd FileType c,cpp call s:MapSaveAndRun('<F5>', 'make')
   autocmd FileType c
         \ if !filereadable('Makefile') && !filereadable('makefile') |
+        \   compiler gcc |
         \   setlocal makeprg=gcc\ -o\ %<\ % |
         \ endif
   autocmd FileType cpp
         \ if !filereadable('Makefile') && !filereadable('makefile') |
+        \   compiler gcc |
         \   setlocal makeprg=g++\ -o\ %<\ % |
         \ endif
 
@@ -956,7 +958,10 @@ augroup FileTypeMappings
   autocmd FileType python call s:MapSaveAndRun('<F5>', '!python %')
 
   " Ruby
-  autocmd FileType ruby call s:MapSaveAndRun('<F5>', '!ruby %')
+  " CompilerSet makeprg=ruby
+  autocmd FileType ruby
+        \ compiler ruby |
+        \ call s:MapSaveAndRun('<F5>', 'make %')
 
   " Rust
   autocmd FileType rust call s:MapCompilingRust()
