@@ -113,6 +113,9 @@
   - Customize > Uncheck GPGMail
 - [Itsycal](https://www.mowglii.com/itsycal/)
 - [iTerm2](https://www.iterm2.com)
+- [Karabiner-Elements](https://karabiner-elements.pqrs.org)
+  - Simple modifications
+    - From key: caps_lock, To key: left_control
 - [MacTeX](https://www.tug.org/mactex/)
 - [Magnet](https://itunes.apple.com/kr/app//id441258766?mt=12)
 - [Mailplane](https://mailplaneapp.com)
