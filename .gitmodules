@@ -5,6 +5,3 @@
 [submodule "tpm"]
 	path = tpm
 	url = https://github.com/tmux-plugins/tpm.git
-[submodule "z"]
-	path = z
-	url = https://github.com/rupa/z.git
