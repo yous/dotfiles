@@ -42,4 +42,4 @@ brew "node"
 brew "vim"
 
 # Krypton
-brew "kryptco/tap/kr"
+brew "kryptco/tap/kr" if OS.mac?
