@@ -16,6 +16,15 @@ if command -v brew >/dev/null; then
   BREW_PREFIX="$(brew --prefix)"
 fi
 
+# See ZSHZLE(1).
+#
+# If one of the VISUAL or EDITOR environment variables contain the string `vi'
+# when the shell starts up then it will be `viins', otherwise it will be
+# `emacs'.
+#
+# Select keymap `emacs' for any operations by the current command
+bindkey -e
+
 # Use Zinit
 if [ ! -e "$HOME/.zinit/bin/zinit.zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
