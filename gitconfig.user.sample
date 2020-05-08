@@ -1,10 +1,12 @@
 [commit]
-	gpgsign = true
+	gpgSign = true
 [sendemail]
 	smtpEncryption = tls
 	smtpServer = smtp.gmail.com
 	smtpServerPort = 587
 	smtpUser = yousbe@gmail.com
+[tag]
+	gpgSign = true
 [user]
 	name = Chayoung You
 	email = yousbe@gmail.com
