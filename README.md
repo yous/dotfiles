@@ -304,8 +304,8 @@ or [Syntastic](https://github.com/vim-syntastic/syntastic):
 To use Python 2 or 3 via pyenv in [Neovim](https://neovim.io),
 
 ``` sh
-pyenv install 2.7.17
-pyenv virtualenv 2.7.17 neovim2
+pyenv install 2.7.18
+pyenv virtualenv 2.7.18 neovim2
 pyenv activate neovim2
 pip install pynvim
 
