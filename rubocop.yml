@@ -1,6 +1,0 @@
-inherit_from: .rubocop_todo.yml
-
-Metrics/BlockLength:
-  Exclude:
-    - 'Rakefile'
-    - 'spec/**/*.rb'
