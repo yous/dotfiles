@@ -192,14 +192,14 @@ If you are using RVM,
 ``` sh
 gem update --system
 rvm use current@global
-gem install bundler rubocop ruby-lint wirble
+gem install bundler rubocop
 ```
 
 Otherwise just install gems:
 
 ``` sh
 gem update --system
-gem install bundler rubocop ruby-lint wirble
+gem install bundler rubocop
 ```
 
 ### Rust
@@ -295,7 +295,6 @@ or [Syntastic](https://github.com/vim-syntastic/syntastic):
   - jedi: `pip install jedi`
 - Ruby
   - RuboCop: `gem install rubocop`
-  - ruby-lint: `gem install ruby-lint`
 - SASS, SCSS
   - stylelint: `npm install -g stylelint stylelint-config-sass-guidelines`
 
