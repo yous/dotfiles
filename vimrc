@@ -1145,7 +1145,9 @@ endif
 " =============================================================================
 
 " PreserveNoEOL
-let g:PreserveNoEOL = 1
+if has_key(g:plugs, 'PreserveNoEOL')
+  let g:PreserveNoEOL = 1
+endif
 
 " vim-sleuth
 let g:sleuth_automatic = 1
