@@ -110,8 +110,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'chrisbra/Recover.vim'
 " obsession.vim: continuously updated session files
 Plug 'tpope/vim-obsession'
-" Vim plugin to edit binary files in a hex mode automatically
-Plug 'fidian/hexmode'
+" Ultimate hex editing system with Vim
+Plug 'Shougo/vinarise.vim'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
 " the missing window movement
@@ -1189,9 +1189,6 @@ if has_key(g:plugs, 'tcd.vim')
     autocmd User Obsession call s:SaveTabInfo()
   augroup END
 endif
-
-" hexmode
-let g:hexmode_xxd_options = '-g 4'
 
 " vim-gutentags
 function! s:BuildTagsFileListCmd(prog)
