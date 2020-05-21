@@ -369,6 +369,7 @@ if has('patch-8.1.1270')
   set shortmess-=S
 endif
 " Exclude East Asian characters from spell checking
+set spelllang-=cjk
 set spelllang+=cjk
 " Files with these suffixes get a lower priority when multiple files match a
 " wildcard
