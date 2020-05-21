@@ -604,6 +604,29 @@ endif
 set autoindent
 if has('cindent')
   set cindent
+  " Sets how Vim performs indentation
+  " lN: If N != 0 Vim will align with a case label instead of the statement
+  "     after it in the same line
+  " gN: Place C++ scope declarations N characters from the indent of the block
+  "     they are in
+  " hN: Place statements occurring after a C++ scope declaration N characters
+  "     from the indent of the label
+  " tN: Indent a function return type declaration N characters from the margin
+  " (N: When in unclosed parentheses, indent N characters from the line with the
+  "     unclosed parentheses
+  "     When N is 0 or the unclosed parentheses is the first non-white character
+  "     in its line, line up with the next non-white character after the
+  "     unclosed parentheses
+  " WN: When in unclosed parentheses and N is non-zero and either using "(0" or
+  "     "u0", respectively and the unclosed parentheses is the last non-white
+  "     character in its line and it is not the closing parentheses, indent the
+  "     following line N characters relative to the outer context (i.e. start of
+  "     the line or the next unclosed parentheses)
+  " kN: When in unclosed parentheses which follow "if", "for" or "while" and N
+  "     is non-zero, overrides the behaviour defined by "(N": causes the indent
+  "     to be N characters relative to the outer context (i.e. the line where
+  "     "if", "for" or "while" is)
+  set cinoptions=l1,g0.5s,h0.5s,t0,(0,W2s,k2s
 endif
 set expandtab
 " Insert only one space after a '.', '?' and '!' with a join command
