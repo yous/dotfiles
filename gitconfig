@@ -41,6 +41,7 @@
 	default = simple
 [rebase]
 	autoStash = true
+	autoSquash = true
 [rerere]
 	enabled = true
 [sendemail]
