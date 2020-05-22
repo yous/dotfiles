@@ -432,7 +432,7 @@ catch /^Vim\%((\a\+)\)\=:E185/
   set background=dark
 endtry
 
-if has('syntax') && has('gui_running') && &t_Co > 16
+if has('syntax') && (has('gui_running') || &t_Co > 16)
   " Highlight the screen line of the cursor
   set cursorline
 endif
