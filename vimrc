@@ -594,6 +594,17 @@ if has('gui_running')
           \   call s:ScreenSave() |
           \ endif
   augroup END
+  augroup NoCursorMoveOnFocus
+    autocmd!
+    autocmd FocusLost *
+          \ let s:oldmouse = &mouse |
+          \ set mouse=
+    autocmd FocusGained *
+          \ if get(s:, 'oldmouse', '') !=# '' |
+          \   let &mouse = s:oldmouse |
+          \   unlet s:oldmouse |
+          \ endif
+  augroup END
 endif
 
 " }}}
