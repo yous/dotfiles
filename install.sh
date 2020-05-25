@@ -102,6 +102,7 @@ install_link() {
     'profile' \
     'screenrc' \
     'tern-config' \
+    'tigrc' \
     'tmux.conf' \
     'vintrc.yaml' \
     'vimrc' \
