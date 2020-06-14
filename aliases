@@ -17,7 +17,7 @@ aptup() {
       unset ch
     fi
   done
-  sudo apt upgrade
+  sudo apt -y upgrade
 }
 
 # Bundler
