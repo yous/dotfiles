@@ -182,6 +182,8 @@ Plug 'justinmk/vim-sneak'
 Plug 'bkad/CamelCaseMotion'
 " The matchit plugin from Vim
 Plug 'chrisbra/matchit'
+" Python matchit support
+Plug 'voithos/vim-python-matchit', { 'for': 'python' }
 " Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
 Plug 'dkarter/bullets.vim'
 " Auto close (X)HTML tags
