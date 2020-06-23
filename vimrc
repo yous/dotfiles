@@ -180,8 +180,8 @@ Plug 'tpope/vim-endwise'
 Plug 'justinmk/vim-sneak'
 " Provide CamelCase motion through words
 Plug 'bkad/CamelCaseMotion'
-" Extended % matching for HTML, LaTeX, and many other languages
-Plug 'tmhedberg/matchit'
+" The matchit plugin from Vim
+Plug 'chrisbra/matchit'
 " Bullets.vim is a Vim/NeoVim plugin for automated bullet lists.
 Plug 'dkarter/bullets.vim'
 " Auto close (X)HTML tags
