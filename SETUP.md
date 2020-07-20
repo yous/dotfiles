@@ -99,6 +99,30 @@
 - [Bear](https://itunes.apple.com/kr/app//id1091189122?mt=12)
 - [Chrome](https://www.google.com/chrome/)
 - [Contexts](https://contexts.co)
+  - Appearance
+    - Theme: Vibrant Dark
+  - General
+    - Check "When using multiple displays, use switching workaround
+  - Sidebar
+    - Show Sidebar on: No display
+  - Panel
+    - Show Panel on: All displays
+  - Search
+    - Search with: Fn-Space
+    - Fast Search with: Fn-&lt;characters>
+  - Command-Tab
+    - Command-Tab
+      - Show windows from: All Spaces
+      - Show windows of: All apps
+      - Minimized windows: Show
+      - Hidden windows: Show
+      - Apps without windows: Show
+    - Command-Backtick
+      - Show windows from: All Spaces
+      - Show windows of: Active app
+      - Minimized windows: Show
+      - Hidden windows: Show
+      - Apps without windows: Show
 - [Dropbox](https://www.dropbox.com/install)
 - [Firefox](https://www.mozilla.org/ko/firefox/new/)
   - 환경 설정
