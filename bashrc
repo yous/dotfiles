@@ -259,11 +259,20 @@ fi
 
 # Enable keychain
 if command -v keychain >/dev/null; then
-  if [ -f "$HOME/.ssh/id_rsa" ]; then
-    eval `keychain --eval --quiet --agents ssh id_rsa`
-  elif [ -f "$HOME/.ssh/id_ed25519" ]; then
-    eval `keychain --eval --quiet --agents ssh id_ed25519`
+  KEY=''
+  if [ -f "$HOME/.ssh/id_ed25519" ]; then
+    KEY='id_ed25519'
+  elif [ -f "$HOME/.ssh/id_rsa" ]; then
+    KEY='id_rsa'
   fi
+  if [ -n "$KEY" ]; then
+    if [ "$(uname)" = 'Darwin' ]; then
+      eval `keychain --eval --quiet --agents ssh --inherit any $KEY`
+    else
+      eval `keychain --eval --quiet --agents ssh $KEY`
+    fi
+  fi
+  unset KEY
 fi
 
 # Unset local functions and variables
