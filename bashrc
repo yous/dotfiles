@@ -87,10 +87,12 @@ else
 fi
 
 if [ "$git_prompt_loaded" = "yes" ]; then
-  if [[ "$(uname)" == 'Linux' ]] || [[ "$(uname)" == 'Darwin' ]]; then
-    GIT_PS1_SHOWDIRTYSTATE=true
-    GIT_PS1_STATESEPARATOR=""
-  fi
+  case "$(uname)" in
+    Darwin | Linux)
+      GIT_PS1_SHOWDIRTYSTATE=true
+      GIT_PS1_STATESEPARATOR=""
+      ;;
+  esac
 fi
 
 if [ "$color_prompt" = yes ]; then
