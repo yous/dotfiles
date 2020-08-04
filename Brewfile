@@ -20,6 +20,7 @@ end
 brew "bat"
 brew "fd"
 brew "htop"
+brew "keychain" if OS.mac?
 brew "pre-commit"
 brew "ripgrep"
 brew "tig"
