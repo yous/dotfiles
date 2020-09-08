@@ -89,6 +89,7 @@
 - [SF Mono](https://developer.apple.com/fonts/)
   - macOS Sierra: `/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SF-Mono-*`
   - macOS High Sierra: `/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*`
+  - macOS Catalina: `/System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*`
 
 ## Applications
 
@@ -140,20 +141,24 @@
 - [Karabiner-Elements](https://karabiner-elements.pqrs.org)
   - Simple modifications
     - From key: caps_lock, To key: left_control
+- [Lunar](https://lunar.fyi)
 - [MacTeX](https://www.tug.org/mactex/)
 - [Magnet](https://itunes.apple.com/kr/app//id441258766?mt=12)
 - [Mailplane](https://mailplaneapp.com)
-- [NightOwl](https://nightowl.kramser.xyz)
+- [NightOwl](https://nightowl.kramser.xyz) (macOS 10.14 and below)
 - [PDF Expert](https://pdfexpert.com)
 - [Safari Extensions](https://safari-extensions.apple.com)
   - macOS 10.15 and above
-    - [1Blocker](https://apps.apple.com/kr/app/1blocker-faster-safer-web/id1107421413?mt=12)
+    - [1Blocker for Safari](https://apps.apple.com/kr/app/1blocker-for-safari/id1107421413?mt=12)
     - [TranslateMe for Safari](https://apps.apple.com/kr/app/translateme-for-safari/id1448316680?mt=12)
   - macOS 10.14 and below
     - [Translate](https://safari-extensions.apple.com/details/?id=com.sidetree.Translate-S64NDGV2C5)
     - [uBlock Origin](https://safari-extensions.apple.com/details/?id=com.el1t.uBlock-3NU33NW2M3)
 - [Slack](https://slack.com)
 - [Things 3](https://itunes.apple.com/kr/app/things-3/id904280696?mt=12)
+- [ToothFairy](https://apps.apple.com/kr/app/toothfairy/id1191449274?mt=12)
+- [Tweetbot 3 for Twitter](https://apps.apple.com/kr/app/tweetbot-3-for-twitter/id1384080005?mt=12)
+- [UninstallPKG](https://www.corecode.io/uninstallpkg/)
 - Quick Look
   - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
   - [QLColorCode](https://github.com/anthonygelibert/QLColorCode)
@@ -265,12 +270,6 @@
 - [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
 - [Windows Subsystem for Linux](https://docs.microsoft.com/ko-kr/windows/wsl/install-win10)
-  - Install the current stable Neovim:
-
-    ``` sh
-    sudo add-apt-repository ppa:neovim-ppa/stable
-    sudo apt install neovim
-    ```
 - Add `%USERPROFILE%\bin` to `%PATH%`
 
 ## Applications
@@ -278,10 +277,12 @@
 - [팟플레이어](https://tv.kakao.com/guide/potplayer)
 - [1Password](https://agilebits.com/downloads)
 - [Auto Dark Mode](https://github.com/Armin2208/Windows-Auto-Night-Mode)
-  - Enable automatic theme switching: Check
-  - Apps: Adjust to theme
-  - System: Always dark
-  - Use Location Service: Check
+  - Time
+    - Enable automatic theme switching: Check
+      - Select "From sunset to sunrise"
+  - Apps
+    - Apps: Adapt to system
+    - System: Adapt to system
 - [Bandizip](https://www.bandisoft.com/bandizip/)
 - [Chrome](https://www.google.com/chrome/)
 - [Dropbox](https://www.dropbox.com/install)
@@ -292,7 +293,5 @@
     - 밀도: 조밀함
   - `about:config`
     - `mousewheel.with_control.action`: 1
-- [Groupy](https://www.stardock.com/products/groupy/)
 - [ShareX](https://getsharex.com)
 - [Slack](https://slack.com)
-- [VNC Viewer](https://www.realvnc.com/download/viewer/)
