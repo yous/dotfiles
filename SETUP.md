@@ -133,6 +133,8 @@
   - `about:config`
     - `mousewheel.with_control.action`: 1
     - `mousewheel.with_meta.action`: 1
+    - `network.security.esni.enabled`: true
+    - `network.trr.mode`: 2
 - [Fluor](https://github.com/Pyroh/Fluor)
 - [GPG Suite](https://gpgtools.org)
   - Customize > Uncheck GPGMail
@@ -293,5 +295,7 @@
     - 밀도: 조밀함
   - `about:config`
     - `mousewheel.with_control.action`: 1
+    - `network.security.esni.enabled`: true
+    - `network.trr.mode`: 2
 - [ShareX](https://getsharex.com)
 - [Slack](https://slack.com)
