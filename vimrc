@@ -104,8 +104,6 @@ if !exists('+fixendofline')
 endif
 " EditorConfig plugin for Vim
 Plug 'editorconfig/editorconfig-vim'
-" sleuth.vim: Heuristically set buffer options
-Plug 'tpope/vim-sleuth'
 " A Plugin to show a diff, whenever recovering a buffer
 Plug 'chrisbra/Recover.vim'
 " obsession.vim: continuously updated session files
@@ -1187,9 +1185,6 @@ endif
 if has_key(g:plugs, 'PreserveNoEOL')
   let g:PreserveNoEOL = 1
 endif
-
-" vim-sleuth
-let g:sleuth_automatic = 1
 
 " vim-obsession
 if has_key(g:plugs, 'tcd.vim')
