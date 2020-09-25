@@ -1939,7 +1939,11 @@ let g:vimrubocop_keymap = 0
 nnoremap <Leader>ru :RuboCop<CR>
 
 " vim-polyglot
-let g:polyglot_disabled = ['latex', 'markdown']
+augroup VimPolyglot
+  autocmd!
+  " Declare before polyglot is loaded
+  autocmd VimEnter * let g:polyglot_disabled = ['latex', 'markdown']
+augroup END
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
