@@ -267,6 +267,7 @@ Plug 'raichoo/smt-vim', { 'for': 'smt' }
 " Vader
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
 " A solid language pack for Vim
+let g:polyglot_disabled = ['latex', 'markdown']
 Plug 'sheerun/vim-polyglot'
 
 " macOS
@@ -1939,11 +1940,6 @@ let g:vimrubocop_keymap = 0
 nnoremap <Leader>ru :RuboCop<CR>
 
 " vim-polyglot
-augroup VimPolyglot
-  autocmd!
-  " Declare before polyglot is loaded
-  autocmd VimEnter * let g:polyglot_disabled = ['latex', 'markdown']
-augroup END
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
