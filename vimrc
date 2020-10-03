@@ -731,6 +731,10 @@ noremap gk k
 noremap H ^
 noremap L $
 
+" Keep jumplist on page scroll
+nnoremap <silent> <C-B> :<C-U>execute "keepjumps normal! " . v:count1 . "<C-V><C-B>"<CR>
+nnoremap <silent> <C-F> :<C-U>execute "keepjumps normal! " . v:count1 . "<C-V><C-F>"<CR>
+
 " Unix shell behavior
 inoremap <C-A> <C-C>I
 inoremap <expr> <C-E> pumvisible() ? "\<C-E>" : "\<End>"
