@@ -26,6 +26,7 @@
 	process = git-lfs filter-process
 	required = true
 [init]
+	defaultBranch = main
 	templateDir = ~/.git-templates
 [interactive]
 	diffFilter = diff-highlight
