@@ -1852,11 +1852,11 @@ augroup GitGutterConfig
   autocmd!
   autocmd VimEnter * call s:RedefineGitGutterAutocmd()
 augroup END
-nnoremap <silent> <expr> [c ":\<C-U>execute 'normal ' . v:count1 . " . (maparg('<lt>Plug>(GitGutterPrevHunk)', 'n') !=# '' ? '"\<Plug>(GitGutterPrevHunk)"' : '"\<Plug>GitGutterPrevHunk"') . "\<CR>zz"
-nnoremap <silent> <expr> ]c ":\<C-U>execute 'normal ' . v:count1 . " . (maparg('<lt>Plug>(GitGutterNextHunk)', 'n') !=# '' ? '"\<Plug>(GitGutterNextHunk)"' : '"\<Plug>GitGutterNextHunk"') . "\<CR>zz"
-nmap <silent> <expr> <Leader>ha maparg('<lt>Plug>(GitGutterStageHunk)', 'n') !=# '' ? "\<Plug>(GitGutterStageHunk)" : "\<Plug>GitGutterStageHunk"
-nmap <silent> <expr> <Leader>hr maparg('<lt>Plug>(GitGutterUndoHunk)', 'n') !=# '' ? "\<Plug>(GitGutterUndoHunk)" : "\<Plug>GitGutterUndoHunk"
-nmap <silent> <expr> <Leader>hv maparg('<lt>Plug>(GitGutterPreviewHunk)', 'n') !=# '' ? "\<Plug>(GitGutterPreviewHunk)" : "\<Plug>GitGutterPreviewHunk"
+nnoremap <silent> [c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterPrevHunk)"<CR>zz
+nnoremap <silent> ]c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterNextHunk)"<CR>zz
+nmap <silent> <Leader>ha <Plug>(GitGutterStageHunk)
+nmap <silent> <Leader>hr <Plug>(GitGutterUndoHunk)
+nmap <silent> <Leader>hv <Plug>(GitGutterPreviewHunk)
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
