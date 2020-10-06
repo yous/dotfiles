@@ -1854,9 +1854,6 @@ augroup GitGutterConfig
 augroup END
 nnoremap <silent> [c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterPrevHunk)"<CR>zz
 nnoremap <silent> ]c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterNextHunk)"<CR>zz
-nmap <silent> <Leader>ha <Plug>(GitGutterStageHunk)
-nmap <silent> <Leader>hr <Plug>(GitGutterUndoHunk)
-nmap <silent> <Leader>hv <Plug>(GitGutterPreviewHunk)
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
