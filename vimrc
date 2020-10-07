@@ -1480,8 +1480,11 @@ if has_key(g:plugs, 'ale')
   let g:ale_c_clangtidy_checks = [
         \ '*',
         \ '-cppcoreguidelines-avoid-magic-numbers',
+        \ '-cppcoreguidelines-macro-usage',
         \ '-fuchsia-*',
         \ '-google-readability-todo',
+        \ '-hicpp-no-assembler',
+        \ '-hicpp-signed-bitwise',
         \ '-hicpp-uppercase-literal-suffix',
         \ '-llvm-*',
         \ '-modernize-use-trailing-return-type',
