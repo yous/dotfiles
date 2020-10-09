@@ -14,6 +14,7 @@ aptup() {
         printf "%b" "\r[$ch] Waiting for $lock..."
         sleep 0.5
       done
+      echo
       unset ch
     fi
   done
