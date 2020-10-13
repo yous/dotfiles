@@ -4,7 +4,9 @@ aptup() {
   for lock in '/var/lib/dpkg/lock-frontend' '/var/lib/dpkg/lock'; do
     if [ -e "$lock" ]; then
       ch='-'
+      locked=''
       while sudo fuser "$lock" >/dev/null 2>&1; do
+        locked='y'
         case "$ch" in
           -) ch=\\ ;;
           \\) ch='|' ;;
@@ -14,8 +16,8 @@ aptup() {
         printf "%b" "\r[$ch] Waiting for $lock..."
         sleep 0.5
       done
-      echo
-      unset ch
+      [ "$locked" = 'y' ] && echo
+      unset ch locked
     fi
   done
   sudo apt -y upgrade
