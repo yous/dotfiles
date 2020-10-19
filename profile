@@ -39,14 +39,6 @@ if [ -d "$HOME/.local/bin" ]; then
   add_to_path_once "$HOME/.local/bin"
 fi
 
-# Set PATH to include user's bin if it exists
-if [ -d "$HOME/bin" ]; then
-  add_to_path_once "$HOME/bin"
-fi
-if [ -d "$HOME/.local/bin" ]; then
-  add_to_path_once "$HOME/.local/bin"
-fi
-
 # Set GOPATH for Go
 if command -v go >/dev/null; then
   [ ! -e "$HOME/.go" ] && mkdir "$HOME/.go"
