@@ -188,6 +188,7 @@ fi
 
 # Load fzf
 if [ -f ~/.fzf.bash ]; then
+  export FZF_DEFAULT_OPTS='--bind ctrl-f:page-down,ctrl-b:page-up'
   source ~/.fzf.bash
 
   # fshow - git commit browser
