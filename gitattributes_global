@@ -1,2 +1,56 @@
+# UTF-16
 *.klc diff=utf-16
 *.reg diff=utf-16
+
+# BibTeX
+*.bib diff=bibtex
+
+# C++
+*.c diff=cpp
+*.cpp diff=cpp
+*.h diff=cpp
+*.hpp diff=cpp
+
+# C#
+*.cs diff=csharp
+
+# CSS
+*.css diff=css
+
+# Elixir
+*.ex diff=elixir
+*.exs diff=elixir
+
+# Go
+*.go diff=golang
+
+# HTML
+*.html diff=html
+*.xhtml diff=html
+
+# Java
+*.java diff=java
+
+# Markdown
+*.markdown diff=markdown
+*.md diff=markdown
+
+# Perl
+*.pl diff=perl
+
+# PHP
+*.php diff=php
+
+# Python
+*.py diff=python
+
+# Ruby
+*.gemspec diff=ruby
+*.rake diff=ruby
+*.rb diff=ruby
+
+# Rust
+*.rs diff=rust
+
+# TeX
+*.tex diff=tex
