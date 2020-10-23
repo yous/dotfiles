@@ -375,6 +375,8 @@
     elif [[ -n $VCS_STATUS_TAG ]]; then
       res+="${meta}#"
       where=${(V)VCS_STATUS_TAG}
+    else
+      where="$(git name-rev --name-only --no-undefined HEAD 2>/dev/null)"
     fi
 
     # If local branch name or tag is at most 32 characters long, show it in full.
