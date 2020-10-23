@@ -1,3 +1,28 @@
+# Enable keychain
+if command -v keychain >/dev/null; then
+  KEY=''
+  if [ -f "$HOME/.ssh/id_ed25519" ]; then
+    KEY='id_ed25519'
+  elif [ -f "$HOME/.ssh/id_rsa" ]; then
+    KEY='id_rsa'
+  fi
+  if [ -n "$KEY" ]; then
+    if [ "$(uname)" = 'Darwin' ]; then
+      eval `keychain --eval --quiet --agents ssh --inherit any $KEY`
+    else
+      eval `keychain --eval --quiet --agents ssh $KEY`
+    fi
+  fi
+  unset KEY
+fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Make the $path array have unique values.
 typeset -U path
 
@@ -38,8 +63,8 @@ else
   zinit ice blockf
 fi
 zinit light zsh-users/zsh-completions
-# Simple standalone Zsh theme
-zinit light yous/lime
+# A Zsh theme
+zinit light romkatv/powerlevel10k
 # A lightweight start point of shell configuration
 zinit light yous/vanilli.sh
 # Jump quickly to directories that you have visited "frecently." A native ZSH
@@ -166,24 +191,6 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
   fi
 fi
 
-# Enable keychain
-if command -v keychain >/dev/null; then
-  KEY=''
-  if [ -f "$HOME/.ssh/id_ed25519" ]; then
-    KEY='id_ed25519'
-  elif [ -f "$HOME/.ssh/id_rsa" ]; then
-    KEY='id_rsa'
-  fi
-  if [ -n "$KEY" ]; then
-    if [ "$(uname)" = 'Darwin' ]; then
-      eval `keychain --eval --quiet --agents ssh --inherit any $KEY`
-    else
-      eval `keychain --eval --quiet --agents ssh $KEY`
-    fi
-  fi
-  unset KEY
-fi
-
 # Unset local functions and variables
 unset BREW_PREFIX
 
@@ -196,3 +203,6 @@ fi
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

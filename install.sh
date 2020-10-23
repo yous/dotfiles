@@ -99,6 +99,7 @@ install_link() {
     'irbrc' \
     'minttyrc' \
     'npmrc' \
+    'p10k.zsh' \
     'profile' \
     'screenrc' \
     'tern-config' \
