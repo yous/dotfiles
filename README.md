@@ -358,22 +358,25 @@ If you want to install [pwndbg](https://github.com/pwndbg/pwndbg),
 
 ### IntelliJ, Android Studio
 
-To use [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme):
+To use Tomorrow Theme:
 
-1. Open File > Import Settings… in [IntelliJ](http://www.jetbrains.com/idea/) or
-   [Android Studio](http://developer.android.com/sdk/installing/studio.html).
-2. Select `tomorrow-theme/JetBrains/settings.jar`.
-3. Open Settings > Editor > Colors & Fonts.
-4. Select a scheme of Tomorrow Theme.
+1. Download `JetBrains/settings.jar` from [chriskempson/tomorrow-theme](https://github.com/chriskempson/tomorrow-theme).
+2. Open File > Import Settings… in [IntelliJ](https://www.jetbrains.com/idea/) or
+   [Android Studio](https://developer.android.com/studio).
+3. Select downloaded `settings.jar`.
+4. Open Settings > Editor > Colors Scheme.
+5. Select one of Tomorrow Theme.
 
 ### iTerm2
 
-To use [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme):
+To use Tomorrow Theme:
 
-1. Open Preferences… > Profiles > Colors.
-2. Click 'Load Presets…' and select 'Import…'.
-3. Select `*.itermcolors` files under `tomorrow-theme/iTerm2/`.
-4. Click 'Load Presets…' again and select one of Tomorrow Theme.
+1. Download `itermcolors/base16-tomorrow*-256.itermcolors` from
+   [martinlindhe/base16-iterm2](https://github.com/martinlindhe/base16-iterm2).
+2. Open Preferences… > Profiles > Colors.
+3. Click 'Load Presets…' and select 'Import…'.
+4. Select downloaded `base16-tomorrow*-256.itermcolors`.
+5. Click 'Load Presets…' again and select one of Tomorrow Theme.
 
 ## License
 
