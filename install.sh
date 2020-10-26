@@ -189,10 +189,6 @@ case "$1" in
   weechat)
     replace_file 'weechat'
     ;;
-  z)
-    init_submodules
-    replace_file 'z/z.sh' '.z.sh'
-    ;;
   *)
     echo "usage: $(basename "$0") <command>"
     echo ''
@@ -208,6 +204,5 @@ case "$1" in
     echo '    rustup       Install rustup'
     echo '    rvm          Install RVM'
     echo '    weechat      Install WeeChat configuration'
-    echo '    z            Install z'
     ;;
 esac

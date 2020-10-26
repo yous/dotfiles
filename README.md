@@ -54,7 +54,6 @@ For available install options:
 | `rustup`       | Install rustup                           |
 | `rvm`          | Install RVM                              |
 | `weechat`      | Install WeeChat configuration            |
-| `z`            | Install z                                |
 
 In Windows, use `install.bat`. It links files into the user's home directory.
 
@@ -355,20 +354,6 @@ If you want to install [pwndbg](https://github.com/pwndbg/pwndbg),
 
 ``` sh
 ./install.sh pwndbg
-```
-
-#### z
-
-If you want to install [z](https://github.com/rupa/z), if you're on macOS,
-
-``` sh
-brew install z
-```
-
-Otherwise,
-
-``` sh
-./install.sh z
 ```
 
 ### IntelliJ, Android Studio
