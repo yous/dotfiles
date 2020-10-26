@@ -104,8 +104,8 @@ install_link() {
     'screenrc' \
     'tigrc' \
     'tmux.conf' \
-    'vintrc.yaml' \
     'vimrc' \
+    'vintrc.yaml' \
     'zprofile' \
     'zshrc'
   do
