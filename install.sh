@@ -49,6 +49,10 @@ replace_file() {
     SRC="$DIR/$1"
   else
     SRC="$HOME/$1"
+    if [ ! -e "$SRC" ]; then
+      echoerr "Failed to find $1"
+      return
+    fi
   fi
 
   # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
