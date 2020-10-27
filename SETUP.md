@@ -163,7 +163,7 @@
 - [UninstallPKG](https://www.corecode.io/uninstallpkg/)
 - Quick Look
   - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
-  - [QLColorCode](https://github.com/anthonygelibert/QLColorCode)
+  - [Glance](https://github.com/samuelmeuli/glance)
   - [qlImageSize](https://github.com/Nyx0uf/qlImageSize)
   - [QLMarkdown](https://github.com/toland/qlmarkdown)
   - [QLStephen](https://github.com/whomwah/qlstephen)
