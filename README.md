@@ -371,11 +371,11 @@ To use Tomorrow Theme:
 
 To use Tomorrow Theme:
 
-1. Download `itermcolors/base16-tomorrow*-256.itermcolors` from
-   [martinlindhe/base16-iterm2](https://github.com/martinlindhe/base16-iterm2).
+1. Download `schemes/Tomorrow*.itermcolors` from
+   [mbadolato/iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes).
 2. Open Preferences… > Profiles > Colors.
 3. Click 'Load Presets…' and select 'Import…'.
-4. Select downloaded `base16-tomorrow*-256.itermcolors`.
+4. Select downloaded `Tomorrow*.itermcolors`.
 5. Click 'Load Presets…' again and select one of Tomorrow Theme.
 
 ## License

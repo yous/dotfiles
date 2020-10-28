@@ -243,7 +243,7 @@
     - Put into `%USERPROFILE%\bin`
 - [iPuTTY](https://github.com/iPuTTY/iPuTTY)
   - Put `putty.exe` into `%USERPROFILE%\bin`
-  - Import [tomorrow-theme/PuTTY/Tomorrow Night.reg](https://github.com/yous/tomorrow-theme/blob/fix-putty-reg/PuTTY/Tomorrow%20Night.reg)
+  - Import `putty/Tomorrow Night.reg` from [mbadolato/iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)
   - Default Settings
     - Columns: 80, Rows: 66
     - Lines of scrollback: 10000
