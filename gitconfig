@@ -11,6 +11,7 @@
 [commit]
 	verbose = true
 [diff]
+	colorMoved = true
 	compactionHeuristic = true
 	renames = true
 	submodule = log
