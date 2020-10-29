@@ -1303,7 +1303,7 @@ if has_key(g:plugs, 'fzf.vim')
           \   fzf#vim#with_preview(
           \     { 'options': '--delimiter : --nth 4..' }, 'right:50%'),
           \   <bang>0)
-    command! -bang -nargs=* -complete=dir Rgd
+    command! -bang -nargs=+ -complete=dir Rgd
           \ call fzf#vim#grep(
           \   s:rg_common . '--fixed-strings ' . shellescape(''),
           \   1,
