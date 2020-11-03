@@ -14,10 +14,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install vim-vint
       - name: Lint with shellcheck
-        uses: ludeeus/action-shellcheck@master
+        uses: azohra/shell-linter@latest
         with:
-          ignore: "bashrc profile zprofile zshrc"
-          check_together: "yes"
+          path: "colors.sh,install.sh"
       - name: Lint with vint
         run: |
           vint ideavimrc vimrc
