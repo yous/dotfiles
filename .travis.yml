@@ -1,9 +1,0 @@
-language: python
-dist: bionic
-python:
-  - 3.8
-install:
-  - pip install vim-vint
-script:
-  - shellcheck colors.sh install.sh
-  - vint ideavimrc vimrc

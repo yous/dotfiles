@@ -1,6 +1,6 @@
 # dotfiles
 
-[![Build Status](https://travis-ci.org/yous/dotfiles.svg?branch=master)](https://travis-ci.org/yous/dotfiles)
+[![Build Status](https://github.com/yous/dotfiles/workflows/CI/badge.svg?branch=master)](https://github.com/yous/dotfiles/actions?query=branch%3Amaster)
 
 [@yous](https://github.com/yous)' dotfiles.
 

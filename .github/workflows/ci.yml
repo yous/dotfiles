@@ -1,0 +1,23 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install vim-vint
+      - name: Lint with shellcheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          ignore: "bashrc profile zprofile zshrc"
+          check_together: "yes"
+      - name: Lint with vint
+        run: |
+          vint ideavimrc vimrc
