@@ -60,7 +60,7 @@ hex() {
   echo "Bin: $(echo "obase=2; $num" | bc)"
   # [:print:]
   if [ "$num" -ge "32" ] && [ "$num" -le "126" ]; then
-    echo "Chr: $(printf "\x$(printf '%x' "$num")")"
+    echo "Chr: $(printf '\\x%02x' "$num")"
   fi
 }
 
