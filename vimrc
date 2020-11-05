@@ -1116,7 +1116,7 @@ augroup FileTypeAutocmds
   endif
 
   " ASM view
-  autocmd BufNewFile,BufRead *.S setlocal filetype=gas
+  autocmd BufNewFile,BufRead *.[sS] setlocal filetype=gas
 
   " Gradle view
   autocmd BufNewFile,BufRead *.gradle setlocal filetype=groovy
