@@ -136,8 +136,7 @@
     - `network.security.esni.enabled`: true
     - `network.trr.mode`: 2
 - [Fluor](https://github.com/Pyroh/Fluor)
-- [GPG Suite](https://gpgtools.org)
-  - Customize > Uncheck GPGMail
+- [GnuPG for OSX](https://sourceforge.net/p/gpgosx/docu/Download/)
 - [Itsycal](https://www.mowglii.com/itsycal/)
 - [iTerm2](https://www.iterm2.com)
 - [Karabiner-Elements](https://karabiner-elements.pqrs.org)
