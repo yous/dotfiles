@@ -102,6 +102,85 @@ if ! is-at-least 5.3; then
   bindkey -M vicmd 'j' history-substring-search-down
 fi
 
+# Set title
+__prompt_precmd() {
+  # Username, hostname and current directory
+  local window_title="$(print -Pn '%n@%m: %~')"
+  local tab_title="$(__prompt_tab_title)"
+
+  # Inside screen or tmux
+  case "$TERM" in
+    screen*)
+      # Set window title
+      print -n '\e]0;'
+      echo -n "$window_title"
+      print -n '\a'
+
+      # Set window name
+      print -n '\ek'
+      echo -n "$tab_title"
+      print -n '\e\\'
+      ;;
+    cygwin|putty*|rxvt*|xterm*)
+      # Set window title
+      print -n '\e]2;'
+      echo -n "$window_title"
+      print -n '\a'
+
+      # Set tab name
+      print -n '\e]1;'
+      echo -n "$tab_title"
+      print -n '\a'
+      ;;
+    *)
+      # Set window title if it's available
+      zmodload zsh/terminfo
+      if [[ -n "$terminfo[tsl]" ]] && [[ -n "$terminfo[fsl]" ]]; then
+        echoti tsl
+        echo -n "$window_title"
+        echoti fsl
+      fi
+      ;;
+  esac
+}
+
+# Show the current job
+__prompt_preexec() {
+  local tab_title="$(__prompt_tab_title "$1")"
+
+  # Inside screen or tmux
+  case "$TERM" in
+    screen*)
+      # Set window name
+      print -n '\ek'
+      echo -n "$tab_title"
+      print -n '\e\\'
+      ;;
+    cygwin|putty*|rxvt*|xterm*)
+      # Set tab name
+      print -n '\e]1;'
+      echo -n "$tab_title"
+      print -n '\a'
+      ;;
+  esac
+}
+
+__prompt_tab_title() {
+  if [ "$#" -eq 1 ]; then
+    setopt local_options extended_glob
+    # Return the first command excluding env, options, sudo, ssh
+    print -rn ${1[(wr)^(*=*|-*|sudo|ssh)]:gs/%/%%}
+  else
+    # `%40<..<` truncates following string longer than 40 characters with `..`.
+    # `%~` is current working directory with `~` instead of full `$HOME` path.
+    # `%<<` sets the end of string to truncate.
+    print -Pn '%40<..<%~%<<'
+  fi
+}
+
+precmd_functions+=(__prompt_precmd)
+preexec_functions+=(__prompt_preexec)
+
 # Load autojump
 if command -v autojump >/dev/null; then
   if [ -f "$HOME/.autojump/etc/profile.d/autojump.sh" ]; then
