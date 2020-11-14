@@ -146,7 +146,7 @@
 - [MacTeX](https://www.tug.org/mactex/)
 - [Magnet](https://itunes.apple.com/kr/app//id441258766?mt=12)
 - [Mailplane](https://mailplaneapp.com)
-- [NightOwl](https://nightowl.kramser.xyz) (macOS 10.14 and below)
+- [NightOwl](https://nightowl.kramser.xyz) (macOS 10.14 and above)
 - [PDF Expert](https://pdfexpert.com)
 - [Safari Extensions](https://safari-extensions.apple.com)
   - macOS 10.15 and above
