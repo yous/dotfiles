@@ -191,14 +191,14 @@ If you are using RVM,
 ``` sh
 gem update --system
 rvm use current@global
-gem install bundler rubocop
+gem install rubocop
 ```
 
 Otherwise just install gems:
 
 ``` sh
 gem update --system
-gem install bundler rubocop
+gem install rubocop
 ```
 
 ### Rust
