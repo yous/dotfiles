@@ -13,7 +13,7 @@ if OS.mac?
   brew "zsh"
 
   # QLColorCode
-  brew "highlight"
+  brew "highlight" if MacOS.version < :catalina
 end
 
 # Utilities
