@@ -1298,14 +1298,14 @@ if has_key(g:plugs, 'fzf.vim')
           \ '--smart-case '
     command! -bang -nargs=* Rg
           \ call fzf#vim#grep(
-          \   s:rg_common . '--fixed-strings ' . shellescape(<q-args>),
+          \   s:rg_common . '--fixed-strings -- ' . shellescape(<q-args>),
           \   1,
           \   fzf#vim#with_preview(
           \     { 'options': '--delimiter : --nth 4..' }, 'right', 'ctrl-/'),
           \   <bang>0)
     command! -bang -nargs=+ -complete=dir Rgd
           \ call fzf#vim#grep(
-          \   s:rg_common . '--fixed-strings ' . shellescape(''),
+          \   s:rg_common . '--fixed-strings -- ' . shellescape(''),
           \   1,
           \   fzf#vim#with_preview(
           \     { 'dir': fnamemodify(expand(<q-args>), ':p:h'),
@@ -1314,7 +1314,7 @@ if has_key(g:plugs, 'fzf.vim')
           \   <bang>0)
     command! -bang -nargs=* Rgr
           \ call fzf#vim#grep(
-          \   s:rg_common . shellescape(<q-args>),
+          \   s:rg_common . '-- ' . shellescape(<q-args>),
           \   1,
           \   fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' },
           \     'right', 'ctrl-/'),
