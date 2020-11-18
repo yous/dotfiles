@@ -267,7 +267,9 @@ Plug 'raichoo/smt-vim', { 'for': 'smt' }
 " Vader
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
 " A solid language pack for Vim
-let g:polyglot_disabled = ['latex', 'markdown', 'sensible']
+let g:polyglot_disabled = [
+      \ 'latex', 'markdown',
+      \ 'autoindent', 'sensible']
 Plug 'sheerun/vim-polyglot'
 
 " macOS
