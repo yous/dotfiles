@@ -1429,7 +1429,7 @@ if has_key(g:plugs, 'coc.nvim')
 
   augroup CocFileType
     autocmd!
-    autocmd FileType diff,mail,markdown,netrw,qf,tagbar,text
+    autocmd FileType diff,mail,netrw,qf,tagbar,text
           \ let b:coc_enabled = 0
   augroup END
 endif
