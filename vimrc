@@ -667,8 +667,10 @@ augroup TextFormatting
   " Show utf-8 glyphs for TeX
   autocmd FileType bib,tex setlocal conceallevel=1
 
-  autocmd FileType c,cpp,java,json,perl
-        \ setlocal shiftwidth=4
+  " Reload .editorconfig because of heuristic detections done by vim-polyglot
+  autocmd FileType c,cpp,perl
+        \ setlocal shiftwidth=4 |
+        \ :EditorConfigReload
 
   autocmd FileType go
         \ setlocal noexpandtab shiftwidth=4 tabstop=4
@@ -676,6 +678,9 @@ augroup TextFormatting
   " Plain view for plugins
   autocmd FileType GV,vim-plug
         \ setlocal colorcolumn= nolist textwidth=0
+
+  autocmd FileType java,json
+        \ setlocal shiftwidth=4
 
   autocmd FileType make
         \ let &l:shiftwidth = &l:tabstop
