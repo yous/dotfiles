@@ -1358,37 +1358,6 @@ augroup END
 
 " coc.nvim
 if has_key(g:plugs, 'coc.nvim')
-  function! s:GenerateCclsConfig()
-    let ccls_config = {
-          \ 'command': 'ccls',
-          \ 'filetypes': ['c', 'cpp', 'cuda', 'objc', 'objcpp'],
-          \ 'rootPatterns': [
-          \   '.ccls', 'compile_commands.json', '.vim/', '.git/', '.hg/'],
-          \ 'initializationOptions': {
-          \   'cache': {
-          \     'directory': $HOME . '/.ccls-cache'
-          \   }
-          \ } }
-    if has('mac') || has('macunix')
-      let ccls_config['initializationOptions']['clang'] = {
-            \ 'extraArgs': [
-            \   '-isystem',
-            \   '/Applications/Xcode.app/Contents/Developer/Toolchains/' .
-            \     'XcodeDefault.xctoolchain/usr/include/c++/v1',
-            \   '-I',
-            \   '/Applications/Xcode.app/Contents/Developer/Platforms/' .
-            \     'MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/'] }
-      let clang_dirs = systemlist(
-            \ 'find /Library/Developer/CommandLineTools/usr/lib/clang ' .
-            \   '-depth 1 2>/dev/null')
-      if !empty(clang_dirs) && !empty(clang_dirs[0])
-        let ccls_config['initializationOptions']['clang']['resourceDir'] =
-              \ clang_dirs[0]
-      endif
-    endif
-    return ccls_config
-  endfunction
-
   call coc#config('suggest.minTriggerInputLength', 4)
   if has_key(g:plugs, 'echodoc.vim')
     call coc#config('suggest.echodocSupport', v:true)
@@ -1397,8 +1366,16 @@ if has_key(g:plugs, 'coc.nvim')
     call coc#config('diagnostic.displayByAle', v:true)
   endif
   call coc#config('coc.preferences.bracketEnterImprove', v:false)
-  if executable('ccls')
-    call coc#config('languageserver', { 'ccls': s:GenerateCclsConfig() })
+
+  " coc-clangd
+  if executable('clangd')
+    call coc#add_extension('coc-clangd')
+  else
+    let s:llvm_clangd_path = '/usr/local/opt/llvm/bin/clangd'
+    if executable(s:llvm_clangd_path)
+      call coc#config('clangd.path', s:llvm_clangd_path)
+      call coc#add_extension('coc-clangd')
+    endif
   endif
 
   " coc-python
@@ -1453,8 +1430,6 @@ if has_key(g:plugs, 'ale')
   let g:ale_linters = {
         \ 'rust': 'all' }
   let g:ale_linters_ignore = {
-        \ 'c': ['ccls'],
-        \ 'cpp': ['ccls'],
         \ 'python': [
         \   'bandit',
         \   'flake8',
