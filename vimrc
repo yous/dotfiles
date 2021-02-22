@@ -206,6 +206,10 @@ Plug 'tpope/vim-repeat'
 " Vim UI
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
+if has('patch-7.4.1557')
+  " Vim plugin that shows the context of the currently visible buffer contents
+  Plug 'wellle/context.vim'
+endif
 " Highlight the exact differences, based on characters and words
 Plug 'rickhowe/diffchar.vim'
 if !has('patch-8.1.1270')
@@ -1808,6 +1812,16 @@ if has_key(g:plugs, 'syntastic')
     SyntasticReset
   endfunction
   command! LightLineSyntasticToggleMode call s:LightLineSyntasticToggleMode()
+endif
+
+" context.vim
+if has_key(g:plugs, 'context.vim')
+  let g:context_add_mappings = 0
+  nnoremap <silent> <expr> <C-Y> context#util#map('<C-Y>')
+  nnoremap <silent> <expr> <C-E> context#util#map('<C-E>')
+  nnoremap <silent> <expr> zz    context#util#map('zz')
+  nnoremap <silent> <expr> zb    context#util#map('zb')
+  nnoremap <silent> <expr> zt    context#util#map_zt()
 endif
 
 " vim-searchindex
