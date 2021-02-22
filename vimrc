@@ -1402,6 +1402,7 @@ if has_key(g:plugs, 'coc.nvim')
   endif
 
   call coc#add_extension(
+        \ 'coc-cmake',
         \ 'coc-css',
         \ 'coc-emoji',
         \ 'coc-json',
@@ -1414,6 +1415,8 @@ if has_key(g:plugs, 'coc.nvim')
     autocmd FileType diff,mail,netrw,qf,tagbar,text
           \ let b:coc_enabled = 0
   augroup END
+
+  command! -nargs=0 Format :call CocAction('format')
 endif
 
 " echodoc.vim
