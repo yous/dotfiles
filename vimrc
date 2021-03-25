@@ -262,6 +262,8 @@ if v:version >= 700
 endif
 " Rake
 Plug 'tpope/vim-rake'
+" RBS
+Plug 'pocke/rbs.vim'
 " RuboCop
 Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 " smali
@@ -1525,6 +1527,11 @@ augroup EndwiseCMake
         \ let b:endwise_pattern = '\%(\<end\>.*\)\@<!\<&\>' |
         \ let b:endwise_syngroups = 'cmakeStatement,cmakeCommandConditional,' .
         \   'cmakeCommandRepeat,cmakeCommand'
+  autocmd FileType rbs
+        \ let b:endwise_addition = 'end' |
+        \ let b:endwise_words = 'module,class' |
+        \ let b:endwise_pattern = '^\(.*=\)\?\s*\%(private\s\+\|protected\s\+\|public\s\+\|module_function\s\+\)*\zs\%(module\|class\)\>\%(.*[^.:@$]\<end\>\)\@!\|\<do\ze\%(\s*|.*|\)\=\s*$' |
+        \ let b:endwise_syngroups = 'rbsDefine'
 augroup END
 
 " vim-sneak
