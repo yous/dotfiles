@@ -404,7 +404,7 @@
 
     # Display the current Git commit if there is no branch and no tag.
     # Tip: To always display the current Git commit, delete the next line.
-    if [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_LOCAL_BRANCH ]]; then
+    if [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]]; then
       local namerev="$(git name-rev --name-only --no-undefined HEAD 2>/dev/null)"
       if [[ -n $namerev ]]; then
         (( $#namerev > 32 )) && namerev[13,-13]="…"
