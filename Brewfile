@@ -29,7 +29,6 @@ brew "z"
 # Python
 brew "python"
 brew "pyenv"
-brew "pyenv-virtualenv"
 
 # Ruby
 brew "ruby"
