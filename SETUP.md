@@ -273,6 +273,7 @@
 - [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
 - [Windows Subsystem for Linux](https://docs.microsoft.com/ko-kr/windows/wsl/install-win10)
+- [Windows Terminal](https://aka.ms/terminal)
 - Add `%USERPROFILE%\bin` to `%PATH%`
 
 ## Applications
