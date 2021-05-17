@@ -1112,6 +1112,15 @@ augroup AutoUpdates
   endif
 augroup END
 
+" WSL
+if has('unix') && executable('clip.exe')
+  augroup AutoClipboard
+    autocmd!
+    autocmd TextYankPost *
+          \ if v:event.operator ==# 'y' | call system('clip.exe', @0) | endif
+  augroup END
+endif
+
 augroup FileTypeAutocmds
   autocmd!
 
