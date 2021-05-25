@@ -65,11 +65,11 @@ fi
 # Load pyenv
 if command -v pyenv >/dev/null; then
   export PYENV_ROOT="$HOME/.pyenv"
-  eval "$(pyenv init --path)"
+  eval "$(pyenv init --path 2>/dev/null)"
 elif [ -e "$HOME/.pyenv" ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   add_to_path_once "$HOME/.pyenv/bin"
-  eval "$(pyenv init --path)"
+  eval "$(pyenv init --path 2>/dev/null)"
 fi
 
 # Unset local functions and variables
