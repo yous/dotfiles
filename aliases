@@ -102,6 +102,9 @@ alias ll='ls -lh'
 alias la='ls -lAh'
 alias l='ls -lah'
 alias md='mkdir -p'
+mdcd() {
+  mkdir -p "$1" && cd "$1"
+}
 alias rd='rmdir'
 
 # Homebrew
