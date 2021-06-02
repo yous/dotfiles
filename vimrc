@@ -327,6 +327,11 @@ set complete-=i
 if has('patch-8.1.0360')
   set diffopt+=algorithm:patience
 endif
+if !isdirectory(s:vimfiles . '/swap')
+  call mkdir(s:vimfiles . '/swap', 'p')
+endif
+" List of directory names for the swap file, separated with commas
+execute 'set directory^=' . s:vimfiles . '/swap//'
 if has('multi_byte')
   set fileencodings=ucs-bom,utf-8,cp949,latin1
 endif
@@ -1155,15 +1160,6 @@ augroup FileTypeAutocmds
 
   " zsh-theme view
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
-augroup END
-
-" Disable swapfile for Dropbox
-augroup DisableSwap
-  autocmd!
-  autocmd BufNewFile,BufRead *
-        \ if resolve(expand('%:p')) =~# '/Dropbox/' |
-        \   setlocal noswapfile |
-        \ endif
 augroup END
 
 " Auto insert for git commit
