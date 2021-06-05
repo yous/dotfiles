@@ -1485,6 +1485,7 @@ if has_key(g:plugs, 'ale')
         \ '-hicpp-signed-bitwise',
         \ '-hicpp-uppercase-literal-suffix',
         \ '-llvm-*',
+        \ '-llvmlibc-*',
         \ '-modernize-use-trailing-return-type',
         \ '-readability-else-after-return',
         \ '-readability-magic-numbers',
