@@ -19,11 +19,11 @@ end
 # Utilities
 brew "bat"
 brew "fd"
+brew "gitui"
 brew "htop"
 brew "keychain" if OS.mac?
 brew "pre-commit"
 brew "ripgrep"
-brew "tig"
 brew "z"
 
 # Python

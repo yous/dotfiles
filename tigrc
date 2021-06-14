@@ -1,6 +1,0 @@
-# See https://github.com/jonas/tig/blob/master/tigrc for default configuration
-# or see 'man tigrc'
-
-# Cursor navigation
-bind generic <C-F> move-page-down
-bind generic <C-B> move-page-up
