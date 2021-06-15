@@ -148,7 +148,7 @@ case "$1" in
     fi
     ;;
   formulae)
-    brew bundle --file="${DIR}/Brewfile" --no-lock
+    brew bundle --file="${DIR}/Brewfile" --no-lock --no-upgrade
     ;;
   pwndbg)
     init_submodules
