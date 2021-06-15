@@ -106,7 +106,6 @@ install_link() {
     'p10k.zsh' \
     'profile' \
     'screenrc' \
-    'tigrc' \
     'tmux.conf' \
     'vimrc' \
     'vintrc.yaml' \
