@@ -142,7 +142,7 @@
 - [Karabiner-Elements](https://karabiner-elements.pqrs.org)
   - Simple modifications
     - From key: caps_lock, To key: left_control
-- [Lunar](https://lunar.fyi)
+- [Lunar 3](https://lunar.fyi)
 - [MacTeX](https://www.tug.org/mactex/)
 - [Magnet](https://itunes.apple.com/kr/app//id441258766?mt=12)
 - [Mailplane](https://mailplaneapp.com)
