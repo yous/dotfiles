@@ -927,7 +927,6 @@ if has('cscope') && executable('cscope')
 
   set cscopetag
   set cscopetagorder=0
-  set cscopeverbose
   call s:FindCscopeDB()
 
   " 0 or s: Find this C symbol
