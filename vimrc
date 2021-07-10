@@ -1377,6 +1377,7 @@ if has_key(g:plugs, 'coc.nvim')
   if has_key(g:plugs, 'ale')
     call coc#config('diagnostic.displayByAle', v:true)
   endif
+  call coc#config('coc.preferences.semanticTokensHighlights', v:false)
   call coc#config('coc.preferences.bracketEnterImprove', v:false)
 
   " coc-clangd
