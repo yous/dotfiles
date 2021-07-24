@@ -214,7 +214,7 @@ if has('patch-7.4.1557')
 endif
 " Highlight the exact differences, based on characters and words
 Plug 'rickhowe/diffchar.vim'
-if !has('patch-8.1.1270')
+if !has('patch-8.1.1270') && !has('nvim-0.4.0')
   " vim-searchindex: display number of search matches & index of a current match
   Plug 'google/vim-searchindex'
 endif
