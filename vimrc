@@ -231,7 +231,10 @@ Plug 'junegunn/rainbow_parentheses.vim', { 'for': [
       \ 'lisp',
       \ 'racket',
       \ 'scheme'] }
-if has('signs')
+if has('patch-8.0.902') || has('nvim')
+  " Show a diff using Vim its sign column.
+  Plug 'mhinz/vim-signify'
+elseif has('signs')
   " Show a git diff in the gutter and stages/reverts hunks
   Plug 'airblade/vim-gitgutter'
 endif
@@ -1855,22 +1858,32 @@ augroup RainbowParenthesesFileType
   autocmd FileType clojure,lisp,racket,scheme RainbowParentheses
 augroup END
 
+" vim-signify
+if has_key(g:plugs, 'vim-signify')
+  nnoremap <silent> [c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(signify-prev-hunk)"<CR>zz
+  nnoremap <silent> ]c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(signify-next-hunk)"<CR>zz
+  nnoremap <Leader>hp :<C-U>SignifyHunkDiff<CR>
+  nnoremap <Leader>hu :<C-U>SignifyHunkUndo<CR>
+endif
+
 " vim-gitgutter
-function! s:RedefineGitGutterAutocmd()
-  if get(g:, 'gitgutter_async', 0) && gitgutter#async#available()
-    augroup gitgutter
-      autocmd! CursorHold,CursorHoldI
-      autocmd CursorHold,CursorHoldI *
-            \ call gitgutter#process_buffer(bufnr(''), 1)
-    augroup END
-  endif
-endfunction
-augroup GitGutterConfig
-  autocmd!
-  autocmd VimEnter * call s:RedefineGitGutterAutocmd()
-augroup END
-nnoremap <silent> [c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterPrevHunk)"<CR>zz
-nnoremap <silent> ]c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterNextHunk)"<CR>zz
+if has_key(g:plugs, 'vim-gitgutter')
+  function! s:RedefineGitGutterAutocmd()
+    if get(g:, 'gitgutter_async', 0) && gitgutter#async#available()
+      augroup gitgutter
+        autocmd! CursorHold,CursorHoldI
+        autocmd CursorHold,CursorHoldI *
+              \ call gitgutter#process_buffer(bufnr(''), 1)
+      augroup END
+    endif
+  endfunction
+  augroup GitGutterConfig
+    autocmd!
+    autocmd VimEnter * call s:RedefineGitGutterAutocmd()
+  augroup END
+  nnoremap <silent> [c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterPrevHunk)"<CR>zz
+  nnoremap <silent> ]c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterNextHunk)"<CR>zz
+endif
 
 " goyo.vim
 nnoremap <Leader>G :Goyo<CR>
