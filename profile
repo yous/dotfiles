@@ -76,6 +76,11 @@ fi
 unset -f add_to_path_once
 unset UNAME
 
+# WSL
+if [ -e /proc/version ] && grep -q Microsoft /proc/version; then
+  export COLORTERM='truecolor'
+fi
+
 # Set VISUAL
 if command -v vim >/dev/null; then
   export VISUAL="$(command -v vim)"
