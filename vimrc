@@ -1417,6 +1417,12 @@ if has_key(g:plugs, 'coc.nvim')
     call coc#config('python.pythonPath', exepath('python'))
   endif
 
+  " coc-solargraph
+  if executable('solargraph')
+    call coc#config('solargraph.diagnostics', v:true)
+    call coc#add_extension('coc-solargraph')
+  endif
+
   call coc#add_extension(
         \ 'coc-cmake',
         \ 'coc-css',
@@ -1457,6 +1463,9 @@ if has_key(g:plugs, 'ale')
         \   'pydocstyle',
         \   'pylama',
         \   'pylint'] }
+  if executable('solargraph')
+    let g:ale_linters_ignore['ruby'] = ['rubocop']
+  endif
   let g:ale_set_highlights = 0
 
   " ale-c-options, ale-cpp-options

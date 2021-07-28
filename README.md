@@ -277,6 +277,7 @@ or [Syntastic](https://github.com/vim-syntastic/syntastic):
   - jedi: `pip install jedi`
 - Ruby
   - RuboCop: `gem install rubocop`
+  - Solargraph: `gem install solargraph`
 - SASS, SCSS
   - stylelint: `npm install -g stylelint stylelint-config-sass-guidelines`
 
