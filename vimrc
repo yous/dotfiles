@@ -178,8 +178,8 @@ endif
 Plug 'tpope/vim-endwise'
 " The missing motion for Vim
 Plug 'justinmk/vim-sneak'
-" Provide CamelCase motion through words
-Plug 'bkad/CamelCaseMotion'
+" More useful word motions for Vim
+Plug 'chaoren/vim-wordmotion'
 " The matchit plugin from Vim
 Plug 'chrisbra/matchit'
 " Python matchit support
@@ -1559,16 +1559,8 @@ let g:sneak#s_next = 1
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 
-" CamelCaseMotion
-function! s:CreateCamelCaseMotionMappings()
-  for mode in ['n', 'o', 'x']
-    for motion in ['w', 'b', 'e']
-      let target_mapping = '<Plug>CamelCaseMotion_' . motion
-      execute mode . 'map <silent> <Leader>' . motion . ' ' . target_mapping
-    endfor
-  endfor
-endfunction
-call s:CreateCamelCaseMotionMappings()
+" vim-wordmotion
+let g:wordmotion_prefix = '<Leader>'
 
 " bullets.vim
 let g:bullets_enabled_file_types = [
