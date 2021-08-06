@@ -35,7 +35,7 @@ brew "ruby"
 brew "chruby"
 
 # Node.js
-brew "node"
+brew "n"
 
 # Vim
 brew "vim"
