@@ -39,6 +39,12 @@ if [ -d "$HOME/.local/bin" ]; then
   add_to_path_once "$HOME/.local/bin"
 fi
 
+# Load n
+if command -v n >/dev/null; then
+  export N_PREFIX="$HOME/.n"
+  add_to_path_once "$N_PREFIX/bin"
+fi
+
 # Set GOPATH for Go
 if command -v go >/dev/null; then
   [ ! -e "$HOME/.go" ] && mkdir "$HOME/.go"
