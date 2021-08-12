@@ -18,9 +18,9 @@ end
 
 # Utilities
 brew "bat"
+brew "clementtsang/bottom/bottom"
 brew "fd"
 brew "gitui"
-brew "htop"
 brew "keychain" if OS.mac?
 brew "pre-commit"
 brew "ripgrep"
