@@ -1394,22 +1394,21 @@ if has_key(g:plugs, 'coc.nvim')
     endif
   endif
 
-  " coc-python
+  " coc-pyright
   for s:linter in [
         \ 'flake8',
         \ 'bandit',
         \ 'mypy',
-        \ 'pep8',
+        \ 'pytype',
+        \ 'pycodestyle',
         \ 'prospector',
         \ 'pydocstyle',
-        \ 'pylama']
+        \ 'pylama',
+        \ 'pylint']
     if executable(s:linter)
       call coc#config('python.linting.' . s:linter . 'Enabled', v:true)
     endif
   endfor
-  if !executable('pylint')
-    call coc#config('python.linting.pylintEnabled', v:false)
-  endif
   unlet s:linter
   if has('python3')
     call coc#config('python.pythonPath', exepath('python3'))
@@ -1429,7 +1428,7 @@ if has_key(g:plugs, 'coc.nvim')
         \ 'coc-css',
         \ 'coc-emoji',
         \ 'coc-json',
-        \ 'coc-python',
+        \ 'coc-pyright',
         \ 'coc-tag',
         \ 'coc-tsserver')
 
