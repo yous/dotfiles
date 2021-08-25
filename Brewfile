@@ -17,14 +17,18 @@ if OS.mac?
 end
 
 # Utilities
-brew "bat" unless OS.mac? && MacOS.version <= :high_sierra
 brew "clementtsang/bottom/bottom"
-brew "fd"
-brew "gitui" unless OS.mac? && MacOS.version <= :high_sierra
 brew "keychain" if OS.mac?
 brew "pre-commit"
-brew "ripgrep"
 brew "z"
+
+# Don't have bottles for Rust
+unless OS.mac? && MacOS.version < :mojave
+  brew "bat"
+  brew "fd"
+  brew "gitui"
+  brew "ripgrep"
+end
 
 # Python
 brew "python"
