@@ -762,7 +762,9 @@ inoremap <expr> <C-E> pumvisible() ? "\<C-E>" : "\<End>"
 function! s:CloseBrace()
   let line_num = line('.')
   let next_line = getline(line_num + 1)
-  if !empty(next_line) &&
+  if col('.') != col('$')
+    return "{\<CR>"
+  elseif !empty(next_line) &&
         \ indent(line_num + 1) == indent(line_num) &&
         \ next_line =~# '^\s*}'
     return "{\<CR>"
