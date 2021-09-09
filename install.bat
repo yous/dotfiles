@@ -15,6 +15,8 @@ gitignore_global^
 
 irbrc^
 
+npmrc^
+
 vimrc
 
 :: Files to link into bin
