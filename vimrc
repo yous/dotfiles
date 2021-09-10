@@ -250,8 +250,6 @@ Plug 'chrisbra/Colorizer'
 Plug 'yous/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
-" CUP
-Plug 'gcollura/cup.vim', { 'for': 'cup' }
 " GNU As
 Plug 'Shirk/vim-gas', { 'for': 'gas' }
 " LaTeX
@@ -261,8 +259,6 @@ Plug 'godlygeek/tabular', { 'for': 'markdown' } |
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " PHP
 Plug 'vim-scripts/php.vim-html-enhanced', { 'for': ['html', 'php'] }
-" Rails
-Plug 'tpope/vim-rails'
 if v:version >= 700
   " ANSI escape sequences concealed, but highlighted as specified (conceal)
   Plug 'powerman/vim-plugin-AnsiEsc', { 'for': 'railslog' }
@@ -289,12 +285,6 @@ Plug 'sheerun/vim-polyglot'
 if has('mac') || has('macunix')
   " Add plist editing support to Vim
   Plug 'darfink/vim-plist'
-  " Launch queries for Dash.app from inside Vim
-  Plug 'rizzatti/dash.vim', { 'on': [
-        \ 'Dash',
-        \ 'DashKeywords',
-        \ '<Plug>DashSearch',
-        \ '<Plug>DashGlobalSearch'] }
 endif
 
 call plug#end()
@@ -2005,11 +1995,6 @@ if has('mac') || has('macunix')
   let g:plist_display_format = 'xml'
   let g:plist_save_format = ''
   let g:plist_json_filetype = 'json'
-
-  " dash.vim
-  let g:dash_map = {
-        \ 'java': 'android' }
-  nmap <Leader>d <Plug>DashSearch
 endif
 
 " }}}
