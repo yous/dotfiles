@@ -1985,16 +1985,12 @@ if has('mac') || has('macunix')
           \ if getline(1) =~# '^bplist' |
           \   call s:ConvertBinaryPlist() |
           \ endif
-    autocmd BufNewFile *.plist
-          \ if !get(b:, 'plist_original_format') |
-          \   let b:plist_original_format = 'xml' |
-          \ endif
+    autocmd BufNewFile *.plist set filetype=xml
   augroup END
   " Disable default autocmds
   let g:loaded_plist = 1
   let g:plist_display_format = 'xml'
   let g:plist_save_format = ''
-  let g:plist_json_filetype = 'json'
 endif
 
 " }}}
