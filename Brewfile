@@ -8,7 +8,6 @@ if OS.mac?
   brew "ctags"
   brew "git"
   brew "openssh"
-  brew "tmux"
   brew "wget"
   brew "zsh"
 
@@ -20,6 +19,7 @@ end
 brew "clementtsang/bottom/bottom"
 brew "keychain" if OS.mac?
 brew "pre-commit"
+brew "tmux"
 brew "z"
 
 # Don't have bottles for Rust
