@@ -108,6 +108,13 @@ mdcd() {
 alias rd='rmdir'
 
 # Homebrew
+brdep() {
+  leaves=()
+  while IFS= read -r leaf; do
+    leaves+=("$leaf")
+  done < <(brew leaves)
+  brew deps --installed --for-each "${leaves[@]}"
+}
 alias brup='brew upgrade && brew cleanup'
 
 # Bundler
