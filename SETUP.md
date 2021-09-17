@@ -7,7 +7,7 @@
 - [Workman Layout](http://workmanlayout.org)
   - Remove U.S. from `AppleEnabledInputSources` in `~/Library/Preferences/com.apple.HIToolbox.plist`, and then reboot
 
-  ``` plist
+  ``` xml
   <dict>
   	<key>InputSourceKind</key>
   	<string>Keyboard Layout</string>
@@ -20,7 +20,7 @@
 
   You may have ABC instead of U.S.
 
-  ``` plist
+  ``` xml
   <dict>
   	<key>InputSourceKind</key>
   	<string>Keyboard Layout</string>
