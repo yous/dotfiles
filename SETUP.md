@@ -101,7 +101,7 @@
 - [Chrome](https://www.google.com/chrome/)
 - [Contexts](https://contexts.co)
   - Appearance
-    - Theme: Vibrant Dark
+    - Appearance: Match System
   - General
     - Check "When using multiple displays, use switching workaround
   - Sidebar
@@ -229,16 +229,17 @@
 - [나눔글꼴](https://hangeul.naver.com/font) (나눔바른고딕, 나눔명조)
 - [D2 Coding](https://github.com/naver/d2codingfont)
 - [KoPubWorld 서체](http://www.kopus.org/Biz/electronic/Font.aspx)
-- [Noto CJK](https://www.google.com/get/noto/help/cjk/)
+- [Source Han Sans](https://github.com/adobe-fonts/source-han-sans)
+- [Source Han Serif](https://github.com/adobe-fonts/source-han-serif)
 
 ## Tools
 
 - [Git](https://git-scm.com)
   - [dotfiles](https://github.com/yous/dotfiles)
 - [gVim](https://github.com/vim/vim-win32-installer/releases)
-  - [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)
-  - [Python 3.6.5](https://www.python.org/downloads/release/python-365/)
-  - [Ruby 2.4.4 (x86)](https://rubyinstaller.org/downloads/archives/)
+  - [Python 2.7](https://www.python.org/downloads/)
+  - [Python 3.9](https://www.python.org/downloads/)
+  - [Ruby 2.4 (x64)](https://rubyinstaller.org/downloads/archives/)
     - Add `bin` and `bin/ruby_builtin_dlls` to `%PATH%`
   - [Ctags](https://github.com/universal-ctags/ctags-win32)
     - Put into `%USERPROFILE%\bin`
