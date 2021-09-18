@@ -16,7 +16,7 @@ if OS.mac?
 end
 
 # Utilities
-brew "clementtsang/bottom/bottom"
+brew "bottom"
 brew "keychain" if OS.mac?
 brew "pre-commit"
 brew "tmux"
