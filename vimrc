@@ -1562,6 +1562,9 @@ let g:bullets_enabled_file_types = [
       \ 'gitsendemail',
       \ 'markdown',
       \ 'text']
+let g:bullets_pad_right = 0
+let g:bullets_outline_levels = []
+let g:bullets_checkbox_markers = ' ---x'
 
 " vim-closetag
 let g:closetag_filetypes = 'html,javascript.jsx,php,xhtml,xml'
