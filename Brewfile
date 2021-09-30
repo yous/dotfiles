@@ -9,7 +9,6 @@ if OS.mac?
   brew "git"
   brew "openssh"
   brew "wget"
-  brew "zsh"
 
   # QLColorCode
   brew "highlight" if MacOS.version < :catalina
