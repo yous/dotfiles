@@ -1394,7 +1394,6 @@ if has_key(g:plugs, 'coc.nvim')
         \ 'bandit',
         \ 'mypy',
         \ 'pytype',
-        \ 'pycodestyle',
         \ 'prospector',
         \ 'pydocstyle',
         \ 'pylama',
