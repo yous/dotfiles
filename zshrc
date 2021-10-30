@@ -52,7 +52,7 @@ bindkey -e
 
 # Use Zinit
 if [ ! -e "$HOME/.zinit/bin/zinit.zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
 fi
 source "$HOME/.zinit/bin/zinit.zsh"
 
@@ -79,7 +79,7 @@ else
   compinit
   zinit cdreplay -q
 fi
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 # ZSH port of Fish shell's history search feature. zsh-syntax-highlighting must
 # be loaded before this.
 is-at-least 5.3 && zinit ice lucid wait'[[ $+functions[_zsh_highlight] -ne 0 ]]' atload' \
