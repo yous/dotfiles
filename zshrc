@@ -52,7 +52,7 @@ bindkey -e
 
 # Use Zinit
 if [ ! -e "$HOME/.zinit/bin/zinit.zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh | sed 's|zdharma/zinit|zdharma-continuum/zinit|g')"
 fi
 source "$HOME/.zinit/bin/zinit.zsh"
 
