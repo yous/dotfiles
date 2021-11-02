@@ -108,6 +108,10 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'chrisbra/Recover.vim'
 " obsession.vim: continuously updated session files
 Plug 'tpope/vim-obsession'
+if has('timers')
+  " Fix CursorHold Performance
+  Plug 'antoinemadec/FixCursorHold.nvim'
+endif
 " Ultimate hex editing system with Vim
 Plug 'Shougo/vinarise.vim'
 " Vim sugar for the UNIX shell commands
@@ -400,8 +404,10 @@ if has('path_extra')
 endif
 " Maximum number of changes that can be undone
 set undolevels=1000
-" Update swap file and trigger CursorHold after 1 second
-set updatetime=100
+if !has_key(g:plugs, 'FixCursorHold.nvim')
+  " Update swap file and trigger CursorHold after 100ms
+  set updatetime=100
+endif
 if exists('+wildignorecase')
   " Ignore case when completing file names and directories
   set wildignorecase
@@ -1240,6 +1246,9 @@ if has_key(g:plugs, 'tcd.vim')
     autocmd User Obsession call s:SaveTabInfo()
   augroup END
 endif
+
+" FixCursorHold.nvim
+let g:cursorhold_updatetime = 100
 
 " vim-gutentags
 function! s:BuildTagsFileListCmd(prog)
