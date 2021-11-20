@@ -18,6 +18,7 @@ end
 brew "bottom"
 brew "keychain" if OS.mac?
 brew "pre-commit"
+brew "shellcheck"
 brew "tmux"
 brew "z"
 
