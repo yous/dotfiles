@@ -8,6 +8,23 @@ echoerr() {
   echo "$@" 1>&2
 }
 
+usage() {
+  echo "usage: $(basename "$0") <command>"
+  echo ''
+  echo 'Available commands:'
+  echo '    link         Install symbolic links'
+  echo '    brew         Install Homebrew on macOS (or Linux)'
+  echo '    chruby       Install chruby'
+  echo '    formulae     Install Homebrew formulae using Brewfile'
+  echo '    pwndbg       Install pwndbg'
+  echo '    pyenv        Install pyenv with pyenv-virtualenv'
+  echo '    rbenv        Install rbenv'
+  echo '    ruby-install Install ruby-install'
+  echo '    rustup       Install rustup'
+  echo '    rvm          Install RVM'
+  echo '    weechat      Install WeeChat configuration'
+}
+
 init_submodules() {
   (cd "$DIR" && git submodule init)
   (cd "$DIR" && git submodule update)
@@ -130,6 +147,11 @@ install_link() {
   echo 'Done.'
 }
 
+if [ "$#" -ne 1 ]; then
+  usage
+  exit 1
+fi
+
 case "$1" in
   link)
     install_link
@@ -192,19 +214,6 @@ case "$1" in
     replace_file 'weechat'
     ;;
   *)
-    echo "usage: $(basename "$0") <command>"
-    echo ''
-    echo 'Available commands:'
-    echo '    link         Install symbolic links'
-    echo '    brew         Install Homebrew on macOS (or Linux)'
-    echo '    chruby       Install chruby'
-    echo '    formulae     Install Homebrew formulae using Brewfile'
-    echo '    pwndbg       Install pwndbg'
-    echo '    pyenv        Install pyenv with pyenv-virtualenv'
-    echo '    rbenv        Install rbenv'
-    echo '    ruby-install Install ruby-install'
-    echo '    rustup       Install rustup'
-    echo '    rvm          Install RVM'
-    echo '    weechat      Install WeeChat configuration'
+    usage
     ;;
 esac
