@@ -1418,6 +1418,12 @@ if has_key(g:plugs, 'coc.nvim')
     call coc#config('python.pythonPath', exepath('python'))
   endif
 
+  " coc-rust-analyzer
+  if executable('rust-analyzer')
+    call coc#config('rust-analyzer.server.path', exepath('rust-analyzer'))
+    call coc#add_extension('coc-rust-analyzer')
+  endif
+
   " coc-solargraph
   call coc#config('solargraph.promptDownload', v:false)
   if executable('solargraph')
