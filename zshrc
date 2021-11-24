@@ -51,10 +51,10 @@ fi
 bindkey -e
 
 # Use Zinit
-if [ ! -e "$HOME/.zinit/bin/zinit.zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
+if [ ! -e "${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git/zinit.zsh" ]; then
+  sh -c "$(curl -fsSL https://git.io/zinit-install)"
 fi
-source "$HOME/.zinit/bin/zinit.zsh"
+source "${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git/zinit.zsh"
 
 # Additional completion definitions for Zsh
 if is-at-least 5.3; then
