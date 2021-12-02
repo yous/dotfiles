@@ -1907,6 +1907,9 @@ let g:colorizer_disable_bufleave = 1
 " adblock-filter.vim
 let g:adblock_filter_auto_checksum = 1
 
+" vim-gas
+let g:gasCppComments = 1
+
 " vimtex
 if has('win32unix')
   let g:vimtex_compiler_enabled = 0
