@@ -323,7 +323,9 @@ endif
 " How keyword completion works when CTRL-P and CTRL-N are used
 " i: scan current and included files
 set complete-=i
-if has('patch-8.1.0360')
+if has('mac') && $VIM ==# '/usr/share/vim'
+  set diffopt-=internal
+elseif has('patch-8.1.0360')
   set diffopt+=algorithm:patience
 endif
 if !isdirectory(s:vimfiles . '/swap')
