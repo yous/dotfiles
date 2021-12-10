@@ -19,9 +19,18 @@ add_to_path_once() {
   esac
 }
 
-# Add /usr/local/bin to PATH for Mac OS X
+# Add /usr/local/bin to PATH for macOS
 if [ "$UNAME" = 'Darwin' ]; then
   add_to_path_once "/usr/local/bin:/usr/local/sbin"
+  # Load Homebrew
+  # macOS Intel
+  if [ -e /usr/local/bin/brew ]; then
+    eval $(/usr/local/bin/brew shellenv)
+  fi
+  # Apple silicon
+  if [ -d /opt/homebrew ]; then
+    eval $(/opt/homebrew/bin/brew shellenv)
+  fi
 fi
 
 # Load Linuxbrew
