@@ -1,5 +1,13 @@
 UNAME="$(uname)"
 if [ "$UNAME" = 'Darwin' ]; then
+  # /usr/libexec/path_helper is problematic
+  # https://stackoverflow.com/a/48228223/3108885
+  # https://github.com/rbenv/rbenv/issues/369#issuecomment-36010083
+  if [ -f /etc/profile ]; then
+    PATH=""
+    source /etc/profile
+  fi
+
   export LANG=en_US.UTF-8
 fi
 
