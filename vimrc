@@ -182,8 +182,8 @@ endif
 " Motions and text changing
 " Autocomplete if end
 Plug 'tpope/vim-endwise'
-" The missing motion for Vim
-Plug 'justinmk/vim-sneak'
+" Lightning fast left-right movement in Vim
+Plug 'unblevable/quick-scope'
 " More useful word motions for Vim
 Plug 'chaoren/vim-wordmotion'
 " The matchit plugin from Vim
@@ -741,6 +741,7 @@ augroup END
 
 " Commander
 nnoremap ; :
+nnoremap <Space> ;
 
 " We do line wrap
 noremap j gj
@@ -1306,7 +1307,6 @@ let g:gutentags_cscope_build_inverted_index = 1
 if has_key(g:plugs, 'fzf.vim')
   nnoremap <C-P> :Files<CR>
   nnoremap g<C-P> :GFiles<CR>
-  nnoremap t<C-P> :Tags<CR>
   nnoremap c<C-P> :History :<CR>
   if executable('rg')
     function! s:GetVisualSelection()
@@ -1566,10 +1566,8 @@ augroup EndwiseCMake
         \ let b:endwise_syngroups = 'rbsDefine'
 augroup END
 
-" vim-sneak
-let g:sneak#s_next = 1
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+" quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " vim-wordmotion
 let g:wordmotion_prefix = '<Leader>'
