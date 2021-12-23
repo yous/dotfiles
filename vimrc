@@ -1460,16 +1460,10 @@ if has_key(g:plugs, 'ale')
   let g:ale_echo_msg_format = '[%linter%] %code: %%s'
   let g:ale_linters_ignore = {
         \ 'python': [
-        \   'bandit',
         \   'flake8',
         \   'mypy',
-        \   'prospector',
-        \   'pydocstyle',
-        \   'pylama',
-        \   'pylint'] }
-  if executable('solargraph')
-    let g:ale_linters_ignore['ruby'] = ['rubocop']
-  endif
+        \   'pylint',
+        \   'pyright'] }
   if executable('rust-analyzer')
     let g:ale_linters_ignore['rust'] = ['cargo']
   endif
