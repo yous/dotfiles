@@ -147,7 +147,7 @@
 - [Magnet](https://itunes.apple.com/kr/app//id441258766?mt=12)
 - [Mailplane](https://mailplaneapp.com)
 - [MarkText](https://github.com/marktext/marktext)
-- [NightOwl](https://nightowl.kramser.xyz) (macOS 10.14 and above)
+- [NightOwl](https://nightowl.kramser.xyz) (macOS 10.14)
 - [PDF Expert](https://pdfexpert.com)
 - [Safari Extensions](https://safari-extensions.apple.com)
   - macOS 10.15 and above
@@ -163,7 +163,6 @@
 - [UninstallPKG](https://www.corecode.io/uninstallpkg/)
 - Quick Look
   - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
-  - [Glance](https://github.com/samuelmeuli/glance) (macOS 10.15)
   - [QLColorCode](https://github.com/anthonygelibert/QLColorCode) (macOS 10.14 or below)
   - [qlImageSize](https://github.com/Nyx0uf/qlImageSize)
   - [QLMarkdown](https://github.com/toland/qlmarkdown)
@@ -239,8 +238,8 @@
   - [dotfiles](https://github.com/yous/dotfiles)
 - [gVim](https://github.com/vim/vim-win32-installer/releases)
   - [Python 2.7](https://www.python.org/downloads/)
-  - [Python 3.9](https://www.python.org/downloads/)
-  - [Ruby 2.4 (x64)](https://rubyinstaller.org/downloads/archives/)
+  - [Python 3.10](https://www.python.org/downloads/)
+  - [Ruby 3.0 (x64)](https://rubyinstaller.org/downloads/archives/)
     - Add `bin` and `bin/ruby_builtin_dlls` to `%PATH%`
   - [Ctags](https://github.com/universal-ctags/ctags-win32)
     - Put into `%USERPROFILE%\bin`
