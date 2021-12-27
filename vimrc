@@ -1458,6 +1458,7 @@ endif
 " ale
 if has_key(g:plugs, 'ale')
   let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+  let g:ale_hover_cursor = 0
   let g:ale_linters_ignore = {
         \ 'python': [
         \   'flake8',
