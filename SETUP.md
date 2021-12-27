@@ -146,6 +146,7 @@
 - [MacTeX](https://www.tug.org/mactex/)
 - [Magnet](https://itunes.apple.com/kr/app//id441258766?mt=12)
 - [Mailplane](https://mailplaneapp.com)
+- [MarkText](https://github.com/marktext/marktext)
 - [NightOwl](https://nightowl.kramser.xyz) (macOS 10.14 and above)
 - [PDF Expert](https://pdfexpert.com)
 - [Safari Extensions](https://safari-extensions.apple.com)
