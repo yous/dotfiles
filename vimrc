@@ -1435,8 +1435,7 @@ if has_key(g:plugs, 'coc.nvim')
         \ 'coc-emoji',
         \ 'coc-json',
         \ 'coc-pyright',
-        \ 'coc-tag',
-        \ 'coc-tsserver')
+        \ 'coc-tag')
 
   augroup CocFileType
     autocmd!
