@@ -23,17 +23,6 @@ aptup() {
   sudo apt -y upgrade
 }
 
-# Bundler
-bundle_install() {
-  local cores_num
-  if [ "$(uname)" = 'Darwin' ]; then
-    cores_num="$(sysctl -n hw.ncpu)"
-  else
-    cores_num="$(nproc)"
-  fi
-  bundle install --jobs="$cores_num" "$@"
-}
-
 # Number conversion
 hex() {
   if [ "$#" -ne 1 ]; then
@@ -119,7 +108,7 @@ alias brup='brew upgrade && brew cleanup'
 
 # Bundler
 alias be='bundle exec'
-alias bi='bundle_install'
+alias bi='bundle install'
 alias bu='bundle update'
 
 # Git
