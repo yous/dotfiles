@@ -108,7 +108,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'chrisbra/Recover.vim'
 " obsession.vim: continuously updated session files
 Plug 'tpope/vim-obsession'
-if has('timers')
+if has('timers') && exists('v:exiting')
   " Fix CursorHold Performance
   Plug 'antoinemadec/FixCursorHold.nvim'
 endif
