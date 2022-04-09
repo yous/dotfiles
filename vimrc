@@ -1973,13 +1973,13 @@ if has('mac') || has('macunix')
   " vim-plist
   function! s:ConvertBinaryPlist()
     silent! execute '%d'
-    call plist#Read(1)
-    call plist#ReadPost()
+    call plist#BufReadCmd()
     set fileencoding=utf-8
 
     augroup BinaryPlistWrite
       autocmd! BufWriteCmd,FileWriteCmd <buffer>
-      autocmd BufWriteCmd,FileWriteCmd <buffer> call plist#Write()
+      autocmd BufWriteCmd <buffer> call plist#BufWriteCmd()
+      autocmd FileWriteCmd <buffer> call plist#FileWriteCmd()
     augroup END
   endfunction
   augroup BinaryPlistRead
