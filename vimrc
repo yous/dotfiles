@@ -1425,6 +1425,7 @@ if has_key(g:plugs, 'coc.nvim')
   " coc-solargraph
   call coc#config('solargraph.promptDownload', v:false)
   if executable('solargraph')
+    call coc#config('solargraph.shell', $SHELL)
     call coc#config('solargraph.diagnostics', v:true)
     call coc#add_extension('coc-solargraph')
   endif
