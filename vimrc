@@ -1323,24 +1323,20 @@ if has_key(g:plugs, 'fzf.vim')
           \ call fzf#vim#grep(
           \   s:rg_common . '--fixed-strings -- ' . shellescape(<q-args>),
           \   1,
-          \   fzf#vim#with_preview(
-          \     { 'options': '--delimiter : --nth 4..' }, 'right', 'ctrl-/'),
+          \   fzf#vim#with_preview(),
           \   <bang>0)
     command! -bang -nargs=+ -complete=dir Rgd
           \ call fzf#vim#grep(
           \   s:rg_common . '--fixed-strings -- ' . shellescape(''),
           \   1,
           \   fzf#vim#with_preview(
-          \     { 'dir': fnamemodify(expand(<q-args>), ':p:h'),
-          \       'options': '--delimiter : --nth 4..' },
-          \     'right', 'ctrl-/'),
+          \     { 'dir': fnamemodify(expand(<q-args>), ':p:h') }),
           \   <bang>0)
     command! -bang -nargs=* Rgr
           \ call fzf#vim#grep(
           \   s:rg_common . '-- ' . shellescape(<q-args>),
           \   1,
-          \   fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' },
-          \     'right', 'ctrl-/'),
+          \   fzf#vim#with_preview(),
           \   <bang>0)
     nnoremap <Leader>* :<C-U>Rg<Space><C-R><C-W><CR>
     vnoremap <Leader>* :<C-U>Rg<Space><C-R>=<SID>GetVisualSelection()<CR><CR>
