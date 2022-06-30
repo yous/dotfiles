@@ -793,6 +793,10 @@ inoremap <silent> <C-L> <C-O>:call <SID>CtrlL()<CR>
 
 " Delete without copying
 vnoremap <BS> "_d
+nnoremap c "_c
+vnoremap c "_c
+nnoremap cc "_cc
+nnoremap C "_C
 
 " Break the undo block when CTRL-U
 inoremap <C-U> <C-G>u<C-U>
