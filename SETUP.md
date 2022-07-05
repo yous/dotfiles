@@ -272,7 +272,6 @@
     @echo off
     start /b putty -load Loco
     ```
-- [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
 - [Windows Subsystem for Linux](https://docs.microsoft.com/ko-kr/windows/wsl/install-win10)
 - [Windows Terminal](https://aka.ms/terminal)
@@ -282,10 +281,9 @@
 
 - [팟플레이어](https://tv.kakao.com/guide/potplayer)
 - [1Password](https://agilebits.com/downloads)
-- [Auto Dark Mode](https://github.com/Armin2208/Windows-Auto-Night-Mode)
+- [Auto Dark Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
   - Time
-    - Enable automatic theme switching: Check
-      - Select "From sunset to sunrise"
+    - Select "From sunset to sunrise"
   - Apps
     - Apps: Adapt to system
     - System: Adapt to system
