@@ -144,6 +144,7 @@
     - From key: caps_lock, To key: left_control
 - [Lunar 3](https://lunar.fyi)
 - [MacTeX](https://www.tug.org/mactex/)
+- [Maccy](https://github.com/p0deje/Maccy)
 - [Magnet](https://itunes.apple.com/kr/app//id441258766?mt=12)
 - [Mailplane](https://mailplaneapp.com)
 - [MarkText](https://github.com/marktext/marktext)
