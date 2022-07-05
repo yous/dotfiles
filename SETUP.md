@@ -299,5 +299,6 @@
     - `mousewheel.with_control.action`: 1
     - `network.security.esni.enabled`: true
     - `network.trr.mode`: 2
+- [MarkText](https://github.com/marktext/marktext)
 - [ShareX](https://getsharex.com)
 - [Slack](https://slack.com)
