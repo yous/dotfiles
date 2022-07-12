@@ -166,7 +166,7 @@
   - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
   - [QLColorCode](https://github.com/anthonygelibert/QLColorCode) (macOS 10.14 or below)
   - [qlImageSize](https://github.com/Nyx0uf/qlImageSize)
-  - [QLMarkdown](https://github.com/toland/qlmarkdown)
+  - [QLMarkdown](https://github.com/sbarex/QLMarkdown)
   - [QLStephen](https://github.com/whomwah/qlstephen)
   - [QuickLookCSV](https://github.com/p2/quicklook-csv)
   - [SourceCodeSyntaxHighlight](https://github.com/sbarex/SourceCodeSyntaxHighlight) (macOS 10.15 or above)
