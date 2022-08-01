@@ -400,6 +400,14 @@ if has('path_extra')
   set tags-=./tags;
   set tags^=./tags;
 endif
+if !isdirectory(s:vimfiles . '/undo')
+  call mkdir(s:vimfiles . '/undo', 'p')
+endif
+" List of directory names for undo files, separated with commas
+execute 'set undodir^=' . s:vimfiles . '/undo//'
+" Automatically saves undo history to an undo file when writing a buffer to a
+" file, and restores undo history from the same file on buffer read
+set undofile
 " Maximum number of changes that can be undone
 set undolevels=1000
 if !has_key(g:plugs, 'FixCursorHold.nvim')
