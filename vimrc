@@ -1561,6 +1561,10 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " vim-wordmotion
 let g:wordmotion_prefix = '<Leader>'
+let g:wordmotion_mappings = {
+      \ '<C-R><C-W>': '<C-R><Leader><C-W>',
+      \ '<C-R><C-A>': '<C-R><Leader><C-A>'
+      \ }
 
 " bullets.vim
 let g:bullets_enabled_file_types = [
