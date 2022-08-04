@@ -162,7 +162,7 @@ Plug 'justinmk/vim-gtfo'
 " Completion and lint
 " Intellisense engine for Vim8 & Neovim, full language server protocol support
 " as VSCode
-if (has('nvim-0.3.2') || !has('nvim') && has('patch-8.0.1453')) &&
+if (has('nvim-0.4.0') || !has('nvim') && has('patch-8.1.1719')) &&
       \ executable('node')
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 endif
@@ -785,8 +785,10 @@ endfunction
 inoremap <expr> {<CR> <SID>CloseBrace()
 
 " Navigate completions
-inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) :
+      \ pumvisible() ? "\<C-N>" : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) :
+      \ pumvisible() ? "\<C-P>" : "\<S-Tab>"
 
 " Leave insert mode
 function! s:CtrlL()
@@ -1382,6 +1384,7 @@ augroup END
 
 " coc.nvim
 if has_key(g:plugs, 'coc.nvim')
+  call coc#config('suggest.noselect', v:true)
   call coc#config('suggest.minTriggerInputLength', 4)
   if has_key(g:plugs, 'ale')
     call coc#config('diagnostic.displayByAle', v:true)
