@@ -1383,13 +1383,9 @@ augroup END
 " coc.nvim
 if has_key(g:plugs, 'coc.nvim')
   call coc#config('suggest.minTriggerInputLength', 4)
-  if has_key(g:plugs, 'echodoc.vim')
-    call coc#config('suggest.echodocSupport', v:true)
-  endif
   if has_key(g:plugs, 'ale')
     call coc#config('diagnostic.displayByAle', v:true)
   endif
-  call coc#config('coc.preferences.semanticTokensHighlights', v:false)
   call coc#config('coc.preferences.bracketEnterImprove', v:false)
 
   " coc-clangd
