@@ -162,9 +162,12 @@ Plug 'justinmk/vim-gtfo'
 " Completion and lint
 " Intellisense engine for Vim8 & Neovim, full language server protocol support
 " as VSCode
-if (has('nvim-0.4.0') || !has('nvim') && has('patch-8.1.1719')) &&
-      \ executable('node')
-  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+if executable('node')
+  if has('nvim-0.4.0') || !has('nvim') && has('patch-8.1.1719')
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  elseif has('nvim-0.3.2') || !has('nvim') && has('patch-8.0.1453')
+    Plug 'neoclide/coc.nvim', { 'tag': 'v0.0.81' }
+  endif
 endif
 " Print documents in echo area
 if exists('v:completed_item') && exists('v:event')
