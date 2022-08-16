@@ -73,7 +73,7 @@ zinit light agkozak/zsh-z
 # Syntax-highlighting for Zshell – fine granularity, number of features, 40 work
 # hours themes (short name F-Sy-H)
 if is-at-least 5.3; then
-  zinit ice lucid wait'0' atinit'zpcompinit; zpcdreplay'
+  zinit ice lucid wait'0' atinit'zicompinit; zicdreplay'
 else
   autoload -Uz compinit
   compinit
