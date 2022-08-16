@@ -73,6 +73,11 @@ zinit light romkatv/powerlevel10k
 zinit light yous/vanilli.sh
 # Jump quickly to directories that you have visited "frecently." A native ZSH
 # port of z.sh.
+if is-at-least 5.3; then
+  zinit ice lucid wait'0' blockf
+else
+  zinit ice blockf
+fi
 zinit light agkozak/zsh-z
 # Syntax-highlighting for Zshell – fine granularity, number of features, 40 work
 # hours themes (short name F-Sy-H)
