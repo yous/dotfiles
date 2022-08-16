@@ -109,6 +109,18 @@ fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
+  # Homebrew shell completion
+  if command -v brew >/dev/null; then
+    BREW_PREFIX="$(brew --prefix)"
+    if [ -e "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]; then
+      source "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
+    else
+      for COMPLETION in "$BREW_PREFIX/etc/bash_completion.d/"*; do
+        [ -e "$COMPLETION" ] && source "$COMPLETION"
+      done
+    fi
+    unset BREW_PREFIX
+  fi
   # include .bashrc if it exists
   if [ -f "$HOME/.bashrc" ]; then
     . "$HOME/.bashrc"

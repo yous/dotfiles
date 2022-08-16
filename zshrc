@@ -56,6 +56,10 @@ if [ ! -e "${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git/zinit.zsh" ]; th
 fi
 source "${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git/zinit.zsh"
 
+# Homebrew shell completion
+if [ -n "$BREW_PREFIX" ]; then
+  zinit fpath -f "$BREW_PREFIX/share/zsh/site-functions"
+fi
 # Additional completion definitions for Zsh
 if is-at-least 5.3; then
   zinit ice lucid wait'0' blockf
