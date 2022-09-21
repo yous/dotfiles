@@ -1425,6 +1425,7 @@ if has_key(g:plugs, 'coc.nvim')
   elseif has('python')
     call coc#config('python.pythonPath', exepath('python'))
   endif
+  call coc#config('pyright.inlayHints.enable', v:false)
 
   " coc-rust-analyzer
   if executable('rust-analyzer')
