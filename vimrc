@@ -92,10 +92,14 @@ endfunction
 call s:DownloadVimPlug()
 call plug#begin(s:vimfiles . '/plugged')
 
+" -----------------------------------------------------------------------------
 " Colorscheme
+" -----------------------------------------------------------------------------
 Plug 'yous/vim-open-color'
 
+" -----------------------------------------------------------------------------
 " General
+" -----------------------------------------------------------------------------
 if !exists('+fixendofline')
   " Preserve missing EOL at the end of text files
   Plug 'yous/PreserveNoEOL', {
@@ -140,7 +144,9 @@ Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-fugitive' |
 Plug 'junegunn/gv.vim'
 
+" -----------------------------------------------------------------------------
 " Browsing
+" -----------------------------------------------------------------------------
 if !has('win32') && (!has('win32unix') || executable('go'))
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -159,7 +165,9 @@ endif
 " Go to Terminal or File manager
 Plug 'justinmk/vim-gtfo'
 
+" -----------------------------------------------------------------------------
 " Completion and lint
+" -----------------------------------------------------------------------------
 " Intellisense engine for Vim8 & Neovim, full language server protocol support
 " as VSCode
 if executable('node')
@@ -182,7 +190,9 @@ else
   Plug 'vim-syntastic/syntastic'
 endif
 
+" -----------------------------------------------------------------------------
 " Motions and text changing
+" -----------------------------------------------------------------------------
 " Autocomplete if end
 Plug 'tpope/vim-endwise'
 " Lightning fast left-right movement in Vim
@@ -214,7 +224,9 @@ Plug 'vim-scripts/a.vim'
 " Enable repeating supported plugin maps with "."
 Plug 'tpope/vim-repeat'
 
+" -----------------------------------------------------------------------------
 " Vim UI
+" -----------------------------------------------------------------------------
 " A light and configurable statusline/tabline for Vim
 Plug 'itchyny/lightline.vim'
 " Highlight the exact differences, based on characters and words
@@ -248,7 +260,9 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " color hex codes and color names
 Plug 'chrisbra/Colorizer'
 
+" -----------------------------------------------------------------------------
 " Support file types
+" -----------------------------------------------------------------------------
 " AdBlock
 Plug 'yous/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
@@ -284,7 +298,9 @@ let g:polyglot_disabled = [
       \ 'autoindent', 'sensible']
 Plug 'sheerun/vim-polyglot'
 
+" -----------------------------------------------------------------------------
 " macOS
+" -----------------------------------------------------------------------------
 if has('mac') || has('macunix')
   " Add plist editing support to Vim
   Plug 'darfink/vim-plist'
