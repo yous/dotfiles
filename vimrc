@@ -189,6 +189,8 @@ else
   " Syntax checking plugin
   Plug 'vim-syntastic/syntastic'
 endif
+" Improved vim spelling plugin (with camel cases support)!
+Plug 'kamykn/spelunker.vim'
 
 " -----------------------------------------------------------------------------
 " Motions and text changing
@@ -1916,6 +1918,11 @@ nnoremap <Leader>G :Goyo<CR>
 " Colorizer
 let g:colorizer_colornames = 0
 let g:colorizer_disable_bufleave = 1
+
+" spelunker.vim
+let g:enable_spelunker_vim = 1
+" Use highlighting of SpelunkerComplexOrCompoundWord
+highlight SpelunkerSpellBad cterm=underline ctermfg=NONE gui=underline guifg=NONE
 
 " adblock-filter.vim
 let g:adblock_filter_auto_checksum = 1
