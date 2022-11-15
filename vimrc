@@ -1979,7 +1979,7 @@ let g:vim_markdown_fenced_languages = [
       \ 'ini=dosini',
       \ 'js=javascript',
       \ 'rb=ruby',
-      \ 'bash=sh',
+      \ 'bash=sh', 'shell=sh',
       \ 'viml=vim']
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 0
