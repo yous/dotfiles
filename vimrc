@@ -1921,6 +1921,7 @@ let g:colorizer_disable_bufleave = 1
 
 " spelunker.vim
 let g:enable_spelunker_vim = 1
+let g:spelunker_check_type = 2
 " Use highlighting of SpelunkerComplexOrCompoundWord
 highlight SpelunkerSpellBad cterm=underline ctermfg=NONE gui=underline guifg=NONE
 
