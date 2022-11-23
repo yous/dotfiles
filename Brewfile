@@ -17,6 +17,7 @@ end
 # Utilities
 brew "bottom"
 brew "keychain" if OS.mac?
+brew "lazygit"
 brew "pre-commit"
 brew "shellcheck"
 brew "tmux"
@@ -26,7 +27,6 @@ brew "z"
 unless OS.mac? && MacOS.version < :mojave
   brew "bat"
   brew "fd"
-  brew "gitui"
   brew "ripgrep"
 end
 
