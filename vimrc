@@ -1498,6 +1498,7 @@ if has_key(g:plugs, 'ale')
     let g:ale_linters_ignore['rust'] = ['cargo']
   endif
   let g:ale_set_highlights = 0
+  let g:ale_virtualtext_cursor = 'disabled'
 
   " ale-c-options, ale-cpp-options
   let g:ale_c_parse_compile_commands = 1
