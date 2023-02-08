@@ -1,0 +1,9 @@
+gui:
+  theme:
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
+git:
+  paging:
+    pager: diff-highlight

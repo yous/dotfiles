@@ -131,6 +131,11 @@ install_link() {
   do
     replace_file "$FILENAME"
   done
+  if [ "$(uname)" = 'Darwin' ]; then
+    replace_file 'lazygit/config.yml' 'Library/Application Support/lazygit/config.yml'
+  else
+    replace_file 'lazygit/config.yml' '.config/lazygit/config.yml'
+  fi
   replace_file 'pip.conf' '.pip/pip.conf'
   replace_file 'tpm' '.tmux/plugins/tpm'
   [ ! -d "$HOME/.vim" ] && mkdir "$HOME/.vim"
