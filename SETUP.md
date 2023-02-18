@@ -296,6 +296,7 @@
   - 사용자 지정...
     - 밀도: 조밀함
   - `about:config`
+    - `alerts.useSystemBackend`: true
     - `mousewheel.with_control.action`: 1
     - `network.security.esni.enabled`: true
     - `network.trr.mode`: 2
