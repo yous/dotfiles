@@ -43,6 +43,3 @@ brew "n"
 
 # Vim
 brew "vim"
-
-# Krypton
-brew "kryptco/tap/kr" if OS.mac?
