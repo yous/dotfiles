@@ -1914,6 +1914,7 @@ if has_key(g:plugs, 'vim-gitgutter')
 endif
 
 " goyo.vim
+let g:goyo_width = 100
 nnoremap <Leader>G :Goyo<CR>
 
 " Colorizer
