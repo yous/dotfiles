@@ -1915,6 +1915,32 @@ endif
 
 " goyo.vim
 let g:goyo_width = 100
+" Ensure `:q` to quit even when Goyo is active
+" https://github.com/junegunn/goyo.vim/wiki/Customization#ensure-q-to-quit-even-when-goyo-is-active
+function! s:GoyoEnter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  augroup GoyoQuitPre
+    autocmd!
+    autocmd QuitPre <buffer> let b:quitting = 1
+  augroup END
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+function! s:GoyoLeave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+augroup GoyoCallbacks
+  autocmd!
+  autocmd User GoyoEnter call <SID>GoyoEnter()
+  autocmd User GoyoLeave call <SID>GoyoLeave()
+augroup END
 nnoremap <Leader>G :Goyo<CR>
 
 " Colorizer
