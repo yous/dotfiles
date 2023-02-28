@@ -275,7 +275,7 @@ Plug 'Shirk/vim-gas', { 'for': 'gas' }
 Plug 'lervag/vimtex', { 'for': ['bib', 'tex'] }
 " Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } |
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 " PHP
 Plug 'vim-scripts/php.vim-html-enhanced', { 'for': ['html', 'php'] }
 if v:version >= 700
