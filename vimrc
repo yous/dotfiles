@@ -189,8 +189,6 @@ else
   " Syntax checking plugin
   Plug 'vim-syntastic/syntastic'
 endif
-" Improved vim spelling plugin (with camel cases support)!
-Plug 'kamykn/spelunker.vim'
 
 " -----------------------------------------------------------------------------
 " Motions and text changing
@@ -404,9 +402,12 @@ set shortmess+=c
 if has('patch-8.1.1270')
   set shortmess-=S
 endif
+set spell
+set spellcapcheck=
 " Exclude East Asian characters from spell checking
 set spelllang-=cjk
 set spelllang+=cjk
+set spelloptions+=camel
 " Files with these suffixes get a lower priority when multiple files match a
 " wildcard
 set suffixes+=.git,.hg,.svn
@@ -553,6 +554,17 @@ augroup ExtraWhitespace
   if v:version >= 702
     autocmd BufWinLeave * call clearmatches()
   endif
+augroup END
+
+function! s:UnderlineSpellBad()
+  highlight clear SpellBad
+  highlight SpellBad cterm=underline gui=underline
+endfunction
+call s:UnderlineSpellBad()
+augroup UnderlineSpellBad
+  autocmd!
+  autocmd ColorScheme * call s:UnderlineSpellBad()
+  autocmd Syntax * syntax spell toplevel
 augroup END
 
 " }}}
@@ -1946,12 +1958,6 @@ nnoremap <Leader>G :Goyo<CR>
 " Colorizer
 let g:colorizer_colornames = 0
 let g:colorizer_disable_bufleave = 1
-
-" spelunker.vim
-let g:enable_spelunker_vim = 1
-let g:spelunker_check_type = 2
-" Use highlighting of SpelunkerComplexOrCompoundWord
-highlight SpelunkerSpellBad cterm=underline ctermfg=NONE gui=underline guifg=NONE
 
 " adblock-filter.vim
 let g:adblock_filter_auto_checksum = 1
