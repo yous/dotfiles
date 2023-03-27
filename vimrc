@@ -402,7 +402,6 @@ set shortmess+=c
 if has('patch-8.1.1270')
   set shortmess-=S
 endif
-set spell
 set spellcapcheck=
 " Exclude East Asian characters from spell checking
 set spelllang-=cjk
