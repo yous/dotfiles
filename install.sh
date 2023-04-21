@@ -168,7 +168,7 @@ case "$1" in
     if [ "$(uname)" = 'Darwin' ]; then
       brew install chruby
     else
-      wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+      wget https://github.com/postmodern/chruby/releases/download/v0.3.9/chruby-0.3.9.tar.gz
       tar -xzvf chruby-0.3.9.tar.gz
       cd chruby-0.3.9/
       sudo make install
@@ -187,7 +187,7 @@ case "$1" in
       brew install pyenv
       brew install pyenv-virtualenv
     else
-      curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+      curl https://pyenv.run | bash
     fi
     ;;
   rbenv)
@@ -203,7 +203,7 @@ case "$1" in
     if [ "$(uname)" = 'Darwin' ]; then
       brew install ruby-install
     else
-      wget -O ruby-install-0.9.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.9.0.tar.gz
+      wget https://github.com/postmodern/ruby-install/releases/download/v0.9.0/ruby-install-0.9.0.tar.gz
       tar -xzvf ruby-install-0.9.0.tar.gz
       cd ruby-install-0.9.0/
       sudo make install
