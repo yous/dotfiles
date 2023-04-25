@@ -58,6 +58,9 @@ fi
 if command -v n >/dev/null; then
   export N_PREFIX="$HOME/.n"
   add_to_path_once "$N_PREFIX/bin"
+elif [ -e "$HOME/.n" ]; then
+  export N_PREFIX="$HOME/.n"
+  add_to_path_once "$N_PREFIX/bin"
 fi
 
 # Set GOPATH for Go
