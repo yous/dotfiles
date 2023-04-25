@@ -16,6 +16,7 @@ usage() {
   echo '    brew         Install Homebrew on macOS (or Linux)'
   echo '    chruby       Install chruby'
   echo '    formulae     Install Homebrew formulae using Brewfile'
+  echo '    n            Install n'
   echo '    pwndbg       Install pwndbg'
   echo '    pyenv        Install pyenv with pyenv-virtualenv'
   echo '    rbenv        Install rbenv'
@@ -176,6 +177,13 @@ case "$1" in
     ;;
   formulae)
     brew bundle --file="${DIR}/Brewfile" --no-lock --no-upgrade
+    ;;
+  n)
+    if [ "$(uname)" = 'Darwin' ]; then
+      brew install n
+    else
+      curl -L https://bit.ly/n-install | bash
+    fi
     ;;
   pwndbg)
     init_submodules

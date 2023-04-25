@@ -47,6 +47,7 @@ For available install options:
 | `brew`         | Install Homebrew on macOS (or Linux)     |
 | `chruby`       | Install chruby                           |
 | `formulae`     | Install Homebrew formulae using Brewfile |
+| `n`            | Install n                                |
 | `pwndbg`       | Install pwndbg                           |
 | `pyenv`        | Install pyenv with pyenv-virtualenv      |
 | `rbenv`        | Install rbenv                            |
