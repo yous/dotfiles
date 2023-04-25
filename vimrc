@@ -1427,11 +1427,15 @@ if has_key(g:plugs, 'coc.nvim')
   if executable('clangd')
     call coc#add_extension('coc-clangd')
   else
-    let s:llvm_clangd_path = '/usr/local/opt/llvm/bin/clangd'
-    if executable(s:llvm_clangd_path)
-      call coc#config('clangd.path', s:llvm_clangd_path)
-      call coc#add_extension('coc-clangd')
-    endif
+    for s:llvm_clangd_path in [
+          \ '/opt/homebrew/opt/llvm/bin/clangd',
+          \ '/usr/local/opt/llvm/bin/clangd']
+      if executable(s:llvm_clangd_path)
+        call coc#config('clangd.path', s:llvm_clangd_path)
+        call coc#add_extension('coc-clangd')
+        break
+      endif
+    endfor
   endif
 
   " coc-pyright
@@ -1521,12 +1525,17 @@ if has_key(g:plugs, 'ale')
         \ ['clang-check', 'clangcheck', ['cpp']],
         \ ['clang-format', 'clangformat', ['c']],
         \ ['clang-tidy', 'clangtidy', ['c', 'cpp']]]
-    let s:llvm_prog = '/usr/local/opt/llvm/bin/' . s:prog
-    if !executable(s:prog) && executable(s:llvm_prog)
-      for s:lang in s:langs
-        let g:[printf('ale_%s_%s_executable', s:lang, s:slug)] = s:llvm_prog
-      endfor
-    endif
+    for s:llvm_path in [
+          \ '/opt/homebrew/opt/llvm',
+          \ '/usr/local/opt/llvm']
+      let s:llvm_prog = s:llvm_path . '/bin/' . s:prog
+      if !executable(s:prog) && executable(s:llvm_prog)
+        for s:lang in s:langs
+          let g:[printf('ale_%s_%s_executable', s:lang, s:slug)] = s:llvm_prog
+        endfor
+        break
+      endif
+    endfor
   endfor
 
   " See http://clang.llvm.org/extra/clang-tidy/.
