@@ -132,6 +132,7 @@ install_link() {
   do
     replace_file "$FILENAME"
   done
+  replace_file 'bat/config' '.config/bat/config'
   if [ "$(uname)" = 'Darwin' ]; then
     replace_file 'lazygit/config.yml' 'Library/Application Support/lazygit/config.yml'
   else
