@@ -139,6 +139,9 @@
 - [GnuPG for OSX](https://sourceforge.net/p/gpgosx/docu/Download/)
 - [Itsycal](https://www.mowglii.com/itsycal/)
 - [iTerm2](https://www.iterm2.com)
+  - Preferences > Keys > Key Bindings
+    - Set action of ^Tab↦ to Next Tab
+    - Set action of ^⇧Tab↤ to Previous Tab
 - [Karabiner-Elements](https://karabiner-elements.pqrs.org)
   - Simple modifications
     - From key: caps_lock, To key: left_control
