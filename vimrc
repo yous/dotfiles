@@ -1347,22 +1347,24 @@ let g:gutentags_cscope_build_inverted_index = 1
 
 " fzf.vim
 if has_key(g:plugs, 'fzf.vim')
+  function! s:GetVisualSelection()
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+      return ''
+    endif
+    let offset = &selection ==# 'exclusive' ? 2 : 1
+    let lines[-1] = lines[-1][:column_end - offset]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
+  endfunction
   nnoremap <C-P> :<C-U>Files<CR>
   nnoremap g<C-P> :<C-U>GFiles<CR>
   nnoremap c<C-P> :<C-U>History :<CR>
+  nnoremap <Leader><C-]> :<C-U>Tags<Space><C-R><C-W><CR>
+  vnoremap <Leader><C-]> :<C-U>Tags<Space><C-R>=<SID>GetVisualSelection()<CR><CR>
   if executable('rg')
-    function! s:GetVisualSelection()
-      let [line_start, column_start] = getpos("'<")[1:2]
-      let [line_end, column_end] = getpos("'>")[1:2]
-      let lines = getline(line_start, line_end)
-      if len(lines) == 0
-        return ''
-      endif
-      let offset = &selection ==# 'exclusive' ? 2 : 1
-      let lines[-1] = lines[-1][:column_end - offset]
-      let lines[0] = lines[0][column_start - 1:]
-      return join(lines, "\n")
-    endfunction
     let s:rg_common = 'rg --column --line-number --no-heading --color=always ' .
           \ '--smart-case '
     command! -bang -nargs=* Rg
