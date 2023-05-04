@@ -1347,9 +1347,9 @@ let g:gutentags_cscope_build_inverted_index = 1
 
 " fzf.vim
 if has_key(g:plugs, 'fzf.vim')
-  nnoremap <C-P> :Files<CR>
-  nnoremap g<C-P> :GFiles<CR>
-  nnoremap c<C-P> :History :<CR>
+  nnoremap <C-P> :<C-U>Files<CR>
+  nnoremap g<C-P> :<C-U>GFiles<CR>
+  nnoremap c<C-P> :<C-U>History :<CR>
   if executable('rg')
     function! s:GetVisualSelection()
       let [line_start, column_start] = getpos("'<")[1:2]
