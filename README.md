@@ -24,7 +24,7 @@
 
 ## Requirements
 
-- [Git](http://git-scm.com)
+- [Git](https://git-scm.com)
 
 ## Installation
 
@@ -83,7 +83,7 @@ You can also sign your each commit automatically:
 ```
 
 For more information about signing commits, see
-[A Git Horror Story: Repository Integrity With Signed Commits](http://mikegerwitz.com/papers/git-horror-story).
+[A Git Horror Story: Repository Integrity With Signed Commits](https://mikegerwitz.com/2012/05/a-git-horror-story-repository-integrity-with-signed-commits).
 
 If you want to use Gmail for `git send-email`,
 
@@ -120,7 +120,7 @@ for more information.
 
 ### Homebrew
 
-If you want to install [Homebrew](http://brew.sh) or [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux),
+If you want to install [Homebrew](https://brew.sh) or [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux),
 
 ``` sh
 ./install.sh brew
@@ -172,7 +172,7 @@ Then install chruby,
 
 #### RVM
 
-If you want to install [RVM](http://rvm.io),
+If you want to install [RVM](https://rvm.io),
 
 ``` sh
 ./install.sh rvm
@@ -186,7 +186,7 @@ rvm get stable
 
 #### rbenv
 
-If you want to install [rbenv](https://github.com/sstephenson/rbenv),
+If you want to install [rbenv](https://github.com/rbenv/rbenv),
 
 ``` sh
 ./install.sh rbenv
@@ -211,13 +211,13 @@ If you want to install [pyenv](https://github.com/pyenv/pyenv) and
 
 ### Zsh
 
-To use [Zsh](http://www.zsh.org) as default shell,
+To use [Zsh](https://www.zsh.org) as default shell,
 
 ``` sh
 chsh -s /bin/zsh
 ```
 
-If you use custom Zsh like compiled one by [Homebrew](http://brew.sh), add
+If you use custom Zsh like compiled one by [Homebrew](https://brew.sh), add
 `/usr/local/bin/zsh` to `/etc/shells` and
 
 ``` sh
@@ -230,7 +230,7 @@ To update Zsh plugins:
 zinit update --all
 ```
 
-To update [Zinit](https://github.com/zdharma/zinit) itself:
+To update [Zinit](https://github.com/zdharma-continuum/zinit) itself:
 
 ``` sh
 zinit self-update
@@ -245,13 +245,13 @@ sudo mv /etc/zshenv /etc/zshrc
 
 ### Vim
 
-To install [Vim](http://www.vim.org) plugins,
+To install [Vim](https://www.vim.org) plugins,
 
 ```
 :PlugInstall
 ```
 
-You should install [Exuberant Ctags](http://ctags.sourceforge.net/) to use
+You should install [Exuberant Ctags](https://ctags.sourceforge.net/) to use
 [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags). You should
 install Node.js to use [coc.nvim](https://github.com/neoclide/coc.nvim).
 
