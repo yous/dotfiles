@@ -54,6 +54,7 @@
 	showPatch = true
 [status]
 	showStash = true
+	submoduleSummary = true
 [submodule]
 	fetchJobs = 0
 [user]
