@@ -188,5 +188,5 @@ fi
 
 # Zinit
 if [ -n "$ZSH_VERSION" ]; then
-  alias ziup='zinit update --all --no-pager && zinit self-update'
+  alias ziup='zinit self-update && zinit update --all --no-pager && zinit cclear'
 fi
