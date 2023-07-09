@@ -406,7 +406,9 @@ set spellcapcheck=
 " Exclude East Asian characters from spell checking
 set spelllang-=cjk
 set spelllang+=cjk
-set spelloptions+=camel
+if exists('+spelloptions')
+  set spelloptions+=camel
+endif
 " Files with these suffixes get a lower priority when multiple files match a
 " wildcard
 set suffixes+=.git,.hg,.svn
