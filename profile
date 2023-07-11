@@ -101,7 +101,8 @@ unset -f add_to_path_once
 unset UNAME
 
 # WSL
-if [ -e /proc/version ] && grep -q Microsoft /proc/version; then
+# See https://github.com/microsoft/WSL/issues/423
+if [ -e /proc/sys/kernel/osrelease ] && grep -q WSL /proc/sys/kernel/osrelease; then
   export COLORTERM='truecolor'
 fi
 
