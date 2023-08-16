@@ -724,7 +724,9 @@ augroup TextFormatting
   " Reload .editorconfig because of heuristic detections done by vim-polyglot
   autocmd FileType c,cpp,perl
         \ setlocal shiftwidth=4 |
-        \ :EditorConfigReload
+        \ if has_key(g:plugs, 'editorconfig-vim') |
+        \   execute 'EditorConfigReload' |
+        \ endif
 
   autocmd FileType go
         \ setlocal noexpandtab shiftwidth=4 tabstop=4
@@ -819,10 +821,15 @@ endfunction
 inoremap <expr> {<CR> <SID>CloseBrace()
 
 " Navigate completions
-inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) :
-      \ pumvisible() ? "\<C-N>" : "\<Tab>"
-inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) :
-      \ pumvisible() ? "\<C-P>" : "\<S-Tab>"
+if has_key(g:plugs, 'coc.nvim')
+  inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) :
+        \ pumvisible() ? "\<C-N>" : "\<Tab>"
+  inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) :
+        \ pumvisible() ? "\<C-P>" : "\<S-Tab>"
+else
+  inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
+endif
 
 " Leave insert mode
 function! s:CtrlL()
