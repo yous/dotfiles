@@ -255,6 +255,8 @@ elseif has('signs')
   " Show a git diff in the gutter and stages/reverts hunks
   Plug 'airblade/vim-gitgutter'
 endif
+" zoomwintab vim plugin
+Plug 'troydm/zoomwintab.vim', { 'on': 'ZoomWinTabToggle' }
 " Distraction-free writing in Vim
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " color hex codes and color names
@@ -951,23 +953,6 @@ endif
 
 " Execute @q which is recorded by qq
 nnoremap Q @q
-
-" Zoom and restore window
-function! s:ZoomToggle()
-  if exists('t:zoom_winrestcmd')
-    execute t:zoom_winrestcmd
-    if t:zoom_winrestcmd !=# winrestcmd()
-      wincmd =
-    endif
-    unlet t:zoom_winrestcmd
-  elseif tabpagewinnr(tabpagenr(), '$') > 1
-    " Resize only when multiple windows are in the current tab page
-    let t:zoom_winrestcmd = winrestcmd()
-    resize
-    vertical resize
-  endif
-endfunction
-nnoremap <silent> <Leader>z :<C-U>call <SID>ZoomToggle()<CR>
 
 " Cscope mappings
 if has('cscope') && executable('cscope')
@@ -1691,14 +1676,15 @@ let g:lightline = {
       \   'right': [
       \     [has_key(g:plugs, 'ale') ? 'ale' : 'syntastic', 'lineinfo'],
       \     ['percent'],
-      \     ['fugitive', 'filetype', 'fileencoding', 'fileformat']] },
+      \     ['zoom', 'fugitive', 'filetype', 'fileencoding', 'fileformat']] },
       \ 'tabline': { 'left': [['tabs']], 'right': [[]] },
       \ 'tab': {
       \   'active': ['tabname', 'tabmodified'],
       \   'inactive': ['tabname', 'tabmodified'] },
       \ 'component': {
       \   'filename': '%<%{LightLineFilename()}' },
-      \ 'component_function': {},
+      \ 'component_function': {
+      \   'zoom': 'LightLineZoomWinTab' },
       \ 'tab_component_function': {},
       \ 'component_expand': {
       \   'readonly': 'LightLineReadonly',
@@ -1779,6 +1765,10 @@ function! LightLineFilename()
         \   (index(['" Press ? for help', '.. (up a dir)'], getline('.')) < 0 ?
         \     matchstr(getline('.'), '[0-9A-Za-z_/].*') : '') :
         \ '' !=# fname ? fnamemodify(fpath, ':~:.') : '[No Name]'
+endfunction
+
+function! LightLineZoomWinTab()
+  return exists('t:zoomwintab') ? 'Zoomed' : ''
 endfunction
 
 function! LightLineReadonly()
@@ -1960,6 +1950,15 @@ if has_key(g:plugs, 'vim-gitgutter')
   augroup END
   nnoremap <silent> [c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterPrevHunk)"<CR>zz
   nnoremap <silent> ]c :<C-U>execute 'normal ' . v:count1 . "\<Plug>(GitGutterNextHunk)"<CR>zz
+endif
+
+" zoomwintab.vim
+let g:zoomwintab_remap = 0
+let g:zoomwintab_hidetabbar = 0
+nnoremap <silent> <Leader>z :execute ':silent ZoomWinTabToggle'<CR>
+if has('terminal')
+  tnoremap <silent> <C-W>o <C-W>:execute ':silent ZoomWinTabToggle'<CR>
+  tnoremap <silent> <C-W><C-O> <C-W>:execute ':silent ZoomWinTabToggle'<CR>
 endif
 
 " goyo.vim
