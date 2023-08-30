@@ -107,7 +107,7 @@ if !exists('+fixendofline')
         \ 'frozen': 1 }
 endif
 " EditorConfig plugin for Vim
-Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim', { 'commit': '7f4e4df', 'frozen': 1 }
 " A Plugin to show a diff, whenever recovering a buffer
 Plug 'chrisbra/Recover.vim'
 " obsession.vim: continuously updated session files
