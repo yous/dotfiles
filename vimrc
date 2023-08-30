@@ -1399,15 +1399,10 @@ if has_key(g:plugs, 'fzf.vim')
 endif
 
 " vim-dirvish
-function! s:ResetDirvishCursor()
-  let curline = getline('.')
-  keepjumps call search('\V\^' . escape(curline, '\') . '\$', 'cw')
-endfunction
 augroup DirvishConfig
   autocmd!
   autocmd FileType dirvish silent! unmap <buffer> <C-N>
   autocmd FileType dirvish silent! unmap <buffer> <C-P>
-  autocmd FileType dirvish call <SID>ResetDirvishCursor()
 augroup END
 
 " coc.nvim
