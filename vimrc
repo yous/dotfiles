@@ -1405,6 +1405,9 @@ augroup DirvishConfig
   autocmd FileType dirvish silent! unmap <buffer> <C-P>
 augroup END
 
+" vim-dirvish-git
+let g:dirvish_git_show_icons = 0
+
 " coc.nvim
 if has_key(g:plugs, 'coc.nvim')
   call coc#config('suggest.noselect', v:true)
