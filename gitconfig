@@ -56,6 +56,7 @@
 	showStash = true
 [submodule]
 	fetchJobs = 0
+	recurse = true
 [user]
 	useConfigOnly = true
 [include]
