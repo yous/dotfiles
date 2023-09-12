@@ -183,7 +183,7 @@ case "$1" in
     if [ "$(uname)" = 'Darwin' ]; then
       brew install n
     else
-      curl -L https://bit.ly/n-install | bash
+      curl -L https://bit.ly/n-install | N_PREFIX="$HOME/.n" bash -s -- -y
     fi
     ;;
   pwndbg)
