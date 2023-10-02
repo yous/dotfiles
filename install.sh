@@ -212,9 +212,9 @@ case "$1" in
     if [ "$(uname)" = 'Darwin' ]; then
       brew install ruby-install
     else
-      wget https://github.com/postmodern/ruby-install/releases/download/v0.9.0/ruby-install-0.9.0.tar.gz
-      tar -xzvf ruby-install-0.9.0.tar.gz
-      cd ruby-install-0.9.0/
+      wget https://github.com/postmodern/ruby-install/releases/download/v0.9.2/ruby-install-0.9.2.tar.gz
+      tar -xzvf ruby-install-0.9.2.tar.gz
+      cd ruby-install-0.9.2/
       sudo make install
     fi
     ;;
