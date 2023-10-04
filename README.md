@@ -44,6 +44,7 @@ For available install options:
 | Command option | Description                              |
 |----------------|------------------------------------------|
 | `link`         | Install symbolic links                   |
+| `asdf`         | Install asdf                             |
 | `brew`         | Install Homebrew on macOS (or Linux)     |
 | `chruby`       | Install chruby                           |
 | `formulae`     | Install Homebrew formulae using Brewfile |

@@ -13,6 +13,7 @@ usage() {
   echo ''
   echo 'Available commands:'
   echo '    link         Install symbolic links'
+  echo '    asdf         Install asdf'
   echo '    brew         Install Homebrew on macOS (or Linux)'
   echo '    chruby       Install chruby'
   echo '    formulae     Install Homebrew formulae using Brewfile'
@@ -162,6 +163,13 @@ fi
 case "$1" in
   link)
     install_link
+    ;;
+  asdf)
+    if [ "$(uname)" = 'Darwin' ]; then
+      brew install asdf
+    else
+      git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+    fi
     ;;
   brew)
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

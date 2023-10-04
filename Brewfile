@@ -30,16 +30,14 @@ unless OS.mac? && MacOS.version < :mojave
   brew "ripgrep"
 end
 
+# asdf
+brew "asdf"
+
 # Python
 brew "python"
-brew "pyenv" if OS.mac?
 
 # Ruby
 brew "ruby"
-brew "chruby"
-
-# Node.js
-brew "n"
 
 # Vim
 brew "vim"
