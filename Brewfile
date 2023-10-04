@@ -15,7 +15,6 @@ if OS.mac?
 end
 
 # Utilities
-brew "bottom"
 brew "keychain" if OS.mac?
 brew "lazygit"
 brew "pre-commit"
@@ -24,8 +23,9 @@ brew "tmux"
 brew "z"
 
 # Don't have bottles for Rust
-unless OS.mac? && MacOS.version < :mojave
+unless OS.mac? && MacOS.version < :big_sur
   brew "bat"
+  brew "bottom"
   brew "fd"
   brew "ripgrep"
 end
