@@ -32,7 +32,7 @@ end
 
 # Python
 brew "python"
-brew "pyenv"
+brew "pyenv" if OS.mac?
 
 # Ruby
 brew "ruby"
