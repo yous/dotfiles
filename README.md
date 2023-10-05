@@ -14,6 +14,7 @@
   - [Ruby](#ruby)
   - [Rust](#rust)
   - [Python](#python)
+  - [Node.js](#node-js)
   - [Zsh](#zsh)
   - [Vim](#vim)
   - [Neovim](#neovim)
@@ -238,6 +239,20 @@ If you want to install [pyenv](https://github.com/pyenv/pyenv) and
 
 ``` sh
 ./install.sh pyenv
+```
+
+### Node.js
+
+If you want to install [n](https://github.com/tj/n),
+
+``` sh
+./install.sh n
+```
+
+Then install Node.js with:
+
+``` sh
+n lts
 ```
 
 ### Zsh
