@@ -10,6 +10,7 @@
 - [Installation](#installation)
   - [Git](#git)
   - [Homebrew](#homebrew)
+  - [Version Manager](#version-manager)
   - [Ruby](#ruby)
   - [Rust](#rust)
   - [Python](#python)
@@ -138,6 +139,35 @@ utilities using `cargo`:
 
 ``` sh
 cargo install bat fd-find gitui ripgrep
+```
+
+### Version Manager
+
+#### asdf
+
+If you want to install [asdf](https://asdf-vm.com/),
+
+``` sh
+./install.sh asdf
+```
+
+Then install Node.js, Python, Ruby with:
+
+``` sh
+asdf plugin add nodejs
+asdf install nodejs latest:"$(asdf nodejs resolve lts)"
+asdf plugin add python
+asdf install python latest
+asdf plugin add ruby
+asdf install ruby latest
+```
+
+Then set global defaults:
+
+``` sh
+asdf global nodejs latest:"$(asdf nodejs resolve lts)"
+asdf global python latest
+asdf global ruby latest
 ```
 
 ### Ruby
