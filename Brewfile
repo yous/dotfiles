@@ -30,8 +30,8 @@ unless OS.mac? && MacOS.version < :big_sur
   brew "ripgrep"
 end
 
-# asdf
-brew "asdf"
+# rtx
+brew "rtx"
 
 # Python
 brew "python"

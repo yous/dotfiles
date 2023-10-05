@@ -21,6 +21,7 @@ usage() {
   echo '    pwndbg       Install pwndbg'
   echo '    pyenv        Install pyenv with pyenv-virtualenv'
   echo '    rbenv        Install rbenv'
+  echo '    rtx          Install rtx'
   echo '    ruby-install Install ruby-install'
   echo '    rustup       Install rustup'
   echo '    rvm          Install RVM'
@@ -214,7 +215,13 @@ case "$1" in
       git_clone https://github.com/rbenv/rbenv.git .rbenv
       git_clone https://github.com/rbenv/ruby-build.git .rbenv/plugins/ruby-build
     fi
-    echo 'Done.'
+    ;;
+  rtx)
+    if [ "$(uname)" = 'Darwin' ]; then
+      brew install rtx
+    else
+      curl https://rtx.pub/install.sh | sh
+    fi
     ;;
   ruby-install)
     if [ "$(uname)" = 'Darwin' ]; then

@@ -54,6 +54,7 @@ For available install options:
 | `pwndbg`       | Install pwndbg                           |
 | `pyenv`        | Install pyenv with pyenv-virtualenv      |
 | `rbenv`        | Install rbenv                            |
+| `rtx`          | Install rtx                              |
 | `ruby-install` | Install ruby-install                     |
 | `rustup`       | Install rustup                           |
 | `rvm`          | Install RVM                              |
@@ -169,6 +170,30 @@ Then set global defaults:
 asdf global nodejs latest:"$(asdf nodejs resolve lts)"
 asdf global python latest
 asdf global ruby latest
+```
+
+#### rtx
+
+If you want to install [rtx](https://github.com/jdx/rtx),
+
+``` sh
+./install.sh rtx
+```
+
+Then install Node.js, Python, Ruby with:
+
+``` sh
+rtx install node@lts
+rtx install python
+rtx install ruby
+```
+
+Then set global defaults:
+
+``` sh
+rtx use --global node@lts
+rtx use --global python@latest
+rtx use --global ruby@latest
 ```
 
 ### Ruby

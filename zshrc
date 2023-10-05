@@ -227,6 +227,11 @@ FZF-EOF"
   }
 fi
 
+# Load rtx
+if command -v rtx >/dev/null; then
+  eval "$(rtx activate zsh)"
+fi
+
 # Load asdf
 if [ -n "$BREW_PREFIX" ]; then
   if [ -e "$BREW_PREFIX/opt/asdf/libexec/asdf.sh" ]; then
