@@ -1,12 +1,11 @@
 if OS.mac?
-  # macOS
   brew "reattach-to-user-namespace"
 
-  # Basic tools
   brew "cmake"
   brew "cscope"
   brew "ctags"
   brew "git"
+  brew "keychain"
   brew "openssh"
   brew "wget"
 
@@ -14,30 +13,14 @@ if OS.mac?
   brew "highlight" if MacOS.version < :catalina
 end
 
-# Utilities
-brew "keychain" if OS.mac?
+brew "bat"
+brew "bottom"
+brew "fd"
 brew "lazygit"
 brew "pre-commit"
+brew "ripgrep"
+brew "rtx"
 brew "shellcheck"
 brew "tmux"
-brew "z"
-
-# Don't have bottles for Rust
-unless OS.mac? && MacOS.version < :big_sur
-  brew "bat"
-  brew "bottom"
-  brew "fd"
-  brew "ripgrep"
-end
-
-# rtx
-brew "rtx"
-
-# Python
-brew "python"
-
-# Ruby
-brew "ruby"
-
-# Vim
 brew "vim"
+brew "z"
