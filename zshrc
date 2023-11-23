@@ -230,6 +230,8 @@ fi
 # Load rtx
 if command -v rtx >/dev/null; then
   eval "$(rtx activate zsh)"
+elif [ -e "$HOME/.local/share/rtx/bin/rtx" ]; then
+  eval "$("$HOME/.local/share/rtx/bin/rtx" activate zsh)"
 fi
 
 # Load asdf

@@ -209,6 +209,8 @@ fi
 # Load rtx
 if command -v rtx >/dev/null; then
   eval "$(rtx activate bash)"
+elif [ -e "$HOME/.local/share/rtx/bin/rtx" ]; then
+  eval "$("$HOME/.local/share/rtx/bin/rtx" activate bash)"
 fi
 
 # Load asdf
