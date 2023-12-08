@@ -579,6 +579,7 @@ if has('gui_running')
   set guifont=Consolas:h10:cANSI
   set guioptions+=! " External commands are executed in a terminal window
   set guioptions-=m " Menu bar
+  set guioptions-=t " Tearoff menu items
   set guioptions-=T " Toolbar
   set guioptions-=r " Right-hand scrollbar
   set guioptions-=L " Left-hand scrollbar when window is vertically split
