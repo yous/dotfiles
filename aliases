@@ -101,7 +101,7 @@ brdep() {
   done < <(brew leaves)
   brew deps --installed --for-each "${leaves[@]}"
 }
-alias brup='brew upgrade --ignore-pinned && brew cleanup'
+alias brup='brew upgrade && brew cleanup'
 
 # Bundler
 alias be='bundle exec'
