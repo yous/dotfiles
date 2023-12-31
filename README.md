@@ -140,7 +140,7 @@ On macOS prior to Mojave, install Rust using rustup, and then install several
 utilities using `cargo`:
 
 ``` sh
-cargo install bat fd-find gitui ripgrep
+cargo install bat bottom fd-find ripgrep
 ```
 
 ### Version Manager
