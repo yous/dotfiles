@@ -220,7 +220,7 @@ case "$1" in
     if [ "$(uname)" = 'Darwin' ]; then
       brew install rtx
     else
-      curl https://rtx.pub/install.sh | sh
+      curl https://rtx.jdx.dev/install.sh | sh
     fi
     ;;
   ruby-install)
