@@ -286,6 +286,8 @@ endif
 Plug 'tpope/vim-rake'
 " RBS
 Plug 'pocke/rbs.vim'
+" reStructuredText
+Plug 'habamax/vim-rst', { 'for': 'rst' }
 " RuboCop
 Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 " smali
@@ -296,7 +298,7 @@ Plug 'raichoo/smt-vim', { 'for': 'smt' }
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
 " A solid language pack for Vim
 let g:polyglot_disabled = [
-      \ 'latex', 'markdown',
+      \ 'latex', 'markdown', 'rst',
       \ 'autoindent', 'sensible']
 Plug 'sheerun/vim-polyglot'
 
@@ -2066,6 +2068,18 @@ augroup END
 
 " vim-rake
 nnoremap <Leader>ra :Rake<CR>
+
+" vim-rst
+let g:rst_syntax_code_list = {
+      \ 'c': ['c'],
+      \ 'cpp': ['cpp', 'c++'],
+      \ 'java': ['java'],
+      \ 'lisp': ['lisp'],
+      \ 'perl': ['perl'],
+      \ 'php': ['php'],
+      \ 'python': ['python'],
+      \ 'sh': ['sh'],
+      \ 'vim': ['vim'] }
 
 " vim-rubocop
 let g:vimrubocop_extra_args = '--display-cop-names'
