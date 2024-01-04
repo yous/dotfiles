@@ -333,6 +333,8 @@ endif
 set autoread
 set background=dark
 set backspace=indent,eol,start
+" Don't make a backup before overwriting a file
+set nobackup
 " Use the clipboard register '*'
 set clipboard=unnamed
 if has('unnamedplus')
@@ -356,6 +358,11 @@ if has('multi_byte')
   set fileencodings=ucs-bom,utf-8,cp949,latin1
 endif
 set fileformats=unix,mac,dos
+if exists('+fixendofline')
+  " When writing a file and this option is on, <EOL> at the end of file will be
+  " restored if missing
+  set nofixendofline
+endif
 if has('folding')
   " Sets 'foldlevel' when starting to edit another buffer in a window
   set foldlevelstart=99
@@ -368,15 +375,6 @@ if has('extra_search')
   " Show where the pattern while typing a search command
   set incsearch
 endif
-" Don't make a backup before overwriting a file
-set nobackup
-if exists('+fixendofline')
-  " When writing a file and this option is on, <EOL> at the end of file will be
-  " restored if missing
-  set nofixendofline
-endif
-" Override the 'ignorecase' if the search pattern contains upper case
-set smartcase
 " Don't redraw the screen while executing macros, registers and other commands
 " that have not been typed
 set lazyredraw
@@ -406,6 +404,8 @@ set shortmess+=c
 if has('patch-8.1.1270')
   set shortmess-=S
 endif
+" Override the 'ignorecase' if the search pattern contains upper case
+set smartcase
 set spellcapcheck=
 " Exclude East Asian characters from spell checking
 set spelllang-=cjk
@@ -497,9 +497,9 @@ if has('extra_search')
 endif
 " Always show a status line
 set laststatus=2
-set number
 " Don't consider octal number when using the CTRL-A and CTRL-X commands
 set nrformats-=octal
+set number
 set scrolloff=3
 if has('cmdline_info')
   " Show command in the last line of the screen
@@ -706,13 +706,13 @@ endif
 set expandtab
 " Insert only one space after a '.', '?' and '!' with a join command
 set nojoinspaces
-" Number of spaces that a <Tab> counts for while editing
-" Use the value of 'shiftwidth'
-set softtabstop=-1
 " Number of spaces to use for each step of (auto)indent
 set shiftwidth=2
 " <Tab> in front of a line inserts blanks according to 'shiftwidth'
 set smarttab
+" Number of spaces that a <Tab> counts for while editing
+" Use the value of 'shiftwidth'
+set softtabstop=-1
 " Number of spaces that a <Tab> in the file counts for
 set tabstop=8
 " Maximum width of text that is being inserted
