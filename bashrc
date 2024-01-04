@@ -206,11 +206,11 @@ FZF-EOF"
   }
 fi
 
-# Load rtx
-if command -v rtx >/dev/null; then
-  eval "$(rtx activate bash)"
-elif [ -e "$HOME/.local/share/rtx/bin/rtx" ]; then
-  eval "$("$HOME/.local/share/rtx/bin/rtx" activate bash)"
+# Load mise
+if command -v mise >/dev/null; then
+  eval "$(mise activate bash)"
+elif [ -e "$HOME/.local/share/mise/bin/mise" ]; then
+  eval "$("$HOME/.local/share/mise/bin/mise" activate bash)"
 fi
 
 # Load asdf

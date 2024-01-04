@@ -50,11 +50,11 @@ For available install options:
 | `brew`         | Install Homebrew on macOS (or Linux)     |
 | `chruby`       | Install chruby                           |
 | `formulae`     | Install Homebrew formulae using Brewfile |
+| `mise`         | Install mise                             |
 | `n`            | Install n                                |
 | `pwndbg`       | Install pwndbg                           |
 | `pyenv`        | Install pyenv with pyenv-virtualenv      |
 | `rbenv`        | Install rbenv                            |
-| `rtx`          | Install rtx                              |
 | `ruby-install` | Install ruby-install                     |
 | `rustup`       | Install rustup                           |
 | `rvm`          | Install RVM                              |
@@ -172,28 +172,28 @@ asdf global python latest
 asdf global ruby latest
 ```
 
-#### rtx
+#### mise
 
-If you want to install [rtx](https://github.com/jdx/rtx),
+If you want to install [mise](https://github.com/jdx/mise),
 
 ``` sh
-./install.sh rtx
+./install.sh mise
 ```
 
 Then install Node.js, Python, Ruby with:
 
 ``` sh
-rtx install node@lts
-rtx install python
-rtx install ruby
+mise install node@lts
+mise install python
+mise install ruby
 ```
 
 Then set global defaults:
 
 ``` sh
-rtx use --global node@lts
-rtx use --global python@latest
-rtx use --global ruby@latest
+mise use --global node@lts
+mise use --global python@latest
+mise use --global ruby@latest
 ```
 
 ### Ruby

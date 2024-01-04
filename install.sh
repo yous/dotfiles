@@ -17,11 +17,11 @@ usage() {
   echo '    brew         Install Homebrew on macOS (or Linux)'
   echo '    chruby       Install chruby'
   echo '    formulae     Install Homebrew formulae using Brewfile'
+  echo '    mise         Install mise'
   echo '    n            Install n'
   echo '    pwndbg       Install pwndbg'
   echo '    pyenv        Install pyenv with pyenv-virtualenv'
   echo '    rbenv        Install rbenv'
-  echo '    rtx          Install rtx'
   echo '    ruby-install Install ruby-install'
   echo '    rustup       Install rustup'
   echo '    rvm          Install RVM'
@@ -188,6 +188,13 @@ case "$1" in
   formulae)
     brew bundle --file="${DIR}/Brewfile" --no-lock --no-upgrade
     ;;
+  mise)
+    if [ "$(uname)" = 'Darwin' ]; then
+      brew install mise
+    else
+      curl https://mise.jdx.dev/install.sh | sh
+    fi
+    ;;
   n)
     if [ "$(uname)" = 'Darwin' ]; then
       brew install n
@@ -214,13 +221,6 @@ case "$1" in
     else
       git_clone https://github.com/rbenv/rbenv.git .rbenv
       git_clone https://github.com/rbenv/ruby-build.git .rbenv/plugins/ruby-build
-    fi
-    ;;
-  rtx)
-    if [ "$(uname)" = 'Darwin' ]; then
-      brew install rtx
-    else
-      curl https://rtx.jdx.dev/install.sh | sh
     fi
     ;;
   ruby-install)
