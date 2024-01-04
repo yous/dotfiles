@@ -510,6 +510,10 @@ set showmatch
 " The minimal number of columns to scroll horizontally
 set sidescroll=1
 set sidescrolloff=10
+if exists('+smoothscroll')
+  " Scrolling works with screen lines
+  set smoothscroll
+endif
 if has('windows')
   set splitbelow
 endif
