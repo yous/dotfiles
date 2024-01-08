@@ -24,3 +24,9 @@ for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' \
   echo
 done
 echo
+
+printf "\e[1mbold\e[0m\n"
+printf "\e[3mitalic\e[0m\n"
+printf "\e[3m\e[1mbold italic\e[0m\n"
+printf "\e[4munderline\e[0m\n"
+printf "\e[9mstrikethrough\e[0m\n"
