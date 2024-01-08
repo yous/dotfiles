@@ -119,7 +119,7 @@ __prompt_precmd() {
 
   # Inside screen or tmux
   case "$TERM" in
-    screen*)
+    screen*|tmux*)
       # Set window title
       print -n '\e]0;'
       echo -n "$window_title"
@@ -159,7 +159,7 @@ __prompt_preexec() {
 
   # Inside screen or tmux
   case "$TERM" in
-    screen*)
+    screen*|tmux*)
       # Set window name
       print -n '\ek'
       echo -n "$tab_title"
