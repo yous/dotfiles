@@ -128,6 +128,8 @@ endif
 Plug 'will133/vim-dirdiff'
 " Vim: file and hunk folding support for diff/patch files.
 Plug 'sgeb/vim-diff-fold'
+" A Vim plugin to copy text through SSH with OSC52
+Plug 'ojroques/vim-oscyank'
 " A Vim plugin that manages your tag files
 if executable('ctags') || executable('cscope')
   if v:version >= 800
@@ -1295,6 +1297,9 @@ endif
 
 " FixCursorHold.nvim
 let g:cursorhold_updatetime = 100
+
+" vim-oscyank
+vmap <Leader>y <Plug>OSCYankVisual
 
 " vim-gutentags
 function! s:BuildTagsFileListCmd(prog)
