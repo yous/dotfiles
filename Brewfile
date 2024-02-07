@@ -3,10 +3,10 @@ if OS.mac?
 
   brew "cmake"
   brew "cscope"
-  brew "ctags"
   brew "git"
   brew "keychain"
   brew "openssh"
+  brew "universal-ctags"
   brew "wget"
 
   # QLColorCode
