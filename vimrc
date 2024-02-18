@@ -2098,6 +2098,8 @@ nnoremap <Leader>ru :RuboCop<CR>
 " vim-polyglot
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
+" vim-svelte-plugin
+let g:vim_svelte_plugin_use_typescript = 1
 
 " macOS
 if has('mac') || has('macunix')
