@@ -105,6 +105,8 @@ for git-send-email.
 Set local-specific configurations on `~/.gitconfig.local`:
 
 ``` gitconfig
+[merge]
+	conflictStyle = zdiff3
 [includeIf "gitdir:~/to/group/"]
 	path = /path/to/foo.inc
 ```

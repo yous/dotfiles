@@ -34,6 +34,8 @@
 	diffFilter = diff-highlight
 [log]
 	date = iso8601
+[merge]
+	conflictStyle = diff3
 [pager]
 	diff = diff-highlight | $(git config core.pager)
 	log = diff-highlight | $(git config core.pager)
