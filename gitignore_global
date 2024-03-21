@@ -30,6 +30,7 @@ node_modules/
 __pycache__/
 *.py[cod]
 .python-version
+venv/
 
 # Ruby
 .bundle/
