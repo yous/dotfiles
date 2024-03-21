@@ -11,6 +11,7 @@
 [commit]
 	verbose = true
 [diff]
+	algorithm = histogram
 	colorMoved = true
 	compactionHeuristic = true
 	renames = true
