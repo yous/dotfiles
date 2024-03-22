@@ -142,6 +142,7 @@
   - Preferences > Keys > Key Bindings
     - Set action of ^Tab↦ to Next Tab
     - Set action of ^⇧Tab↤ to Previous Tab
+    - Add action of ⌘r to Ignore
 - [Karabiner-Elements](https://karabiner-elements.pqrs.org)
   - Simple modifications
     - From key: caps_lock, To key: left_control
