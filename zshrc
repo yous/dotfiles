@@ -230,8 +230,8 @@ fi
 # Load mise
 if command -v mise >/dev/null; then
   eval "$(mise activate zsh)"
-elif [ -e "$HOME/.local/share/mise/bin/mise" ]; then
-  eval "$("$HOME/.local/share/mise/bin/mise" activate zsh)"
+elif [ -e "$HOME/.local/bin/mise" ]; then
+  eval "$("$HOME/.local/bin/mise" activate zsh)"
 fi
 
 # Load asdf

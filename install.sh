@@ -192,7 +192,7 @@ case "$1" in
     if [ "$(uname)" = 'Darwin' ]; then
       brew install mise
     else
-      curl https://mise.jdx.dev/install.sh | sh
+      curl https://mise.run | sh
     fi
     ;;
   n)
