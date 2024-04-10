@@ -586,6 +586,7 @@ augroup END
 if has('gui_running')
   set guifont=Consolas:h10:cANSI
   set guioptions+=! " External commands are executed in a terminal window
+  set guioptions-=e " Tab pages
   set guioptions-=m " Menu bar
   set guioptions-=t " Tearoff menu items
   set guioptions-=T " Toolbar
