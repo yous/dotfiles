@@ -68,3 +68,6 @@ ncscope.out*
 
 # clangd
 .cache/clangd/
+
+# mise
+.mise.toml
