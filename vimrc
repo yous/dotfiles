@@ -1352,6 +1352,43 @@ let g:gutentags_file_list_command = {
       \   : s:BuildTagsFileListCmd('find') }
 let g:gutentags_cscope_build_inverted_index = 1
 
+" vim-fugitive
+function! s:FugitiveOpenBrowser()
+  let hash = matchstr(getline('.'), '^\^\=[?*]*\zs\x\+')
+  if hash =~# '^0\+$'
+    return
+  endif
+  let remote_url = FugitiveRemoteUrl()
+  if remote_url =~# '^git@'
+    let remote_url = substitute(remote_url, '^git@\(.*\):\(.*\)$', 'http://\1/\2', '')
+  endif
+  let remote_url = substitute(remote_url, '\.git$', '', '')
+  if remote_url =~# '^https\=://github\.com'
+    let commit_url = remote_url . '/commit/' . hash
+  elseif remote_url =~# '^https\=://bitbucket\.org'
+    let commit_url = remote_url . '/commits/' . hash
+  else
+    let commit_url = remote_url . '/-/commit/' . hash
+  endif
+  if has('win32')
+    let open_cmd = 'start "" "%s"'
+  elseif has('mac') || has('macnuix')
+    let open_cmd = 'open "%s"'
+  elseif executable('xdg-open')
+    let open_cmd = 'xdg-open "%s"'
+  elseif executable('gio')
+    let open_cmd = 'gio open "%s"'
+  else
+    return
+  endif
+  call system(printf(open_cmd, commit_url))
+endfunction
+augroup FugitiveBrowser
+  autocmd!
+  autocmd FileType fugitiveblame
+        \ nnoremap <buffer> <silent> <Leader>o :<C-U>call <SID>FugitiveOpenBrowser()<CR>
+augroup END
+
 " fzf.vim
 if has_key(g:plugs, 'fzf.vim')
   function! s:GetVisualSelection()
