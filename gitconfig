@@ -6,6 +6,13 @@
 	pager = less -F -R -X
 	precomposeUnicode = true
 	quotePath = false
+[alias]
+	find-merge = "!bash -c 'commit=$0 && branch=${1:-HEAD} && \
+		git rev-list $commit..\"$branch\" --ancestry-path | \
+		grep -f <(git rev-list $commit..\"$branch\" --first-parent) | \
+		tail -1'"
+	show-merge = "!sh -c 'merge=$(git find-merge \"$0\" \"$1\") && \
+		[ -n \"$merge\" ] && git show -m $merge'"
 [color]
 	ui = auto
 [commit]
