@@ -173,10 +173,12 @@ Plug 'justinmk/vim-gtfo'
 " Intellisense engine for Vim8 & Neovim, full language server protocol support
 " as VSCode
 if executable('node')
-  if has('nvim-0.4.0') || !has('nvim') && has('patch-8.1.1719')
+  if has('nvim-0.8.0') || !has('nvim') && has('patch-9.0.0438')
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  elseif has('nvim-0.4.0') || !has('nvim') && has('patch-8.1.1719')
+    Plug 'neoclide/coc.nvim', { 'commit': 'f0ce9ae' } " v0.0.82
   elseif has('nvim-0.3.2') || !has('nvim') && has('patch-8.0.1453')
-    Plug 'neoclide/coc.nvim', { 'tag': 'v0.0.81' }
+    Plug 'neoclide/coc.nvim', { 'commit': 'be514c7' } " v0.0.81
   endif
 endif
 " Print documents in echo area
