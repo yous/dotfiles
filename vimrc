@@ -1573,6 +1573,9 @@ if has_key(g:plugs, 'ale')
         \   'mypy',
         \   'pylint',
         \   'pyright'] }
+  if executable('standardrb')
+    let g:ale_linters_ignore['ruby'] = ['rubocop']
+  endif
   if executable('rust-analyzer')
     let g:ale_linters_ignore['rust'] = ['cargo']
   endif
