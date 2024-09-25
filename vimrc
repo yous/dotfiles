@@ -909,11 +909,11 @@ function! s:VSearch(cmd)
   call setreg('"', old_reg, old_regtype)
 endfunction
 if has_key(g:plugs, 'vim-searchindex')
-  vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>zz<Plug>SearchIndex
-  vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>zz<Plug>SearchIndex
+  vnoremap <silent> * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>zz<Plug>SearchIndex
+  vnoremap <silent> # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>zz<Plug>SearchIndex
 else
-  vnoremap * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>zz
-  vnoremap # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>zz
+  vnoremap <silent> * :<C-U>call <SID>VSearch('/')<CR>/<C-R>/<CR>zz
+  vnoremap <silent> # :<C-U>call <SID>VSearch('?')<CR>?<C-R>/<CR>zz
 endif
 
 " Center display after searching
@@ -955,8 +955,8 @@ else
       endif
     endif
   endfunction
-  nnoremap n :<C-U>call <SID>CenterBeforeSearch(0)<CR>n
-  nnoremap N :<C-U>call <SID>CenterBeforeSearch(1)<CR>N
+  nnoremap <silent> n :<C-U>call <SID>CenterBeforeSearch(0)<CR>n
+  nnoremap <silent> N :<C-U>call <SID>CenterBeforeSearch(1)<CR>N
   nnoremap * *zz
   nnoremap # #zz
   nnoremap g* g*zz
