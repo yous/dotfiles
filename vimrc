@@ -274,7 +274,7 @@ Plug 'yous/adblock-filter.vim', { 'for': 'adblockfilter' }
 " Aheui
 Plug 'yous/aheui.vim', { 'for': 'aheui' }
 " GNU As
-Plug 'Shirk/vim-gas', { 'for': 'gas' }
+Plug 'HealsCodes/vim-gas', { 'for': 'gas' }
 " LaTeX
 Plug 'lervag/vimtex', { 'for': ['bib', 'tex'] }
 " Markdown
