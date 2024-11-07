@@ -81,6 +81,21 @@ if [ -d "$HOME/.cargo" ]; then
   add_to_path_once "$HOME/.cargo/bin"
 fi
 
+# Load mise
+if command -v mise >/dev/null; then
+  if [ -n "$BASH_VERSION" ]; then
+    eval "$(mise activate bash --shims)"
+  elif [ -n "$ZSH_VERSION" ]; then
+    eval "$(mise activate zsh --shims)"
+  fi
+elif [ -e "$HOME/.local/bin/mise" ]; then
+  if [ -n "$BASH_VERSION" ]; then
+    eval "$("$HOME/.local/bin/mise" activate bash --shims)"
+  elif [ -n "$ZSH_VERSION" ]; then
+    eval "$("$HOME/.local/bin/mise" activate zsh --shims)"
+  fi
+fi
+
 # Load rbenv
 if [ -e "$HOME/.rbenv" ]; then
   add_to_path_once "$HOME/.rbenv/bin"
