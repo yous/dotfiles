@@ -885,6 +885,7 @@ nnoremap <C-L> <C-W>l
 for s:i in range(1, 9)
   execute 'nnoremap <Leader>' . s:i . ' ' . s:i . 'gt'
 endfor
+unlet s:i
 nnoremap <Leader>0 :tablast<CR>
 
 " Reselect visual block after shifting
@@ -1482,6 +1483,7 @@ if has_key(g:plugs, 'coc.nvim')
         break
       endif
     endfor
+    unlet s:llvm_clangd_path
   endif
 
   " coc-pyright
