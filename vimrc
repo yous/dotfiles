@@ -836,9 +836,9 @@ inoremap <expr> {<CR> <SID>CloseBrace()
 
 " Navigate completions
 if has_key(g:plugs, 'coc.nvim')
-  inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) :
+  inoremap <silent> <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) :
         \ pumvisible() ? "\<C-N>" : "\<Tab>"
-  inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) :
+  inoremap <silent> <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) :
         \ pumvisible() ? "\<C-P>" : "\<S-Tab>"
 else
   inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
