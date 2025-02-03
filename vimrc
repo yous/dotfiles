@@ -1571,13 +1571,26 @@ if has_key(g:plugs, 'ale')
   let g:ale_echo_msg_format = '[%linter%] %code: %%s'
   let g:ale_hover_cursor = 0
   let g:ale_linters_ignore = {
-        \ 'python': [
-        \   'flake8',
-        \   'mypy',
-        \   'pylint',
-        \   'pyright'] }
+        \ 'python': [],
+        \ 'ruby': [] }
+  if has_key(g:plugs, 'coc.nvim')
+    for s:linter in [
+          \ 'flake8',
+          \ 'mypy',
+          \ 'pylint',
+          \ 'pyright']
+      if executable(s:linter)
+        call add(g:ale_linters_ignore['python'], s:linter)
+      endif
+    endfor
+    unlet s:linter
+    call add(g:ale_linters_ignore['python'], 'pyright')
+  endif
   if executable('standardrb')
-    let g:ale_linters_ignore['ruby'] = ['rubocop']
+    call add(g:ale_linters_ignore['ruby'], 'rubocop')
+  endif
+  if has_key(g:plugs, 'coc.nvim') && executable('solargraph')
+    call add(g:ale_linters_ignore['ruby'], 'solargraph')
   endif
   if executable('rust-analyzer')
     let g:ale_linters_ignore['rust'] = ['cargo']
