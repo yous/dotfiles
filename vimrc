@@ -1495,7 +1495,8 @@ if has_key(g:plugs, 'coc.nvim')
         \ 'prospector',
         \ 'pydocstyle',
         \ 'pylama',
-        \ 'pylint']
+        \ 'pylint',
+        \ 'pyflakes']
     if executable(s:linter)
       call coc#config('python.linting.' . s:linter . 'Enabled', v:true)
     endif
