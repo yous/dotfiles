@@ -88,6 +88,7 @@ else
   compinit
   zinit cdreplay -q
 fi
+zinit light Aloxaf/fzf-tab
 zinit light zdharma-continuum/fast-syntax-highlighting
 # ZSH port of Fish shell's history search feature. zsh-syntax-highlighting must
 # be loaded before this.
