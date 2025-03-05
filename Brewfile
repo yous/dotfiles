@@ -13,13 +13,9 @@ if OS.mac?
   brew "highlight" if MacOS.version < :catalina
 end
 
-brew "bat"
-brew "bottom"
-brew "fd"
 brew "lazygit"
 brew "mise"
 brew "pre-commit"
-brew "ripgrep"
 brew "shellcheck"
 brew "tmux"
 brew "vim"

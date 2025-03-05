@@ -138,13 +138,6 @@ Then install Homebrew formulae with:
 ./install.sh formulae
 ```
 
-On macOS prior to Mojave, install Rust using rustup, and then install several
-utilities using `cargo`:
-
-``` sh
-cargo install bat bottom fd-find ripgrep
-```
-
 ### Version Manager
 
 #### asdf
@@ -257,6 +250,13 @@ If you want to install [rustup](https://rustup.rs),
 
 ``` sh
 ./install.sh rustup
+```
+
+Install several utilities using `cargo`:
+
+``` sh
+cargo install cargo-binstall
+cargo binstall -y bat bottom cargo-update fd-find ripgrep
 ```
 
 ### Python
