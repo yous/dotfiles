@@ -324,7 +324,8 @@ To install [Vim](https://www.vim.org) plugins,
 :PlugInstall
 ```
 
-You should install [Exuberant Ctags](https://ctags.sourceforge.net/) to use
+You should install [Exuberant Ctags](https://ctags.sourceforge.net/) or
+[Universal Ctags](https://ctags.io/) to use
 [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags). You should
 install Node.js to use [coc.nvim](https://github.com/neoclide/coc.nvim).
 
@@ -346,6 +347,7 @@ or [Syntastic](https://github.com/vim-syntastic/syntastic):
 - C, C++
   - clang-check: `brew install llvm`
   - clang-tidy: `brew install llvm`
+  - clangd: `brew install llvm`
   - cppcheck: `brew install cppcheck`
 - CSS
   - stylelint: `npm install -g stylelint stylelint-config-standard`
@@ -354,13 +356,20 @@ or [Syntastic](https://github.com/vim-syntastic/syntastic):
 - JSON
   - JSONLint: `npm install -g jsonlint`
 - Python
-  - flake8: `pip install flake8`
-  - jedi: `pip install jedi`
+  - Flake8: `pip install flake8`
+  - isort: `pip install isort`
+  - Jedi: `pip install jedi`
+  - Pyright: `pip install pyright`
 - Ruby
   - RuboCop: `gem install rubocop`
   - Solargraph: `gem install solargraph`
+  - Standard: `gem install standard`
+- Rust
+  - rust-analyzer: `rustup component add rust-analyzer`
 - SASS, SCSS
   - stylelint: `npm install -g stylelint stylelint-config-sass-guidelines`
+- Vim
+  - Vint: `pip install vim-vint`
 
 ### Neovim
 
