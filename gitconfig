@@ -13,6 +13,8 @@
 		tail -1'"
 	show-merge = "!sh -c 'merge=$(git find-merge \"$0\" \"$1\") && \
 		[ -n \"$merge\" ] && git show -m $merge'"
+[branch]
+	sort = -committerdate
 [color]
 	ui = auto
 [commit]
@@ -67,6 +69,8 @@
 [submodule]
 	fetchJobs = 0
 	recurse = true
+[tag]
+	sort = version:refname
 [user]
 	useConfigOnly = true
 [include]
