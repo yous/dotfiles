@@ -60,6 +60,7 @@
 	autoStash = true
 	autoSquash = true
 [rerere]
+	autoUpdate = true
 	enabled = true
 [sendemail]
 	confirm = always
