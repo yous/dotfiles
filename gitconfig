@@ -17,6 +17,9 @@
 	sort = -committerdate
 [color]
 	ui = auto
+[column]
+	ui = auto
+	status = never
 [commit]
 	verbose = true
 [diff]
