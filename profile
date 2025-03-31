@@ -35,6 +35,7 @@ if [ "$UNAME" = 'Darwin' ]; then
   if [ -e /opt/local/bin/port ]; then
     add_to_path_once "/opt/local/sbin"
     add_to_path_once "/opt/local/bin"
+    export MANPATH="/opt/local/share/man:$MANPATH"
   fi
 
   # Load Homebrew for macOS
