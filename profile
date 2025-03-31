@@ -4,7 +4,10 @@ if [ "$UNAME" = 'Darwin' ]; then
   # https://stackoverflow.com/a/48228223/3108885
   # https://github.com/rbenv/rbenv/issues/369#issuecomment-36010083
   if [ -f /etc/profile ]; then
-    PATH=""
+    PATH=
+    MANPATH=
+    export PATH
+    export MANPATH
     source /etc/profile
   fi
 
