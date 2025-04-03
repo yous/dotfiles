@@ -391,7 +391,9 @@ catch /^Vim\%((\a\+)\)\=:E474/
   set listchars=tab:>\ ,trail:_,extends:>,precedes:<,nbsp:~
 endtry
 " The key sequence that toggles the 'paste' option
-set pastetoggle=<F2>
+if has('+pastetoggle')
+  set pastetoggle=<F2>
+endif
 if has('mksession')
   " Changes the effect of the :mksession command
   set sessionoptions-=buffers " hidden and unloaded buffers
@@ -1342,7 +1344,7 @@ let g:gutentags_modules = []
 if executable('ctags')
   call add(g:gutentags_modules, 'ctags')
 endif
-if executable('cscope')
+if has('cscope') && executable('cscope')
   call add(g:gutentags_modules, 'cscope')
 endif
 let g:gutentags_file_list_command = {
