@@ -1011,6 +1011,10 @@ if has('cscope') && executable('cscope')
   nnoremap <C-\>f :cscope find f <C-R><C-F><CR>
   nnoremap <C-\>i :cscope find i ^<C-R><C-F>$<CR>
   nnoremap <C-\>a :cscope find a <C-R><C-W><CR>
+else
+  " Use :tjump instead of :tag
+  nnoremap <C-]> g<C-]>
+  nnoremap g<C-]> <C-]>
 endif
 
 function! s:RemapBufferQ()
