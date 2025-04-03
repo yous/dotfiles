@@ -390,6 +390,12 @@ try
 catch /^Vim\%((\a\+)\)\=:E474/
   set listchars=tab:>\ ,trail:_,extends:>,precedes:<,nbsp:~
 endtry
+" Enable the use of the mouse
+if has('gui_running')
+  set mouse=a
+else
+  set mouse=
+endif
 " The key sequence that toggles the 'paste' option
 if has('+pastetoggle')
   set pastetoggle=<F2>
