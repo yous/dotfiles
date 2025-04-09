@@ -4,6 +4,8 @@
 
 --exclude=*.swp
 --exclude=Session.vim
+--exclude=.netrwhist
+--exclude=*~
 --exclude=.ycm_extra_conf.py
 
 --exclude=*.iml
@@ -13,7 +15,15 @@
 
 --exclude=node_modules
 
+--exclude=__pycache__
 --exclude=*.pyc
+--exclude=.python-version
+--exclude=venv
+
+--exclude=.bundle
+--exclude=.rvmrc
+--exclude=.ruby-version
+--exclude=.ruby-gemset
 
 --exclude=.editorconfig
 
@@ -26,6 +36,13 @@
 --exclude=ncscope.out*
 
 --exclude=.pre-commit-config.yaml
+
+--exclude=.ccls
+--exclude=.ccls-cache
+
+--exclude=.cache
+
+--exclude=.mise.toml
 
 --exclude=build
 --exclude=db
