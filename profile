@@ -132,7 +132,9 @@ if [ -e /proc/sys/kernel/osrelease ] && grep -q WSL /proc/sys/kernel/osrelease; 
 fi
 
 # Set VISUAL
-if command -v vim >/dev/null; then
+if command -v nvim >/dev/null; then
+  export VISUAL="$(command -v nvim)"
+elif command -v vim >/dev/null; then
   export VISUAL="$(command -v vim)"
 fi
 
