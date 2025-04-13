@@ -39,6 +39,7 @@ for %%a in (%files%) do (
 for %%a in (%binfiles%) do (
   call :replaceFile bin\%%a bin\%%a
 )
+call :replaceFile vimrc AppData\Local\nvim\init.vim
 goto :EOF
 
 :: Functions
