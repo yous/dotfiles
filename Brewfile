@@ -2,7 +2,6 @@ if OS.mac?
   brew "reattach-to-user-namespace"
 
   brew "cmake"
-  brew "cscope"
   brew "git"
   brew "keychain"
   brew "openssh"
