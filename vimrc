@@ -1466,6 +1466,13 @@ endif
 " vim-dirvish
 augroup DirvishConfig
   autocmd!
+  " See https://github.com/justinmk/vim-dirvish/issues/257
+  autocmd FileType dirvish
+        \ try |
+        \   setlocal listchars=tab:→\ ,trail:·,extends:»,nbsp:~ |
+        \ catch /^Vim\%((\a\+)\)\=:E474/ |
+        \   setlocal listchars=tab:>\ ,trail:_,extends:>,nbsp:~ |
+        \ endtry
   autocmd FileType dirvish silent! unmap <buffer> <C-N>
   autocmd FileType dirvish silent! unmap <buffer> <C-P>
 augroup END
