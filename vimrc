@@ -1920,7 +1920,7 @@ function! LightLineTabModified(n)
   let tabcwd = gettabvar(a:n, 'tcd_cwd')
   if !empty(tabcwd)
     return ''
-  elseif haslocaldir(-1, a:n) == 2
+  elseif haslocaldir(-1, a:n) >= 1
     return ''
   else
     let winnr = tabpagewinnr(a:n)
