@@ -1903,7 +1903,7 @@ function! LightLineTabName(n)
   let tabcwd = gettabvar(a:n, 'tcd_cwd')
   if !empty(tabcwd)
     return fnamemodify(tabcwd, ':p:~')
-  elseif haslocaldir(-1, a:n) == 2
+  elseif haslocaldir(-1, a:n) >= 1
     return fnamemodify(getcwd(-1, a:n), ':p:~')
   else
     let buflist = tabpagebuflist(a:n)
