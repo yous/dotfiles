@@ -7,10 +7,19 @@ if command -v keychain >/dev/null; then
     KEY='id_rsa'
   fi
   if [ -n "$KEY" ]; then
-    if [ "$(uname)" = 'Darwin' ]; then
-      eval `keychain --eval --quiet --agents ssh --inherit any $KEY`
+    # keychain >= 2.9.0
+    if printf '%s\n' '2.9.0' "$(keychain --version 2>&1 | grep keychain | awk '{print $3}')" | sort -C -V; then
+      if [ "$(uname)" = 'Darwin' ]; then
+        eval `keychain --eval --quiet --ssh-allow-forwarded $KEY`
+      else
+        eval `keychain --eval --quiet $KEY`
+      fi
     else
-      eval `keychain --eval --quiet --agents ssh $KEY`
+      if [ "$(uname)" = 'Darwin' ]; then
+        eval `keychain --eval --quiet --agents ssh --inherit any $KEY`
+      else
+        eval `keychain --eval --quiet --agents ssh $KEY`
+      fi
     fi
   fi
   unset KEY
