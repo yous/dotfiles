@@ -37,16 +37,16 @@ for %%a in (%files%) do (
   call :replaceFile %%a
 )
 for %%a in (%binfiles%) do (
-  call :replaceFile bin\%%a bin\%%a
+  call :replaceFile bin\%%a %USERPROFILE%\bin\%%a
 )
 call :replaceFile pip.conf %APPDATA%\pip\pip.ini
-call :replaceFile vimrc AppData\Local\nvim\init.vim
+call :replaceFile vimrc %USERPROFILE%\AppData\Local\nvim\init.vim
 goto :EOF
 
 :: Functions
 :replaceFile
 if not "%2" == "" (
-  set dest=%USERPROFILE%\%2
+  set dest=%2
 ) else (
   set dest=%USERPROFILE%\.%1
 )
