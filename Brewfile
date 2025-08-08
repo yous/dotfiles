@@ -14,6 +14,7 @@ end
 
 brew "lazygit"
 brew "mise"
+brew "neovim"
 brew "pre-commit"
 brew "shellcheck"
 brew "tmux"
