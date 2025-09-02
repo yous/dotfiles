@@ -1,0 +1,15 @@
+[tool.ruff.lint]
+extend-select = [
+  # pycodestyle warning
+  "W",
+  # flake8-builtins
+  "A",
+  # isort
+  "I",
+  # mccabe
+  "C90",
+  # pep8-naming
+  "N",
+  # pyupgrade
+  "UP",
+]

@@ -360,6 +360,7 @@ or [Syntastic](https://github.com/vim-syntastic/syntastic):
   - isort: `pip install isort`
   - Jedi: `pip install jedi`
   - Pyright: `pip install pyright`
+  - Ruff: `pip install ruff`
 - Ruby
   - RuboCop: `gem install rubocop`
   - Solargraph: `gem install solargraph`

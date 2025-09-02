@@ -142,6 +142,7 @@ install_link() {
     replace_file 'lazygit/config.yml' '.config/lazygit/config.yml'
   fi
   replace_file 'pip.conf' '.pip/pip.conf'
+  replace_file 'ruff/pyproject.toml' '.config/ruff/pyproject.toml'
   replace_file 'solargraph/config.yml' '.config/solargraph/config.yml'
   replace_file 'tpm' '.tmux/plugins/tpm'
   replace_file 'vimrc' '.config/nvim/init.vim'
