@@ -363,7 +363,7 @@ or [Syntastic](https://github.com/vim-syntastic/syntastic):
 - Ruby
   - RuboCop: `gem install rubocop`
   - Solargraph: `gem install solargraph`
-  - Standard: `gem install standard`
+  - Standard: `gem install solargraph-standardrb standard`
 - Rust
   - rust-analyzer: `rustup component add rust-analyzer`
 - SASS, SCSS
