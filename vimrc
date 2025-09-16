@@ -909,6 +909,9 @@ nnoremap <Leader>0 :tablast<CR>
 " Clear screen
 nnoremap <Leader><C-L> <C-L>
 
+" Switch to Terminal-Normal mode
+tnoremap <Leader><Esc> <C-\><C-N>
+
 " Search for visually selected text
 function! s:VSearch(cmd)
   let old_reg = getreg('"')
