@@ -853,6 +853,41 @@ else
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 endif
 
+" Delete without copying
+vnoremap <BS> "_d
+nnoremap c "_c
+vnoremap c "_c
+nnoremap cc "_cc
+nnoremap C "_C
+
+" Reselect visual block after shifting
+vnoremap < <gv
+vnoremap > >gv
+
+" Execute @q which is recorded by qq
+nnoremap Q @q
+
+" Move cursor between splitted windows
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+
+if has('wildmenu')
+  " Move into subdirectory in wildmenu
+  function! s:WildmenuEnterSubdir()
+    call feedkeys("\<Down>", 't')
+    return ''
+  endfunction
+  cnoremap <expr> <C-J> <SID>WildmenuEnterSubdir()
+endif
+
+" Use CTRL-N to clear the highlighting
+nnoremap <silent> <C-N> :<C-U>nohlsearch<C-R>=&diff ? '<Bar>diffupdate' : ''<CR><CR>
+
+" Break the undo block when CTRL-U
+inoremap <C-U> <C-G>u<C-U>
+
 " Leave insert mode
 function! s:CtrlL()
   " Keep the original feature of CTRL-L. See :help i_CTRL-L.
@@ -864,44 +899,12 @@ function! s:CtrlL()
 endfunction
 inoremap <silent> <C-L> <C-O>:call <SID>CtrlL()<CR>
 
-" Delete without copying
-vnoremap <BS> "_d
-nnoremap c "_c
-vnoremap c "_c
-nnoremap cc "_cc
-nnoremap C "_C
-
-" Break the undo block when CTRL-U
-inoremap <C-U> <C-G>u<C-U>
-
-if has('wildmenu')
-  " Move into subdirectory in wildmenu
-  function! s:WildmenuEnterSubdir()
-    call feedkeys("\<Down>", 't')
-    return ''
-  endfunction
-  cnoremap <expr> <C-J> <SID>WildmenuEnterSubdir()
-endif
-
-" Move cursor between splitted windows
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-H> <C-W>h
-nnoremap <C-L> <C-W>l
-
 " Go to tab page by number
 for s:i in range(1, 9)
   execute 'nnoremap <Leader>' . s:i . ' ' . s:i . 'gt'
 endfor
 unlet s:i
 nnoremap <Leader>0 :tablast<CR>
-
-" Reselect visual block after shifting
-vnoremap < <gv
-vnoremap > >gv
-
-" Use CTRL-N to clear the highlighting
-nnoremap <silent> <C-N> :<C-U>nohlsearch<C-R>=&diff ? '<Bar>diffupdate' : ''<CR><CR>
 
 " Clear screen
 nnoremap <Leader><C-L> <C-L>
@@ -971,9 +974,6 @@ else
   nnoremap g* g*zz
   nnoremap g# g#zz
 endif
-
-" Execute @q which is recorded by qq
-nnoremap Q @q
 
 " Cscope mappings
 if has('cscope') && executable('cscope')
