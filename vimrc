@@ -298,6 +298,8 @@ Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 Plug 'kelwin/vim-smali', { 'for': 'smali' }
 " SMT-LIB
 Plug 'raichoo/smt-vim', { 'for': 'smt' }
+" Typst
+Plug 'kaarmu/typst.vim', { 'for': 'typst' }
 " Vader
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
 " A solid language pack for Vim
