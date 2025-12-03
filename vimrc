@@ -170,8 +170,8 @@ Plug 'justinmk/vim-gtfo'
 " -----------------------------------------------------------------------------
 " Completion and lint
 " -----------------------------------------------------------------------------
-" Intellisense engine for Vim8 & Neovim, full language server protocol support
-" as VSCode
+" Nodejs extension host for vim & neovim, load extensions like VSCode and host
+" language servers
 if executable('node')
   if has('nvim-0.8.0') || !has('nvim') && has('patch-9.0.0438')
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
