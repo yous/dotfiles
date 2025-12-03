@@ -1494,6 +1494,11 @@ if has_key(g:plugs, 'coc.nvim')
   endif
   call coc#config('coc.preferences.bracketEnterImprove', v:false)
 
+  " coc-clang-format-style-options
+  if executable('clang-format')
+    call coc#add_extension('coc-clang-format-style-options')
+  endif
+
   " coc-clangd
   if executable('clangd')
     call coc#add_extension('coc-clangd')
