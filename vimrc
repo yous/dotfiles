@@ -869,6 +869,19 @@ vnoremap > >gv
 " Execute @q which is recorded by qq
 nnoremap Q @q
 
+" Scroll float windows/popups
+if has_key(g:plugs, 'coc.nvim')
+  nnoremap <nowait> <silent> <expr> <C-F> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-F>"
+  nnoremap <nowait> <silent> <expr> <C-B> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-B>"
+  inoremap <nowait> <silent> <expr> <C-F> coc#float#has_scroll() ? "\<C-R>=coc#float#scroll(1)\<CR>" : "\<Right>"
+  inoremap <nowait> <silent> <expr> <C-B> coc#float#has_scroll() ? "\<C-R>=coc#float#scroll(0)\<CR>" : "\<Left>"
+  vnoremap <nowait> <silent> <expr> <C-F> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-F>"
+  vnoremap <nowait> <silent> <expr> <C-B> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-B>"
+else
+  inoremap <nowait> <silent> <C-F> <Right>
+  inoremap <nowait> <silent> <C-B> <Left>
+endif
+
 " Move cursor between splitted windows
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
