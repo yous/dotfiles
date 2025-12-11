@@ -1510,6 +1510,16 @@ if has_key(g:plugs, 'coc.nvim')
   " coc-clang-format-style-options
   if executable('clang-format')
     call coc#add_extension('coc-clang-format-style-options')
+  else
+    for s:llvm_clang_format_path in [
+          \ '/opt/homebrew/opt/llvm/bin/clang-format',
+          \ '/usr/local/opt/llvm/bin/clang-format']
+      if executable(s:llvm_clang_format_path)
+        call coc#add_extension('coc-clang-format-style-options')
+        break
+      endif
+    endfor
+    unlet s:llvm_clang_format_path
   endif
 
   " coc-clangd
