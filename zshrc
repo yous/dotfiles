@@ -200,6 +200,9 @@ __prompt_tab_title() {
 precmd_functions+=(__prompt_precmd)
 preexec_functions+=(__prompt_preexec)
 
+# gpg-agent
+export GPG_TTY="$TTY"
+
 # Load autojump
 if command -v autojump >/dev/null; then
   if [ -f "$HOME/.autojump/etc/profile.d/autojump.sh" ]; then

@@ -160,6 +160,9 @@ if command -v brew >/dev/null; then
   BREW_PREFIX="$(brew --prefix)"
 fi
 
+# gpg-agent
+export GPG_TTY="$TTY"
+
 # Load z
 if [ -f "$HOME/.z.sh" ]; then
   source "$HOME/.z.sh"
