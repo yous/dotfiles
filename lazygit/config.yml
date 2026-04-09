@@ -5,5 +5,5 @@ gui:
     selectedRangeBgColor:
       - reverse
 git:
-  paging:
-    pager: diff-highlight
+  pagers:
+    - pager: diff-highlight
