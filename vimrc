@@ -145,11 +145,24 @@ if !has('win32') && (!has('win32unix') || executable('go'))
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
 endif
-" Directory viewer for Vim
-Plug 'justinmk/vim-dirvish'
-if !has('win32')
-  " Git support for dirvish.vim
-  Plug 'kristijanhusak/vim-dirvish-git'
+if has('nvim-0.8.0')
+  " Neovim file explorer: edit your filesystem like a buffer
+  if has('nvim-0.10.0')
+    Plug 'stevearc/oil.nvim'
+  elseif has('nvim-0.9.0')
+    Plug 'stevearc/oil.nvim', { 'branch': 'nvim-0.9' }
+  else
+    Plug 'stevearc/oil.nvim', { 'branch': 'nvim-0.8' }
+  endif
+  " Add Git Status to oil.nvim directory listings
+  Plug 'refractalize/oil-git-status.nvim'
+else
+  " Directory viewer for Vim
+  Plug 'justinmk/vim-dirvish'
+  if !has('win32')
+    " Git support for dirvish.vim
+    Plug 'kristijanhusak/vim-dirvish-git'
+  endif
 endif
 if !has('nvim') && !has('patch-8.1.1218')
   " Tab-specific directories
@@ -1472,22 +1485,57 @@ if has_key(g:plugs, 'fzf.vim')
   endif
 endif
 
+" oil.nvim
+if has_key(g:plugs, 'oil.nvim')
+  lua << EOF
+    require("oil").setup({
+      -- Window-local options to use for oil buffers
+      win_options = {
+        signcolumn = "yes:2",
+      },
+      -- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
+      -- options with a `callback` (e.g. { callback = function() ... end, desc = "", mode = "n" })
+      -- Additionally, if it is a string that matches "actions.<name>",
+      -- it will use the mapping at require("oil.actions").<name>
+      -- Set to `false` to remove a keymap
+      -- See :help oil-actions for a list of all available actions
+      keymaps = {
+        ["<C-h>"] = false,
+        ["<C-s>"] = { "actions.select", opts = { horizontal = true } },
+        ["<C-v>"] = { "actions.select", opts = { vertical = true } },
+      },
+    })
+    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    require("oil-git-status").setup({
+      show_ignored = false,
+    })
+EOF
+  augroup OilConfig
+    autocmd!
+    autocmd FileType oil setlocal nonumber
+  augroup END
+endif
+
 " vim-dirvish
-augroup DirvishConfig
-  autocmd!
-  " See https://github.com/justinmk/vim-dirvish/issues/257
-  autocmd FileType dirvish
-        \ try |
-        \   setlocal listchars=tab:→\ ,trail:·,extends:»,nbsp:~ |
-        \ catch /^Vim\%((\a\+)\)\=:E474/ |
-        \   setlocal listchars=tab:>\ ,trail:_,extends:>,nbsp:~ |
-        \ endtry
-  autocmd FileType dirvish silent! unmap <buffer> <C-N>
-  autocmd FileType dirvish silent! unmap <buffer> <C-P>
-augroup END
+if has_key(g:plugs, 'vim-dirvish')
+  augroup DirvishConfig
+    autocmd!
+    " See https://github.com/justinmk/vim-dirvish/issues/257
+    autocmd FileType dirvish
+          \ try |
+          \   setlocal listchars=tab:→\ ,trail:·,extends:»,nbsp:~ |
+          \ catch /^Vim\%((\a\+)\)\=:E474/ |
+          \   setlocal listchars=tab:>\ ,trail:_,extends:>,nbsp:~ |
+          \ endtry
+    autocmd FileType dirvish silent! unmap <buffer> <C-N>
+    autocmd FileType dirvish silent! unmap <buffer> <C-P>
+  augroup END
+endif
 
 " vim-dirvish-git
-let g:dirvish_git_show_icons = 0
+if has_key(g:plugs, 'vim-dirvish-git')
+  let g:dirvish_git_show_icons = 0
+endif
 
 " coc.nvim
 if has_key(g:plugs, 'coc.nvim')
@@ -1868,8 +1916,9 @@ endfunction
 
 function! LightLineFilename()
   let fname = expand('%:t')
-  let fpath = expand('%')
-  return &filetype ==# 'dirvish' ?
+  let fpath = &filetype ==# 'oil' ?
+        \ v:lua.require('oil').get_current_dir() : expand('%')
+  return (&filetype ==# 'oil' || &filetype ==# 'dirvish') ?
         \   (fpath ==# getcwd() . '/' ? fnamemodify(fpath, ':~') :
         \   fnamemodify(fpath, ':~:.')) :
         \ &buftype ==# 'terminal' ? fpath :
