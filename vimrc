@@ -22,15 +22,6 @@ function! s:VersionRequirement(val, min)
   return 1
 endfunction
 
-if has('nvim') && executable('pyenv')
-  if executable($HOME . '/.pyenv/versions/neovim2/bin/python')
-    let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
-  endif
-  if executable($HOME . '/.pyenv/versions/neovim3/bin/python')
-    let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
-  endif
-endif
-
 if has('python3') && !has('patch-8.1.201')
   silent! python3 1
 endif
