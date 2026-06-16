@@ -1504,6 +1504,10 @@ if has_key(g:plugs, 'oil.nvim')
         ["<C-s>"] = { "actions.select", opts = { horizontal = true } },
         ["<C-v>"] = { "actions.select", opts = { vertical = true } },
       },
+      view_options = {
+        -- Show files and directories that start with "."
+        show_hidden = true,
+      },
     })
     vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     require("oil-git-status").setup({
