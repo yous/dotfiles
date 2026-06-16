@@ -1503,6 +1503,8 @@ if has_key(g:plugs, 'oil.nvim')
         ["<C-h>"] = false,
         ["<C-s>"] = { "actions.select", opts = { horizontal = true } },
         ["<C-v>"] = { "actions.select", opts = { vertical = true } },
+        ["<C-l>"] = false,
+        ["<C-n>"] = "actions.refresh",
       },
       view_options = {
         -- Show files and directories that start with "."
