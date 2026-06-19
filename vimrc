@@ -107,8 +107,13 @@ if has('timers') && exists('v:exiting')
   " Fix CursorHold Performance
   Plug 'antoinemadec/FixCursorHold.nvim'
 endif
-" Ultimate hex editing system with Vim
-Plug 'Shougo/vinarise.vim'
+if has('python') || has('python3')
+  " Ultimate hex editing system with Vim
+  Plug 'Shougo/vinarise.vim'
+else
+  " Vim plugin to edit binary files in a hex mode automatically
+  Plug 'fidian/hexmode'
+endif
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
 " the missing window movement
