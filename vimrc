@@ -107,7 +107,10 @@ if has('timers') && exists('v:exiting')
   " Fix CursorHold Performance
   Plug 'antoinemadec/FixCursorHold.nvim'
 endif
-if has('python') || has('python3')
+if has('nvim')
+  " hex editing done right
+  Plug 'RaafatTurki/hex.nvim'
+elseif has('python') || has('python3')
   " Ultimate hex editing system with Vim
   Plug 'Shougo/vinarise.vim'
 else
@@ -1340,6 +1343,31 @@ endif
 
 " FixCursorHold.nvim
 let g:cursorhold_updatetime = 100
+
+" hex.nvim
+if has_key(g:plugs, 'hex.nvim')
+  lua << EOF
+    require("hex").setup({
+      -- function that runs on BufReadPre to determine if it's binary or not
+      is_file_binary_pre_read = function()
+        -- logic that determines if a buffer contains binary data or not
+        -- must return a bool
+        return false
+      end,
+      -- function that runs on BufReadPost to determine if it's binary or not
+      is_file_binary_post_read = function()
+        -- logic that determines if a buffer contains binary data or not
+        -- must return a bool
+        return false
+      end,
+    })
+EOF
+endif
+
+" hexmode
+if has_key(g:plugs, 'hexmode')
+  let g:hexmode_xxd_options = '-g 1 -u'
+endif
 
 " vim-oscyank
 vmap <Leader>y <Plug>OSCYankVisual
