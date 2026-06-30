@@ -1347,7 +1347,11 @@ let g:cursorhold_updatetime = 100
 " hex.nvim
 if has_key(g:plugs, 'hex.nvim')
   lua << EOF
-    require("hex").setup({
+    local has_hex, hex = pcall(require, "hex")
+    if not has_hex then
+      return
+    end
+    hex.setup({
       -- function that runs on BufReadPre to determine if it's binary or not
       is_file_binary_pre_read = function()
         -- logic that determines if a buffer contains binary data or not
@@ -1521,7 +1525,11 @@ endif
 " oil.nvim
 if has_key(g:plugs, 'oil.nvim')
   lua << EOF
-    require("oil").setup({
+    local has_oil, oil = pcall(require, "oil")
+    if not has_oil then
+      return
+    end
+    oil.setup({
       -- Window-local options to use for oil buffers
       win_options = {
         signcolumn = "yes:2",
