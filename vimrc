@@ -26,8 +26,18 @@ if has('python3') && !has('patch-8.1.201')
   silent! python3 1
 endif
 
-if !empty(&runtimepath)
-  let s:vimfiles = split(&runtimepath, ',')[0]
+if has('nvim-0.8.0')
+  let s:config_dir = stdpath('config')
+  let s:data_dir = stdpath('data')
+  let s:state_dir = stdpath('state')
+elseif has('nvim-0.3.0')
+  let s:config_dir = stdpath('config')
+  let s:data_dir = stdpath('data')
+  let s:state_dir = s:data_dir
+elseif !empty(&runtimepath)
+  let s:config_dir = split(&runtimepath, ',')[0]
+  let s:data_dir = s:config_dir
+  let s:state_dir = s:config_dir
 else
   echohl ErrorMsg
   echomsg 'Unable to determine runtime path for Vim.'
@@ -43,10 +53,10 @@ filetype off
 
 " Install vim-plug if it isn't installed
 function! s:DownloadVimPlug()
-  if !exists('s:vimfiles')
+  if !exists('s:config_dir')
     return
   endif
-  if empty(glob(s:vimfiles . '/autoload/plug.vim'))
+  if empty(glob(s:config_dir . '/autoload/plug.vim'))
     let plug_url = 'https://github.com/junegunn/vim-plug.git'
     let tmp = tempname()
     let new = tmp . '/plug.vim'
@@ -60,10 +70,10 @@ function! s:DownloadVimPlug()
         return
       endif
 
-      if !isdirectory(s:vimfiles . '/autoload')
-        call mkdir(s:vimfiles . '/autoload', 'p')
+      if !isdirectory(s:config_dir . '/autoload')
+        call mkdir(s:config_dir . '/autoload', 'p')
       endif
-      call rename(new, s:vimfiles . '/autoload/plug.vim')
+      call rename(new, s:config_dir . '/autoload/plug.vim')
     finally
       if isdirectory(tmp)
         let dir = '"' . escape(tmp, '"') . '"'
@@ -81,7 +91,7 @@ function! s:InstallMissingPlugins()
 endfunction
 
 call s:DownloadVimPlug()
-call plug#begin(s:vimfiles . '/plugged')
+call plug#begin(s:data_dir . '/plugged')
 
 " -----------------------------------------------------------------------------
 " Colorscheme
@@ -367,11 +377,11 @@ if has('mac') && $VIM ==# '/usr/share/vim'
 elseif has('patch-8.1.0360')
   set diffopt+=algorithm:patience
 endif
-if !isdirectory(s:vimfiles . '/swap')
-  call mkdir(s:vimfiles . '/swap', 'p')
+if !isdirectory(s:state_dir . '/swap')
+  call mkdir(s:state_dir . '/swap', 'p')
 endif
 " List of directory names for the swap file, separated with commas
-execute 'set directory^=' . s:vimfiles . '/swap//'
+execute 'set directory^=' . s:state_dir . '/swap//'
 if has('multi_byte')
   set fileencodings=ucs-bom,utf-8,cp949,latin1
 endif
@@ -453,11 +463,11 @@ if has('path_extra')
   set tags-=./tags;
   set tags^=./tags;
 endif
-if !isdirectory(s:vimfiles . '/undo')
-  call mkdir(s:vimfiles . '/undo', 'p')
+if !isdirectory(s:state_dir . '/undo')
+  call mkdir(s:state_dir . '/undo', 'p')
 endif
 " List of directory names for undo files, separated with commas
-execute 'set undodir^=' . s:vimfiles . '/undo//'
+execute 'set undodir^=' . s:state_dir . '/undo//'
 " Automatically saves undo history to an undo file when writing a buffer to a
 " file, and restores undo history from the same file on buffer read
 set undofile
