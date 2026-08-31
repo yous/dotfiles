@@ -74,7 +74,6 @@
 	showStash = true
 [submodule]
 	fetchJobs = 0
-	recurse = true
 [tag]
 	sort = version:refname
 [user]
