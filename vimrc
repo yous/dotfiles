@@ -1554,6 +1554,7 @@ if has_key(g:plugs, 'oil.nvim')
         ["<C-h>"] = false,
         ["<C-s>"] = { "actions.select", opts = { horizontal = true } },
         ["<C-v>"] = { "actions.select", opts = { vertical = true } },
+        ["<C-p>"] = false,
         ["<C-l>"] = false,
         ["<C-n>"] = "actions.refresh",
       },
