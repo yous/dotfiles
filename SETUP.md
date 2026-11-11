@@ -94,11 +94,11 @@
 ## Applications
 
 - [반디집](https://www.bandisoft.com/bandizip.mac/)
-- [1Password](https://agilebits.com/downloads)
+- [1Password](https://1password.com/ko)
 - [AppCleaner](https://freemacsoft.net/appcleaner/)
   - Turn on SmartDelete
-- [Bear](https://itunes.apple.com/kr/app//id1091189122?mt=12)
-- [Chrome](https://www.google.com/chrome/)
+- [Bear](https://bear.app/)
+- [Chrome](https://www.google.com/intl/ko_kr/chrome/)
 - [Contexts](https://contexts.co)
   - Appearance
     - Appearance: Match System
@@ -124,8 +124,8 @@
       - Minimized windows: Show
       - Hidden windows: Show
       - Apps without windows: Show
-- [Dropbox](https://www.dropbox.com/install)
-- [Firefox](https://www.mozilla.org/ko/firefox/new/)
+- [Dropbox](https://www.dropbox.com/desktop)
+- [Firefox](https://www.firefox.com/ko/)
   - 환경 설정
     - 글꼴과 색상 > 고급... > 고정폭: Courier
   - 사용자 지정...
@@ -137,7 +137,7 @@
     - `network.trr.mode`: 2
 - [Fluor](https://github.com/Pyroh/Fluor)
 - [GnuPG for OSX](https://sourceforge.net/p/gpgosx/docu/Download/)
-- [Itsycal](https://www.mowglii.com/itsycal/)
+- [Itsycal](https://mowglii.com/itsycal/)
 - [iTerm2](https://www.iterm2.com)
   - Preferences > Keys > Key Bindings
     - Set action of ^Tab↦ to Next Tab
@@ -149,7 +149,7 @@
 - [Lunar 3](https://lunar.fyi)
 - [MacTeX](https://www.tug.org/mactex/)
 - [Maccy](https://github.com/p0deje/Maccy)
-- [Magnet](https://itunes.apple.com/kr/app//id441258766?mt=12)
+- [Magnet](https://apps.apple.com/kr/app/magnet/id441258766?mt=12)
 - [Mailplane](https://mailplaneapp.com)
 - [MarkText](https://github.com/marktext/marktext)
 - [NightOwl](https://nightowl.kramser.xyz) (macOS 10.14)
@@ -161,13 +161,13 @@
   - macOS 10.14 and below
     - [Translate](https://safari-extensions.apple.com/details/?id=com.sidetree.Translate-S64NDGV2C5)
     - [uBlock Origin](https://safari-extensions.apple.com/details/?id=com.el1t.uBlock-3NU33NW2M3)
-- [Slack](https://slack.com)
+- [Slack](https://slack.com/intl/ko-kr/)
 - [Things 3](https://itunes.apple.com/kr/app/things-3/id904280696?mt=12)
 - [ToothFairy](https://apps.apple.com/kr/app/toothfairy/id1191449274?mt=12)
 - [Tweetbot 3 for Twitter](https://apps.apple.com/kr/app/tweetbot-3-for-twitter/id1384080005?mt=12)
 - [UninstallPKG](https://www.corecode.io/uninstallpkg/)
 - Quick Look
-  - [BetterZip Quick Look Generator](https://macitbetter.com/BetterZip-Quick-Look-Generator/)
+  - [BetterZip](https://macitbetter.com/downloads/)
   - [QLColorCode](https://github.com/anthonygelibert/QLColorCode) (macOS 10.14 or below)
   - [qlImageSize](https://github.com/Nyx0uf/qlImageSize)
   - [QLMarkdown](https://github.com/sbarex/QLMarkdown)
@@ -277,14 +277,14 @@
     start /b putty -load Loco
     ```
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
-- [Windows Subsystem for Linux](https://docs.microsoft.com/ko-kr/windows/wsl/install-win10)
+- [Windows Subsystem for Linux](https://learn.microsoft.com/ko-kr/windows/wsl/install)
 - [Windows Terminal](https://aka.ms/terminal)
 - Add `%USERPROFILE%\bin` to `%PATH%`
 
 ## Applications
 
 - [팟플레이어](https://tv.kakao.com/guide/potplayer)
-- [1Password](https://agilebits.com/downloads)
+- [1Password](https://1password.com/ko)
 - [Auto Dark Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
   - Time
     - Select "From sunset to sunrise"
@@ -292,9 +292,9 @@
     - Apps: Adapt to system
     - System: Adapt to system
 - [Bandizip](https://www.bandisoft.com/bandizip/)
-- [Chrome](https://www.google.com/chrome/)
-- [Dropbox](https://www.dropbox.com/install)
-- [Firefox](https://www.mozilla.org/ko/firefox/new/)
+- [Chrome](https://www.google.com/intl/ko_kr/chrome/)
+- [Dropbox](https://www.dropbox.com/desktop)
+- [Firefox](https://www.firefox.com/ko/)
   - 설정
     - 글꼴과 색상 > 고급... > 고정폭: D2Coding
   - 사용자 지정...
