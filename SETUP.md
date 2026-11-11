@@ -99,6 +99,7 @@
 - [AppCleaner](https://freemacsoft.net/appcleaner/)
   - Turn on SmartDelete
 - [Bear](https://bear.app/)
+- [Bitwarden](https://bitwarden.com/)
 - [Chrome](https://www.google.com/intl/ko_kr/chrome/)
 - [Contexts](https://contexts.co)
   - Appearance
@@ -125,18 +126,16 @@
       - Minimized windows: Show
       - Hidden windows: Show
       - Apps without windows: Show
+- [Discord](https://discord.com/)
 - [Dropbox](https://www.dropbox.com/desktop)
 - [Firefox](https://www.firefox.com/ko/)
-  - 환경 설정
-    - 글꼴과 색상 > 고급... > 고정폭: Courier
-  - 사용자 지정...
-    - 밀도: 조밀함
   - `about:config`
     - `mousewheel.with_control.action`: 1
     - `mousewheel.with_meta.action`: 1
     - `network.security.esni.enabled`: true
     - `network.trr.mode`: 2
 - [Fluor](https://github.com/Pyroh/Fluor)
+  - [Fluor 2.1.0](https://web.archive.org/web/20210201220229/https://fluorapp.net/)
 - [GnuPG for OSX](https://sourceforge.net/p/gpgosx/docu/Download/)
 - [Itsycal](https://mowglii.com/itsycal/)
 - [iTerm2](https://www.iterm2.com)
@@ -147,13 +146,13 @@
 - [Karabiner-Elements](https://karabiner-elements.pqrs.org)
   - Simple modifications
     - From key: caps_lock, To key: left_control
-- [Lunar 3](https://lunar.fyi)
 - [MacTeX](https://www.tug.org/mactex/)
+  - [Unix Download](https://www.tug.org/mactex/mactex-unix-download.html)
 - [Maccy](https://github.com/p0deje/Maccy)
 - [Magnet](https://apps.apple.com/kr/app/magnet/id441258766?mt=12)
-- [Mailplane](https://mailplaneapp.com)
-- [MarkText](https://github.com/marktext/marktext)
-- [NightOwl](https://nightowl.kramser.xyz) (macOS 10.14)
+- [Meru](https://meru.so/)
+- [Notion](https://www.notion.com/ko/desktop)
+- [Obsidian](https://obsidian.md/download)
 - [PDF Expert](https://pdfexpert.com)
 - [Safari Extensions](https://safari-extensions.apple.com)
   - macOS 10.15 and above
@@ -164,8 +163,6 @@
     - [uBlock Origin](https://safari-extensions.apple.com/details/?id=com.el1t.uBlock-3NU33NW2M3)
 - [Slack](https://slack.com/intl/ko-kr/)
 - [Things 3](https://itunes.apple.com/kr/app/things-3/id904280696?mt=12)
-- [ToothFairy](https://apps.apple.com/kr/app/toothfairy/id1191449274?mt=12)
-- [Tweetbot 3 for Twitter](https://apps.apple.com/kr/app/tweetbot-3-for-twitter/id1384080005?mt=12)
 - [UninstallPKG](https://www.corecode.io/uninstallpkg/)
 - Quick Look
   - [BetterZip](https://macitbetter.com/downloads/)
@@ -245,9 +242,8 @@
 - [Git](https://git-scm.com)
   - [dotfiles](https://github.com/yous/dotfiles)
 - [gVim](https://github.com/vim/vim-win32-installer/releases)
-  - [Python 2.7](https://www.python.org/downloads/)
-  - [Python 3.10](https://www.python.org/downloads/)
-  - [Ruby 3.0 (x64)](https://rubyinstaller.org/downloads/archives/)
+  - [Python 3](https://www.python.org/downloads/)
+  - [RubyInstaller](https://rubyinstaller.org/downloads/)
     - Add `bin` and `bin/ruby_builtin_dlls` to `%PATH%`
   - [Ctags](https://github.com/universal-ctags/ctags-win32)
     - Put into `%USERPROFILE%\bin`
@@ -288,25 +284,18 @@
 
 - [팟플레이어](https://tv.kakao.com/guide/potplayer)
 - [1Password](https://1password.com/ko)
-- [Auto Dark Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
-  - Time
-    - Select "From sunset to sunrise"
-  - Apps
-    - Apps: Adapt to system
-    - System: Adapt to system
 - [Bandizip](https://www.bandisoft.com/bandizip/)
+- [Bitwarden](https://bitwarden.com/)
 - [Chrome](https://www.google.com/intl/ko_kr/chrome/)
+- [Discord](https://discord.com/)
 - [Dropbox](https://www.dropbox.com/desktop)
 - [Firefox](https://www.firefox.com/ko/)
-  - 설정
-    - 글꼴과 색상 > 고급... > 고정폭: D2Coding
-  - 사용자 지정...
-    - 밀도: 조밀함
   - `about:config`
     - `alerts.useSystemBackend`: true
     - `mousewheel.with_control.action`: 1
     - `network.security.esni.enabled`: true
     - `network.trr.mode`: 2
-- [MarkText](https://github.com/marktext/marktext)
+- [Notion](https://www.notion.com/ko/desktop)
+- [Obsidian](https://obsidian.md/download)
 - [ShareX](https://getsharex.com)
 - [Slack](https://slack.com)
