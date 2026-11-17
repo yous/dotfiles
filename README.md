@@ -26,7 +26,7 @@
 
 ## Requirements
 
-- [Git](https://git-scm.com)
+- [Git](https://git-scm.com/)
 
 ## Installation
 
@@ -126,7 +126,7 @@ for more information.
 
 ### Homebrew
 
-If you want to install [Homebrew](https://brew.sh) or [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux),
+If you want to install [Homebrew](https://brew.sh/) or [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux),
 
 ``` sh
 ./install.sh brew
@@ -224,7 +224,7 @@ Then install chruby,
 
 #### RVM
 
-If you want to install [RVM](https://rvm.io),
+If you want to install [RVM](https://rvm.io/),
 
 ``` sh
 ./install.sh rvm
@@ -246,7 +246,7 @@ If you want to install [rbenv](https://github.com/rbenv/rbenv),
 
 ### Rust
 
-If you want to install [rustup](https://rustup.rs),
+If you want to install [rustup](https://rustup.rs/),
 
 ``` sh
 ./install.sh rustup
@@ -284,13 +284,13 @@ n lts
 
 ### Zsh
 
-To use [Zsh](https://www.zsh.org) as default shell,
+To use [Zsh](https://www.zsh.org/) as default shell,
 
 ``` sh
 chsh -s /bin/zsh
 ```
 
-If you use custom Zsh like compiled one by [Homebrew](https://brew.sh), add
+If you use custom Zsh like compiled one by [Homebrew](https://brew.sh/), add
 `/usr/local/bin/zsh` to `/etc/shells` and
 
 ``` sh
@@ -318,7 +318,7 @@ sudo mv /etc/zshenv /etc/zshrc
 
 ### Vim
 
-To install [Vim](https://www.vim.org) plugins,
+To install [Vim](https://www.vim.org/) plugins,
 
 ```
 :PlugInstall
@@ -388,7 +388,7 @@ npm install -g neovim
 
 ### WeeChat
 
-To install [WeeChat](https://weechat.org) configuration,
+To install [WeeChat](https://weechat.org/) configuration,
 
 ``` sh
 ./install.sh weechat
