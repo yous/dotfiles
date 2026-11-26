@@ -134,6 +134,9 @@ install_link() {
     replace_file "$FILENAME"
   done
   replace_file 'bat/config' '.config/bat/config'
+  replace_file 'claude/scripts/notify.sh' '.claude/scripts/notify.sh'
+  replace_file 'claude/scripts/statusline.sh' '.claude/scripts/statusline.sh'
+  replace_file 'claude/settings.json' '.claude/settings.json'
   replace_file 'gdb-dashboard/.gdbinit' '.gdbinit'
   replace_file 'gdbinit.d'
   if [ "$(uname)" = 'Darwin' ]; then
